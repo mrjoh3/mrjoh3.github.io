@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on A Simple Blog</title>
+    <link>/tags/hugo/</link>
+    <description>Recent content in Hugo on A Simple Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Another blog about a blog</title>
+      <link>/2018/07/20/another-blog-about-a-blog/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/07/20/another-blog-about-a-blog/</guid>
+      <description>Having decided to write a blog I needed something to write about. The purpose of this blog will be to link up various projects I work on and to share code and ideas.
+Currently I mostly work with R and use it for statistics, modelling, GIS and web based reporting. Therefore the choice of Blogdown as a platform seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way.</description>
+    </item>
+    
+  </channel>
+</rss>
