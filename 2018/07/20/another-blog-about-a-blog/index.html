@@ -25,7 +25,7 @@ Currently I mostly work with R and use it for statistics, modelling, GIS and web
         "datePublished": "2018-07-20 00:00:00 &#43;0000 UTC",
         "dateModified" : "2018-07-20 00:00:00 &#43;0000 UTC",
         "url" : "/2018/07/20/another-blog-about-a-blog/",
-        "wordCount" : "444",
+        "wordCount" : "607",
         "keywords" : [ "hugo","blogdown","rstats","Blog" ]
     }
     </script>
@@ -89,7 +89,7 @@ Currently I mostly work with R and use it for statistics, modelling, GIS and web
 
 <meta itemprop="datePublished" content="2018-07-20T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-20T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="444">
+<meta itemprop="wordCount" content="607">
 
 
 
@@ -464,6 +464,23 @@ blogdown::new_site(theme = &quot;jpescador/hugo-future-imperfect&quot;)
 <p><code>Hugo</code> generates static sites so there are many deployment options. The simplest is to run <code>blogdown::build_site()</code> and then copy the contents of the <code>public</code> folder to your hosting service. I won&rsquo;t go thoughthem as the <code>blogdown</code> book mentioned above goes into great detail.</p>
 
 <p>As I am too cheap to pay for a hosting service but and want to make use of my github pages url I am using Github and Travis. Again, refer to the blogdown book for instructions. The only trick was linking the github repo with travis with permissions to write back to the repo. <a href="https://medium.com/zendesk-engineering/how-to-create-a-website-like-freshswift-net-using-hugo-travis-ci-and-github-pages-67be6f480298">This post</a> contained all the details necesary for setting an environment variable in Travis.</p>
+
+<p>This worked nicely <strong>BUT</strong>&hellip;</p>
+
+<h2 id="actually-deploying">Actually Deploying</h2>
+
+<p>When travis builds the site it runs <code>blogdown::build_site()</code> just as you would on your computer. Now if you have an <code>.Rmd</code> post that uses packages, they are installed on your computer but they are not on Travis. Travis can be configured to install the packages, but you will have to do this each time you add use a new package. And this seems like a lot of effort when you can simply build the site locally and move thje static files.</p>
+
+<p>After several dead-ends and messing around with folder names to appease the Github gods (the were not appeased), I came across instructions on the <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#github-user-or-organization-pages">GoHugo website</a>. This involved creating 2 repositories one called <code>blog</code> and the other <code>&lt;USER&gt;.github.io</code> and then setting up the public folder of <code>blog</code> as a git-submodule that commits to <code>&lt;USER&gt;.github.io</code>.</p>
+
+<p>```</p>
+
+<p>git submodule add -b master git@github.com:mrjoh3/mrjoh3.github.io.git public
+git pull</p>
+
+<p>git add .
+git commit -m &lsquo;some message&rsquo;
+git push origin master</p>
 
   </div>
 
