@@ -17,8 +17,7 @@
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/07/20/another-blog-about-a-blog/</guid>
-      <description>Having decided to write a blog I needed something to write about. The purpose of this blog will be to link up various projects I work on and to share code and ideas.
-Currently I mostly work with R and use it for statistics, modelling, GIS and web based reporting. Therefore the choice of Blogdown as a platform seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way.</description>
+      <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
     </item>
     
   </channel>
