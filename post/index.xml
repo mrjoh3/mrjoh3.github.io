@@ -6,10 +6,19 @@
     <description>Recent content in Posts on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Another blog about a blog</title>
+      <link>/2018/07/21/another-blog-about-a-blog/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/07/21/another-blog-about-a-blog/</guid>
+      <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
+    </item>
     
     <item>
       <title>Animating Spatial Data</title>
@@ -18,15 +27,6 @@
       
       <guid>/2018/07/20/animating-spatial-data/</guid>
       <description>library(dplyr) library(sf) library(ggplot2) library(gganimate) shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;% filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;% mutate(date = as.Date(as.character(ACCIDENT_D), &amp;#39;%d/%m/%Y&amp;#39;)) vic &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;, &amp;#39;VIC_STATE_POLYGON_shp&amp;#39;, quiet = TRUE) plt &amp;lt;- ggplot() + geom_sf(data = vic, fill = &amp;#39;grey&amp;#39;, colour = &amp;#39;darkgrey&amp;#39;) + geom_sf(data = shp, aes(colour = SEVERITY)) + scale_color_manual(values = c(&amp;#39;red&amp;#39;, &amp;#39;orange&amp;#39; ,&amp;#39;yellow&amp;#39;)) + guides(colour = guide_legend(&amp;#39;&amp;#39;)) + theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank(), panel.background = element_rect(fill = &amp;quot;darkgrey&amp;quot;, colour = &amp;quot;darkgrey&amp;quot;), plot.</description>
-    </item>
-    
-    <item>
-      <title>Another blog about a blog</title>
-      <link>/2018/07/20/another-blog-about-a-blog/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/07/20/another-blog-about-a-blog/</guid>
-      <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
     </item>
     
   </channel>

@@ -6,17 +6,17 @@
     <description>Recent content in Blogdown on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Another blog about a blog</title>
-      <link>/2018/07/20/another-blog-about-a-blog/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      <link>/2018/07/21/another-blog-about-a-blog/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/07/20/another-blog-about-a-blog/</guid>
+      <guid>/2018/07/21/another-blog-about-a-blog/</guid>
       <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
     </item>
     
