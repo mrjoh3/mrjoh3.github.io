@@ -269,6 +269,30 @@
                                     July 21, 2018</time>
                             </header>
                             
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
+            <img src="../../img/snow-header.png" alt="">
+        </a>
+    
+
 
                         </article>
                 
@@ -333,19 +357,7 @@
   
 
   
-  <pre class="r"><code>library(dplyr)
-library(sf)
-library(ggplot2)
-library(gganimate)
-
-shp &lt;- st_read(&#39;~/Documents/Matt/GIS/shp&#39;,&#39;Crashes_Last_Five_Years&#39;, quiet = TRUE) %&gt;%
-  filter(ALCOHOL_RE == &#39;Yes&#39;) %&gt;%
-  mutate(date = as.Date(as.character(ACCIDENT_D), &#39;%d/%m/%Y&#39;))
   
-vic &lt;- st_read(&#39;~/Documents/Matt/GIS/shp&#39;, &#39;VIC_STATE_POLYGON_shp&#39;, quiet = TRUE) 
-
-plt &lt;- ggplot() +
-  geom_sf(data = vic, fill = &#39;grey&#39;, colour = &#39;darkgrey&#39;) +&hellip;</code></pre>
   <footer>
     <ul class="actions">
       <li><a href="../../2018/07/20/animating-spatial-data/" class="button big">Continue Reading</a></li>
@@ -452,6 +464,30 @@ plt &lt;- ggplot() +
               </time>
             </header>
             
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
+            <img src="../../img/snow-header.png" alt="">
+        </a>
+    
+
 
           </article>
         
