@@ -24,7 +24,7 @@
         "datePublished": "2018-07-21 00:00:00 &#43;0000 UTC",
         "dateModified" : "2018-07-21 00:00:00 &#43;0000 UTC",
         "url" : "/2018/07/21/another-blog-about-a-blog/",
-        "wordCount" : "741",
+        "wordCount" : "744",
         "keywords" : [ "blogdown","hugo","rstats","Blog" ]
     }
     </script>
@@ -62,7 +62,7 @@
 
 <meta property="article:published_time" content="2018-07-21T00:00:00&#43;00:00"/>
 
-<meta property="article:modified_time" content="2018-07-21T23:58:16&#43;10:00"/>
+<meta property="article:modified_time" content="2018-07-21T00:00:00&#43;00:00"/>
 
 
 
@@ -85,7 +85,7 @@
 
 <meta itemprop="datePublished" content="2018-07-21T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-21T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="741">
+<meta itemprop="wordCount" content="744">
 
 
 
@@ -525,49 +525,39 @@
 
 
   <div id="content">
-    
-
-<p>Currently I mostly work with <code>R</code> and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of <code>Blogdown</code> seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book <a href="https://bookdown.org/yihui/blogdown/">blogdown: Creating Websites with R Markdown</a> by <a href="https://bookdown.org/yihui/blogdown/yihui-xie.html">Yihui Xie</a> <em>et al.</em> covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</p>
-
-<h2 id="choosing-a-theme-and-installing">Choosing a Theme and Installing</h2>
-
+    <p>Currently I mostly work with <code>R</code> and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of <code>Blogdown</code> seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book <a href="https://bookdown.org/yihui/blogdown/">blogdown: Creating Websites with R Markdown</a> by <a href="https://bookdown.org/yihui/blogdown/yihui-xie.html">Yihui Xie</a> <em>et al.</em> covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</p>
+<div id="choosing-a-theme-and-installing" class="section level2">
+<h2>Choosing a Theme and Installing</h2>
 <p>There are many themes available at <a href="https://themes.gohugo.io">Hugo Themes</a>. This one is called <a href="https://github.com/jpescador/hugo-future-imperfect">Hugo Future Imperfect</a> by <a href="https://github.com/jpescador">Julio Pescdor</a>. Once you have chosen it is time to begin. Themes are loaded directly from their Github repositories so you will need the themes Github username and repository name.</p>
-
-<pre><code class="language-r">
+<pre class="r"><code>
 install.packages(&quot;blogdown&quot;)
 blogdown::install_hugo()
 
 blogdown::new_site(theme = &quot;jpescador/hugo-future-imperfect&quot;)
-
 </code></pre>
-
 <p>Now everything is up an running but it is easier to test everything if you have some content. The <code>Blogdown</code> package includes a series of addins that makes this process simple, just select <code>New Post</code> from the <code>Addins</code> menu.</p>
-
-<p><img src="../../../../post/2018-07-20-another-blog-about-a-blog_files/new_post.png" alt="new post screenshot" /></p>
-
-<h2 id="configuring-the-site">Configuring the Site</h2>
-
+<div class="figure">
+<img src="../../../../post/2018-07-20-another-blog-about-a-blog_files/new_post.png" alt="new post screenshot" />
+<p class="caption">new post screenshot</p>
+</div>
+</div>
+<div id="configuring-the-site" class="section level2">
+<h2>Configuring the Site</h2>
 <p>With some simple content generated use <code>blogdown:::serve_site()</code> to preview your site. At this stage it will not look exactly as you expected. Each theme has a <code>config.toml</code> that is used to setup each site. Most themes will have detailed instructions or an <a href="https://github.com/jpescador/hugo-future-imperfect/blob/master/exampleSite/config.toml">example project</a> for your reference. This file is quite readable so you can just scan through and copy the settings you need.</p>
-
 <p>Be sure to read any documentation that comes with the theme as they are all different and may have some simple gotchas. Here the <code>CSS</code> files did not want to load until I found that I had to add the setting <code>relativeURLs = true</code>. Also play around with all the settings in the <code>config.toml</code> file just so you know what they do.</p>
-
-<h2 id="deploying">Deploying</h2>
-
-<p><code>Hugo</code> generates static sites so there are many deployment options. The simplest is to run <code>blogdown::build_site()</code> and then copy the contents of the <code>public</code> folder to your hosting service. I won&rsquo;t go though them as the <a href="https://bookdown.org/yihui/blogdown/deployment.html">blogdown book</a> mentioned above goes into great detail.</p>
-
-<p>As I am too cheap to pay for a hosting service  and want to make use of my Github pages URL I decided (against the suggestions in the book) to use Github and Travis. After referring to the blogdown book for instructions. The only difficulty was linking the Github repository with Travis with permissions to write back to the repository. <a href="https://medium.com/zendesk-engineering/how-to-create-a-website-like-freshswift-net-using-hugo-travis-ci-and-github-pages-67be6f480298">This post</a> contained all the details necessary for setting an environment variable in Travis.</p>
-
-<p>This worked nicely <strong>BUT</strong>&hellip;</p>
-
-<h2 id="actually-deploying">Actually Deploying</h2>
-
+</div>
+<div id="deploying" class="section level2">
+<h2>Deploying</h2>
+<p><code>Hugo</code> generates static sites so there are many deployment options. The simplest is to run <code>blogdown::build_site()</code> and then copy the contents of the <code>public</code> folder to your hosting service. I won’t go though them as the <a href="https://bookdown.org/yihui/blogdown/deployment.html">blogdown book</a> mentioned above goes into great detail.</p>
+<p>As I am too cheap to pay for a hosting service and want to make use of my Github pages URL I decided (against the suggestions in the book) to use Github and Travis. After referring to the blogdown book for instructions. The only difficulty was linking the Github repository with Travis with permissions to write back to the repository. <a href="https://medium.com/zendesk-engineering/how-to-create-a-website-like-freshswift-net-using-hugo-travis-ci-and-github-pages-67be6f480298">This post</a> contained all the details necessary for setting an environment variable in Travis.</p>
+<p>This worked nicely <strong>BUT</strong>…</p>
+</div>
+<div id="actually-deploying" class="section level2">
+<h2>Actually Deploying</h2>
 <p>When Travis builds the site it runs <code>blogdown::build_site()</code> just as you would on your computer. Now if you have an <code>.Rmd</code> post that uses <code>R</code> packages, they are installed on your computer but they are not on Travis. Travis can be configured to install the packages, but you would have to do this each time you add use a new package. I intend to experiment with a lot of different packages and this seems like a lot of effort when you can simply build the site locally and move the static files.</p>
-
 <p>After several dead-ends and messing around with folder names to appease the Github gods (who were not appeased), I came across instructions on the <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#github-user-or-organization-pages">GoHugo website</a>. This involved creating 2 repositories one called <code>blog</code> and the other <code>&lt;USER&gt;.github.io</code> and then setting up the public folder of <code>blog</code> as a git sub-module that commits to <code>&lt;USER&gt;.github.io</code>.</p>
-
 <p>The only drawback is that if you use the git GUI in <code>RStudio</code> the sub-module does not commit. But this is likely user error as my knowledge of git is limited. For now I am using the terminal to push changes in the public folder.</p>
-
-<pre><code class="language-bash">
+<pre class="bash"><code>
 # run once
 git submodule add -b master git@github.com:mrjoh3/mrjoh3.github.io.git public
 
@@ -577,16 +567,15 @@ git pull
 
 # after updates
 git add .
-git commit -m 'some message'
+git commit -m &#39;some message&#39;
 git push origin master
-
 </code></pre>
-
-<h2 id="lessons-learnt">Lessons Learnt</h2>
-
+</div>
+<div id="lessons-learnt" class="section level2">
+<h2>Lessons Learnt</h2>
 <p><code>Blogdown</code> has been fantastic, I had a site up and running within an hour. And this included install dependancies finding a theme and understanding the <code>config.toml</code> file. Even with complication I only spent 3 hours getting my deployment sorted.</p>
-
 <p>What I should have done from the beginning is think more about my own needs and requirements. All of the instructions for the different services were all clear and worked as expected. That they sometimes did not meet my needs reflects more on my preparation.</p>
+</div>
 
   </div>
 
