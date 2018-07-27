@@ -6,10 +6,20 @@
     <description>Recent content in Posts on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Filtering Spatial Data with Crosstalk</title>
+      <link>/2018/07/25/filtering-spatial-data/</link>
+      <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/07/25/filtering-spatial-data/</guid>
+      <description>In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
+To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map.</description>
+    </item>
     
     <item>
       <title>Another blog about a blog</title>
