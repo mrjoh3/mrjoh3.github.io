@@ -18,7 +18,7 @@
       
       <guid>/2018/07/25/filtering-spatial-data/</guid>
       <description>In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
-To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map.</description>
+To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications.</description>
     </item>
     
   </channel>

@@ -1,0 +1,85 @@
+---
+output:
+  html_document:
+    toc: false
+---
+
+
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+
+library(sf)
+library(dplyr)
+library(leaflet)
+library(crosstalk)
+library(lubridate)
+library(htmltools)
+
+
+shp <- st_read('~/Documents/Matt/GIS/shp','Crashes_Last_Five_Years', quiet = TRUE, stringsAsFactors = FALSE) %>%
+  mutate(date = as.Date(as.character(ACCIDENT_D), '%d/%m/%Y'),
+         year = year(date)) %>%
+    filter(ALCOHOL_RE == 'Yes')
+
+sd <- SharedData$new(shp)
+
+date_filter <- filter_slider("date", "", sd, column = ~date, 
+                             step = NULL, width = '100%', dragRange = TRUE)
+year_filter <- filter_checkbox("year", "Year", sd, group = ~year, 
+                               inline = FALSE)
+day_filter <- filter_checkbox("day", "Day of the Week", sd, group = ~DAY_OF_WEE, 
+                              inline = FALSE)
+severity_filter <- filter_checkbox("sev", "Severity", sd, group = ~SEVERITY, 
+                                   inline = FALSE)
+type_filter <- filter_checkbox("type", "Type", sd, group = ~ACCIDENT_1, 
+                               inline = FALSE)
+
+map <- leaflet(sd, width = '100%') %>% 
+  addProviderTiles("CartoDB.Positron", group = 'Default') %>%
+  addProviderTiles("Esri.WorldImagery", group = 'Aerial') %>%
+  addProviderTiles("OpenStreetMap.Mapnik", group = 'Street') %>%
+  addProviderTiles("OpenTopoMap", group = 'Terrain') %>%
+  addScaleBar('bottomright') %>%
+  addCircleMarkers(group = 'Accidents', 
+                   stroke = FALSE, 
+                   opacity = 0.4,
+                   fillColor = ~sapply(SEVERITY, switch, USE.NAMES = FALSE,
+                                    'Fatal accident' = '#a50f15',
+                                    'Serious injury accident' = '#de2d26',
+                                    'Other injury accident' = '#fb6a4a' 
+                                     ),
+                   radius = ~sapply(SEVERITY, switch, USE.NAMES = FALSE,
+                                    'Fatal accident' = 10,
+                                    'Serious injury accident' = 7,
+                                    'Other injury accident' = 5
+                                     ),
+                   popup = ~paste0('<h3>Some Accident Details</h3><br>',
+                                   '<b>Severity</b>: ', SEVERITY, '<br>',
+                                   '<b>Type of Accident</b>: ', ACCIDENT_1, '<br>',
+                                   '<b>Light Conditions</b>: ', LIGHT_COND, '<br>',
+                                   '<b>Road Geometry</b>: ', ROAD_GEOME, "<br>",
+                                   '<b>Speed Zone</b>: ', SPEED_ZONE, '<br>',
+                                   '<b>Number of People</b>: ', TOTAL_PERS, '<br>',
+                                   '<b>Persons Injured or Fatality</b>: ', INJ_OR_FAT)
+                   ) %>%
+  addLayersControl(
+        baseGroups = c("Default", "Aerial", "Street", "Terrain"),
+        overlayGroups = 'Accidents',
+        options = layersControlOptions(collapsed = TRUE)
+      )
+
+tags$div(class="well well-lg",
+         tagList(
+           tags$h2('Alcohol Related Motor Vehicle Accidents 2014 - 2017'),
+           date_filter,
+           map,
+           bscols(day_filter,
+                     list(year_filter,
+                          severity_filter),
+                     type_filter)
+                    )
+            )         
+
+
+```
+
