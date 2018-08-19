@@ -1,0 +1,1098 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "pkg",
+        "name" : "c3 Package",
+        "headline" : "c3 Package",
+        "description" : "The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App.
+The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-08-19 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-08-19 00:00:00 &#43;0000 UTC",
+        "url" : "/pkg/c3-package/",
+        "wordCount" : "868",
+        "keywords" : [ "htmlwidgets","cran","Blog" ]
+    }
+    </script>
+        
+            
+                <title>c3 Package</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.44" />
+        
+
+
+        
+            <meta name="author" content="Matt Johnson">
+        
+        
+            
+                <meta name="description" content="A website built through Hugo and blogdown.">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="c3 Package"/>
+<meta name="twitter:description" content="The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App.
+The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object."/>
+
+        <meta property="og:title" content="c3 Package" />
+<meta property="og:description" content="The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App.
+The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/pkg/c3-package/" />
+
+
+
+<meta property="article:published_time" content="2018-08-19T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-08-19T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="c3 Package">
+<meta itemprop="description" content="The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App.
+The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.">
+
+
+<meta itemprop="datePublished" content="2018-08-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-19T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="868">
+
+
+
+<meta itemprop="keywords" content="htmlwidgets,cran," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="../../css/main.css">
+            <link rel="stylesheet" href="../../css/add-on.css">
+            <link rel="stylesheet" href="../../css/academicons.min.css">
+        
+
+        
+
+
+  
+    
+    <link href='https://cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="../../"></a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="../../">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../post/">
+                            <i class="fa fa-list">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../pkg/">
+                            <i class="fa fa-archive">&nbsp;</i>Packages
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/mrjoh3">
+                            <i class="fa fa-github">&nbsp;</i>GitHub
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://twitter.com/mrjoh3">
+                            <i class="fa fa-twitter">&nbsp;</i>Twitter
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="../../">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../post/">
+                            <h3>
+                                <i class="fa fa-list">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../pkg/">
+                            <h3>
+                                <i class="fa fa-archive">&nbsp;</i>Packages
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/mrjoh3">
+                            <h3>
+                                <i class="fa fa-github">&nbsp;</i>GitHub
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://twitter.com/mrjoh3">
+                            <h3>
+                                <i class="fa fa-twitter">&nbsp;</i>Twitter
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/08/08/leaflet-marker-icons/">Modifying and Mixing Leaflet Marker Icons</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-08'>
+                                    August 8, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/08/08/leaflet-marker-icons/" class="image featured">
+            <img src="../../img/" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/07/25/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-25'>
+                                    July 25, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/25/filtering-spatial-data/" class="image featured">
+            <img src="../../img/filter_header.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/07/21/another-blog-about-a-blog/">Another blog about a blog</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-21'>
+                                    July 21, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
+            <img src="../../img/snow-header.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/07/20/animating-spatial-data/">Animating Spatial Data</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-20'>
+                                    July 20, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../post/">Posts</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-08'>
+                                    August 8, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpkg%2fc3-package%2f&amp;text=c3%20Package&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpkg%2fc3-package%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpkg%2fc3-package%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpkg%2fc3-package%2f&amp;title=c3%20Package" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpkg%2fc3-package%2f&amp;title=c3%20Package" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpkg%2fc3-package%2f&amp;title=c3%20Package" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpkg%2fc3-package%2f&amp;description=c3%20Package" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Matt%20Johnson&amp;body=%2fpkg%2fc3-package%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="../../pkg/c3-package/">c3 Package</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+
+      <span class="author">Matt Johnson</span>
+      <span class="author"></span>
+      
+    </div>
+</header>
+
+
+  
+
+  
+  <div id="content">
+    <script src="../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../rmarkdown-libs/d3/d3.min.js"></script>
+<link href="../../rmarkdown-libs/c3/c3.min.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/c3/c3.min.js"></script>
+<script src="../../rmarkdown-libs/c3-binding/c3.js"></script>
+
+
+<p><a href="https://zenodo.org/badge/latestdoi/60614778"><img src="https://zenodo.org/badge/60614778.svg" alt="DOI" /></a> <a href="https://travis-ci.org/mrjoh3/c3"><img src="https://travis-ci.org/mrjoh3/c3.svg?branch=master" alt="Build Status" /></a> <a href="https://codecov.io/gh/mrjoh3/c3"><img src="https://codecov.io/gh/mrjoh3/c3/branch/master/graph/badge.svg" alt="codecov" /></a> <a href="http://cran.r-project.org/package=c3/"><img src="http://www.r-pkg.org/badges/version/c3" alt="CRAN_Status_Badge" /></a> <a href="http://cran.r-project.org/package=c3"><img src="http://cranlogs.r-pkg.org/badges/c3" /></a></p>
+<p>The <code>c3</code> package is a wrapper, or <a href="http://www.htmlwidgets.org/">htmlwidget</a>, for the <a href="http://c3js.org/">C3</a> javascript charting library by <a href="https://github.com/masayuki0812">Masayuki Tanaka</a>. You will find this package useful if you are wanting create a chart using <a href="https://www.r-project.org/">R</a> for embedding in a Rmarkdown document or Shiny App.</p>
+<p>The <code>C3</code> library is very versatile and includes a lot of options. Currently this package wraps most of the <code>C3</code> <a href="http://c3js.org/reference.html">options object</a>. Even with this current limitation a wide range of options are available.</p>
+<div id="warning" class="section level2">
+<h2>Warning</h2>
+<p>This package is under active development and will definitely change. All attempts will be made to maintain the functionality and methods demonstrated in this document. Documentation is currently a work in progress.</p>
+<p>Any suggestions, advice or requests are welcome. For any bugs (there will be bugs) please submit an <a href="https://github.com/mrjoh3/c3/issues">issue</a>.</p>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>You probably already guessed this bit. Choose CRAN or github install:</p>
+<pre class="r"><code>install.packages(&#39;c3&#39;)
+
+devtools::install_github(&quot;mrjoh3/c3&quot;)</code></pre>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p>Please note that this package is under active development and may change at any time. The plots that currently work are line (and varieties), bar and scatter plots. Where possible the package tries to emulate the <a href="https://books.google.com.au/books?id=ZiwLCAAAQBAJ&amp;lpg=PR3&amp;dq=inauthor%3A%22Leland%20Wilkinson%22&amp;pg=PR3#v=onepage&amp;q&amp;f=false">Grammer of Graphics</a> used in Hadley Wickham’s <a href="http://ggplot2.org/">ggplot2</a>.</p>
+<p>The <code>c3</code> package is intended to be as simple and lightweight as possible. As a starting point the data input must be a <code>data.frame</code> with several options.</p>
+<ul>
+<li>If a <code>data.frame</code> without any options is passed all of the numeric columns will be plotted. This can be used in line and bar plots. Each column is a line or bar.</li>
+<li>For more complex plots only 3 columns are used, those defined as <code>x</code>, <code>y</code> and <code>group</code>. This requires a <code>data.frame</code> with a vertical structure.</li>
+</ul>
+<div id="the-basics" class="section level3">
+<h3>The Basics</h3>
+<p>Where no options are supplied a simple line plot is produced by default. Where no x-axis is defined the plots are sequential. <code>Date</code> x-axis can be parsed with not additional setting if in the format <code>%Y-%m-%d</code> (ie ‘2014-01-01’)</p>
+<pre class="r"><code>library(c3)
+
+data &lt;- data.frame(a = abs(rnorm(20) * 10),
+                  b = abs(rnorm(20) * 10),
+                  date = seq(as.Date(&quot;2014-01-01&quot;), by = &quot;month&quot;, length.out = 20))
+
+c3(data)</code></pre>
+<div id="htmlwidget-1" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":{"json":[{"a":3.4142,"b":9.7579},{"a":6.0308,"b":6.7285},{"a":5.3901,"b":2.5345},{"a":11.2716,"b":10.7234},{"a":23.2974,"b":7.9571},{"a":4.7195,"b":0.2534},{"a":9.8958,"b":13.9095},{"a":7.1689,"b":12.0422},{"a":2.821,"b":18.0375},{"a":1.915,"b":15.444},{"a":9.4572,"b":0.4505},{"a":9.6215,"b":1.5933},{"a":14.8478,"b":11.9129},{"a":0.4548,"b":3.555},{"a":6.2743,"b":32.4533},{"a":40.5008,"b":19.4974},{"a":6.8853,"b":9.0403},{"a":18.7672,"b":24.9515},{"a":10.5035,"b":6.8057},{"a":8.0239,"b":5.5966}],"keys":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="piping" class="section level3">
+<h3>Piping</h3>
+<p>The package also imports the <a href="https://CRAN.R-project.org/package=magrittr">magrittr</a> piping function (<code>%&gt;%</code>) to simplify syntax.</p>
+<pre class="r"><code>data %&gt;% c3() </code></pre>
+<div id="htmlwidget-2" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"data":{"json":[{"a":3.4142,"b":9.7579},{"a":6.0308,"b":6.7285},{"a":5.3901,"b":2.5345},{"a":11.2716,"b":10.7234},{"a":23.2974,"b":7.9571},{"a":4.7195,"b":0.2534},{"a":9.8958,"b":13.9095},{"a":7.1689,"b":12.0422},{"a":2.821,"b":18.0375},{"a":1.915,"b":15.444},{"a":9.4572,"b":0.4505},{"a":9.6215,"b":1.5933},{"a":14.8478,"b":11.9129},{"a":0.4548,"b":3.555},{"a":6.2743,"b":32.4533},{"a":40.5008,"b":19.4974},{"a":6.8853,"b":9.0403},{"a":18.7672,"b":24.9515},{"a":10.5035,"b":6.8057},{"a":8.0239,"b":5.5966}],"keys":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="other-line-plots" class="section level2">
+<h2>Other Line Plots</h2>
+<p>There are 5 different line plots available:</p>
+<ul>
+<li>line</li>
+<li>spline</li>
+<li>step</li>
+<li>area</li>
+<li>area-step</li>
+</ul>
+<div id="spline" class="section level4">
+<h4>Spline</h4>
+<pre class="r"><code>data %&gt;%
+  c3() %&gt;%
+  c3_line(&#39;spline&#39;)</code></pre>
+<div id="htmlwidget-3" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"data":{"json":[{"a":3.4142,"b":9.7579},{"a":6.0308,"b":6.7285},{"a":5.3901,"b":2.5345},{"a":11.2716,"b":10.7234},{"a":23.2974,"b":7.9571},{"a":4.7195,"b":0.2534},{"a":9.8958,"b":13.9095},{"a":7.1689,"b":12.0422},{"a":2.821,"b":18.0375},{"a":1.915,"b":15.444},{"a":9.4572,"b":0.4505},{"a":9.6215,"b":1.5933},{"a":14.8478,"b":11.9129},{"a":0.4548,"b":3.555},{"a":6.2743,"b":32.4533},{"a":40.5008,"b":19.4974},{"a":6.8853,"b":9.0403},{"a":18.7672,"b":24.9515},{"a":10.5035,"b":6.8057},{"a":8.0239,"b":5.5966}],"keys":{"value":["a","b"]},"type":"spline"},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="step" class="section level4">
+<h4>Step</h4>
+<pre class="r"><code>data %&gt;%
+  c3(x = &#39;date&#39;) %&gt;%
+  c3_line(&#39;area-step&#39;)</code></pre>
+<div id="htmlwidget-4" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":3.4142,"b":9.7579},{"date":"2014-02-01","a":6.0308,"b":6.7285},{"date":"2014-03-01","a":5.3901,"b":2.5345},{"date":"2014-04-01","a":11.2716,"b":10.7234},{"date":"2014-05-01","a":23.2974,"b":7.9571},{"date":"2014-06-01","a":4.7195,"b":0.2534},{"date":"2014-07-01","a":9.8958,"b":13.9095},{"date":"2014-08-01","a":7.1689,"b":12.0422},{"date":"2014-09-01","a":2.821,"b":18.0375},{"date":"2014-10-01","a":1.915,"b":15.444},{"date":"2014-11-01","a":9.4572,"b":0.4505},{"date":"2014-12-01","a":9.6215,"b":1.5933},{"date":"2015-01-01","a":14.8478,"b":11.9129},{"date":"2015-02-01","a":0.4548,"b":3.555},{"date":"2015-03-01","a":6.2743,"b":32.4533},{"date":"2015-04-01","a":40.5008,"b":19.4974},{"date":"2015-05-01","a":6.8853,"b":9.0403},{"date":"2015-06-01","a":18.7672,"b":24.9515},{"date":"2015-07-01","a":10.5035,"b":6.8057},{"date":"2015-08-01","a":8.0239,"b":5.5966}],"keys":{"value":["date","a","b"]},"type":"area-step"},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}},"axis":{"x":{"label":"date","type":"timeseries"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="bar-plots" class="section level2">
+<h2>Bar Plots</h2>
+<pre class="r"><code>data[1:10, ] %&gt;%
+  c3() %&gt;%
+  c3_bar(stacked = TRUE, 
+         rotate = TRUE)</code></pre>
+<div id="htmlwidget-5" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"data":{"json":[{"a":3.4142,"b":9.7579},{"a":6.0308,"b":6.7285},{"a":5.3901,"b":2.5345},{"a":11.2716,"b":10.7234},{"a":23.2974,"b":7.9571},{"a":4.7195,"b":0.2534},{"a":9.8958,"b":13.9095},{"a":7.1689,"b":12.0422},{"a":2.821,"b":18.0375},{"a":1.915,"b":15.444}],"keys":{"value":["a","b"]},"type":"bar","groups":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}},"axis":{"x":{"type":"category"},"rotated":true},"bar":{"zerobased":true,"width":{"ratio":0.6}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="mixed-geometry-plots" class="section level2">
+<h2>Mixed Geometry Plots</h2>
+<p>Mixed geometry currently only works with a horizontal <code>data.frame</code> where each numeric column is plotted.</p>
+<pre class="r"><code>data$c &lt;- abs(rnorm(20) *10)
+data$d &lt;- abs(rnorm(20) *10)
+
+data %&gt;%
+  c3() %&gt;%
+  c3_mixedGeom(type = &#39;bar&#39;, 
+               stacked = c(&#39;b&#39;,&#39;d&#39;),
+               types = list(a=&#39;area&#39;,
+                            c=&#39;spline&#39;)
+               )</code></pre>
+<div id="htmlwidget-6" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"data":{"json":[{"a":3.4142,"b":9.7579,"c":1.0221,"d":3.3265},{"a":6.0308,"b":6.7285,"c":17.7977,"d":1.1759},{"a":5.3901,"b":2.5345,"c":1.8042,"d":14.8432},{"a":11.2716,"b":10.7234,"c":1.8478,"d":0.1632},{"a":23.2974,"b":7.9571,"c":4.0625,"d":24.8026},{"a":4.7195,"b":0.2534,"c":4.5123,"d":1.2903},{"a":9.8958,"b":13.9095,"c":3.3419,"d":1.1784},{"a":7.1689,"b":12.0422,"c":4.4302,"d":16.0644},{"a":2.821,"b":18.0375,"c":9.4391,"d":7.8457},{"a":1.915,"b":15.444,"c":0.0476,"d":15.8575},{"a":9.4572,"b":0.4505,"c":3.8977,"d":22.2567},{"a":9.6215,"b":1.5933,"c":21.8043,"d":8.9967},{"a":14.8478,"b":11.9129,"c":12.6343,"d":1.5457},{"a":0.4548,"b":3.555,"c":18.3583,"d":17.2069},{"a":6.2743,"b":32.4533,"c":0.9597,"d":18.7228},{"a":40.5008,"b":19.4974,"c":6.1931,"d":6.0503},{"a":6.8853,"b":9.0403,"c":5.2376,"d":3.9952},{"a":18.7672,"b":24.9515,"c":5.7106,"d":0.6915},{"a":10.5035,"b":6.8057,"c":2.2543,"d":9.1318},{"a":8.0239,"b":5.5966,"c":0.3663,"d":4.5328}],"keys":{"value":["a","b","c","d"]},"type":"bar","types":{"a":"area","c":"spline"},"groups":["b","d"]},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="secondary-y-axis" class="section level2">
+<h2>Secondary Y Axis</h2>
+<p>To use a secondary Y axis columns must first be matched to an axis and then the secondary axis made visible.</p>
+<pre class="r"><code>data %&gt;% 
+  select(date, a, b) %&gt;%
+  c3(x = &#39;date&#39;,
+     axes = list(a = &#39;y&#39;,
+                 b = &#39;y2&#39;)) %&gt;% 
+  c3_mixedGeom(types = list(a = &#39;line&#39;,
+                            b = &#39;area&#39;)) %&gt;% 
+  y2Axis()</code></pre>
+<div id="htmlwidget-7" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"data":{"axes":{"a":"y","b":"y2"},"x":"date","json":[{"date":"2014-01-01","a":3.4142,"b":9.7579},{"date":"2014-02-01","a":6.0308,"b":6.7285},{"date":"2014-03-01","a":5.3901,"b":2.5345},{"date":"2014-04-01","a":11.2716,"b":10.7234},{"date":"2014-05-01","a":23.2974,"b":7.9571},{"date":"2014-06-01","a":4.7195,"b":0.2534},{"date":"2014-07-01","a":9.8958,"b":13.9095},{"date":"2014-08-01","a":7.1689,"b":12.0422},{"date":"2014-09-01","a":2.821,"b":18.0375},{"date":"2014-10-01","a":1.915,"b":15.444},{"date":"2014-11-01","a":9.4572,"b":0.4505},{"date":"2014-12-01","a":9.6215,"b":1.5933},{"date":"2015-01-01","a":14.8478,"b":11.9129},{"date":"2015-02-01","a":0.4548,"b":3.555},{"date":"2015-03-01","a":6.2743,"b":32.4533},{"date":"2015-04-01","a":40.5008,"b":19.4974},{"date":"2015-05-01","a":6.8853,"b":9.0403},{"date":"2015-06-01","a":18.7672,"b":24.9515},{"date":"2015-07-01","a":10.5035,"b":6.8057},{"date":"2015-08-01","a":8.0239,"b":5.5966}],"keys":{"value":["date","a","b"]},"type":"line","types":{"a":"line","b":"area"}},"opts":{"x":"date","y":null,"types":{"date":"Date","a":"numeric","b":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"},"y2":{"show":true}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="scatter-plot" class="section level2">
+<h2>Scatter Plot</h2>
+<pre class="r"><code>iris %&gt;%
+  c3(x = &#39;Sepal_Length&#39;, 
+     y = &#39;Sepal_Width&#39;, 
+     group = &#39;Species&#39;) %&gt;% 
+  c3_scatter()</code></pre>
+<div id="htmlwidget-8" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8">{"x":{"data":{"json":[{"setosa":3.5,"versicolor":3.2,"virginica":3.3,"setosa_x":5.1,"versicolor_x":7,"virginica_x":6.3},{"setosa":3,"versicolor":3.2,"virginica":2.7,"setosa_x":4.9,"versicolor_x":6.4,"virginica_x":5.8},{"setosa":3.2,"versicolor":3.1,"virginica":3,"setosa_x":4.7,"versicolor_x":6.9,"virginica_x":7.1},{"setosa":3.1,"versicolor":2.3,"virginica":2.9,"setosa_x":4.6,"versicolor_x":5.5,"virginica_x":6.3},{"setosa":3.6,"versicolor":2.8,"virginica":3,"setosa_x":5,"versicolor_x":6.5,"virginica_x":6.5},{"setosa":3.9,"versicolor":2.8,"virginica":3,"setosa_x":5.4,"versicolor_x":5.7,"virginica_x":7.6},{"setosa":3.4,"versicolor":3.3,"virginica":2.5,"setosa_x":4.6,"versicolor_x":6.3,"virginica_x":4.9},{"setosa":3.4,"versicolor":2.4,"virginica":2.9,"setosa_x":5,"versicolor_x":4.9,"virginica_x":7.3},{"setosa":2.9,"versicolor":2.9,"virginica":2.5,"setosa_x":4.4,"versicolor_x":6.6,"virginica_x":6.7},{"setosa":3.1,"versicolor":2.7,"virginica":3.6,"setosa_x":4.9,"versicolor_x":5.2,"virginica_x":7.2},{"setosa":3.7,"versicolor":2,"virginica":3.2,"setosa_x":5.4,"versicolor_x":5,"virginica_x":6.5},{"setosa":3.4,"versicolor":3,"virginica":2.7,"setosa_x":4.8,"versicolor_x":5.9,"virginica_x":6.4},{"setosa":3,"versicolor":2.2,"virginica":3,"setosa_x":4.8,"versicolor_x":6,"virginica_x":6.8},{"setosa":3,"versicolor":2.9,"virginica":2.5,"setosa_x":4.3,"versicolor_x":6.1,"virginica_x":5.7},{"setosa":4,"versicolor":2.9,"virginica":2.8,"setosa_x":5.8,"versicolor_x":5.6,"virginica_x":5.8},{"setosa":4.4,"versicolor":3.1,"virginica":3.2,"setosa_x":5.7,"versicolor_x":6.7,"virginica_x":6.4},{"setosa":3.9,"versicolor":3,"virginica":3,"setosa_x":5.4,"versicolor_x":5.6,"virginica_x":6.5},{"setosa":3.5,"versicolor":2.7,"virginica":3.8,"setosa_x":5.1,"versicolor_x":5.8,"virginica_x":7.7},{"setosa":3.8,"versicolor":2.2,"virginica":2.6,"setosa_x":5.7,"versicolor_x":6.2,"virginica_x":7.7},{"setosa":3.8,"versicolor":2.5,"virginica":2.2,"setosa_x":5.1,"versicolor_x":5.6,"virginica_x":6},{"setosa":3.4,"versicolor":3.2,"virginica":3.2,"setosa_x":5.4,"versicolor_x":5.9,"virginica_x":6.9},{"setosa":3.7,"versicolor":2.8,"virginica":2.8,"setosa_x":5.1,"versicolor_x":6.1,"virginica_x":5.6},{"setosa":3.6,"versicolor":2.5,"virginica":2.8,"setosa_x":4.6,"versicolor_x":6.3,"virginica_x":7.7},{"setosa":3.3,"versicolor":2.8,"virginica":2.7,"setosa_x":5.1,"versicolor_x":6.1,"virginica_x":6.3},{"setosa":3.4,"versicolor":2.9,"virginica":3.3,"setosa_x":4.8,"versicolor_x":6.4,"virginica_x":6.7},{"setosa":3,"versicolor":3,"virginica":3.2,"setosa_x":5,"versicolor_x":6.6,"virginica_x":7.2},{"setosa":3.4,"versicolor":2.8,"virginica":2.8,"setosa_x":5,"versicolor_x":6.8,"virginica_x":6.2},{"setosa":3.5,"versicolor":3,"virginica":3,"setosa_x":5.2,"versicolor_x":6.7,"virginica_x":6.1},{"setosa":3.4,"versicolor":2.9,"virginica":2.8,"setosa_x":5.2,"versicolor_x":6,"virginica_x":6.4},{"setosa":3.2,"versicolor":2.6,"virginica":3,"setosa_x":4.7,"versicolor_x":5.7,"virginica_x":7.2},{"setosa":3.1,"versicolor":2.4,"virginica":2.8,"setosa_x":4.8,"versicolor_x":5.5,"virginica_x":7.4},{"setosa":3.4,"versicolor":2.4,"virginica":3.8,"setosa_x":5.4,"versicolor_x":5.5,"virginica_x":7.9},{"setosa":4.1,"versicolor":2.7,"virginica":2.8,"setosa_x":5.2,"versicolor_x":5.8,"virginica_x":6.4},{"setosa":4.2,"versicolor":2.7,"virginica":2.8,"setosa_x":5.5,"versicolor_x":6,"virginica_x":6.3},{"setosa":3.1,"versicolor":3,"virginica":2.6,"setosa_x":4.9,"versicolor_x":5.4,"virginica_x":6.1},{"setosa":3.2,"versicolor":3.4,"virginica":3,"setosa_x":5,"versicolor_x":6,"virginica_x":7.7},{"setosa":3.5,"versicolor":3.1,"virginica":3.4,"setosa_x":5.5,"versicolor_x":6.7,"virginica_x":6.3},{"setosa":3.6,"versicolor":2.3,"virginica":3.1,"setosa_x":4.9,"versicolor_x":6.3,"virginica_x":6.4},{"setosa":3,"versicolor":3,"virginica":3,"setosa_x":4.4,"versicolor_x":5.6,"virginica_x":6},{"setosa":3.4,"versicolor":2.5,"virginica":3.1,"setosa_x":5.1,"versicolor_x":5.5,"virginica_x":6.9},{"setosa":3.5,"versicolor":2.6,"virginica":3.1,"setosa_x":5,"versicolor_x":5.5,"virginica_x":6.7},{"setosa":2.3,"versicolor":3,"virginica":3.1,"setosa_x":4.5,"versicolor_x":6.1,"virginica_x":6.9},{"setosa":3.2,"versicolor":2.6,"virginica":2.7,"setosa_x":4.4,"versicolor_x":5.8,"virginica_x":5.8},{"setosa":3.5,"versicolor":2.3,"virginica":3.2,"setosa_x":5,"versicolor_x":5,"virginica_x":6.8},{"setosa":3.8,"versicolor":2.7,"virginica":3.3,"setosa_x":5.1,"versicolor_x":5.6,"virginica_x":6.7},{"setosa":3,"versicolor":3,"virginica":3,"setosa_x":4.8,"versicolor_x":5.7,"virginica_x":6.7},{"setosa":3.8,"versicolor":2.9,"virginica":2.5,"setosa_x":5.1,"versicolor_x":5.7,"virginica_x":6.3},{"setosa":3.2,"versicolor":2.9,"virginica":3,"setosa_x":4.6,"versicolor_x":6.2,"virginica_x":6.5},{"setosa":3.7,"versicolor":2.5,"virginica":3.4,"setosa_x":5.3,"versicolor_x":5.1,"virginica_x":6.2},{"setosa":3.3,"versicolor":2.8,"virginica":3,"setosa_x":5,"versicolor_x":5.7,"virginica_x":5.9}],"keys":{"value":["setosa","versicolor","virginica","setosa_x","versicolor_x","virginica_x"]},"xs":{"setosa":"setosa_x","versicolor":"versicolor_x","virginica":"virginica_x"},"type":"scatter"},"opts":{"x":"Sepal_Length","y":"Sepal_Width","types":{"Sepal.Length":"numeric","Sepal.Width":"numeric","Petal.Length":"numeric","Petal.Width":"numeric","Species":"factor"}},"axis":{"x":{"label":"Sepal_Length"},"y":{"label":"Sepal_Width"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="pie-charts" class="section level2">
+<h2>Pie Charts</h2>
+<pre class="r"><code>data.frame(sugar = 20,
+           fat = 45,
+           salt = 10) %&gt;% 
+  c3() %&gt;% 
+  c3_pie()</code></pre>
+<div id="htmlwidget-9" style="width:384px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9">{"x":{"data":{"json":[{"sugar":20,"fat":45,"salt":10}],"keys":{"value":["sugar","fat","salt"]},"type":"pie"},"opts":{"x":null,"y":null,"types":{"sugar":"numeric","fat":"numeric","salt":"numeric"}},"pie":{"expand":true,"label":{"show":true,"threshold":null,"format":null}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="donut-charts" class="section level2">
+<h2>Donut Charts</h2>
+<pre class="r"><code>data.frame(red = 82, green = 33, blue = 93) %&gt;% 
+  c3(colors = list(red = &#39;red&#39;,
+                   green = &#39;green&#39;,
+                   blue = &#39;blue&#39;)) %&gt;% 
+  c3_donut(title = &#39;#d053ee&#39;)</code></pre>
+<div id="htmlwidget-10" style="width:384px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10">{"x":{"data":{"colors":{"red":"red","green":"green","blue":"blue"},"json":[{"red":82,"green":33,"blue":93}],"keys":{"value":["red","green","blue"]},"type":"donut"},"opts":{"x":null,"y":null,"types":{"red":"numeric","green":"numeric","blue":"numeric"}},"donut":{"expand":true,"title":"#d053ee","label":{"show":true,"threshold":null,"format":null}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="gauge-charts" class="section level2">
+<h2>Gauge Charts</h2>
+<pre class="r"><code>data.frame(data = 80) %&gt;% 
+  c3() %&gt;% 
+  c3_gauge()</code></pre>
+<div id="htmlwidget-11" style="width:576px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-11">{"x":{"data":{"json":[{"data":80}],"keys":{"value":["data"]},"type":"gauge"},"opts":{"x":null,"y":null,"types":{"data":"numeric"}},"gauge":{"label":null,"min":0,"max":100,"units":null,"width":null},"color":{"pattern":["#FF0000","#F97600","#F6C600","#60B044"],"threshold":{"unit":"value","max":100,"values":[30,60,90,100]}},"size":{"height":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="grid-lines-annotation" class="section level2">
+<h2>Grid Lines &amp; Annotation</h2>
+<pre class="r"><code>data %&gt;%
+  c3() %&gt;%
+  grid(&#39;y&#39;) %&gt;%
+  grid(&#39;x&#39;, 
+       show = F, 
+       lines = data.frame(value = c(3, 10), 
+                          text= c(&#39;Line 1&#39;,&#39;Line 2&#39;)))</code></pre>
+<div id="htmlwidget-12" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-12">{"x":{"data":{"json":[{"a":3.4142,"b":9.7579,"c":1.0221,"d":3.3265},{"a":6.0308,"b":6.7285,"c":17.7977,"d":1.1759},{"a":5.3901,"b":2.5345,"c":1.8042,"d":14.8432},{"a":11.2716,"b":10.7234,"c":1.8478,"d":0.1632},{"a":23.2974,"b":7.9571,"c":4.0625,"d":24.8026},{"a":4.7195,"b":0.2534,"c":4.5123,"d":1.2903},{"a":9.8958,"b":13.9095,"c":3.3419,"d":1.1784},{"a":7.1689,"b":12.0422,"c":4.4302,"d":16.0644},{"a":2.821,"b":18.0375,"c":9.4391,"d":7.8457},{"a":1.915,"b":15.444,"c":0.0476,"d":15.8575},{"a":9.4572,"b":0.4505,"c":3.8977,"d":22.2567},{"a":9.6215,"b":1.5933,"c":21.8043,"d":8.9967},{"a":14.8478,"b":11.9129,"c":12.6343,"d":1.5457},{"a":0.4548,"b":3.555,"c":18.3583,"d":17.2069},{"a":6.2743,"b":32.4533,"c":0.9597,"d":18.7228},{"a":40.5008,"b":19.4974,"c":6.1931,"d":6.0503},{"a":6.8853,"b":9.0403,"c":5.2376,"d":3.9952},{"a":18.7672,"b":24.9515,"c":5.7106,"d":0.6915},{"a":10.5035,"b":6.8057,"c":2.2543,"d":9.1318},{"a":8.0239,"b":5.5966,"c":0.3663,"d":4.5328}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"grid":{"y":{"show":true},"x":{"show":false,"lines":{"value":[3,10],"text":["Line 1","Line 2"]}}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="region-highlighting" class="section level2">
+<h2>Region Highlighting</h2>
+<p>To highlight regions pass a single <code>data.frame</code> with columns <code>axis</code>, <code>start</code>, <code>end</code> and <code>class</code>. Multiple regions can be defined within the one <code>data.frame</code> for any axis (<code>x</code>, <code>y</code>, <code>y2</code>). Each row in the <code>data.frame</code> defines a separate region to be highlighted</p>
+<pre class="r"><code>data %&gt;%
+  c3() %&gt;%
+  region(data.frame(axis = &#39;x&#39;,
+                    start = 5,
+                    end = 6))</code></pre>
+<div id="htmlwidget-13" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-13">{"x":{"data":{"json":[{"a":3.4142,"b":9.7579,"c":1.0221,"d":3.3265},{"a":6.0308,"b":6.7285,"c":17.7977,"d":1.1759},{"a":5.3901,"b":2.5345,"c":1.8042,"d":14.8432},{"a":11.2716,"b":10.7234,"c":1.8478,"d":0.1632},{"a":23.2974,"b":7.9571,"c":4.0625,"d":24.8026},{"a":4.7195,"b":0.2534,"c":4.5123,"d":1.2903},{"a":9.8958,"b":13.9095,"c":3.3419,"d":1.1784},{"a":7.1689,"b":12.0422,"c":4.4302,"d":16.0644},{"a":2.821,"b":18.0375,"c":9.4391,"d":7.8457},{"a":1.915,"b":15.444,"c":0.0476,"d":15.8575},{"a":9.4572,"b":0.4505,"c":3.8977,"d":22.2567},{"a":9.6215,"b":1.5933,"c":21.8043,"d":8.9967},{"a":14.8478,"b":11.9129,"c":12.6343,"d":1.5457},{"a":0.4548,"b":3.555,"c":18.3583,"d":17.2069},{"a":6.2743,"b":32.4533,"c":0.9597,"d":18.7228},{"a":40.5008,"b":19.4974,"c":6.1931,"d":6.0503},{"a":6.8853,"b":9.0403,"c":5.2376,"d":3.9952},{"a":18.7672,"b":24.9515,"c":5.7106,"d":0.6915},{"a":10.5035,"b":6.8057,"c":2.2543,"d":9.1318},{"a":8.0239,"b":5.5966,"c":0.3663,"d":4.5328}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"regions":{"axis":["x"],"start":[5],"end":[6]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="sub-chart" class="section level2">
+<h2>Sub-chart</h2>
+<pre class="r"><code>data %&gt;%
+  c3(x = &#39;date&#39;) %&gt;%
+  subchart()</code></pre>
+<div id="htmlwidget-14" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-14">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":3.4142,"b":9.7579,"c":1.0221,"d":3.3265},{"date":"2014-02-01","a":6.0308,"b":6.7285,"c":17.7977,"d":1.1759},{"date":"2014-03-01","a":5.3901,"b":2.5345,"c":1.8042,"d":14.8432},{"date":"2014-04-01","a":11.2716,"b":10.7234,"c":1.8478,"d":0.1632},{"date":"2014-05-01","a":23.2974,"b":7.9571,"c":4.0625,"d":24.8026},{"date":"2014-06-01","a":4.7195,"b":0.2534,"c":4.5123,"d":1.2903},{"date":"2014-07-01","a":9.8958,"b":13.9095,"c":3.3419,"d":1.1784},{"date":"2014-08-01","a":7.1689,"b":12.0422,"c":4.4302,"d":16.0644},{"date":"2014-09-01","a":2.821,"b":18.0375,"c":9.4391,"d":7.8457},{"date":"2014-10-01","a":1.915,"b":15.444,"c":0.0476,"d":15.8575},{"date":"2014-11-01","a":9.4572,"b":0.4505,"c":3.8977,"d":22.2567},{"date":"2014-12-01","a":9.6215,"b":1.5933,"c":21.8043,"d":8.9967},{"date":"2015-01-01","a":14.8478,"b":11.9129,"c":12.6343,"d":1.5457},{"date":"2015-02-01","a":0.4548,"b":3.555,"c":18.3583,"d":17.2069},{"date":"2015-03-01","a":6.2743,"b":32.4533,"c":0.9597,"d":18.7228},{"date":"2015-04-01","a":40.5008,"b":19.4974,"c":6.1931,"d":6.0503},{"date":"2015-05-01","a":6.8853,"b":9.0403,"c":5.2376,"d":3.9952},{"date":"2015-06-01","a":18.7672,"b":24.9515,"c":5.7106,"d":0.6915},{"date":"2015-07-01","a":10.5035,"b":6.8057,"c":2.2543,"d":9.1318},{"date":"2015-08-01","a":8.0239,"b":5.5966,"c":0.3663,"d":4.5328}],"keys":{"value":["date","a","b","c","d"]}},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"}},"subchart":{"show":true,"size":{"height":20}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="color-palette" class="section level2">
+<h2>Color Palette</h2>
+<p>Plot color palettes can be changed to either <code>RColorBrewer</code> or <code>viridis</code> palettes using either <code>RColorBrewer</code> (S3 method) or <code>c3_viridus</code>.</p>
+<pre class="r"><code>data.frame(sugar = 20, 
+           fat = 45, 
+           salt = 10, 
+           vegetables = 60) %&gt;% 
+  c3() %&gt;% 
+  c3_pie() %&gt;%
+  RColorBrewer()</code></pre>
+<div id="htmlwidget-15" style="width:384px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-15">{"x":{"data":{"json":[{"sugar":20,"fat":45,"salt":10,"vegetables":60}],"keys":{"value":["sugar","fat","salt","vegetables"]},"type":"pie"},"opts":{"x":null,"y":null,"types":{"sugar":"numeric","fat":"numeric","salt":"numeric","vegetables":"numeric"}},"pie":{"expand":true,"label":{"show":true,"threshold":null,"format":null}},"color":{"pattern":["#D7191C","#FDAE61","#ABDDA4","#2B83BA"]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>data.frame(sugar = 20, 
+           fat = 45, 
+           salt = 10, 
+           vegetables = 60) %&gt;% 
+  c3() %&gt;% 
+  c3_pie() %&gt;%
+  c3_viridis()</code></pre>
+<div id="htmlwidget-16" style="width:384px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-16">{"x":{"data":{"json":[{"sugar":20,"fat":45,"salt":10,"vegetables":60}],"keys":{"value":["sugar","fat","salt","vegetables"]},"type":"pie"},"opts":{"x":null,"y":null,"types":{"sugar":"numeric","fat":"numeric","salt":"numeric","vegetables":"numeric"}},"pie":{"expand":true,"label":{"show":true,"threshold":null,"format":null}},"color":{"pattern":["#440154","#31688E","#35B779","#FDE725"]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="point-size" class="section level2">
+<h2>Point Size</h2>
+<pre class="r"><code>data %&gt;%
+  c3(x = &#39;date&#39;) %&gt;%
+  point_options(r = 6, 
+                expand.r = 2)</code></pre>
+<div id="htmlwidget-17" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-17">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":3.4142,"b":9.7579,"c":1.0221,"d":3.3265},{"date":"2014-02-01","a":6.0308,"b":6.7285,"c":17.7977,"d":1.1759},{"date":"2014-03-01","a":5.3901,"b":2.5345,"c":1.8042,"d":14.8432},{"date":"2014-04-01","a":11.2716,"b":10.7234,"c":1.8478,"d":0.1632},{"date":"2014-05-01","a":23.2974,"b":7.9571,"c":4.0625,"d":24.8026},{"date":"2014-06-01","a":4.7195,"b":0.2534,"c":4.5123,"d":1.2903},{"date":"2014-07-01","a":9.8958,"b":13.9095,"c":3.3419,"d":1.1784},{"date":"2014-08-01","a":7.1689,"b":12.0422,"c":4.4302,"d":16.0644},{"date":"2014-09-01","a":2.821,"b":18.0375,"c":9.4391,"d":7.8457},{"date":"2014-10-01","a":1.915,"b":15.444,"c":0.0476,"d":15.8575},{"date":"2014-11-01","a":9.4572,"b":0.4505,"c":3.8977,"d":22.2567},{"date":"2014-12-01","a":9.6215,"b":1.5933,"c":21.8043,"d":8.9967},{"date":"2015-01-01","a":14.8478,"b":11.9129,"c":12.6343,"d":1.5457},{"date":"2015-02-01","a":0.4548,"b":3.555,"c":18.3583,"d":17.2069},{"date":"2015-03-01","a":6.2743,"b":32.4533,"c":0.9597,"d":18.7228},{"date":"2015-04-01","a":40.5008,"b":19.4974,"c":6.1931,"d":6.0503},{"date":"2015-05-01","a":6.8853,"b":9.0403,"c":5.2376,"d":3.9952},{"date":"2015-06-01","a":18.7672,"b":24.9515,"c":5.7106,"d":0.6915},{"date":"2015-07-01","a":10.5035,"b":6.8057,"c":2.2543,"d":9.1318},{"date":"2015-08-01","a":8.0239,"b":5.5966,"c":0.3663,"d":4.5328}],"keys":{"value":["date","a","b","c","d"]}},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"}},"point":{"show":true,"r":6,"focus":{"expand":{"enabled":true,"r":12}},"select":{"r":24}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="on-click" class="section level2">
+<h2>On Click</h2>
+<p>Onclick, onmouseover and onmouseout are all available via the <code>c3</code> function. To use wrap a js function as a character string to <code>htmlwidgets::JS()</code>. Please see the <a href="http://c3js.org/reference.html#data-onclick">C3.js documentation</a> and <a href="http://c3js.org/samples/chart_pie.html">examples</a>. The example below should be enough to get you started.</p>
+<pre class="r"><code>data %&gt;% 
+    c3(onclick = htmlwidgets::JS(&#39;function(d, element){console.log(d)}&#39;))</code></pre>
+</div>
+<div id="tooltips" class="section level2">
+<h2>Tooltips</h2>
+<p><code>C3</code> tooltips are readily modified with the use of javascript functions. For further detail see the <code>C3.js</code> <a href="http://c3js.org/reference.html#tooltip-format-title">documentation</a>. Or for more advanced usage see the <code>C3.js</code> <a href="http://c3js.org/samples/tooltip_format.html">examples</a> page.</p>
+<pre class="r"><code>library(htmlwidgets)
+
+data %&gt;%
+  c3() %&gt;%
+  tooltip(format = list(title = JS(&quot;function (x) { return &#39;Data &#39; + x; }&quot;),
+                        name = JS(&#39;function (name, ratio, id, index) { return name; }&#39;),
+                        value = JS(&#39;function (value, ratio, id, index) { return ratio; }&#39;)))</code></pre>
+<div id="htmlwidget-18" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-18">{"x":{"data":{"json":[{"a":3.4142,"b":9.7579,"c":1.0221,"d":3.3265},{"a":6.0308,"b":6.7285,"c":17.7977,"d":1.1759},{"a":5.3901,"b":2.5345,"c":1.8042,"d":14.8432},{"a":11.2716,"b":10.7234,"c":1.8478,"d":0.1632},{"a":23.2974,"b":7.9571,"c":4.0625,"d":24.8026},{"a":4.7195,"b":0.2534,"c":4.5123,"d":1.2903},{"a":9.8958,"b":13.9095,"c":3.3419,"d":1.1784},{"a":7.1689,"b":12.0422,"c":4.4302,"d":16.0644},{"a":2.821,"b":18.0375,"c":9.4391,"d":7.8457},{"a":1.915,"b":15.444,"c":0.0476,"d":15.8575},{"a":9.4572,"b":0.4505,"c":3.8977,"d":22.2567},{"a":9.6215,"b":1.5933,"c":21.8043,"d":8.9967},{"a":14.8478,"b":11.9129,"c":12.6343,"d":1.5457},{"a":0.4548,"b":3.555,"c":18.3583,"d":17.2069},{"a":6.2743,"b":32.4533,"c":0.9597,"d":18.7228},{"a":40.5008,"b":19.4974,"c":6.1931,"d":6.0503},{"a":6.8853,"b":9.0403,"c":5.2376,"d":3.9952},{"a":18.7672,"b":24.9515,"c":5.7106,"d":0.6915},{"a":10.5035,"b":6.8057,"c":2.2543,"d":9.1318},{"a":8.0239,"b":5.5966,"c":0.3663,"d":4.5328}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"tooltip":{"show":true,"grouped":true,"format":{"title":"function (x) { return 'Data ' + x; }","name":"function (name, ratio, id, index) { return name; }","value":"function (value, ratio, id, index) { return ratio; }"}}},"evals":["tooltip.format.title","tooltip.format.name","tooltip.format.value"],"jsHooks":[]}</script>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+                        <i class="fa fa-sitemap">&nbsp;</i>
+                    
+
+                    
+                        Categories
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='../../categories/packages'>packages</a></li>
+    
+        <li><a href='../../categories/r'>r</a></li>
+    
+</ul>
+
+  </footer>
+</article>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='../../'><img src="../../img/logo.jpg" width="200px" alt="sensless" /></a>
+      
+    
+    
+      <header>
+        <h2>Sensless</h2>
+        <p>musings and code about anything spatial, visual or interesting.</p>
+      </header>
+    
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/08/08/leaflet-marker-icons/">Modifying and Mixing Leaflet Marker Icons</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-08'>
+                August 8, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/08/08/leaflet-marker-icons/" class="image featured">
+            <img src="../../img/" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/07/25/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-25'>
+                July 25, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/25/filtering-spatial-data/" class="image featured">
+            <img src="../../img/filter_header.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/07/21/another-blog-about-a-blog/">Another blog about a blog</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-21'>
+                July 21, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
+            <img src="../../img/snow-header.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/07/20/animating-spatial-data/">Animating Spatial Data</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-20'>
+                July 20, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../post/">Posts</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-08'>
+                August 8, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>The purpose of this blog is to have a simple web page associated with my Github account. It will be used to share code and ideas and to link to other web based projects.</p>
+      <a href="../../about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          A Simple Blog
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="../../js/util.js"></script>
+      <script src="../../js/main.js"></script>
+      <script src="../../js/backToTop.js"></script>
+    
+
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

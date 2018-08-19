@@ -3,8 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/pkg/c3-package/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/pkg/pier-package/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/08/08/leaflet-marker-icons/</loc>
+    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/07/25/filtering-spatial-data/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
+    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
   </url>
   
   <url>
@@ -19,7 +34,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -40,8 +55,14 @@
   </url>
   
   <url>
+    <loc>/tags/cran/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/crosstalk/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
+    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -64,6 +85,12 @@
   </url>
   
   <url>
+    <loc>/tags/htmlwidgets/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/hugo/</loc>
     <lastmod>2018-07-29T23:21:37+10:00</lastmod>
     <priority>0</priority>
@@ -71,31 +98,49 @@
   
   <url>
     <loc>/tags/leaflet/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
+    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/packages/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/pkg/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
+    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/rstats/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
+    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/sf/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
+    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/spatial/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
+    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
     <priority>0</priority>
   </url>
   

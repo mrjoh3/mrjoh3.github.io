@@ -1,0 +1,901 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "pkg",
+        "name" : "pier Package",
+        "headline" : "pier Package",
+        "description" : "The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-08-19 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-08-19 00:00:00 &#43;0000 UTC",
+        "url" : "/pkg/pier-package/",
+        "wordCount" : "231",
+        "keywords" : [ "htmlwidgets","Blog" ]
+    }
+    </script>
+        
+            
+                <title>pier Package</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.44" />
+        
+
+
+        
+            <meta name="author" content="Matt Johnson">
+        
+        
+            
+                <meta name="description" content="A website built through Hugo and blogdown.">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="pier Package"/>
+<meta name="twitter:description" content="The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place."/>
+
+        <meta property="og:title" content="pier Package" />
+<meta property="og:description" content="The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/pkg/pier-package/" />
+
+
+
+<meta property="article:published_time" content="2018-08-19T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-08-19T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="pier Package">
+<meta itemprop="description" content="The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.">
+
+
+<meta itemprop="datePublished" content="2018-08-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-19T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="231">
+
+
+
+<meta itemprop="keywords" content="htmlwidgets," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="../../css/main.css">
+            <link rel="stylesheet" href="../../css/add-on.css">
+            <link rel="stylesheet" href="../../css/academicons.min.css">
+        
+
+        
+
+
+  
+    
+    <link href='https://cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="../../"></a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="../../">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../post/">
+                            <i class="fa fa-list">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../pkg/">
+                            <i class="fa fa-archive">&nbsp;</i>Packages
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/mrjoh3">
+                            <i class="fa fa-github">&nbsp;</i>GitHub
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://twitter.com/mrjoh3">
+                            <i class="fa fa-twitter">&nbsp;</i>Twitter
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="../../">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../post/">
+                            <h3>
+                                <i class="fa fa-list">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../pkg/">
+                            <h3>
+                                <i class="fa fa-archive">&nbsp;</i>Packages
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/mrjoh3">
+                            <h3>
+                                <i class="fa fa-github">&nbsp;</i>GitHub
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://twitter.com/mrjoh3">
+                            <h3>
+                                <i class="fa fa-twitter">&nbsp;</i>Twitter
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/08/08/leaflet-marker-icons/">Modifying and Mixing Leaflet Marker Icons</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-08'>
+                                    August 8, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/08/08/leaflet-marker-icons/" class="image featured">
+            <img src="../../img/" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/07/25/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-25'>
+                                    July 25, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/25/filtering-spatial-data/" class="image featured">
+            <img src="../../img/filter_header.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/07/21/another-blog-about-a-blog/">Another blog about a blog</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-21'>
+                                    July 21, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
+            <img src="../../img/snow-header.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/07/20/animating-spatial-data/">Animating Spatial Data</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-20'>
+                                    July 20, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../post/">Posts</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-08'>
+                                    August 8, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpkg%2fpier-package%2f&amp;text=pier%20Package&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpkg%2fpier-package%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpkg%2fpier-package%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpkg%2fpier-package%2f&amp;title=pier%20Package" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpkg%2fpier-package%2f&amp;title=pier%20Package" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpkg%2fpier-package%2f&amp;title=pier%20Package" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpkg%2fpier-package%2f&amp;description=pier%20Package" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Matt%20Johnson&amp;body=%2fpkg%2fpier-package%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="../../pkg/pier-package/">pier Package</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+
+      <span class="author">Matt Johnson</span>
+      <span class="author"></span>
+      
+        <a href="" target="_blank"></a>
+      
+    </div>
+</header>
+
+
+  
+
+  
+  <div id="content">
+    <script src="../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../rmarkdown-libs/d3/d3.min.js"></script>
+<script src="../../rmarkdown-libs/d3pie/d3pie.min.js"></script>
+<script src="../../rmarkdown-libs/pier-binding/pier.js"></script>
+
+
+<p><a href="https://zenodo.org/badge/latestdoi/56191948"><img src="https://zenodo.org/badge/56191948.svg" alt="DOI" /></a> <a href="https://travis-ci.org/mrjoh3/pier"><img src="https://travis-ci.org/mrjoh3/pier.svg?branch=master" alt="Build Status" /></a> <a href="https://codecov.io/gh/mrjoh3/pier"><img src="https://codecov.io/gh/mrjoh3/pier/branch/master/graph/badge.svg" alt="codecov" /></a></p>
+<p>The <code>pier</code> package (pronounced pie-r) is a wrapper, or <a href="http://www.htmlwidgets.org/">htmlwidget</a>, for the <a href="http://d3pie.org/">d3pie</a> javascript library by <a href="https://github.com/benkeen">Benjamin Keen</a>. If you are just wanting to generate a pie chart the d3pie website has a fantastic <a href="http://d3pie.org/#generator">generator</a> that will create the code that you need. If you are wanting create a chart using <a href="https://www.r-project.org/">R</a> for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</p>
+<p>The <code>d3pie</code> library is very versatile and includes a lot of options. Currently this package only wraps the <a href="http://d3pie.org/#docs-configuration">configuration object</a>. Even with this current limitation a wide range of options are available.</p>
+<p>Currently the intention is to wrap the entire <a href="http://d3pie.org/#docs-api">d3pie</a> api.</p>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>You probably already guesssed this bit.</p>
+<pre class="r"><code>devtools::install_github(&quot;mrjoh3/pier&quot;)</code></pre>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p>The <code>pier</code> package is intended to be as simple and lightweight as possible. As a starting point the data input must be a <code>data.frame</code> with three required columns: <code>label</code>, <code>value</code> and <code>color</code>. From this point most of the defaults from <code>d3pie</code> are carried over. Note that all examples here have lost their interactivity.</p>
+<pre class="r"><code>library(pier)
+
+data &lt;- data.frame(label = c(&#39;Environment&#39;,&#39;Education&#39;,&#39;Business&#39;,&#39;Community&#39;),
+                   value = c(104,119,638,1250),
+                   color = RColorBrewer::brewer.pal(4, &#39;Spectral&#39;))
+
+pier(data) %&gt;% pie.size(height = 350)</code></pre>
+<div id="htmlwidget-1" style="width:768px;height:480px;" class="pier html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":{"sortOrder":"none","content":[{"label":"Environment","value":104,"color":"#D7191C"},{"label":"Education","value":119,"color":"#FDAE61"},{"label":"Business","value":638,"color":"#ABDDA4"},{"label":"Community","value":1250,"color":"#2B83BA"}]},"settings":null,"size":{"canvasHeight":350,"pieInnerRadius":[],"pieOuterRadius":"90%"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="advanced-usage" class="section level2">
+<h2>Advanced Usage</h2>
+<pre class="r"><code>data %&gt;%
+    pier() %&gt;%
+    pie.size(inner=70, outer=100, width = 500, height = 350) %&gt;%
+    pie.header(text=&#39;Segments&#39;, font=&#39;Impact&#39;, location=&#39;pie-center&#39;) %&gt;%
+    pie.subtitle(text=&#39;by Type&#39;) %&gt;%
+    pie.footer(text=&#39;Economic Segments using fake data.&#39;,
+               location = &#39;bottom-left&#39;) %&gt;%
+    pie.tooltips()</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="pier html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"data":{"sortOrder":"none","content":[{"label":"Environment","value":104,"color":"#D7191C"},{"label":"Education","value":119,"color":"#FDAE61"},{"label":"Business","value":638,"color":"#ABDDA4"},{"label":"Community","value":1250,"color":"#2B83BA"}]},"settings":null,"size":{"canvasWidth":500,"canvasHeight":350,"pieInnerRadius":"70%","pieOuterRadius":"100%"},"header":{"title":{"text":"Segments","font":"Impact"},"location":"pie-center","subtitle":{"text":"by Type"}},"footer":{"text":"Economic Segments using fake data.","location":"bottom-left"},"tooltips":{"enabled":true,"type":"placeholder","string":"{label}: {value}, {percentage}%","styles":{"fadeInSpeed":250,"backgroundColor":"#000000","backgroundOpacity":0.5,"color":"#efefef","borderRadius":2,"font":"arial","fontSize":10,"padding":4}}},"evals":[],"jsHooks":[]}</script>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+                        <i class="fa fa-sitemap">&nbsp;</i>
+                    
+
+                    
+                        Categories
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='../../categories/packages'>packages</a></li>
+    
+        <li><a href='../../categories/r'>r</a></li>
+    
+</ul>
+
+  </footer>
+</article>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='../../'><img src="../../img/logo.jpg" width="200px" alt="sensless" /></a>
+      
+    
+    
+      <header>
+        <h2>Sensless</h2>
+        <p>musings and code about anything spatial, visual or interesting.</p>
+      </header>
+    
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/08/08/leaflet-marker-icons/">Modifying and Mixing Leaflet Marker Icons</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-08'>
+                August 8, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/08/08/leaflet-marker-icons/" class="image featured">
+            <img src="../../img/" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/07/25/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-25'>
+                July 25, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/25/filtering-spatial-data/" class="image featured">
+            <img src="../../img/filter_header.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/07/21/another-blog-about-a-blog/">Another blog about a blog</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-21'>
+                July 21, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
+            <img src="../../img/snow-header.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/07/20/animating-spatial-data/">Animating Spatial Data</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-20'>
+                July 20, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../post/">Posts</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-08'>
+                August 8, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>The purpose of this blog is to have a simple web page associated with my Github account. It will be used to share code and ideas and to link to other web based projects.</p>
+      <a href="../../about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          A Simple Blog
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="../../js/util.js"></script>
+      <script src="../../js/main.js"></script>
+      <script src="../../js/backToTop.js"></script>
+    
+
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+
