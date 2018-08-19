@@ -6,20 +6,10 @@
     <description>Recent content in Rstats on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/rstats/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Modifying and Mixing Leaflet Marker Icons</title>
-      <link>/2018/08/08/leaflet-marker-icons/</link>
-      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/08/08/leaflet-marker-icons/</guid>
-      <description>In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
-To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map.</description>
-    </item>
     
     <item>
       <title>Filtering Spatial Data with Crosstalk</title>
