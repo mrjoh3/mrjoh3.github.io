@@ -1,0 +1,869 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "pkg",
+        "name" : "mapedit.addin",
+        "headline" : "mapedit.addin",
+        "description" : "mapedit.addin  
+The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
+library(mapview) library(mapedit) new_spatial_data &lt;- mapview() %&gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-12-26 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-12-26 00:00:00 &#43;0000 UTC",
+        "url" : "/pkg/mapedit-addin/",
+        "wordCount" : "445",
+        "keywords" : [ "mapping","addin","Blog" ]
+    }
+    </script>
+        
+            
+                <title>mapedit.addin</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.44" />
+        
+
+
+        
+            <meta name="author" content="Matt Johnson">
+        
+        
+            
+                <meta name="description" content="A website built through Hugo and blogdown.">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="mapedit.addin"/>
+<meta name="twitter:description" content="mapedit.addin  
+The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
+library(mapview) library(mapedit) new_spatial_data &lt;- mapview() %&gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools."/>
+
+        <meta property="og:title" content="mapedit.addin" />
+<meta property="og:description" content="mapedit.addin  
+The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
+library(mapview) library(mapedit) new_spatial_data &lt;- mapview() %&gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/pkg/mapedit-addin/" />
+
+
+
+<meta property="article:published_time" content="2018-12-26T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-12-26T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="mapedit.addin">
+<meta itemprop="description" content="mapedit.addin  
+The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
+library(mapview) library(mapedit) new_spatial_data &lt;- mapview() %&gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.">
+
+
+<meta itemprop="datePublished" content="2018-12-26T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-12-26T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="445">
+
+
+
+<meta itemprop="keywords" content="mapping,addin," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="../../css/main.css">
+            <link rel="stylesheet" href="../../css/add-on.css">
+            <link rel="stylesheet" href="../../css/academicons.min.css">
+        
+
+        
+
+
+  
+    
+    <link href='https://cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="../../"></a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="../../">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../post/">
+                            <i class="fa fa-list">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../pkg/">
+                            <i class="fa fa-archive">&nbsp;</i>Packages
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="../../categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/mrjoh3">
+                            <i class="fa fa-github">&nbsp;</i>GitHub
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://twitter.com/mrjoh3">
+                            <i class="fa fa-twitter">&nbsp;</i>Twitter
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="../../">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../post/">
+                            <h3>
+                                <i class="fa fa-list">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../pkg/">
+                            <h3>
+                                <i class="fa fa-archive">&nbsp;</i>Packages
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="../../categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/mrjoh3">
+                            <h3>
+                                <i class="fa fa-github">&nbsp;</i>GitHub
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://twitter.com/mrjoh3">
+                            <h3>
+                                <i class="fa fa-twitter">&nbsp;</i>Twitter
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/12/26/shiny-image-gallery-examples/">Shiny Image Gallery Examples</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-12-26'>
+                                    December 26, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/07/25/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-25'>
+                                    July 25, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/25/filtering-spatial-data/" class="image featured">
+            <img src="../../img/filter_header.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/07/21/another-blog-about-a-blog/">Another blog about a blog</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-21'>
+                                    July 21, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
+            <img src="../../img/snow-header.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../2018/07/20/animating-spatial-data/">Animating Spatial Data</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-20'>
+                                    July 20, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="../../post/">Posts</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-12-26'>
+                                    December 26, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpkg%2fmapedit-addin%2f&amp;text=mapedit.addin&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpkg%2fmapedit-addin%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpkg%2fmapedit-addin%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpkg%2fmapedit-addin%2f&amp;title=mapedit.addin" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpkg%2fmapedit-addin%2f&amp;title=mapedit.addin" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpkg%2fmapedit-addin%2f&amp;title=mapedit.addin" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpkg%2fmapedit-addin%2f&amp;description=mapedit.addin" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Matt%20Johnson&amp;body=%2fpkg%2fmapedit-addin%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="../../pkg/mapedit-addin/">mapedit.addin</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+
+      <span class="author">Matt Johnson</span>
+      <span class="author"></span>
+      
+    </div>
+</header>
+
+
+  
+
+  
+  <div id="content">
+    <div id="mapedit.addin" class="section level1">
+<h1>mapedit.addin</h1>
+<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle" /></a> <a href="https://travis-ci.org/mrjoh3/mapedit.addin"><img src="https://travis-ci.org/mrjoh3/mapedit.addin.svg?branch=master" alt="Build Status" /></a></p>
+<p>The goal of <code>mapedit.addin</code> is to simplify the creation of spatial data by wrapping the <a href="https://github.com/r-spatial/mapedit">mapedit</a> package. As you can see in the code below the <code>mapedit</code> package already makes the process very simple.</p>
+<pre class="r"><code>library(mapview)
+library(mapedit)
+new_spatial_data &lt;- mapview() %&gt;%
+  editMap()</code></pre>
+<p>All <code>mappedit.addin</code> does is wrap this piece of code in an <code>RStudio</code> addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools. It is also possible to link <code>mapedit.addin</code> to keyboard shortcuts, further simplifying the process (see <a href="https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts">here</a>).</p>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>You can install the current version of <code>mapedit.addin</code> from <a href="https://github.com/mrjoh3/mapedit.addin">Github</a> with:</p>
+<pre class="r"><code>devtools::install_github(&quot;mrjoh3/mapedit.addin&quot;)</code></pre>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p>This simple addin allows you to interactively create an <code>sf</code> spatial object that can then be saved and used in your code. To use, just open the addin add some geometry to the map and click <code>Done</code> when completed.</p>
+<div class="figure">
+<img src="../../pkg/2018-12-26-mapedit-addin_files/mapedit_addin.png" alt="mapedit addin" />
+<p class="caption">mapedit addin</p>
+</div>
+<p>Selecting text within the <code>RStudio</code> IDE will modify the behavior of the addin. Where no text is selected the addin will save an <code>sf</code> object called <code>geom</code> into <code>.GlobalEnv</code>. To save a spatial object to file, the <code>Save</code> switch must be toggled using the addin interface. A file called <code>saved_geometry.geojson</code> will be created in the current working directory. If text is selected in <code>RStudio</code> this will be used for naming both the <code>sf</code> object and the created file.</p>
+</div>
+<div id="adding-objects-to-the-map" class="section level2">
+<h2>Adding objects to the map</h2>
+<p>If the text selected in <code>RStudio</code> IDE is the name of an existing <code>sf</code> object then the addin will add this object to the <code>mapedit</code> map and zoom to its bounds. When a spatial object is passed to the map in this way, any new geometry is added to it using <a href="https://r-spatial.github.io/sf/reference/bind.html">rbind</a>. It is not currently possible to edit existing geometry.</p>
+</div>
+<div id="saving-to-file" class="section level2">
+<h2>Saving to File</h2>
+<p>Spatial objects are saved to file using <code>sf::write_sf</code>. File names can be set by selecting text inside <code>RStudio</code> or via the naming bar at the bottom of the addin. The file naming bar can also be used to add file paths and to change output extensions.</p>
+<div class="figure">
+<img src="../../pkg/2018-12-26-mapedit-addin_files/save_file_bar.png" alt="image bar" />
+<p class="caption">image bar</p>
+</div>
+<p>The text seen in the naming bar is passed directly to <code>write_sf</code>. Most file drivers will be guessed by the extension. See <code>sf::st_drivers()</code> or <a href="https://www.gdal.org/ogr_formats.html">OGR formats</a> for details; only <code>.geojson</code> and <code>.shp</code> have been tested.</p>
+<p>Note that the function <code>write_sf</code> is called with options <code>delete_layer = TRUE</code> and <code>delete_dsn = TRUE</code>. This means that existing files with the same name are over-written.</p>
+</div>
+<div id="future" class="section level2">
+<h2>Future</h2>
+<p>Future updates will give the user more control over:</p>
+<ol style="list-style-type: decimal">
+<li>the starting point of the map (currently zooms to world or input object)</li>
+<li>the name of output object (completed)</li>
+<li>file name (completed)</li>
+<li>add more option when saving to file</li>
+<li>edit existing geometry</li>
+</ol>
+</div>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+                        <i class="fa fa-sitemap">&nbsp;</i>
+                    
+
+                    
+                        Categories
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='../../categories/packages'>packages</a></li>
+    
+        <li><a href='../../categories/r'>r</a></li>
+    
+        <li><a href='../../categories/spatial'>spatial</a></li>
+    
+</ul>
+
+  </footer>
+</article>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='../../'><img src="../../img/logo.jpg" width="200px" alt="sensless" /></a>
+      
+    
+    
+      <header>
+        <h2>A Simple Blog</h2>
+        <p>musings and code about anything spatial, visual or interesting.</p>
+      </header>
+    
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/12/26/shiny-image-gallery-examples/">Shiny Image Gallery Examples</a>
+              </h3>
+              
+              <time class="published" datetime='2018-12-26'>
+                December 26, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/07/25/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-25'>
+                July 25, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/25/filtering-spatial-data/" class="image featured">
+            <img src="../../img/filter_header.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/07/21/another-blog-about-a-blog/">Another blog about a blog</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-21'>
+                July 21, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
+            <img src="../../img/snow-header.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../2018/07/20/animating-spatial-data/">Animating Spatial Data</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-20'>
+                July 20, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="../../post/">Posts</a>
+              </h3>
+              
+              <time class="published" datetime='2018-12-26'>
+                December 26, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>The purpose of this blog is to have a simple web page associated with my Github account. It will be used to share code and ideas and to link to other web based projects.</p>
+      <a href="../../about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          A Simple Blog
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="../../js/util.js"></script>
+      <script src="../../js/main.js"></script>
+      <script src="../../js/backToTop.js"></script>
+    
+
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

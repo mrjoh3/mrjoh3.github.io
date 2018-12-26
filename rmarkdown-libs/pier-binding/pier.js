@@ -21,50 +21,48 @@ HTMLWidgets.widget({
                 data: x.data
             });
 
-    }
+    };
 
 
     return {
 
           renderValue: function(x, width, height) {
-console.log(height);
-console.log(width);
-            //console.log(x.size);
-            // if size not set get window dimensions
-//            if (x.size) {
 
-//                console.log('setting size');
-//                console.log(x.size);
+            console.log(height);
+            console.log(width);
 
-//                if (x.size.canvasWidth == null) {
-//                   console.log('width null');
-//                    x.size.canvasWidth = el.getBoundingClientRect().width;
-//                }
-//                if (x.size.canvasHeight == null) {
-//                    console.log('height null');
-                    if (HTMLWidgets.shinyMode) {
-                        x.size.canvasHeight = height;
-                    } else {
-                        x.size.canvasWidth = width;
-                    }
 
- //               }
-//                if (x.size.pieOuterRadius == null) {
-//                    console.log('outer radius null');
-//                    x.size.pieOuterRadius = '90%';
-//                }
+             if(instance.lastValue){
+                  pie.destroy();
+             }
+             instance.lastValue=x;
 
+//            if (HTMLWidgets.shinyMode) {
+//                console.log('shiny');
+//                x.size.canvasHeight = height;
+//                x.size.canvasWidth = width;
 //            } else {
-//                console.log('guessing size');
-//                x.size = {
-//                    canvasWidth: el.getBoundingClientRect().width,
-//                    canvasHeight: el.getBoundingClientRect().height,
-//                    pieOuterRadius: '90%'
-//                };
+
 //            }
+
+
+                if (x.size.canvasWidth == null) {
+                   console.log('width null');
+                    x.size.canvasWidth = width;//el.getBoundingClientRect().width;
+                }
+                if (x.size.canvasHeight == null) {
+                    console.log('height null');
+                    x.size.canvasHeight = height;//el.getBoundingClientRect().height,
+                }
+                if (x.size.pieOuterRadius == null) {
+                    console.log('outer radius null');
+                    x.size.pieOuterRadius = '90%';
+                }
+
 
             x.id = el.id;
             instance.x = x;
+
 
             console.log(x);
 

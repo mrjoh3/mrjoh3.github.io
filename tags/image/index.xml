@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Image on A Simple Blog</title>
+    <link>/tags/image/</link>
+    <description>Recent content in Image on A Simple Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shiny Image Gallery Examples</title>
+      <link>/2018/12/26/shiny-image-gallery-examples/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/12/26/shiny-image-gallery-examples/</guid>
+      <description>Recently I had to implement an image gallery within a shiny application. A simple grid of small images where clicking opens the fullscreen image. Nothing complicated, but I did have several requirements:
+The gallery needed to render from a folder of images The gallery interface and thumbnails needed to be responsive The gallery needed to link to other shiny UI The fullsize image should be zoomable to see the full resolution.</description>
+    </item>
+    
+  </channel>
+</rss>

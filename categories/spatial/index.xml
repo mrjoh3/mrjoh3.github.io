@@ -6,10 +6,21 @@
     <description>Recent content in Spatial on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/spatial/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mapedit.addin</title>
+      <link>/pkg/mapedit-addin/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/pkg/mapedit-addin/</guid>
+      <description>mapedit.addin  
+The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
+library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.</description>
+    </item>
     
     <item>
       <title>Filtering Spatial Data with Crosstalk</title>
