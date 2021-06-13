@@ -1,200 +1,91 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>/2018/12/26/shiny-image-gallery-examples/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/pkg/mapedit-addin/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/pkg/c3-package/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/pkg/pier-package/</loc>
-    <lastmod>2018-08-19T19:24:17+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2018/07/25/filtering-spatial-data/</loc>
-    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2018/07/21/another-blog-about-a-blog/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2018/07/20/animating-spatial-data/</loc>
-    <lastmod>2018-07-27T21:17:17+10:00</lastmod>
-  </url>
-  
   <url>
     <loc>/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/tags/addin/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/blogdown/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/cran/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/crosstalk/</loc>
-    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/data-visualisation/</loc>
-    <lastmod>2018-07-27T21:17:17+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/gallery/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/gganimate/</loc>
-    <lastmod>2018-07-27T21:17:17+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/ggplot2/</loc>
-    <lastmod>2018-07-27T21:17:17+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/htmlwidgets/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/hugo/</loc>
-    <lastmod>2018-07-29T23:21:37+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/image/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/js/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/leaflet/</loc>
-    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/pkg/mapedit-addin/</loc>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/tags/mapping/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/categories/packages/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/pkg/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/categories/r/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/rstats/</loc>
-    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/sf/</loc>
-    <lastmod>2018-07-30T19:18:39+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/shiny/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/categories/spatial/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/tags/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/pkg/c3-package/</loc>
+    <lastmod>2018-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/cran/</loc>
+    <lastmod>2018-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/htmlwidgets/</loc>
+    <lastmod>2018-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/pkg/pier-package/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/crosstalk/</loc>
+    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/p/filtering-spatial-data/</loc>
+    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/leaflet/</loc>
+    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/rstats/</loc>
+    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/sf/</loc>
+    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/p/another-blog-about-a-blog/</loc>
+    <lastmod>2018-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/blogdown/</loc>
+    <lastmod>2018-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2018-07-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/categories/web/</loc>
-    <lastmod>2018-12-26T23:40:34+11:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2018-07-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/p/animating-spatial-data/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/data-visualisation/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/gganimate/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/ggplot2/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/about/</loc>
   </url>
-  
 </urlset>

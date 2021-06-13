@@ -1,367 +1,192 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
-    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='musings and code about anything spatial, visual or interesting.'><title>404 Page not found</title>
 
+<link rel='canonical' href='/404.html'>
 
-    <style>
-     * {
-         -moz-box-sizing:border-box;
-         -webkit-box-sizing:border-box;
-         box-sizing:border-box;
-     }
-
-     html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-     abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
-     small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
-     fieldset, form, label, legend, caption, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup,
-     menu, nav, section, summary, time, mark, audio, video {
-         margin:0;
-         padding:0;
-         border:0;
-         outline:0;
-         vertical-align:baseline;
-         background:transparent;
-     }
-
-     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
-         display: block;
-     }
-
-     html {
-         font-size: 16px;
-         line-height: 24px;
-         width:100%;
-         height:100%;
-         -webkit-text-size-adjust: 100%;
-         -ms-text-size-adjust: 100%;
-         overflow-y:scroll;
-         overflow-x:hidden;
-     }
-
-     img {
-         vertical-align:middle;
-         max-width: 100%;
-         height: auto;
-         border: 0;
-         -ms-interpolation-mode: bicubic;
-     }
-
-     body {
-         min-height:100%;
-         -webkit-font-smoothing: subpixel-antialiased;
-     }
-
-     .clearfix {
-	       clear:both;
-	       zoom: 1;
-     }
-     .clearfix:before, .clearfix:after {
-         content: "\0020";
-         display: block;
-         height: 0;
-         visibility: hidden;
-     }
-     .clearfix:after {
-         clear: both;
-     }
-    </style>
-    <style>
-  .plain.error-page-wrapper {
-    font-family: 'Source Sans Pro', sans-serif;
-    background-color:#6355bc;
-    padding:0 5%;
-    position:relative;
-  }
-
-  .plain.error-page-wrapper .content-container {
-    -webkit-transition: left .5s ease-out, opacity .5s ease-out;
-    -moz-transition: left .5s ease-out, opacity .5s ease-out;
-    -ms-transition: left .5s ease-out, opacity .5s ease-out;
-    -o-transition: left .5s ease-out, opacity .5s ease-out;
-    transition: left .5s ease-out, opacity .5s ease-out;
-    max-width:400px;
-    position:relative;
-    left:-30px;
-    opacity:0;
-  }
-
-  .plain.error-page-wrapper .content-container.in {
-    left: 0px;
-    opacity:1;
-  }
-
-  .plain.error-page-wrapper .head-line {
-    transition: color .2s linear;
-    font-size:48px;
-    line-height:60px;
-    color:rgba(255,255,255,.2);
-    letter-spacing: -1px;
-    margin-bottom: 5px;
-  }
-  .plain.error-page-wrapper .subheader {
-    transition: color .2s linear;
-    font-size:36px;
-    line-height:46px;
-    color:#fff;
-  }
-  .plain.error-page-wrapper hr {
-    height:1px;
-    background-color: rgba(255,255,255,.2);
-    border:none;
-    width:250px;
-    margin:35px 0;
-  }
-  .plain.error-page-wrapper .context {
-    transition: color .2s linear;
-    font-size:18px;
-    line-height:27px;
-    color:#fff;
-  }
-  .plain.error-page-wrapper .context p {
-    margin:0;
-  }
-  .plain.error-page-wrapper .context p:nth-child(n+2) {
-    margin-top:12px;
-  }
-  .plain.error-page-wrapper .buttons-container {
-    margin-top: 45px;
-    overflow: hidden;
-  }
-  .plain.error-page-wrapper .buttons-container a {
-    transition: color .2s linear, border-color .2s linear;
-    font-size:14px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color:#fff;
-    border:2px solid white;
-    border-radius: 99px;
-    padding:8px 30px 9px;
-    display: inline-block;
-    float:left;
-  }
-  .plain.error-page-wrapper .buttons-container a:hover {
-    background-color:rgba(255,255,255,.05);
-  }
-  .plain.error-page-wrapper .buttons-container a:first-child {
-    margin-right:25px;
-  }
-
-  @media screen and (max-width: 485px) {
-    .plain.error-page-wrapper .header {
-      font-size:36px;
-     }
-    .plain.error-page-wrapper .subheader {
-      font-size:27px;
-      line-height:38px;
-     }
-    .plain.error-page-wrapper hr {
-      width:185px;
-      margin:25px 0;
-     }
-
-    .plain.error-page-wrapper .context {
-      font-size:16px;
-      line-height: 24px;
-     }
-    .plain.error-page-wrapper .buttons-container {
-      margin-top:35px;
-    }
-
-    .plain.error-page-wrapper .buttons-container a {
-      font-size:13px;
-      padding:8px 0 7px;
-      width:45%;
-      text-align: center;
-    }
-    .plain.error-page-wrapper .buttons-container a:first-child {
-      margin-right:10%;
-    }
-  }
-</style>
-    <style>
-
-    .background-color {
-      background-color: rgba(244, 244, 244, 1) !important;
-    }
-
-
-    .primary-text-color {
-      color: rgba(171, 171, 171, 1) !important;
-    }
-
-    .secondary-text-color {
-      color: rgba(0, 0, 0, 1) !important;
-    }
-
-    .sign-text-color {
-      color: #FFBA00 !important;
-    }
-
-    .sign-frame-color {
-      color: #343C3F;
-    }
-
-    .pane {
-      background-color: #FFFFFF !important;
-    }
-
-    .border-button {
-      color: rgba(46, 186, 174, 1) !important;
-      border-color: rgba(46, 186, 174, 1) !important;
-    }
-    .button {
-      background-color: rgba(46, 186, 174, 1) !important;
-      color: #FFFFFF !important;
-    }
-
-    .shadow {
-      box-shadow: 0 0 60px #000000;
-    }
-
-</style>
-  </head>
-  <body class="plain error-page-wrapper background-color background-image">
-    <div class="content-container">
-	<div class="head-line secondary-text-color">
-		404
-	</div>
-	<div class="subheader primary-text-color">
-		Oops, the page you're <br>
-		looking for does not exist.
-	</div>
-	<hr>
-	<div class="clearfix"></div>
-	<div class="context primary-text-color">
-		
-    <p>
-      You may want to head back to the homepage.<br />
-      If you think something is broken, report a problem.
-    </p>
-	</div>
-	<div class="buttons-container">
-		<a class="border-button" href="./">Go To Homepage</a>
-		<a class="border-button" href="mailto:">Report A Problem</a>
-	</div>
-</div>
-
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='404 Page not found'>
+<meta property='og:description' content='musings and code about anything spatial, visual or interesting.'>
+<meta property='og:url' content='/404.html'>
+<meta property='og:site_name' content='A Simple Blog'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2018-12-26T00:00:00&#43;00:00 '/>
+<meta name="twitter:site" content="@@mrjoh3">
+    <meta name="twitter:creator" content="@@mrjoh3"><meta name="twitter:title" content="404 Page not found">
+<meta name="twitter:description" content="musings and code about anything spatial, visual or interesting.">
+    </head>
+    <body class="">
     <script>
-     function ErrorPage(container, pageType, templateName) {
-       this.$container = $(container);
-       this.$contentContainer = this.$container.find(templateName == 'sign' ? '.sign-container' : '.content-container');
-       this.pageType = pageType;
-       this.templateName = templateName;
-     }
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
-     ErrorPage.prototype.centerContent = function () {
-       var containerHeight = this.$container.outerHeight()
-         , contentContainerHeight = this.$contentContainer.outerHeight()
-         , top = (containerHeight - contentContainerHeight) / 2
-         , offset = this.templateName == 'sign' ? -100 : 0;
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
 
-       this.$contentContainer.css('top', top + offset);
-     };
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended ">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
 
-     ErrorPage.prototype.initialize = function () {
-       var self = this;
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/logo_hu139bf986c76423e96110be6e3f467eec_121632_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
 
-       this.centerContent();
-       this.$container.on('resize', function (e) {
-         e.preventDefault();
-         e.stopPropagation();
-         self.centerContent();
-       });
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="/">A Simple Blog</a></h1>
+        <h2 class="site-description">musings and code about anything spatial, visual or interesting.</h2>
+    </header>
 
-       
-       if (this.templateName == 'plain') {
-         window.setTimeout(function () {
-           self.$contentContainer.addClass('in');
-         }, 500);
-       }
+    <ol class="menu" id="main-menu">
+        
+        
+        
 
-       
-       if (this.templateName == 'sign') {
-         $('.sign-container').animate({textIndent : 0}, {
-           step : function (now) {
-             $(this).css({
-               transform : 'rotate(' + now + 'deg)',
-               'transform-origin' : 'top center'
-             });
-           },
-           duration : 1000,
-           easing : 'easeOutBounce'
-         });
-       }
-     };
-
-
-     ErrorPage.prototype.createTimeRangeTag = function(start, end) {
-       return (
-         '<time utime=' + start + ' simple_format="MMM DD, YYYY HH:mm">' + start + '</time> - <time utime=' + end + ' simple_format="MMM DD, YYYY HH:mm">' + end + '</time>.'
-       )
-     };
-
-
-     ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
-       if (pageType == '503') {
-         $('#replace-with-fetched-data').html(data.status.description);
-       } else {
-         if (!!data.scheduled_maintenances.length) {
-           var maint = data.scheduled_maintenances[0];
-           $('#replace-with-fetched-data').html(this.createTimeRangeTag(maint.scheduled_for, maint.scheduled_until));
-           $.fn.localizeTime();
-         }
-         else {
-           $('#replace-with-fetched-data').html('<em>(there are no active scheduled maintenances)</em>');
-         }
-       }
-     };
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
 
 
-     ErrorPage.prototype.handleStatusFetchFail = function (pageType) {
-       $('#replace-with-fetched-data').html('<em>(enter a valid StatusPage.io url)</em>');
-     };
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/post/'>
+                
+                <span>Blog</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/pkg/'>
+                
+                <span>Packages</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/'>
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
 
 
-     ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
-       
-       if (!pageUrl || !pageType || pageType == '404') return;
 
-       var url = ''
-         , self = this;
-
-       if (pageType == '503') {
-         url = pageUrl + '/api/v2/status.json';
-       }
-       else {
-         url = pageUrl + '/api/v2/scheduled-maintenances/active.json';
-       }
-
-       $.ajax({
-         type : "GET",
-         url : url,
-       }).success(function (data, status) {
-         
-         self.handleStatusFetchSuccess(pageType, data);
-       }).fail(function (xhr, msg) {
-         
-         self.handleStatusFetchFail(pageType);
-       });
-
-     };
-     var ep = new ErrorPage('body', "404", "plain");
-     ep.initialize();
-
-     
-     $(window).on('resize', function() {
-       $('body').trigger('resize')
-     });
-
-    </script>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
 
 
-  </body>
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div class="not-found-card">
+        <h1 class="article-title">Not Found</h1>
+        <h2 class="article-subtitle">This page does not exist.</h2>
+    </div>
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 A Simple Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>

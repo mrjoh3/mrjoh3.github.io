@@ -1,32 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Web on A Simple Blog</title>
+    <title>web on A Simple Blog</title>
     <link>/categories/web/</link>
-    <description>Recent content in Web on A Simple Blog</description>
+    <description>Recent content in web on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/web/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Shiny Image Gallery Examples</title>
-      <link>/2018/12/26/shiny-image-gallery-examples/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/12/26/shiny-image-gallery-examples/</guid>
-      <description>DRAFT Recently I had to implement an image gallery within a shiny application. A simple grid of small images where clicking opens the fullscreen image. Nothing complicated, but I did have several requirements:
-The gallery needed to render from a folder of images The gallery interface and thumbnails needed to be responsive The gallery needed to link to other shiny UI The fullsize image should be zoomable to see the full resolution.</description>
-    </item>
-    
+    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="/categories/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Another blog about a blog</title>
-      <link>/2018/07/21/another-blog-about-a-blog/</link>
+      <link>/p/another-blog-about-a-blog/</link>
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/07/21/another-blog-about-a-blog/</guid>
+      <guid>/p/another-blog-about-a-blog/</guid>
       <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
     </item>
     

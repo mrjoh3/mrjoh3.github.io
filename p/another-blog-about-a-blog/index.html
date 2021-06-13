@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.'><title>Another blog about a blog</title>
+
+<link rel='canonical' href='/p/another-blog-about-a-blog/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Another blog about a blog'>
+<meta property='og:description' content='Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.'>
+<meta property='og:url' content='/p/another-blog-about-a-blog/'>
+<meta property='og:site_name' content='A Simple Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='blogdown' /><meta property='article:tag' content='hugo' /><meta property='article:tag' content='rstats' /><meta property='article:published_time' content='2018-07-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-07-21T00:00:00&#43;00:00'/><meta property='og:image' content='/img/snow-header.png' />
+<meta name="twitter:site" content="@@mrjoh3">
+    <meta name="twitter:creator" content="@@mrjoh3"><meta name="twitter:title" content="Another blog about a blog">
+<meta name="twitter:description" content="Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='/img/snow-header.png' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/logo_hu139bf986c76423e96110be6e3f467eec_121632_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="/">A Simple Blog</a></h1>
+        <h2 class="site-description">musings and code about anything spatial, visual or interesting.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/post/'>
+                
+                <span>Blog</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/pkg/'>
+                
+                <span>Packages</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/'>
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/another-blog-about-a-blog/">
+                
+                    <img src="/img/snow-header.png" loading="lazy" alt="Featured image of post Another blog about a blog" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/web/" >
+                web
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/another-blog-about-a-blog/">Another blog about a blog</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jul 21, 2018</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Currently I mostly work with <code>R</code> and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of <code>Blogdown</code> seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book <a href="https://bookdown.org/yihui/blogdown/">blogdown: Creating Websites with R Markdown</a> by <a href="https://bookdown.org/yihui/blogdown/yihui-xie.html">Yihui Xie</a> <em>et al.</em> covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</p>
+<div id="choosing-a-theme-and-installing" class="section level2">
+<h2>Choosing a Theme and Installing</h2>
+<p>There are many themes available at <a href="https://themes.gohugo.io">Hugo Themes</a>. This one is called <a href="https://github.com/jpescador/hugo-future-imperfect">Hugo Future Imperfect</a> by <a href="https://github.com/jpescador">Julio Pescdor</a>. Once you have chosen it is time to begin. Themes are loaded directly from their Github repositories so you will need the themes Github username and repository name.</p>
+<pre class="r"><code>
+install.packages(&quot;blogdown&quot;)
+blogdown::install_hugo()
+
+blogdown::new_site(theme = &quot;jpescador/hugo-future-imperfect&quot;)
+</code></pre>
+<p>Now everything is up an running but it is easier to test everything if you have some content. The <code>Blogdown</code> package includes a series of addins that makes this process simple, just select <code>New Post</code> from the <code>Addins</code> menu.</p>
+<div class="figure">
+<img src="/post/2018-07-20-another-blog-about-a-blog_files/new_post.png" alt="" />
+<p class="caption">new post screenshot</p>
+</div>
+</div>
+<div id="configuring-the-site" class="section level2">
+<h2>Configuring the Site</h2>
+<p>With some simple content generated use <code>blogdown:::serve_site()</code> to preview your site. At this stage it will not look exactly as you expected. Each theme has a <code>config.toml</code> that is used to setup each site. Most themes will have detailed instructions or an <a href="https://github.com/jpescador/hugo-future-imperfect/blob/master/exampleSite/config.toml">example project</a> for your reference. This file is quite readable so you can just scan through and copy the settings you need.</p>
+<p>Be sure to read any documentation that comes with the theme as they are all different and may have some simple gotchas. Here the <code>CSS</code> files did not want to load until I found that I had to add the setting <code>relativeURLs = true</code>. Also play around with all the settings in the <code>config.toml</code> file just so you know what they do.</p>
+</div>
+<div id="deploying" class="section level2">
+<h2>Deploying</h2>
+<p><code>Hugo</code> generates static sites so there are many deployment options. The simplest is to run <code>blogdown::build_site()</code> and then copy the contents of the <code>public</code> folder to your hosting service. I won’t go though them as the <a href="https://bookdown.org/yihui/blogdown/deployment.html">blogdown book</a> mentioned above goes into great detail.</p>
+<p>As I am too cheap to pay for a hosting service and want to make use of my Github pages URL I decided (against the suggestions in the book) to use Github and Travis. After referring to the blogdown book for instructions. The only difficulty was linking the Github repository with Travis with permissions to write back to the repository. <a href="https://medium.com/zendesk-engineering/how-to-create-a-website-like-freshswift-net-using-hugo-travis-ci-and-github-pages-67be6f480298">This post</a> contained all the details necessary for setting an environment variable in Travis.</p>
+<p>This worked nicely <strong>BUT</strong>…</p>
+</div>
+<div id="actually-deploying" class="section level2">
+<h2>Actually Deploying</h2>
+<p>When Travis builds the site it runs <code>blogdown::build_site()</code> just as you would on your computer. Now if you have an <code>.Rmd</code> post that uses <code>R</code> packages, they are installed on your computer but they are not on Travis. Travis can be configured to install the packages, but you would have to do this each time you add use a new package. I intend to experiment with a lot of different packages and this seems like a lot of effort when you can simply build the site locally and move the static files.</p>
+<p>After several dead-ends and messing around with folder names to appease the Github gods (who were not appeased), I came across instructions on the <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#github-user-or-organization-pages">GoHugo website</a>. This involved creating 2 repositories one called <code>blog</code> and the other <code>&lt;USER&gt;.github.io</code> and then setting up the public folder of <code>blog</code> as a git sub-module that commits to <code>&lt;USER&gt;.github.io</code>.</p>
+<p>The only drawback is that if you use the git GUI in <code>RStudio</code> the sub-module does not commit. But this is likely user error as my knowledge of git is limited. For now I am using the terminal to push changes in the public folder.</p>
+<pre class="bash"><code>
+# run once
+git submodule add -b master git@github.com:mrjoh3/mrjoh3.github.io.git public
+
+cd public
+
+git pull
+
+# after updates
+git add .
+git commit -m &#39;some message&#39;
+git push origin master
+</code></pre>
+</div>
+<div id="lessons-learnt" class="section level2">
+<h2>Lessons Learnt</h2>
+<p><code>Blogdown</code> has been fantastic, I had a site up and running within an hour. And this included install dependancies finding a theme and understanding the <code>config.toml</code> file. Even with complication I only spent 3 hours getting my deployment sorted.</p>
+<p>What I should have done from the beginning is think more about my own needs and requirements. All of the instructions for the different services were all clear and worked as expected. That they sometimes did not meet my needs reflects more on my preparation.</p>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/blogdown/">blogdown</a>
+        
+            <a href="/tags/hugo/">hugo</a>
+        
+            <a href="/tags/rstats/">rstats</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 A Simple Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,539 +1,196 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.'><title>pier Package</title>
 
-<html>
-    <head>
-        <script type="application/ld+json">
-    {
-        "@context" : "http://schema.org",
-        "@type" : "BlogPosting",
-        "mainEntityOfPage": {
-             "@type": "WebPage",
-             "@id": "/"
-        },
-        "articleSection" : "pkg",
-        "name" : "pier Package",
-        "headline" : "pier Package",
-        "description" : "The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.",
-        "inLanguage" : "en",
-        "author" : "",
-        "creator" : "",
-        "publisher": "",
-        "accountablePerson" : "",
-        "copyrightHolder" : "",
-        "copyrightYear" : "2018",
-        "datePublished": "2018-08-19 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-08-19 00:00:00 &#43;0000 UTC",
-        "url" : "/pkg/pier-package/",
-        "wordCount" : "231",
-        "keywords" : [ "htmlwidgets","Blog" ]
-    }
-    </script>
-        
-            
-                <title>pier Package</title>
-            
-        
+<link rel='canonical' href='/pkg/pier-package/'>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.44" />
-        
-
-
-        
-            <meta name="author" content="Matt Johnson">
-        
-        
-            
-                <meta name="description" content="A website built through Hugo and blogdown.">
-            
-        
-
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="pier Package"/>
-<meta name="twitter:description" content="The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place."/>
-
-        <meta property="og:title" content="pier Package" />
-<meta property="og:description" content="The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/pkg/pier-package/" />
-
-
-
-<meta property="article:published_time" content="2018-08-19T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-08-19T19:24:17&#43;10:00"/>
-
-
-
-
-
-
-
-
-
-
-
-        <meta property="og:image" content="//images/logo.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="512">
-        <meta property="og:image:height" content="512">
-        
-<meta itemprop="name" content="pier Package">
-<meta itemprop="description" content="The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.">
-
-
-<meta itemprop="datePublished" content="2018-08-19T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-08-19T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="231">
-
-
-
-<meta itemprop="keywords" content="htmlwidgets," />
-
-        
-
-        
-            
-        
-
-        
-        
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="../../css/main.css">
-            <link rel="stylesheet" href="../../css/add-on.css">
-            <link rel="stylesheet" href="../../css/academicons.min.css">
-        
-
-        
-
-
-  
-    
-    <link href='https://cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-  
-
-
-      
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='pier Package'>
+<meta property='og:description' content='The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.'>
+<meta property='og:url' content='/pkg/pier-package/'>
+<meta property='og:site_name' content='A Simple Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Pkg' /><meta property='article:tag' content='htmlwidgets' /><meta property='article:published_time' content='2018-08-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-08-19T00:00:00&#43;00:00'/>
+<meta name="twitter:site" content="@@mrjoh3">
+    <meta name="twitter:creator" content="@@mrjoh3"><meta name="twitter:title" content="pier Package">
+<meta name="twitter:description" content="The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.">
     </head>
-    <body>
+    <body class="article-page keep-sidebar">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
-      
-      <div id="wrapper">
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
 
-    
-    
-<header id="header">
-    
-      <h1><a href="../../"></a></h1>
-    
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended ">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
 
-    <nav class="links">
-        <ul>
-            
-                <li>
-                    <a href="../../">
-                            <i class="fa fa-home">&nbsp;</i>Home
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="../../about/">
-                            <i class="fa fa-id-card-o">&nbsp;</i>About
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="../../post/">
-                            <i class="fa fa-list">&nbsp;</i>Blog
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="../../pkg/">
-                            <i class="fa fa-archive">&nbsp;</i>Packages
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="../../categories/">
-                            <i class="fa fa-sitemap">&nbsp;</i>Categories
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://github.com/mrjoh3">
-                            <i class="fa fa-github">&nbsp;</i>GitHub
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://twitter.com/mrjoh3">
-                            <i class="fa fa-twitter">&nbsp;</i>Twitter
-                    </a>
-                </li>
-            
-        </ul>
-    </nav>
-    <nav class="main">
-        <ul>
-            
-            <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
-            </li>
-            
-            <li class="search">
-                <a class="fa-search" href="#search">Search</a>
-                <form id="search" method="get" action="//google.com/search">
-                    <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="/">
-                </form>
-            </li>
-            <li class="menu">
-                <a class="fa-bars" href="#menu">Menu</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-
-<section id="menu">
-
-    
-        <section>
-            <form class="search" method="get" action="//google.com/search">
-                <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="/">
-            </form>
-        </section>
-
-    
-        <section>
-            <ul class="links">
+    <header class="site-info">
+        
+            <figure class="site-avatar">
                 
-                    <li>
-                        <a href="../../">
-                            <h3>
-                                <i class="fa fa-home">&nbsp;</i>Home
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="../../about/">
-                            <h3>
-                                <i class="fa fa-id-card-o">&nbsp;</i>About
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="../../post/">
-                            <h3>
-                                <i class="fa fa-list">&nbsp;</i>Blog
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="../../pkg/">
-                            <h3>
-                                <i class="fa fa-archive">&nbsp;</i>Packages
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="../../categories/">
-                            <h3>
-                                <i class="fa fa-sitemap">&nbsp;</i>Categories
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/mrjoh3">
-                            <h3>
-                                <i class="fa fa-github">&nbsp;</i>GitHub
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://twitter.com/mrjoh3">
-                            <h3>
-                                <i class="fa fa-twitter">&nbsp;</i>Twitter
-                            </h3>
-                        </a>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-        <section class="recent-posts">
-            <div class="mini-posts">
-                <header>
-                    <h3>Recent Posts</h3>
-                </header>
-                
-
-                
+                    
+                    
+                    
+                        
+                        <img src="/img/logo_hu139bf986c76423e96110be6e3f467eec_121632_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="../../2018/12/26/shiny-image-gallery-examples/">Shiny Image Gallery Examples</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-12-26'>
-                                    December 26, 2018</time>
-                            </header>
-                            
-
-                        </article>
+                    <span class="emoji">🍥</span>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="../../2018/07/25/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-07-25'>
-                                    July 25, 2018</time>
-                            </header>
-                            
-    
-
-    
+            </figure>
         
-        
+        <h1 class="site-name"><a href="/">A Simple Blog</a></h1>
+        <h2 class="site-description">musings and code about anything spatial, visual or interesting.</h2>
+    </header>
 
-
-
-
-
-
-
-  
-
-
+    <ol class="menu" id="main-menu">
         
         
         
 
-        <a href="../../2018/07/25/filtering-spatial-data/" class="image featured">
-            <img src="../../img/filter_header.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
+        <li >
+            <a href='/'>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="../../2018/07/21/another-blog-about-a-blog/">Another blog about a blog</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-07-21'>
-                                    July 21, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
 
 
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
-            <img src="../../img/snow-header.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="../../2018/07/20/animating-spatial-data/">Animating Spatial Data</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-07-20'>
-                                    July 20, 2018</time>
-                            </header>
-                            
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="../../post/">Posts</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-12-26'>
-                                    December 26, 2018</time>
-                            </header>
-                            
-
-                        </article>
-                
 
                 
-                    <a href=
-                        
-                            /post/
-                        
-                        class="button">View more posts</a>
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
                 
-            </div>
-        </section>
+                <span>About</span>
+            </a>
+        </li>
+        
+        
 
+        <li >
+            <a href='/post/'>
+                
+                <span>Blog</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/pkg/'>
+                
+                <span>Packages</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/'>
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
     
+    <header class="article-category">
         
-</section>
-
-    <section id="share-menu">
-    <section id="social-share-nav">
-        <ul class="links">
-            <header>
-                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
-            </header>
-            
-
-
-
-<li>
-  <a href="//twitter.com/share?url=%2fpkg%2fpier-package%2f&amp;text=pier%20Package&amp;via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//plus.google.com/share?url=%2fpkg%2fpier-package%2f" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-  </a>
-</li>
-
-
-
-
-
-<li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpkg%2fpier-package%2f" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//reddit.com/submit?url=%2fpkg%2fpier-package%2f&amp;title=pier%20Package" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fpkg%2fpier-package%2f&amp;title=pier%20Package" target="_blank" class="share-btn linkedin">
-      <i class="fa fa-linkedin"></i>
-      <p>LinkedIn</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.stumbleupon.com/submit?url=%2fpkg%2fpier-package%2f&amp;title=pier%20Package" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fpkg%2fpier-package%2f&amp;description=pier%20Package" target="_blank" class="share-btn pinterest">
-    <i class="fa fa-pinterest-p"></i>
-    <p>Pinterest</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="mailto:?subject=Check out this post by Matt%20Johnson&amp;body=%2fpkg%2fpier-package%2f" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-  </a>
-</li>
-
-
-        </ul>
-    </section>
-</section>
-
+            <a href="/categories/packages/" >
+                packages
+            </a>
+        
+            <a href="/categories/r/" >
+                r
+            </a>
+        
+    </header>
     
-    <div id="main">
-        
-        
-        <article class="post">
-  <header>
-    <div class="title">
-        
-            <h1><a href="../../pkg/pier-package/">pier Package</a></h1>
-            
-        
-        
-    </div>
-    <div class="meta">
 
-      <span class="author">Matt Johnson</span>
-      <span class="author"></span>
-      
-        <a href="" target="_blank"></a>
-      
-    </div>
+    <h2 class="article-title">
+        <a href="/pkg/pier-package/">pier Package</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Aug 19, 2018</time>
+    </footer></div>
 </header>
 
-
-  
-
-  
-  <div id="content">
-    <script src="../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="../../rmarkdown-libs/d3/d3.min.js"></script>
-<script src="../../rmarkdown-libs/d3pie/d3pie.min.js"></script>
-<script src="../../rmarkdown-libs/pier-binding/pier.js"></script>
+    <section class="article-content">
+    
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/d3/d3.min.js"></script>
+<script src="/rmarkdown-libs/d3pie/d3pie.min.js"></script>
+<script src="/rmarkdown-libs/pier-binding/pier.js"></script>
 
 
 <p><a href="https://zenodo.org/badge/latestdoi/56191948"><img src="https://zenodo.org/badge/56191948.svg" alt="DOI" /></a> <a href="https://travis-ci.org/mrjoh3/pier"><img src="https://travis-ci.org/mrjoh3/pier.svg?branch=master" alt="Build Status" /></a> <a href="https://codecov.io/gh/mrjoh3/pier"><img src="https://codecov.io/gh/mrjoh3/pier/branch/master/graph/badge.svg" alt="codecov" /></a></p>
@@ -572,282 +229,150 @@ pier(data) %&gt;% pie.size(height = 350)</code></pre>
 <script type="application/json" data-for="htmlwidget-2">{"x":{"data":{"sortOrder":"none","content":[{"label":"Environment","value":104,"color":"#D7191C"},{"label":"Education","value":119,"color":"#FDAE61"},{"label":"Business","value":638,"color":"#ABDDA4"},{"label":"Community","value":1250,"color":"#2B83BA"}]},"settings":null,"size":{"canvasWidth":500,"canvasHeight":350,"pieInnerRadius":"70%","pieOuterRadius":"100%"},"header":{"title":{"text":"Segments","font":"Impact"},"location":"pie-center","subtitle":{"text":"by Type"}},"footer":{"text":"Economic Segments using fake data.","location":"bottom-left"},"tooltips":{"enabled":true,"type":"placeholder","string":"{label}: {value}, {percentage}%","styles":{"fadeInSpeed":250,"backgroundColor":"#000000","backgroundOpacity":0.5,"color":"#efefef","borderRadius":2,"font":"arial","fontSize":10,"padding":4}}},"evals":[],"jsHooks":[]}</script>
 </div>
 
-  </div>
-
-  <footer>
-    <ul class="stats">
-    
-        
-
-        
-        
-            <li>
-                
-                
-                    
-
-                    
-
-                    
-                        <i class="fa fa-sitemap">&nbsp;</i>
-                    
-
-                    
-                        Categories
-                    
-                
-            </li>
-        
-    
-
-    
-    
-        <li><a href='../../categories/packages'>packages</a></li>
-    
-        <li><a href='../../categories/r'>r</a></li>
-    
-</ul>
-
-  </footer>
-</article>
-
-
-    </div>
-    
-<section id="sidebar">
-
-  
-  <section id="intro">
-    
-    
-      
-        <a href='../../'><img src="../../img/logo.jpg" width="200px" alt="sensless" /></a>
-      
-    
-    
-      <header>
-        <h2>A Simple Blog</h2>
-        <p>musings and code about anything spatial, visual or interesting.</p>
-      </header>
-    
-    
-  </section>
-
-  
-  <section class="recent-posts">
-    <div class="mini-posts">
-      <header>
-        <h3>Recent Posts</h3>
-      </header>
-      <div class="posts-container">
-        
-
-        
-          
-        
-
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="../../2018/12/26/shiny-image-gallery-examples/">Shiny Image Gallery Examples</a>
-              </h3>
-              
-              <time class="published" datetime='2018-12-26'>
-                December 26, 2018
-              </time>
-            </header>
-            
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="../../2018/07/25/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a>
-              </h3>
-              
-              <time class="published" datetime='2018-07-25'>
-                July 25, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="../../2018/07/25/filtering-spatial-data/" class="image featured">
-            <img src="../../img/filter_header.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="../../2018/07/21/another-blog-about-a-blog/">Another blog about a blog</a>
-              </h3>
-              
-              <time class="published" datetime='2018-07-21'>
-                July 21, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="../../2018/07/21/another-blog-about-a-blog/" class="image featured">
-            <img src="../../img/snow-header.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="../../2018/07/20/animating-spatial-data/">Animating Spatial Data</a>
-              </h3>
-              
-              <time class="published" datetime='2018-07-20'>
-                July 20, 2018
-              </time>
-            </header>
-            
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="../../post/">Posts</a>
-              </h3>
-              
-              <time class="published" datetime='2018-12-26'>
-                December 26, 2018
-              </time>
-            </header>
-            
-
-          </article>
-        
-      </div>
-
-      
-        <a href=
-          
-            /post/
-          
-        class="button">View more posts</a>
-      
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-  
-    <section id="mini-bio">
-      <h3>About</h3>
-      <p>The purpose of this blog is to have a simple web page associated with my Github account. It will be used to share code and ideas and to link to other web based projects.</p>
-      <a href="../../about/" class="button">Learn More</a>
-    </section>
-  
-
-  
-  <section id="footer">
-    
-    <p class="copyright">
-      
-        &copy; 2018
-        
-          A Simple Blog
-        
-      .
-      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
-    </p>
-  </section>
 </section>
 
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/htmlwidgets/">htmlwidgets</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+     
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 A Simple Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
     </div>
-    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
-    
 
-    
-      
-    
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
 
-    
-      
-      
-      
-        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
-        
-        
-        
-        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
-        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
-        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
-        <script src="https://cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
-        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-      
-    
-    
-    
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="../../js/util.js"></script>
-      <script src="../../js/main.js"></script>
-      <script src="../../js/backToTop.js"></script>
-    
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
 
-    
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
 
-    
-    <script>hljs.initHighlightingOnLoad();</script>
-      <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+        document.head.appendChild(customFont);
+    }());
 </script>
 
-
-  </body>
+    </body>
 </html>
-

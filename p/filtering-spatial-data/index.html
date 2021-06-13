@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
+To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications.'><title>Filtering Spatial Data with Crosstalk</title>
+
+<link rel='canonical' href='/p/filtering-spatial-data/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Filtering Spatial Data with Crosstalk'>
+<meta property='og:description' content='In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
+To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications.'>
+<meta property='og:url' content='/p/filtering-spatial-data/'>
+<meta property='og:site_name' content='A Simple Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='crosstalk' /><meta property='article:tag' content='leaflet' /><meta property='article:tag' content='rstats' /><meta property='article:tag' content='sf' /><meta property='article:published_time' content='2018-07-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-07-25T00:00:00&#43;00:00'/><meta property='og:image' content='/img/filter_header.jpg' />
+<meta name="twitter:site" content="@@mrjoh3">
+    <meta name="twitter:creator" content="@@mrjoh3"><meta name="twitter:title" content="Filtering Spatial Data with Crosstalk">
+<meta name="twitter:description" content="In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
+To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='/img/filter_header.jpg' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/logo_hu139bf986c76423e96110be6e3f467eec_121632_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="/">A Simple Blog</a></h1>
+        <h2 class="site-description">musings and code about anything spatial, visual or interesting.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/post/'>
+                
+                <span>Blog</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/pkg/'>
+                
+                <span>Packages</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/'>
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/filtering-spatial-data/">
+                
+                    <img src="/img/filter_header.jpg" loading="lazy" alt="Featured image of post Filtering Spatial Data with Crosstalk" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/spatial/" >
+                spatial
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jul 25, 2018</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>In a <a class="link" href="https://mrjoh3.github.io/2018/07/20/animating-spatial-data/"  target="_blank" rel="noopener"
+    >previous post</a> I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.</p>
+<p>To do this I am going to use <code>leaflet</code>, <code>sf</code> to handle all the spatial data and <code>crosstalk</code> to filter the data visible in the map. The <code>crosstalk</code> package enables a level of interactivity that is usually reserved for more complex server (<code>shiny</code>) based applications.</p>
+<p>The data is from the <a class="link" href="https://vicroadsopendata-vicroadsmaps.opendata.arcgis.com/datasets/c2a69622ebad42e7baaa8167daa72127_0"  target="_blank" rel="noopener"
+    >VicRoads open data portal</a>. The portal has an API but I have previously downloaded the entire data set as a shapefile. There are more than 75 thousand accidents recorded in the data set but I am only looking at accidents related to alcohol for the years 2015 through 2017.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">
+<span class="nf">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">leaflet</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">crosstalk</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">htmltools</span><span class="p">)</span>
+
+
+<span class="n">shp</span> <span class="o">&lt;-</span> <span class="nf">st_read</span><span class="p">(</span><span class="s">&#39;~/Documents/Matt/GIS/shp&#39;</span><span class="p">,</span><span class="s">&#39;Crashes_Last_Five_Years&#39;</span><span class="p">,</span> 
+               <span class="n">quiet</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="nf">as.character</span><span class="p">(</span><span class="n">ACCIDENT_D</span><span class="p">),</span> <span class="s">&#39;%d/%m/%Y&#39;</span><span class="p">),</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="nf">year</span><span class="p">(</span><span class="n">date</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="nf">filter</span><span class="p">(</span><span class="n">ALCOHOL_RE</span> <span class="o">==</span> <span class="s">&#39;Yes&#39;</span><span class="p">)</span>
+
+<span class="n">sd</span> <span class="o">&lt;-</span> <span class="n">SharedData</span><span class="o">$</span><span class="nf">new</span><span class="p">(</span><span class="n">shp</span><span class="p">)</span>
+
+
+</code></pre></div><p>Once the data is imported and cleaned it is inserted into a <code>crosstalk::SharedData$new()</code> object. This creates a common data input for all interactive objects such as UI elements and compatible widgets. For a complete list of compatible widgets see the <a class="link" href="https://rstudio.github.io/crosstalk/widgets.html"  target="_blank" rel="noopener"
+    >crosstalk reference page</a>.</p>
+<p>Am minimal example can be just two lines of additional code which results in a UI slider connected to the date field and a leaflet map. Adjusting the slider will filter the markers visible in the map.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">
+<span class="nf">filter_slider</span><span class="p">(</span><span class="s">&#34;date&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">column</span><span class="o">=~</span><span class="n">date</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="m">10</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">800</span><span class="p">)</span>
+<span class="nf">leaflet</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">addTiles</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">addMarkers</span><span class="p">()</span>
+
+
+</code></pre></div><p>But let&rsquo;s add some additional layers of interactivity. <code>Crosstalk</code> has three UI filters built-in; slider, check-box and select. In the code below I am creating and saving the UI elements in order to have a little more control fitting them together.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">
+<span class="n">date_filter</span> <span class="o">&lt;-</span> <span class="nf">filter_slider</span><span class="p">(</span><span class="s">&#34;date&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="o">~</span><span class="n">date</span><span class="p">,</span> 
+                             <span class="n">step</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="s">&#39;100%&#39;</span><span class="p">,</span> <span class="n">dragRange</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="n">year_filter</span> <span class="o">&lt;-</span> <span class="nf">filter_checkbox</span><span class="p">(</span><span class="s">&#34;year&#34;</span><span class="p">,</span> <span class="s">&#34;Year&#34;</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="o">~</span><span class="n">year</span><span class="p">,</span> 
+                               <span class="n">inline</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="n">day_filter</span> <span class="o">&lt;-</span> <span class="nf">filter_checkbox</span><span class="p">(</span><span class="s">&#34;day&#34;</span><span class="p">,</span> <span class="s">&#34;Day of the Week&#34;</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="o">~</span><span class="n">DAY_OF_WEE</span><span class="p">,</span> 
+                              <span class="n">inline</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="n">severity_filter</span> <span class="o">&lt;-</span> <span class="nf">filter_checkbox</span><span class="p">(</span><span class="s">&#34;sev&#34;</span><span class="p">,</span> <span class="s">&#34;Severity&#34;</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="o">~</span><span class="n">SEVERITY</span><span class="p">,</span> 
+                                   <span class="n">inline</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="n">type_filter</span> <span class="o">&lt;-</span> <span class="nf">filter_checkbox</span><span class="p">(</span><span class="s">&#34;type&#34;</span><span class="p">,</span> <span class="s">&#34;Type&#34;</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="o">~</span><span class="n">ACCIDENT_1</span><span class="p">,</span> 
+                               <span class="n">inline</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+
+</code></pre></div><p><a class="link" href="https://rstudio.github.io/leaflet/"  target="_blank" rel="noopener"
+    >Rstudio&rsquo;s leaflet</a> package is the most ubiquitous method for incorporating an interactive map. In this post I am not going to discuss all the options I use but will include the code. To make the map look and feel how I want, I will use <code>addPopups</code> and <code>addProviderTiles</code>.</p>
+<p>Originally I intended to include <code>addAwesomeMarkers</code>, but with this data set there are too many points for the markers to look good and add meaning to the final map. Instead I will use transparent circle markers to give a sense of density where points overlap.</p>
+<p>Now, I use <code>leaflet</code> maps a lot. They are incredibly versatile with a wealth of options (see <a class="link" href="https://rstudio.github.io/leaflet/"  target="_blank" rel="noopener"
+    >documentation</a> to get started). They are also very simple. In the code below you can see my standard setup (excluding <code>addCircleMarkers()</code>). I save this as a snippet and insert it each time I make a map. This means that my maps are consistent and that I can get something done in a few minutes just focusing on the new layer.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">
+<span class="n">map</span> <span class="o">&lt;-</span> <span class="nf">leaflet</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="s">&#39;100%&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">addProviderTiles</span><span class="p">(</span><span class="s">&#34;CartoDB.Positron&#34;</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s">&#39;Default&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">addProviderTiles</span><span class="p">(</span><span class="s">&#34;Esri.WorldImagery&#34;</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s">&#39;Aerial&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">addProviderTiles</span><span class="p">(</span><span class="s">&#34;OpenStreetMap.Mapnik&#34;</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s">&#39;Street&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">addProviderTiles</span><span class="p">(</span><span class="s">&#34;OpenTopoMap&#34;</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s">&#39;Terrain&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">addScaleBar</span><span class="p">(</span><span class="s">&#39;bottomright&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">addCircleMarkers</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="s">&#39;Accidents&#39;</span><span class="p">,</span> 
+                   <span class="n">stroke</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> 
+                   <span class="n">opacity</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">,</span>
+                   <span class="n">fillColor</span> <span class="o">=</span> <span class="o">~</span><span class="nf">sapply</span><span class="p">(</span><span class="n">SEVERITY</span><span class="p">,</span> <span class="n">switch</span><span class="p">,</span> <span class="n">USE.NAMES</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
+                                    <span class="s">&#39;Fatal accident&#39;</span> <span class="o">=</span> <span class="s">&#39;#a50f15&#39;</span><span class="p">,</span>
+                                    <span class="s">&#39;Serious injury accident&#39;</span> <span class="o">=</span> <span class="s">&#39;#de2d26&#39;</span><span class="p">,</span>
+                                    <span class="s">&#39;Other injury accident&#39;</span> <span class="o">=</span> <span class="s">&#39;#fb6a4a&#39;</span> 
+                                     <span class="p">),</span>
+                   <span class="n">radius</span> <span class="o">=</span> <span class="o">~</span><span class="nf">sapply</span><span class="p">(</span><span class="n">SEVERITY</span><span class="p">,</span> <span class="n">switch</span><span class="p">,</span> <span class="n">USE.NAMES</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
+                                    <span class="s">&#39;Fatal accident&#39;</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
+                                    <span class="s">&#39;Serious injury accident&#39;</span> <span class="o">=</span> <span class="m">7</span><span class="p">,</span>
+                                    <span class="s">&#39;Other injury accident&#39;</span> <span class="o">=</span> <span class="m">5</span>
+                                     <span class="p">),</span>
+                   <span class="n">popup</span> <span class="o">=</span> <span class="o">~</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;&lt;h3&gt;Some Accident Details&lt;/h3&gt;&lt;br&gt;&#39;</span><span class="p">,</span>
+                                   <span class="s">&#39;&lt;b&gt;Severity&lt;/b&gt;: &#39;</span><span class="p">,</span> <span class="n">SEVERITY</span><span class="p">,</span> <span class="s">&#39;&lt;br&gt;&#39;</span><span class="p">,</span>
+                                   <span class="s">&#39;&lt;b&gt;Type of Accident&lt;/b&gt;: &#39;</span><span class="p">,</span> <span class="n">ACCIDENT_1</span><span class="p">,</span> <span class="s">&#39;&lt;br&gt;&#39;</span><span class="p">,</span>
+                                   <span class="s">&#39;&lt;b&gt;Light Conditions&lt;/b&gt;: &#39;</span><span class="p">,</span> <span class="n">LIGHT_COND</span><span class="p">,</span> <span class="s">&#39;&lt;br&gt;&#39;</span><span class="p">,</span>
+                                   <span class="s">&#39;&lt;b&gt;Road Geometry&lt;/b&gt;: &#39;</span><span class="p">,</span> <span class="n">ROAD_GEOME</span><span class="p">,</span> <span class="s">&#34;&lt;br&gt;&#34;</span><span class="p">,</span>
+                                   <span class="s">&#39;&lt;b&gt;Speed Zone&lt;/b&gt;: &#39;</span><span class="p">,</span> <span class="n">SPEED_ZONE</span><span class="p">,</span> <span class="s">&#39;&lt;br&gt;&#39;</span><span class="p">,</span>
+                                   <span class="s">&#39;&lt;b&gt;Number of People&lt;/b&gt;: &#39;</span><span class="p">,</span> <span class="n">TOTAL_PERS</span><span class="p">,</span> <span class="s">&#39;&lt;br&gt;&#39;</span><span class="p">,</span>
+                                   <span class="s">&#39;&lt;b&gt;Persons Injured or Fatality&lt;/b&gt;: &#39;</span><span class="p">,</span> <span class="n">INJ_OR_FAT</span><span class="p">)</span>
+                   <span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">addLayersControl</span><span class="p">(</span>
+        <span class="n">baseGroups</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Default&#34;</span><span class="p">,</span> <span class="s">&#34;Aerial&#34;</span><span class="p">,</span> <span class="s">&#34;Street&#34;</span><span class="p">,</span> <span class="s">&#34;Terrain&#34;</span><span class="p">),</span>
+        <span class="n">overlayGroups</span> <span class="o">=</span> <span class="s">&#39;Accidents&#39;</span><span class="p">,</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="nf">layersControlOptions</span><span class="p">(</span><span class="n">collapsed</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+      <span class="p">)</span>
+
+
+</code></pre></div><p>Now we have all of the elements we need. These could have been added directly to the <code>rmarkdown</code> page with each code chunk, but wrapping them in some <code>htmltools</code> and <code>crosstalk</code> tags makes for a slightly cleaner user experience.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">
+<span class="n">tags</span><span class="o">$</span><span class="nf">div</span><span class="p">(</span><span class="n">class</span><span class="o">=</span><span class="s">&#34;well well-lg&#34;</span><span class="p">,</span>
+         <span class="nf">tagList</span><span class="p">(</span>
+           <span class="n">tags</span><span class="o">$</span><span class="nf">h2</span><span class="p">(</span><span class="s">&#39;Alcohol Related Motor Vehicle Accidents 2012 - 2017&#39;</span><span class="p">),</span>
+           <span class="n">date_filter</span><span class="p">,</span>
+           <span class="n">map</span><span class="p">,</span>
+           <span class="nf">bscols</span><span class="p">(</span><span class="n">day_filter</span><span class="p">,</span>
+                     <span class="nf">list</span><span class="p">(</span><span class="n">year_filter</span><span class="p">,</span>
+                          <span class="n">severity_filter</span><span class="p">),</span>
+                     <span class="n">type_filter</span><span class="p">)</span>
+                    <span class="p">)</span>
+            <span class="p">)</span>    
+
+
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/crosstalk/">crosstalk</a>
+        
+            <a href="/tags/leaflet/">leaflet</a>
+        
+            <a href="/tags/rstats/">rstats</a>
+        
+            <a href="/tags/sf/">sf</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/animating-spatial-data/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Animating Spatial Data</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/pkg/mapedit-addin/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">mapedit.addin</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 A Simple Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

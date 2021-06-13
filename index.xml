@@ -1,83 +1,242 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>A Simple Blog</title>
-    <link>/</link>
-    <description>Recent content on A Simple Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Shiny Image Gallery Examples</title>
-      <link>/2018/12/26/shiny-image-gallery-examples/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/12/26/shiny-image-gallery-examples/</guid>
-      <description>DRAFT Recently I had to implement an image gallery within a shiny application. A simple grid of small images where clicking opens the fullscreen image. Nothing complicated, but I did have several requirements:
-The gallery needed to render from a folder of images The gallery interface and thumbnails needed to be responsive The gallery needed to link to other shiny UI The fullsize image should be zoomable to see the full resolution.</description>
-    </item>
-    
-    <item>
-      <title>mapedit.addin</title>
-      <link>/pkg/mapedit-addin/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/pkg/mapedit-addin/</guid>
-      <description>mapedit.addin  
-The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
-library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.</description>
-    </item>
-    
-    <item>
-      <title>c3 Package</title>
-      <link>/pkg/c3-package/</link>
-      <pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/pkg/c3-package/</guid>
-      <description>The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App.
-The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.</description>
-    </item>
-    
-    <item>
-      <title>pier Package</title>
-      <link>/pkg/pier-package/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/pkg/pier-package/</guid>
-      <description>The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</description>
-    </item>
-    
-    <item>
-      <title>Filtering Spatial Data with Crosstalk</title>
-      <link>/2018/07/25/filtering-spatial-data/</link>
-      <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/07/25/filtering-spatial-data/</guid>
-      <description>In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
-To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications.</description>
-    </item>
-    
-    <item>
-      <title>Another blog about a blog</title>
-      <link>/2018/07/21/another-blog-about-a-blog/</link>
-      <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/07/21/another-blog-about-a-blog/</guid>
-      <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
-    </item>
-    
-    <item>
-      <title>Animating Spatial Data</title>
-      <link>/2018/07/20/animating-spatial-data/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/07/20/animating-spatial-data/</guid>
-      <description>#rstats + #sf + #ggplot2 + #gganimate = a great way to visualise some sobering data. Only accidents where alcohol was involved. Remember each frame only accidents from a single day. See code gist https://t.co/wqEcYku2us and get data from #vicroads api https://t.co/cBX1kBz9iw pic.twitter.com/tNobkLQQQH — Matt Johnson (@mrjoh3) July 18, 2018    library(dplyr) library(sf) library(ggplot2) library(gganimate) shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;% filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;% mutate(date = as.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>A Simple Blog</title>
+        <link>/</link>
+        <description>Recent content on A Simple Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Filtering Spatial Data with Crosstalk</title>
+        <link>/p/filtering-spatial-data/</link>
+        <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
+        
+        <guid>/p/filtering-spatial-data/</guid>
+        <description>&lt;img src="/img/filter_header.jpg" alt="Featured image of post Filtering Spatial Data with Crosstalk" /&gt;&lt;p&gt;In a &lt;a class=&#34;link&#34; href=&#34;https://mrjoh3.github.io/2018/07/20/animating-spatial-data/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;previous post&lt;/a&gt; I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.&lt;/p&gt;
+&lt;p&gt;To do this I am going to use &lt;code&gt;leaflet&lt;/code&gt;, &lt;code&gt;sf&lt;/code&gt; to handle all the spatial data and &lt;code&gt;crosstalk&lt;/code&gt; to filter the data visible in the map. The &lt;code&gt;crosstalk&lt;/code&gt; package enables a level of interactivity that is usually reserved for more complex server (&lt;code&gt;shiny&lt;/code&gt;) based applications.&lt;/p&gt;
+&lt;p&gt;The data is from the &lt;a class=&#34;link&#34; href=&#34;https://vicroadsopendata-vicroadsmaps.opendata.arcgis.com/datasets/c2a69622ebad42e7baaa8167daa72127_0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;VicRoads open data portal&lt;/a&gt;. The portal has an API but I have previously downloaded the entire data set as a shapefile. There are more than 75 thousand accidents recorded in the data set but I am only looking at accidents related to alcohol for the years 2015 through 2017.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
+&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dplyr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;leaflet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;crosstalk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lubridate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;htmltools&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&#34;n&#34;&gt;shp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;st_read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Crashes_Last_Five_Years&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+               &lt;span class=&#34;n&#34;&gt;quiet&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stringsAsFactors&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span class=&#34;nf&#34;&gt;mutate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;as.Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;as.character&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ACCIDENT_D&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;%d/%m/%Y&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+         &lt;span class=&#34;n&#34;&gt;year&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;year&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
+    &lt;span class=&#34;nf&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ALCOHOL_RE&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Yes&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SharedData&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once the data is imported and cleaned it is inserted into a &lt;code&gt;crosstalk::SharedData$new()&lt;/code&gt; object. This creates a common data input for all interactive objects such as UI elements and compatible widgets. For a complete list of compatible widgets see the &lt;a class=&#34;link&#34; href=&#34;https://rstudio.github.io/crosstalk/widgets.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;crosstalk reference page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Am minimal example can be just two lines of additional code which results in a UI slider connected to the date field and a leaflet map. Adjusting the slider will filter the markers visible in the map.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
+&lt;span class=&#34;nf&#34;&gt;filter_slider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;date&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;column&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;800&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;leaflet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;addTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;addMarkers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But let&amp;rsquo;s add some additional layers of interactivity. &lt;code&gt;Crosstalk&lt;/code&gt; has three UI filters built-in; slider, check-box and select. In the code below I am creating and saving the UI elements in order to have a little more control fitting them together.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
+&lt;span class=&#34;n&#34;&gt;date_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_slider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;date&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;column&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+                             &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;100%&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dragRange&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;year_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_checkbox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;year&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Year&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;year&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+                               &lt;span class=&#34;n&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;day_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_checkbox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;day&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Day of the Week&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DAY_OF_WEE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+                              &lt;span class=&#34;n&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;severity_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_checkbox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;sev&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Severity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SEVERITY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+                                   &lt;span class=&#34;n&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;type_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_checkbox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Type&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ACCIDENT_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+                               &lt;span class=&#34;n&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rstudio.github.io/leaflet/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Rstudio&amp;rsquo;s leaflet&lt;/a&gt; package is the most ubiquitous method for incorporating an interactive map. In this post I am not going to discuss all the options I use but will include the code. To make the map look and feel how I want, I will use &lt;code&gt;addPopups&lt;/code&gt; and &lt;code&gt;addProviderTiles&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Originally I intended to include &lt;code&gt;addAwesomeMarkers&lt;/code&gt;, but with this data set there are too many points for the markers to look good and add meaning to the final map. Instead I will use transparent circle markers to give a sense of density where points overlap.&lt;/p&gt;
+&lt;p&gt;Now, I use &lt;code&gt;leaflet&lt;/code&gt; maps a lot. They are incredibly versatile with a wealth of options (see &lt;a class=&#34;link&#34; href=&#34;https://rstudio.github.io/leaflet/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;documentation&lt;/a&gt; to get started). They are also very simple. In the code below you can see my standard setup (excluding &lt;code&gt;addCircleMarkers()&lt;/code&gt;). I save this as a snippet and insert it each time I make a map. This means that my maps are consistent and that I can get something done in a few minutes just focusing on the new layer.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
+&lt;span class=&#34;n&#34;&gt;map&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;leaflet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;100%&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span class=&#34;nf&#34;&gt;addProviderTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;CartoDB.Positron&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Default&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span class=&#34;nf&#34;&gt;addProviderTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Esri.WorldImagery&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Aerial&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span class=&#34;nf&#34;&gt;addProviderTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;OpenStreetMap.Mapnik&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Street&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span class=&#34;nf&#34;&gt;addProviderTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;OpenTopoMap&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Terrain&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span class=&#34;nf&#34;&gt;addScaleBar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;bottomright&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span class=&#34;nf&#34;&gt;addCircleMarkers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Accidents&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+                   &lt;span class=&#34;n&#34;&gt;stroke&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+                   &lt;span class=&#34;n&#34;&gt;opacity&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                   &lt;span class=&#34;n&#34;&gt;fillColor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sapply&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SEVERITY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;switch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;USE.NAMES&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Fatal accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;#a50f15&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Serious injury accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;#de2d26&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Other injury accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;#fb6a4a&amp;#39;&lt;/span&gt; 
+                                     &lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+                   &lt;span class=&#34;n&#34;&gt;radius&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sapply&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SEVERITY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;switch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;USE.NAMES&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Fatal accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Serious injury accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Other injury accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;
+                                     &lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+                   &lt;span class=&#34;n&#34;&gt;popup&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;paste0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;h3&amp;gt;Some Accident Details&amp;lt;/h3&amp;gt;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Severity&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SEVERITY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Type of Accident&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ACCIDENT_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Light Conditions&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LIGHT_COND&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Road Geometry&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ROAD_GEOME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;lt;br&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Speed Zone&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SPEED_ZONE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Number of People&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TOTAL_PERS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Persons Injured or Fatality&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;INJ_OR_FAT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+                   &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span class=&#34;nf&#34;&gt;addLayersControl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;baseGroups&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Default&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Aerial&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Street&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Terrain&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;overlayGroups&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Accidents&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;options&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;layersControlOptions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;collapsed&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we have all of the elements we need. These could have been added directly to the &lt;code&gt;rmarkdown&lt;/code&gt; page with each code chunk, but wrapping them in some &lt;code&gt;htmltools&lt;/code&gt; and &lt;code&gt;crosstalk&lt;/code&gt; tags makes for a slightly cleaner user experience.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
+&lt;span class=&#34;n&#34;&gt;tags&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;well well-lg&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+         &lt;span class=&#34;nf&#34;&gt;tagList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+           &lt;span class=&#34;n&#34;&gt;tags&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;h2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Alcohol Related Motor Vehicle Accidents 2012 - 2017&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+           &lt;span class=&#34;n&#34;&gt;date_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+           &lt;span class=&#34;n&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+           &lt;span class=&#34;nf&#34;&gt;bscols&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;day_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                     &lt;span class=&#34;nf&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;year_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                          &lt;span class=&#34;n&#34;&gt;severity_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+                     &lt;span class=&#34;n&#34;&gt;type_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+                    &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;    
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+</description>
+        </item>
+        <item>
+        <title>Another blog about a blog</title>
+        <link>/p/another-blog-about-a-blog/</link>
+        <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
+        
+        <guid>/p/another-blog-about-a-blog/</guid>
+        <description>&lt;img src="/img/snow-header.png" alt="Featured image of post Another blog about a blog" /&gt;
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Currently I mostly work with &lt;code&gt;R&lt;/code&gt; and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of &lt;code&gt;Blogdown&lt;/code&gt; seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown: Creating Websites with R Markdown&lt;/a&gt; by &lt;a href=&#34;https://bookdown.org/yihui/blogdown/yihui-xie.html&#34;&gt;Yihui Xie&lt;/a&gt; &lt;em&gt;et al.&lt;/em&gt; covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.&lt;/p&gt;
+&lt;div id=&#34;choosing-a-theme-and-installing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Choosing a Theme and Installing&lt;/h2&gt;
+&lt;p&gt;There are many themes available at &lt;a href=&#34;https://themes.gohugo.io&#34;&gt;Hugo Themes&lt;/a&gt;. This one is called &lt;a href=&#34;https://github.com/jpescador/hugo-future-imperfect&#34;&gt;Hugo Future Imperfect&lt;/a&gt; by &lt;a href=&#34;https://github.com/jpescador&#34;&gt;Julio Pescdor&lt;/a&gt;. Once you have chosen it is time to begin. Themes are loaded directly from their Github repositories so you will need the themes Github username and repository name.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+install.packages(&amp;quot;blogdown&amp;quot;)
+blogdown::install_hugo()
+
+blogdown::new_site(theme = &amp;quot;jpescador/hugo-future-imperfect&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now everything is up an running but it is easier to test everything if you have some content. The &lt;code&gt;Blogdown&lt;/code&gt; package includes a series of addins that makes this process simple, just select &lt;code&gt;New Post&lt;/code&gt; from the &lt;code&gt;Addins&lt;/code&gt; menu.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/post/2018-07-20-another-blog-about-a-blog_files/new_post.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;new post screenshot&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;configuring-the-site&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Configuring the Site&lt;/h2&gt;
+&lt;p&gt;With some simple content generated use &lt;code&gt;blogdown:::serve_site()&lt;/code&gt; to preview your site. At this stage it will not look exactly as you expected. Each theme has a &lt;code&gt;config.toml&lt;/code&gt; that is used to setup each site. Most themes will have detailed instructions or an &lt;a href=&#34;https://github.com/jpescador/hugo-future-imperfect/blob/master/exampleSite/config.toml&#34;&gt;example project&lt;/a&gt; for your reference. This file is quite readable so you can just scan through and copy the settings you need.&lt;/p&gt;
+&lt;p&gt;Be sure to read any documentation that comes with the theme as they are all different and may have some simple gotchas. Here the &lt;code&gt;CSS&lt;/code&gt; files did not want to load until I found that I had to add the setting &lt;code&gt;relativeURLs = true&lt;/code&gt;. Also play around with all the settings in the &lt;code&gt;config.toml&lt;/code&gt; file just so you know what they do.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;deploying&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Deploying&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Hugo&lt;/code&gt; generates static sites so there are many deployment options. The simplest is to run &lt;code&gt;blogdown::build_site()&lt;/code&gt; and then copy the contents of the &lt;code&gt;public&lt;/code&gt; folder to your hosting service. I won’t go though them as the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/deployment.html&#34;&gt;blogdown book&lt;/a&gt; mentioned above goes into great detail.&lt;/p&gt;
+&lt;p&gt;As I am too cheap to pay for a hosting service and want to make use of my Github pages URL I decided (against the suggestions in the book) to use Github and Travis. After referring to the blogdown book for instructions. The only difficulty was linking the Github repository with Travis with permissions to write back to the repository. &lt;a href=&#34;https://medium.com/zendesk-engineering/how-to-create-a-website-like-freshswift-net-using-hugo-travis-ci-and-github-pages-67be6f480298&#34;&gt;This post&lt;/a&gt; contained all the details necessary for setting an environment variable in Travis.&lt;/p&gt;
+&lt;p&gt;This worked nicely &lt;strong&gt;BUT&lt;/strong&gt;…&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;actually-deploying&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Actually Deploying&lt;/h2&gt;
+&lt;p&gt;When Travis builds the site it runs &lt;code&gt;blogdown::build_site()&lt;/code&gt; just as you would on your computer. Now if you have an &lt;code&gt;.Rmd&lt;/code&gt; post that uses &lt;code&gt;R&lt;/code&gt; packages, they are installed on your computer but they are not on Travis. Travis can be configured to install the packages, but you would have to do this each time you add use a new package. I intend to experiment with a lot of different packages and this seems like a lot of effort when you can simply build the site locally and move the static files.&lt;/p&gt;
+&lt;p&gt;After several dead-ends and messing around with folder names to appease the Github gods (who were not appeased), I came across instructions on the &lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/#github-user-or-organization-pages&#34;&gt;GoHugo website&lt;/a&gt;. This involved creating 2 repositories one called &lt;code&gt;blog&lt;/code&gt; and the other &lt;code&gt;&amp;lt;USER&amp;gt;.github.io&lt;/code&gt; and then setting up the public folder of &lt;code&gt;blog&lt;/code&gt; as a git sub-module that commits to &lt;code&gt;&amp;lt;USER&amp;gt;.github.io&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The only drawback is that if you use the git GUI in &lt;code&gt;RStudio&lt;/code&gt; the sub-module does not commit. But this is likely user error as my knowledge of git is limited. For now I am using the terminal to push changes in the public folder.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;
+# run once
+git submodule add -b master git@github.com:mrjoh3/mrjoh3.github.io.git public
+
+cd public
+
+git pull
+
+# after updates
+git add .
+git commit -m &amp;#39;some message&amp;#39;
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lessons-learnt&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Lessons Learnt&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Blogdown&lt;/code&gt; has been fantastic, I had a site up and running within an hour. And this included install dependancies finding a theme and understanding the &lt;code&gt;config.toml&lt;/code&gt; file. Even with complication I only spent 3 hours getting my deployment sorted.&lt;/p&gt;
+&lt;p&gt;What I should have done from the beginning is think more about my own needs and requirements. All of the instructions for the different services were all clear and worked as expected. That they sometimes did not meet my needs reflects more on my preparation.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>Animating Spatial Data</title>
+        <link>/p/animating-spatial-data/</link>
+        <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+        
+        <guid>/p/animating-spatial-data/</guid>
+        <description>
+
+
+&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-cards=&#34;hidden&#34; data-lang=&#34;en&#34;&gt;
+&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;
+&lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; + &lt;a href=&#34;https://twitter.com/hashtag/sf?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#sf&lt;/a&gt; + &lt;a href=&#34;https://twitter.com/hashtag/ggplot2?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ggplot2&lt;/a&gt; + &lt;a href=&#34;https://twitter.com/hashtag/gganimate?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#gganimate&lt;/a&gt; = a great way to visualise some sobering data. Only accidents where alcohol was involved. Remember each frame only accidents from a single day. &lt;br&gt;&lt;br&gt;See code gist &lt;a href=&#34;https://t.co/wqEcYku2us&#34;&gt;https://t.co/wqEcYku2us&lt;/a&gt; and get data from &lt;a href=&#34;https://twitter.com/hashtag/vicroads?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#vicroads&lt;/a&gt; api &lt;a href=&#34;https://t.co/cBX1kBz9iw&#34;&gt;https://t.co/cBX1kBz9iw&lt;/a&gt; &lt;a href=&#34;https://t.co/tNobkLQQQH&#34;&gt;pic.twitter.com/tNobkLQQQH&lt;/a&gt;
+&lt;/p&gt;
+— Matt Johnson (&lt;span class=&#34;citation&#34;&gt;@mrjoh3&lt;/span&gt;) &lt;a href=&#34;https://twitter.com/mrjoh3/status/1019564471168073728?ref_src=twsrc%5Etfw&#34;&gt;July 18, 2018&lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;img src=&#34;/post/2018-07-20-animating-spatial-data_files/vic_alcohol.gif&#34; alt=&#34;Alcohol related accidents in Victoria&#34; /&gt;
+&lt;/center&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
+library(sf)
+library(ggplot2)
+library(gganimate)
+
+shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;%
+  filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;%
+  mutate(date = as.Date(as.character(ACCIDENT_D), &amp;#39;%d/%m/%Y&amp;#39;))
+  
+vic &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;, &amp;#39;VIC_STATE_POLYGON_shp&amp;#39;, quiet = TRUE) 
+
+plt &amp;lt;- ggplot() +
+  geom_sf(data = vic, fill = &amp;#39;grey&amp;#39;, colour = &amp;#39;darkgrey&amp;#39;) +
+  geom_sf(data = shp, aes(colour = SEVERITY)) +
+  scale_color_manual(values = c(&amp;#39;red&amp;#39;, &amp;#39;orange&amp;#39; ,&amp;#39;yellow&amp;#39;)) +
+  guides(colour = guide_legend(&amp;#39;&amp;#39;)) +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        panel.background = element_rect(fill = &amp;quot;darkgrey&amp;quot;, colour = &amp;quot;darkgrey&amp;quot;),
+        plot.background = element_rect(fill = &amp;quot;darkgrey&amp;quot;),
+        legend.position = &amp;quot;bottom&amp;quot;,
+        legend.background = element_rect(fill = &amp;quot;darkgrey&amp;quot;),
+        legend.key = element_rect(fill = &amp;quot;darkgrey&amp;quot;, colour = &amp;quot;darkgrey&amp;quot;)) +
+  labs(title = &amp;#39;Alcohol Related Daily Road Accidents in Victoria 2012-2017&amp;#39;,
+       subtitle = &amp;#39;Date: {frame_time}&amp;#39;) +
+  transition_time(date) +
+  ease_aes(&amp;#39;linear&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>
