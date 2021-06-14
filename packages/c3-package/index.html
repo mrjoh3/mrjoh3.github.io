@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App.
+The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.'><title>c3 Package</title>
+
+<link rel='canonical' href='/packages/c3-package/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='c3 Package'>
+<meta property='og:description' content='The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App.
+The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.'>
+<meta property='og:url' content='/packages/c3-package/'>
+<meta property='og:site_name' content='A Simple Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='htmlwidgets' /><meta property='article:tag' content='cran' /><meta property='article:published_time' content='2018-09-06T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-09-06T00:00:00&#43;00:00'/>
+<meta name="twitter:site" content="@@mrjoh3">
+    <meta name="twitter:creator" content="@@mrjoh3"><meta name="twitter:title" content="c3 Package">
+<meta name="twitter:description" content="The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App.
+The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.">
+    </head>
+    <body class="article-page keep-sidebar">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended ">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/logo_hu184d6c6979cf67cdc222d725036d113f_233833_300x0_resize_q75_box.jpg" width="300"
+                            height="261" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="/">A Simple Blog</a></h1>
+        <h2 class="site-description">musings and code about anything spatial, visual or interesting.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/packages/'>
+                
+                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="icon icon-tabler icon-tabler-chevron-left"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   stroke-width="2"
+   stroke="currentColor"
+   fill="none"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="packages.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1483"
+     inkscape:window-height="1064"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="39.833333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6" />
+  <path
+     stroke="none"
+     d="M0 0h24v24H0z"
+     id="path2" />
+  <polyline
+     points="15 6 9 12 15 18"
+     id="polyline4"
+     transform="matrix(-1,0,0,1,24.000041,0)" />
+</svg>
+
+                
+                <span>Packages</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/packages/" >
+                packages
+            </a>
+        
+            <a href="/categories/r/" >
+                r
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/packages/c3-package/">c3 Package</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Sep 06, 2018</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/d3/d3.min.js"></script>
+<link href="/rmarkdown-libs/c3/c3.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/c3/c3.min.js"></script>
+<script src="/rmarkdown-libs/c3-binding/c3.js"></script>
+
+
+<p><a href="https://zenodo.org/badge/latestdoi/60614778"><img src="https://zenodo.org/badge/60614778.svg" alt="DOI" /></a> <a href="https://travis-ci.org/mrjoh3/c3"><img src="https://travis-ci.org/mrjoh3/c3.svg?branch=master" alt="Build Status" /></a> <a href="https://codecov.io/gh/mrjoh3/c3"><img src="https://codecov.io/gh/mrjoh3/c3/branch/master/graph/badge.svg" alt="codecov" /></a> <a href="http://cran.r-project.org/package=c3/"><img src="http://www.r-pkg.org/badges/version/c3" alt="CRAN_Status_Badge" /></a> <a href="http://cran.r-project.org/package=c3"><img src="http://cranlogs.r-pkg.org/badges/c3" /></a></p>
+<p>The <code>c3</code> package is a wrapper, or <a href="http://www.htmlwidgets.org/">htmlwidget</a>, for the <a href="http://c3js.org/">C3</a> javascript charting library by <a href="https://github.com/masayuki0812">Masayuki Tanaka</a>. You will find this package useful if you are wanting create a chart using <a href="https://www.r-project.org/">R</a> for embedding in a Rmarkdown document or Shiny App.</p>
+<p>The <code>C3</code> library is very versatile and includes a lot of options. Currently this package wraps most of the <code>C3</code> <a href="http://c3js.org/reference.html">options object</a>. Even with this current limitation a wide range of options are available.</p>
+<div id="warning" class="section level2">
+<h2>Warning</h2>
+<p>This package is under active development and will definitely change. All attempts will be made to maintain the functionality and methods demonstrated in this document. Documentation is currently a work in progress.</p>
+<p>Any suggestions, advice or requests are welcome. For any bugs (there will be bugs) please submit an <a href="https://github.com/mrjoh3/c3/issues">issue</a>.</p>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>You probably already guessed this bit. Choose CRAN or github install:</p>
+<pre class="r"><code>install.packages(&#39;c3&#39;)
+
+devtools::install_github(&quot;mrjoh3/c3&quot;)</code></pre>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p>Please note that this package is under active development and may change at any time. The plots that currently work are line (and varieties), bar and scatter plots. Where possible the package tries to emulate the <a href="https://books.google.com.au/books?id=ZiwLCAAAQBAJ&amp;lpg=PR3&amp;dq=inauthor%3A%22Leland%20Wilkinson%22&amp;pg=PR3#v=onepage&amp;q&amp;f=false">Grammer of Graphics</a> used in Hadley Wickham’s <a href="http://ggplot2.org/">ggplot2</a>.</p>
+<p>The <code>c3</code> package is intended to be as simple and lightweight as possible. As a starting point the data input must be a <code>data.frame</code> with several options.</p>
+<ul>
+<li>If a <code>data.frame</code> without any options is passed all of the numeric columns will be plotted. This can be used in line and bar plots. Each column is a line or bar.</li>
+<li>For more complex plots only 3 columns are used, those defined as <code>x</code>, <code>y</code> and <code>group</code>. This requires a <code>data.frame</code> with a vertical structure.</li>
+</ul>
+<div id="the-basics" class="section level3">
+<h3>The Basics</h3>
+<p>Where no options are supplied a simple line plot is produced by default. Where no x-axis is defined the plots are sequential. <code>Date</code> x-axis can be parsed with not additional setting if in the format <code>%Y-%m-%d</code> (ie ‘2014-01-01’)</p>
+<pre class="r"><code>library(c3)
+
+data &lt;- data.frame(a = abs(rnorm(20) * 10),
+                  b = abs(rnorm(20) * 10),
+                  date = seq(as.Date(&quot;2014-01-01&quot;), by = &quot;month&quot;, length.out = 20))
+
+c3(data)</code></pre>
+<div id="htmlwidget-1" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":{"json":[{"a":16.1701,"b":10.3377},{"a":3.0792,"b":15.0227},{"a":2.3325,"b":1.8637},{"a":3.6814,"b":18.4285},{"a":6.1698,"b":2.9806},{"a":11.3482,"b":15.2654},{"a":19.0634,"b":6.3901},{"a":8.8558,"b":22.3799},{"a":0.231,"b":6.0967},{"a":1.7704,"b":8.9302},{"a":9.1043,"b":6.8809},{"a":7.1712,"b":11.0294},{"a":3.0934,"b":11.5994},{"a":2.5571,"b":20.8078},{"a":10.7051,"b":9.2496},{"a":3.1014,"b":7.4156},{"a":4.3393,"b":4.9094},{"a":11.0215,"b":8.0874},{"a":4.0287,"b":8.4703},{"a":12.1493,"b":7.3596}],"keys":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="piping" class="section level3">
+<h3>Piping</h3>
+<p>The package also imports the <a href="https://CRAN.R-project.org/package=magrittr">magrittr</a> piping function (<code>%&gt;%</code>) to simplify syntax.</p>
+<pre class="r"><code>data %&gt;% c3() </code></pre>
+<div id="htmlwidget-2" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"data":{"json":[{"a":16.1701,"b":10.3377},{"a":3.0792,"b":15.0227},{"a":2.3325,"b":1.8637},{"a":3.6814,"b":18.4285},{"a":6.1698,"b":2.9806},{"a":11.3482,"b":15.2654},{"a":19.0634,"b":6.3901},{"a":8.8558,"b":22.3799},{"a":0.231,"b":6.0967},{"a":1.7704,"b":8.9302},{"a":9.1043,"b":6.8809},{"a":7.1712,"b":11.0294},{"a":3.0934,"b":11.5994},{"a":2.5571,"b":20.8078},{"a":10.7051,"b":9.2496},{"a":3.1014,"b":7.4156},{"a":4.3393,"b":4.9094},{"a":11.0215,"b":8.0874},{"a":4.0287,"b":8.4703},{"a":12.1493,"b":7.3596}],"keys":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="other-line-plots" class="section level2">
+<h2>Other Line Plots</h2>
+<p>There are 5 different line plots available:</p>
+<ul>
+<li>line</li>
+<li>spline</li>
+<li>step</li>
+<li>area</li>
+<li>area-step</li>
+</ul>
+<div id="spline" class="section level4">
+<h4>Spline</h4>
+<pre class="r"><code>data %&gt;%
+  c3() %&gt;%
+  c3_line(&#39;spline&#39;)</code></pre>
+<div id="htmlwidget-3" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"data":{"json":[{"a":16.1701,"b":10.3377},{"a":3.0792,"b":15.0227},{"a":2.3325,"b":1.8637},{"a":3.6814,"b":18.4285},{"a":6.1698,"b":2.9806},{"a":11.3482,"b":15.2654},{"a":19.0634,"b":6.3901},{"a":8.8558,"b":22.3799},{"a":0.231,"b":6.0967},{"a":1.7704,"b":8.9302},{"a":9.1043,"b":6.8809},{"a":7.1712,"b":11.0294},{"a":3.0934,"b":11.5994},{"a":2.5571,"b":20.8078},{"a":10.7051,"b":9.2496},{"a":3.1014,"b":7.4156},{"a":4.3393,"b":4.9094},{"a":11.0215,"b":8.0874},{"a":4.0287,"b":8.4703},{"a":12.1493,"b":7.3596}],"keys":{"value":["a","b"]},"type":"spline"},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="step" class="section level4">
+<h4>Step</h4>
+<pre class="r"><code>data %&gt;%
+  c3(x = &#39;date&#39;) %&gt;%
+  c3_line(&#39;area-step&#39;)</code></pre>
+<div id="htmlwidget-4" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":16.1701,"b":10.3377},{"date":"2014-02-01","a":3.0792,"b":15.0227},{"date":"2014-03-01","a":2.3325,"b":1.8637},{"date":"2014-04-01","a":3.6814,"b":18.4285},{"date":"2014-05-01","a":6.1698,"b":2.9806},{"date":"2014-06-01","a":11.3482,"b":15.2654},{"date":"2014-07-01","a":19.0634,"b":6.3901},{"date":"2014-08-01","a":8.8558,"b":22.3799},{"date":"2014-09-01","a":0.231,"b":6.0967},{"date":"2014-10-01","a":1.7704,"b":8.9302},{"date":"2014-11-01","a":9.1043,"b":6.8809},{"date":"2014-12-01","a":7.1712,"b":11.0294},{"date":"2015-01-01","a":3.0934,"b":11.5994},{"date":"2015-02-01","a":2.5571,"b":20.8078},{"date":"2015-03-01","a":10.7051,"b":9.2496},{"date":"2015-04-01","a":3.1014,"b":7.4156},{"date":"2015-05-01","a":4.3393,"b":4.9094},{"date":"2015-06-01","a":11.0215,"b":8.0874},{"date":"2015-07-01","a":4.0287,"b":8.4703},{"date":"2015-08-01","a":12.1493,"b":7.3596}],"keys":{"value":["date","a","b"]},"type":"area-step"},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}},"axis":{"x":{"label":"date","type":"timeseries"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="bar-plots" class="section level2">
+<h2>Bar Plots</h2>
+<pre class="r"><code>data[1:10, ] %&gt;%
+  c3() %&gt;%
+  c3_bar(stacked = TRUE, 
+         rotate = TRUE)</code></pre>
+<div id="htmlwidget-5" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"data":{"json":[{"a":16.1701,"b":10.3377},{"a":3.0792,"b":15.0227},{"a":2.3325,"b":1.8637},{"a":3.6814,"b":18.4285},{"a":6.1698,"b":2.9806},{"a":11.3482,"b":15.2654},{"a":19.0634,"b":6.3901},{"a":8.8558,"b":22.3799},{"a":0.231,"b":6.0967},{"a":1.7704,"b":8.9302}],"keys":{"value":["a","b"]},"type":"bar","groups":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}},"axis":{"x":{"type":"category"},"rotated":true},"bar":{"zerobased":true,"width":{"ratio":0.6}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="mixed-geometry-plots" class="section level2">
+<h2>Mixed Geometry Plots</h2>
+<p>Mixed geometry currently only works with a horizontal <code>data.frame</code> where each numeric column is plotted.</p>
+<pre class="r"><code>data$c &lt;- abs(rnorm(20) *10)
+data$d &lt;- abs(rnorm(20) *10)
+
+data %&gt;%
+  c3() %&gt;%
+  c3_mixedGeom(type = &#39;bar&#39;, 
+               stacked = c(&#39;b&#39;,&#39;d&#39;),
+               types = list(a=&#39;area&#39;,
+                            c=&#39;spline&#39;)
+               )</code></pre>
+<div id="htmlwidget-6" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"data":{"json":[{"a":16.1701,"b":10.3377,"c":7.0764,"d":6.7153},{"a":3.0792,"b":15.0227,"c":0.8697,"d":9.798},{"a":2.3325,"b":1.8637,"c":11.5492,"d":4.0966},{"a":3.6814,"b":18.4285,"c":17.0285,"d":5.4866},{"a":6.1698,"b":2.9806,"c":18.8582,"d":1.6478},{"a":11.3482,"b":15.2654,"c":2.6902,"d":0.529},{"a":19.0634,"b":6.3901,"c":3.46,"d":29.1569},{"a":8.8558,"b":22.3799,"c":3.6816,"d":8.2461},{"a":0.231,"b":6.0967,"c":6.4208,"d":6.9494},{"a":1.7704,"b":8.9302,"c":16.3412,"d":2.7645},{"a":9.1043,"b":6.8809,"c":5.35,"d":2.4839},{"a":7.1712,"b":11.0294,"c":16.1608,"d":3.9808},{"a":3.0934,"b":11.5994,"c":4.6487,"d":3.4956},{"a":2.5571,"b":20.8078,"c":11.4804,"d":4.0218},{"a":10.7051,"b":9.2496,"c":22.5931,"d":5.157},{"a":3.1014,"b":7.4156,"c":8.3485,"d":13.3691},{"a":4.3393,"b":4.9094,"c":9.6342,"d":9.3592},{"a":11.0215,"b":8.0874,"c":12.0187,"d":11.6212},{"a":4.0287,"b":8.4703,"c":12.4089,"d":8.3147},{"a":12.1493,"b":7.3596,"c":13.4935,"d":14.0792}],"keys":{"value":["a","b","c","d"]},"type":"bar","types":{"a":"area","c":"spline"},"groups":["b","d"]},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="secondary-y-axis" class="section level2">
+<h2>Secondary Y Axis</h2>
+<p>To use a secondary Y axis columns must first be matched to an axis and then the secondary axis made visible.</p>
+<pre class="r"><code>data %&gt;% 
+  select(date, a, b) %&gt;%
+  c3(x = &#39;date&#39;,
+     axes = list(a = &#39;y&#39;,
+                 b = &#39;y2&#39;)) %&gt;% 
+  c3_mixedGeom(types = list(a = &#39;line&#39;,
+                            b = &#39;area&#39;)) %&gt;% 
+  y2Axis()</code></pre>
+<div id="htmlwidget-7" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"data":{"axes":{"a":"y","b":"y2"},"x":"date","json":[{"date":"2014-01-01","a":16.1701,"b":10.3377},{"date":"2014-02-01","a":3.0792,"b":15.0227},{"date":"2014-03-01","a":2.3325,"b":1.8637},{"date":"2014-04-01","a":3.6814,"b":18.4285},{"date":"2014-05-01","a":6.1698,"b":2.9806},{"date":"2014-06-01","a":11.3482,"b":15.2654},{"date":"2014-07-01","a":19.0634,"b":6.3901},{"date":"2014-08-01","a":8.8558,"b":22.3799},{"date":"2014-09-01","a":0.231,"b":6.0967},{"date":"2014-10-01","a":1.7704,"b":8.9302},{"date":"2014-11-01","a":9.1043,"b":6.8809},{"date":"2014-12-01","a":7.1712,"b":11.0294},{"date":"2015-01-01","a":3.0934,"b":11.5994},{"date":"2015-02-01","a":2.5571,"b":20.8078},{"date":"2015-03-01","a":10.7051,"b":9.2496},{"date":"2015-04-01","a":3.1014,"b":7.4156},{"date":"2015-05-01","a":4.3393,"b":4.9094},{"date":"2015-06-01","a":11.0215,"b":8.0874},{"date":"2015-07-01","a":4.0287,"b":8.4703},{"date":"2015-08-01","a":12.1493,"b":7.3596}],"keys":{"value":["date","a","b"]},"type":"line","types":{"a":"line","b":"area"}},"opts":{"x":"date","y":null,"types":{"date":"Date","a":"numeric","b":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"},"y2":{"show":true}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="scatter-plot" class="section level2">
+<h2>Scatter Plot</h2>
+<pre class="r"><code>iris %&gt;%
+  c3(x = &#39;Sepal_Length&#39;, 
+     y = &#39;Sepal_Width&#39;, 
+     group = &#39;Species&#39;) %&gt;% 
+  c3_scatter()</code></pre>
+<div id="htmlwidget-8" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8">{"x":{"data":{"json":[{"setosa":3.5,"versicolor":3.2,"virginica":3.3,"setosa_x":5.1,"versicolor_x":7,"virginica_x":6.3},{"setosa":3,"versicolor":3.2,"virginica":2.7,"setosa_x":4.9,"versicolor_x":6.4,"virginica_x":5.8},{"setosa":3.2,"versicolor":3.1,"virginica":3,"setosa_x":4.7,"versicolor_x":6.9,"virginica_x":7.1},{"setosa":3.1,"versicolor":2.3,"virginica":2.9,"setosa_x":4.6,"versicolor_x":5.5,"virginica_x":6.3},{"setosa":3.6,"versicolor":2.8,"virginica":3,"setosa_x":5,"versicolor_x":6.5,"virginica_x":6.5},{"setosa":3.9,"versicolor":2.8,"virginica":3,"setosa_x":5.4,"versicolor_x":5.7,"virginica_x":7.6},{"setosa":3.4,"versicolor":3.3,"virginica":2.5,"setosa_x":4.6,"versicolor_x":6.3,"virginica_x":4.9},{"setosa":3.4,"versicolor":2.4,"virginica":2.9,"setosa_x":5,"versicolor_x":4.9,"virginica_x":7.3},{"setosa":2.9,"versicolor":2.9,"virginica":2.5,"setosa_x":4.4,"versicolor_x":6.6,"virginica_x":6.7},{"setosa":3.1,"versicolor":2.7,"virginica":3.6,"setosa_x":4.9,"versicolor_x":5.2,"virginica_x":7.2},{"setosa":3.7,"versicolor":2,"virginica":3.2,"setosa_x":5.4,"versicolor_x":5,"virginica_x":6.5},{"setosa":3.4,"versicolor":3,"virginica":2.7,"setosa_x":4.8,"versicolor_x":5.9,"virginica_x":6.4},{"setosa":3,"versicolor":2.2,"virginica":3,"setosa_x":4.8,"versicolor_x":6,"virginica_x":6.8},{"setosa":3,"versicolor":2.9,"virginica":2.5,"setosa_x":4.3,"versicolor_x":6.1,"virginica_x":5.7},{"setosa":4,"versicolor":2.9,"virginica":2.8,"setosa_x":5.8,"versicolor_x":5.6,"virginica_x":5.8},{"setosa":4.4,"versicolor":3.1,"virginica":3.2,"setosa_x":5.7,"versicolor_x":6.7,"virginica_x":6.4},{"setosa":3.9,"versicolor":3,"virginica":3,"setosa_x":5.4,"versicolor_x":5.6,"virginica_x":6.5},{"setosa":3.5,"versicolor":2.7,"virginica":3.8,"setosa_x":5.1,"versicolor_x":5.8,"virginica_x":7.7},{"setosa":3.8,"versicolor":2.2,"virginica":2.6,"setosa_x":5.7,"versicolor_x":6.2,"virginica_x":7.7},{"setosa":3.8,"versicolor":2.5,"virginica":2.2,"setosa_x":5.1,"versicolor_x":5.6,"virginica_x":6},{"setosa":3.4,"versicolor":3.2,"virginica":3.2,"setosa_x":5.4,"versicolor_x":5.9,"virginica_x":6.9},{"setosa":3.7,"versicolor":2.8,"virginica":2.8,"setosa_x":5.1,"versicolor_x":6.1,"virginica_x":5.6},{"setosa":3.6,"versicolor":2.5,"virginica":2.8,"setosa_x":4.6,"versicolor_x":6.3,"virginica_x":7.7},{"setosa":3.3,"versicolor":2.8,"virginica":2.7,"setosa_x":5.1,"versicolor_x":6.1,"virginica_x":6.3},{"setosa":3.4,"versicolor":2.9,"virginica":3.3,"setosa_x":4.8,"versicolor_x":6.4,"virginica_x":6.7},{"setosa":3,"versicolor":3,"virginica":3.2,"setosa_x":5,"versicolor_x":6.6,"virginica_x":7.2},{"setosa":3.4,"versicolor":2.8,"virginica":2.8,"setosa_x":5,"versicolor_x":6.8,"virginica_x":6.2},{"setosa":3.5,"versicolor":3,"virginica":3,"setosa_x":5.2,"versicolor_x":6.7,"virginica_x":6.1},{"setosa":3.4,"versicolor":2.9,"virginica":2.8,"setosa_x":5.2,"versicolor_x":6,"virginica_x":6.4},{"setosa":3.2,"versicolor":2.6,"virginica":3,"setosa_x":4.7,"versicolor_x":5.7,"virginica_x":7.2},{"setosa":3.1,"versicolor":2.4,"virginica":2.8,"setosa_x":4.8,"versicolor_x":5.5,"virginica_x":7.4},{"setosa":3.4,"versicolor":2.4,"virginica":3.8,"setosa_x":5.4,"versicolor_x":5.5,"virginica_x":7.9},{"setosa":4.1,"versicolor":2.7,"virginica":2.8,"setosa_x":5.2,"versicolor_x":5.8,"virginica_x":6.4},{"setosa":4.2,"versicolor":2.7,"virginica":2.8,"setosa_x":5.5,"versicolor_x":6,"virginica_x":6.3},{"setosa":3.1,"versicolor":3,"virginica":2.6,"setosa_x":4.9,"versicolor_x":5.4,"virginica_x":6.1},{"setosa":3.2,"versicolor":3.4,"virginica":3,"setosa_x":5,"versicolor_x":6,"virginica_x":7.7},{"setosa":3.5,"versicolor":3.1,"virginica":3.4,"setosa_x":5.5,"versicolor_x":6.7,"virginica_x":6.3},{"setosa":3.6,"versicolor":2.3,"virginica":3.1,"setosa_x":4.9,"versicolor_x":6.3,"virginica_x":6.4},{"setosa":3,"versicolor":3,"virginica":3,"setosa_x":4.4,"versicolor_x":5.6,"virginica_x":6},{"setosa":3.4,"versicolor":2.5,"virginica":3.1,"setosa_x":5.1,"versicolor_x":5.5,"virginica_x":6.9},{"setosa":3.5,"versicolor":2.6,"virginica":3.1,"setosa_x":5,"versicolor_x":5.5,"virginica_x":6.7},{"setosa":2.3,"versicolor":3,"virginica":3.1,"setosa_x":4.5,"versicolor_x":6.1,"virginica_x":6.9},{"setosa":3.2,"versicolor":2.6,"virginica":2.7,"setosa_x":4.4,"versicolor_x":5.8,"virginica_x":5.8},{"setosa":3.5,"versicolor":2.3,"virginica":3.2,"setosa_x":5,"versicolor_x":5,"virginica_x":6.8},{"setosa":3.8,"versicolor":2.7,"virginica":3.3,"setosa_x":5.1,"versicolor_x":5.6,"virginica_x":6.7},{"setosa":3,"versicolor":3,"virginica":3,"setosa_x":4.8,"versicolor_x":5.7,"virginica_x":6.7},{"setosa":3.8,"versicolor":2.9,"virginica":2.5,"setosa_x":5.1,"versicolor_x":5.7,"virginica_x":6.3},{"setosa":3.2,"versicolor":2.9,"virginica":3,"setosa_x":4.6,"versicolor_x":6.2,"virginica_x":6.5},{"setosa":3.7,"versicolor":2.5,"virginica":3.4,"setosa_x":5.3,"versicolor_x":5.1,"virginica_x":6.2},{"setosa":3.3,"versicolor":2.8,"virginica":3,"setosa_x":5,"versicolor_x":5.7,"virginica_x":5.9}],"keys":{"value":["setosa","versicolor","virginica","setosa_x","versicolor_x","virginica_x"]},"xs":{"setosa":"setosa_x","versicolor":"versicolor_x","virginica":"virginica_x"},"type":"scatter"},"opts":{"x":"Sepal_Length","y":"Sepal_Width","types":{"Sepal.Length":"numeric","Sepal.Width":"numeric","Petal.Length":"numeric","Petal.Width":"numeric","Species":"factor"}},"axis":{"x":{"label":"Sepal_Length"},"y":{"label":"Sepal_Width"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="pie-charts" class="section level2">
+<h2>Pie Charts</h2>
+<pre class="r"><code>data.frame(sugar = 20,
+           fat = 45,
+           salt = 10) %&gt;% 
+  c3() %&gt;% 
+  c3_pie()</code></pre>
+<div id="htmlwidget-9" style="width:384px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9">{"x":{"data":{"json":[{"sugar":20,"fat":45,"salt":10}],"keys":{"value":["sugar","fat","salt"]},"type":"pie"},"opts":{"x":null,"y":null,"types":{"sugar":"numeric","fat":"numeric","salt":"numeric"}},"pie":{"expand":true,"label":{"show":true,"threshold":null,"format":null}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="donut-charts" class="section level2">
+<h2>Donut Charts</h2>
+<pre class="r"><code>data.frame(red = 82, green = 33, blue = 93) %&gt;% 
+  c3(colors = list(red = &#39;red&#39;,
+                   green = &#39;green&#39;,
+                   blue = &#39;blue&#39;)) %&gt;% 
+  c3_donut(title = &#39;#d053ee&#39;)</code></pre>
+<div id="htmlwidget-10" style="width:384px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10">{"x":{"data":{"colors":{"red":"red","green":"green","blue":"blue"},"json":[{"red":82,"green":33,"blue":93}],"keys":{"value":["red","green","blue"]},"type":"donut"},"opts":{"x":null,"y":null,"types":{"red":"numeric","green":"numeric","blue":"numeric"}},"donut":{"expand":true,"title":"#d053ee","label":{"show":true,"threshold":null,"format":null}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="gauge-charts" class="section level2">
+<h2>Gauge Charts</h2>
+<pre class="r"><code>data.frame(data = 80) %&gt;% 
+  c3() %&gt;% 
+  c3_gauge()</code></pre>
+<div id="htmlwidget-11" style="width:576px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-11">{"x":{"data":{"json":[{"data":80}],"keys":{"value":["data"]},"type":"gauge"},"opts":{"x":null,"y":null,"types":{"data":"numeric"}},"gauge":{"label":null,"min":0,"max":100,"units":null,"width":null},"color":{"pattern":["#FF0000","#F97600","#F6C600","#60B044"],"threshold":{"unit":"value","max":100,"values":[30,60,90,100]}},"size":{"height":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="grid-lines-annotation" class="section level2">
+<h2>Grid Lines &amp; Annotation</h2>
+<pre class="r"><code>data %&gt;%
+  c3() %&gt;%
+  grid(&#39;y&#39;) %&gt;%
+  grid(&#39;x&#39;, 
+       show = F, 
+       lines = data.frame(value = c(3, 10), 
+                          text= c(&#39;Line 1&#39;,&#39;Line 2&#39;)))</code></pre>
+<div id="htmlwidget-12" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-12">{"x":{"data":{"json":[{"a":16.1701,"b":10.3377,"c":7.0764,"d":6.7153},{"a":3.0792,"b":15.0227,"c":0.8697,"d":9.798},{"a":2.3325,"b":1.8637,"c":11.5492,"d":4.0966},{"a":3.6814,"b":18.4285,"c":17.0285,"d":5.4866},{"a":6.1698,"b":2.9806,"c":18.8582,"d":1.6478},{"a":11.3482,"b":15.2654,"c":2.6902,"d":0.529},{"a":19.0634,"b":6.3901,"c":3.46,"d":29.1569},{"a":8.8558,"b":22.3799,"c":3.6816,"d":8.2461},{"a":0.231,"b":6.0967,"c":6.4208,"d":6.9494},{"a":1.7704,"b":8.9302,"c":16.3412,"d":2.7645},{"a":9.1043,"b":6.8809,"c":5.35,"d":2.4839},{"a":7.1712,"b":11.0294,"c":16.1608,"d":3.9808},{"a":3.0934,"b":11.5994,"c":4.6487,"d":3.4956},{"a":2.5571,"b":20.8078,"c":11.4804,"d":4.0218},{"a":10.7051,"b":9.2496,"c":22.5931,"d":5.157},{"a":3.1014,"b":7.4156,"c":8.3485,"d":13.3691},{"a":4.3393,"b":4.9094,"c":9.6342,"d":9.3592},{"a":11.0215,"b":8.0874,"c":12.0187,"d":11.6212},{"a":4.0287,"b":8.4703,"c":12.4089,"d":8.3147},{"a":12.1493,"b":7.3596,"c":13.4935,"d":14.0792}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"grid":{"y":{"show":true},"x":{"show":false,"lines":{"value":[3,10],"text":["Line 1","Line 2"]}}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="region-highlighting" class="section level2">
+<h2>Region Highlighting</h2>
+<p>To highlight regions pass a single <code>data.frame</code> with columns <code>axis</code>, <code>start</code>, <code>end</code> and <code>class</code>. Multiple regions can be defined within the one <code>data.frame</code> for any axis (<code>x</code>, <code>y</code>, <code>y2</code>). Each row in the <code>data.frame</code> defines a separate region to be highlighted</p>
+<pre class="r"><code>data %&gt;%
+  c3() %&gt;%
+  region(data.frame(axis = &#39;x&#39;,
+                    start = 5,
+                    end = 6))</code></pre>
+<div id="htmlwidget-13" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-13">{"x":{"data":{"json":[{"a":16.1701,"b":10.3377,"c":7.0764,"d":6.7153},{"a":3.0792,"b":15.0227,"c":0.8697,"d":9.798},{"a":2.3325,"b":1.8637,"c":11.5492,"d":4.0966},{"a":3.6814,"b":18.4285,"c":17.0285,"d":5.4866},{"a":6.1698,"b":2.9806,"c":18.8582,"d":1.6478},{"a":11.3482,"b":15.2654,"c":2.6902,"d":0.529},{"a":19.0634,"b":6.3901,"c":3.46,"d":29.1569},{"a":8.8558,"b":22.3799,"c":3.6816,"d":8.2461},{"a":0.231,"b":6.0967,"c":6.4208,"d":6.9494},{"a":1.7704,"b":8.9302,"c":16.3412,"d":2.7645},{"a":9.1043,"b":6.8809,"c":5.35,"d":2.4839},{"a":7.1712,"b":11.0294,"c":16.1608,"d":3.9808},{"a":3.0934,"b":11.5994,"c":4.6487,"d":3.4956},{"a":2.5571,"b":20.8078,"c":11.4804,"d":4.0218},{"a":10.7051,"b":9.2496,"c":22.5931,"d":5.157},{"a":3.1014,"b":7.4156,"c":8.3485,"d":13.3691},{"a":4.3393,"b":4.9094,"c":9.6342,"d":9.3592},{"a":11.0215,"b":8.0874,"c":12.0187,"d":11.6212},{"a":4.0287,"b":8.4703,"c":12.4089,"d":8.3147},{"a":12.1493,"b":7.3596,"c":13.4935,"d":14.0792}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"regions":{"axis":["x"],"start":[5],"end":[6]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="sub-chart" class="section level2">
+<h2>Sub-chart</h2>
+<pre class="r"><code>data %&gt;%
+  c3(x = &#39;date&#39;) %&gt;%
+  subchart()</code></pre>
+<div id="htmlwidget-14" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-14">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":16.1701,"b":10.3377,"c":7.0764,"d":6.7153},{"date":"2014-02-01","a":3.0792,"b":15.0227,"c":0.8697,"d":9.798},{"date":"2014-03-01","a":2.3325,"b":1.8637,"c":11.5492,"d":4.0966},{"date":"2014-04-01","a":3.6814,"b":18.4285,"c":17.0285,"d":5.4866},{"date":"2014-05-01","a":6.1698,"b":2.9806,"c":18.8582,"d":1.6478},{"date":"2014-06-01","a":11.3482,"b":15.2654,"c":2.6902,"d":0.529},{"date":"2014-07-01","a":19.0634,"b":6.3901,"c":3.46,"d":29.1569},{"date":"2014-08-01","a":8.8558,"b":22.3799,"c":3.6816,"d":8.2461},{"date":"2014-09-01","a":0.231,"b":6.0967,"c":6.4208,"d":6.9494},{"date":"2014-10-01","a":1.7704,"b":8.9302,"c":16.3412,"d":2.7645},{"date":"2014-11-01","a":9.1043,"b":6.8809,"c":5.35,"d":2.4839},{"date":"2014-12-01","a":7.1712,"b":11.0294,"c":16.1608,"d":3.9808},{"date":"2015-01-01","a":3.0934,"b":11.5994,"c":4.6487,"d":3.4956},{"date":"2015-02-01","a":2.5571,"b":20.8078,"c":11.4804,"d":4.0218},{"date":"2015-03-01","a":10.7051,"b":9.2496,"c":22.5931,"d":5.157},{"date":"2015-04-01","a":3.1014,"b":7.4156,"c":8.3485,"d":13.3691},{"date":"2015-05-01","a":4.3393,"b":4.9094,"c":9.6342,"d":9.3592},{"date":"2015-06-01","a":11.0215,"b":8.0874,"c":12.0187,"d":11.6212},{"date":"2015-07-01","a":4.0287,"b":8.4703,"c":12.4089,"d":8.3147},{"date":"2015-08-01","a":12.1493,"b":7.3596,"c":13.4935,"d":14.0792}],"keys":{"value":["date","a","b","c","d"]}},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"}},"subchart":{"show":true,"size":{"height":20}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="color-palette" class="section level2">
+<h2>Color Palette</h2>
+<p>Plot color palettes can be changed to either <code>RColorBrewer</code> or <code>viridis</code> palettes using either <code>RColorBrewer</code> (S3 method) or <code>c3_viridus</code>.</p>
+<pre class="r"><code>data.frame(sugar = 20, 
+           fat = 45, 
+           salt = 10, 
+           vegetables = 60) %&gt;% 
+  c3() %&gt;% 
+  c3_pie() %&gt;%
+  RColorBrewer()</code></pre>
+<div id="htmlwidget-15" style="width:384px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-15">{"x":{"data":{"json":[{"sugar":20,"fat":45,"salt":10,"vegetables":60}],"keys":{"value":["sugar","fat","salt","vegetables"]},"type":"pie"},"opts":{"x":null,"y":null,"types":{"sugar":"numeric","fat":"numeric","salt":"numeric","vegetables":"numeric"}},"pie":{"expand":true,"label":{"show":true,"threshold":null,"format":null}},"color":{"pattern":["#D7191C","#FDAE61","#ABDDA4","#2B83BA"]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>data.frame(sugar = 20, 
+           fat = 45, 
+           salt = 10, 
+           vegetables = 60) %&gt;% 
+  c3() %&gt;% 
+  c3_pie() %&gt;%
+  c3_viridis()</code></pre>
+<div id="htmlwidget-16" style="width:384px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-16">{"x":{"data":{"json":[{"sugar":20,"fat":45,"salt":10,"vegetables":60}],"keys":{"value":["sugar","fat","salt","vegetables"]},"type":"pie"},"opts":{"x":null,"y":null,"types":{"sugar":"numeric","fat":"numeric","salt":"numeric","vegetables":"numeric"}},"pie":{"expand":true,"label":{"show":true,"threshold":null,"format":null}},"color":{"pattern":["#440154","#31688E","#35B779","#FDE725"]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="point-size" class="section level2">
+<h2>Point Size</h2>
+<pre class="r"><code>data %&gt;%
+  c3(x = &#39;date&#39;) %&gt;%
+  point_options(r = 6, 
+                expand.r = 2)</code></pre>
+<div id="htmlwidget-17" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-17">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":16.1701,"b":10.3377,"c":7.0764,"d":6.7153},{"date":"2014-02-01","a":3.0792,"b":15.0227,"c":0.8697,"d":9.798},{"date":"2014-03-01","a":2.3325,"b":1.8637,"c":11.5492,"d":4.0966},{"date":"2014-04-01","a":3.6814,"b":18.4285,"c":17.0285,"d":5.4866},{"date":"2014-05-01","a":6.1698,"b":2.9806,"c":18.8582,"d":1.6478},{"date":"2014-06-01","a":11.3482,"b":15.2654,"c":2.6902,"d":0.529},{"date":"2014-07-01","a":19.0634,"b":6.3901,"c":3.46,"d":29.1569},{"date":"2014-08-01","a":8.8558,"b":22.3799,"c":3.6816,"d":8.2461},{"date":"2014-09-01","a":0.231,"b":6.0967,"c":6.4208,"d":6.9494},{"date":"2014-10-01","a":1.7704,"b":8.9302,"c":16.3412,"d":2.7645},{"date":"2014-11-01","a":9.1043,"b":6.8809,"c":5.35,"d":2.4839},{"date":"2014-12-01","a":7.1712,"b":11.0294,"c":16.1608,"d":3.9808},{"date":"2015-01-01","a":3.0934,"b":11.5994,"c":4.6487,"d":3.4956},{"date":"2015-02-01","a":2.5571,"b":20.8078,"c":11.4804,"d":4.0218},{"date":"2015-03-01","a":10.7051,"b":9.2496,"c":22.5931,"d":5.157},{"date":"2015-04-01","a":3.1014,"b":7.4156,"c":8.3485,"d":13.3691},{"date":"2015-05-01","a":4.3393,"b":4.9094,"c":9.6342,"d":9.3592},{"date":"2015-06-01","a":11.0215,"b":8.0874,"c":12.0187,"d":11.6212},{"date":"2015-07-01","a":4.0287,"b":8.4703,"c":12.4089,"d":8.3147},{"date":"2015-08-01","a":12.1493,"b":7.3596,"c":13.4935,"d":14.0792}],"keys":{"value":["date","a","b","c","d"]}},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"}},"point":{"show":true,"r":6,"focus":{"expand":{"enabled":true,"r":12}},"select":{"r":24}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="on-click" class="section level2">
+<h2>On Click</h2>
+<p>Onclick, onmouseover and onmouseout are all available via the <code>c3</code> function. To use wrap a js function as a character string to <code>htmlwidgets::JS()</code>. Please see the <a href="http://c3js.org/reference.html#data-onclick">C3.js documentation</a> and <a href="http://c3js.org/samples/chart_pie.html">examples</a>. The example below should be enough to get you started.</p>
+<pre class="r"><code>data %&gt;% 
+    c3(onclick = htmlwidgets::JS(&#39;function(d, element){console.log(d)}&#39;))</code></pre>
+</div>
+<div id="tooltips" class="section level2">
+<h2>Tooltips</h2>
+<p><code>C3</code> tooltips are readily modified with the use of javascript functions. For further detail see the <code>C3.js</code> <a href="http://c3js.org/reference.html#tooltip-format-title">documentation</a>. Or for more advanced usage see the <code>C3.js</code> <a href="http://c3js.org/samples/tooltip_format.html">examples</a> page.</p>
+<pre class="r"><code>library(htmlwidgets)
+
+data %&gt;%
+  c3() %&gt;%
+  tooltip(format = list(title = JS(&quot;function (x) { return &#39;Data &#39; + x; }&quot;),
+                        name = JS(&#39;function (name, ratio, id, index) { return name; }&#39;),
+                        value = JS(&#39;function (value, ratio, id, index) { return ratio; }&#39;)))</code></pre>
+<div id="htmlwidget-18" style="width:768px;height:288px;" class="c3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-18">{"x":{"data":{"json":[{"a":16.1701,"b":10.3377,"c":7.0764,"d":6.7153},{"a":3.0792,"b":15.0227,"c":0.8697,"d":9.798},{"a":2.3325,"b":1.8637,"c":11.5492,"d":4.0966},{"a":3.6814,"b":18.4285,"c":17.0285,"d":5.4866},{"a":6.1698,"b":2.9806,"c":18.8582,"d":1.6478},{"a":11.3482,"b":15.2654,"c":2.6902,"d":0.529},{"a":19.0634,"b":6.3901,"c":3.46,"d":29.1569},{"a":8.8558,"b":22.3799,"c":3.6816,"d":8.2461},{"a":0.231,"b":6.0967,"c":6.4208,"d":6.9494},{"a":1.7704,"b":8.9302,"c":16.3412,"d":2.7645},{"a":9.1043,"b":6.8809,"c":5.35,"d":2.4839},{"a":7.1712,"b":11.0294,"c":16.1608,"d":3.9808},{"a":3.0934,"b":11.5994,"c":4.6487,"d":3.4956},{"a":2.5571,"b":20.8078,"c":11.4804,"d":4.0218},{"a":10.7051,"b":9.2496,"c":22.5931,"d":5.157},{"a":3.1014,"b":7.4156,"c":8.3485,"d":13.3691},{"a":4.3393,"b":4.9094,"c":9.6342,"d":9.3592},{"a":11.0215,"b":8.0874,"c":12.0187,"d":11.6212},{"a":4.0287,"b":8.4703,"c":12.4089,"d":8.3147},{"a":12.1493,"b":7.3596,"c":13.4935,"d":14.0792}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"tooltip":{"show":true,"grouped":true,"format":{"title":"function (x) { return 'Data ' + x; }","name":"function (name, ratio, id, index) { return name; }","value":"function (value, ratio, id, index) { return ratio; }"}}},"evals":["tooltip.format.title","tooltip.format.name","tooltip.format.value"],"jsHooks":[]}</script>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/htmlwidgets/">htmlwidgets</a>
+        
+            <a href="/tags/cran/">cran</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+     
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 A Simple Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

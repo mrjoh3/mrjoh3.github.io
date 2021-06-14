@@ -37,5 +37,15 @@ The C3 library is very versatile and includes a lot of options. Currently this p
       <description>The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</description>
     </item>
     
+    <item>
+      <title>Cytoscape Network Charts</title>
+      <link>/pkg/2020-11-08-cytoscape-package/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pkg/2020-11-08-cytoscape-package/</guid>
+      <description>A HTMLWidget wrapper for the Cytoscape.js graph / network visualisation and analysis library. There are already a number of existing R packages for Cytoscape such as the Bioconductor package and the official Cytoscape Widget. The purpose of this package is to make the process of producing a basic chart as simple as possible.
+Installation  devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)   Documentation For more detailed documentation and methods see http://mrjoh3.github.io/cytoscape/.</description>
+    </item>
+    
   </channel>
 </rss>

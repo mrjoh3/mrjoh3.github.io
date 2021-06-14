@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 06 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/cran/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c3 Package</title>
-      <link>/pkg/c3-package/</link>
+      <link>/packages/c3-package/</link>
       <pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/pkg/c3-package/</guid>
+      <guid>/packages/c3-package/</guid>
       <description>The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App.
 The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.</description>
     </item>

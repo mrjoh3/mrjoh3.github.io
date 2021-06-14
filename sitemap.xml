@@ -3,7 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
+    <lastmod>2021-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/about/</loc>
+    <lastmod>2021-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/page/</loc>
+    <lastmod>2021-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/addin/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
@@ -11,16 +20,16 @@
     <loc>/categories/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/pkg/mapedit-addin/</loc>
+    <loc>/packages/mapedit-addin/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/mapping/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/packages/</loc>
+    <loc>/packages/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/pkg/</loc>
+    <loc>/categories/packages/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/r/</loc>
@@ -32,7 +41,7 @@
     <loc>/tags/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/pkg/c3-package/</loc>
+    <loc>/packages/c3-package/</loc>
     <lastmod>2018-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/cran/</loc>
@@ -41,7 +50,7 @@
     <loc>/tags/htmlwidgets/</loc>
     <lastmod>2018-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/pkg/pier-package/</loc>
+    <loc>/packages/pier-package/</loc>
     <lastmod>2018-08-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/crosstalk/</loc>
@@ -86,6 +95,10 @@
     <loc>/tags/ggplot2/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
+    <loc>/packages/2021-06-14-ggtrack-package/</loc>
+  </url><url>
+    <loc>/packages/2020-11-08-cytoscape-package/</loc>
+  </url><url>
+    <loc>/search/</loc>
   </url>
 </urlset>

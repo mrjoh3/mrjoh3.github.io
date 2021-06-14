@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.'><title></title>
+
+<link rel='canonical' href='/packages/2021-06-14-ggtrack-package/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
+<meta property='og:description' content='ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.'>
+<meta property='og:url' content='/packages/2021-06-14-ggtrack-package/'>
+<meta property='og:site_name' content='A Simple Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Packages' />
+<meta name="twitter:site" content="@@mrjoh3">
+    <meta name="twitter:creator" content="@@mrjoh3"><meta name="twitter:title" content="">
+<meta name="twitter:description" content="ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.">
+    </head>
+    <body class="article-page keep-sidebar">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended ">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/logo_hu184d6c6979cf67cdc222d725036d113f_233833_300x0_resize_q75_box.jpg" width="300"
+                            height="261" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="/">A Simple Blog</a></h1>
+        <h2 class="site-description">musings and code about anything spatial, visual or interesting.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/packages/'>
+                
+                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="icon icon-tabler icon-tabler-chevron-left"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   stroke-width="2"
+   stroke="currentColor"
+   fill="none"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="packages.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1483"
+     inkscape:window-height="1064"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="39.833333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6" />
+  <path
+     stroke="none"
+     d="M0 0h24v24H0z"
+     id="path2" />
+  <polyline
+     points="15 6 9 12 15 18"
+     id="polyline4"
+     transform="matrix(-1,0,0,1,24.000041,0)" />
+</svg>
+
+                
+                <span>Packages</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/packages/2021-06-14-ggtrack-package/"></a>
+    </h2>
+
+    </div>
+</header>
+
+    <section class="article-content">
+    
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+<div id="ggtrack" class="section level1">
+<h1>ggtrack</h1>
+<!-- badges: start -->
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental" /></a>
+<a href="https://github.com/mrjoh3/ggtrack/actions"><img src="https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /></a>
+<!-- badges: end --></p>
+<p>Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The <code>ggtrack</code> package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</p>
+<p>The metadata is added by way of a QR code embedded in a chart “tracking” footer. The QR code can encode any arbitrary text and will append a time stamp. The text is intended to be a URL or a unique id for the original document or chart source.</p>
+<p>QR codes can then be scanned using a phone scanner or the <a href="https://github.com/brianwdavis/quadrangle">quadrangle package</a>.</p>
+<p>The <code>ggtrack</code> footer can also display a corporate logo and additional text.</p>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>You can install the latest version of project from <a href="https://github.com">Github</a> with:</p>
+<pre class="r"><code>devtools::install_github(&quot;mrjoh3/ggtrack&quot;)</code></pre>
+</div>
+<div id="development" class="section level2">
+<h2>Development</h2>
+<p>This package is in the early stages of development. If you have any suggestions, or feature requests please submit an <a href="https://github.com/mrjoh3/ggtrack/issues">issue</a>. All feedback is welcome.</p>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<p>To start you just need a <code>ggplot</code> and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package.</p>
+<pre class="r"><code>library(ggtrack)
+#&gt; Warning: replacing previous import &#39;ggplot2::last_plot&#39; by &#39;plotly::last_plot&#39;
+#&gt; when loading &#39;ggtrack&#39;
+library(ggplot2)
+
+gg &lt;- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
+  geom_bar(stat = &#39;identity&#39;) +
+  theme_minimal()
+
+ggtrack(gg,
+        qr_content = &#39;Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5&#39;)</code></pre>
+<p><img src="man/figures/README-example-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div id="add-a-logo" class="section level3">
+<h3>Add a Logo</h3>
+<p>A logo can be added either from a local or remote source. For now only <code>png</code> and <code>jpeg/jpg</code> are supported.</p>
+<pre class="r"><code>ggtrack(gg,
+        qr_content = &#39;text content here&#39;,
+        logo = &#39;https://www.r-project.org/logo/Rlogo.png&#39;)</code></pre>
+<p><img src="man/figures/README-logo-1.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="add-a-caption" class="section level3">
+<h3>Add a Caption</h3>
+<p>Captions use the <a href="https://github.com/wilkelab/gridtext">gridtext</a> package. So you can use both <code>HTML</code> and <code>markdown</code> to style. Or if you prefer, create your own <code>grob</code> and pass that through instead.</p>
+<pre class="r"><code>ggtrack(gg,
+        qr_content = &#39;For all your image tracking needs: https://github.com/mrjoh3/ggtrack&#39;,
+        logo = &#39;https://www.r-project.org/logo/Rlogo.png&#39;,
+        caption = &#39;Lots of extra info, or a fancy &lt;span style=&quot;color:blue&quot;&gt;&quot;grob&quot;&lt;/span&gt;.&#39;)</code></pre>
+<p><img src="man/figures/README-caption-1.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="interactive-plots" class="section level2">
+<h2>Interactive Plots</h2>
+<pre class="r"><code>ggtrack(gg,
+        qr_content = &#39;For all your image tracking needs: https://github.com/mrjoh3/ggtrack&#39;,
+        logo = &#39;https://www.r-project.org/logo/Rlogo.png&#39;,
+        caption = &#39;Lots of extra info, or a fancy &lt;span style=&quot;color:blue&quot;&gt;&quot;grob&quot;&lt;/span&gt;.&#39;,
+        interactive = TRUE)
+#&gt; Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
+#&gt;   If you&#39;d like to see this geom implemented,
+#&gt;   Please open an issue with your example code at
+#&gt;   https://github.com/ropensci/plotly/issues
+
+#&gt; Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
+#&gt;   If you&#39;d like to see this geom implemented,
+#&gt;   Please open an issue with your example code at
+#&gt;   https://github.com/ropensci/plotly/issues
+
+#&gt; Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
+#&gt;   If you&#39;d like to see this geom implemented,
+#&gt;   Please open an issue with your example code at
+#&gt;   https://github.com/ropensci/plotly/issues</code></pre>
+<div id="htmlwidget-1" style="width:80%;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[0,-0.103705041564741,0,-0.596427415307102,-0.608365978780831,-2.25735144405933,0,0,-0.480266405998189,-0.321495160617929],"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.258417313530695,0.103705041564741,0.8176868576936,0.596427415307102,0.608365978780831,2.25735144405933,0.221151981996186,0.801311747718342,0.480266405998189,0.321495160617929],"text":["1:10:  1<br />rnorm(10): 0.2584173","1:10:  2<br />rnorm(10): 0.1037050","1:10:  3<br />rnorm(10): 0.8176869","1:10:  4<br />rnorm(10): 0.5964274","1:10:  5<br />rnorm(10): 0.6083660","1:10:  6<br />rnorm(10): 2.2573514","1:10:  7<br />rnorm(10): 0.2211520","1:10:  8<br />rnorm(10): 0.8013117","1:10:  9<br />rnorm(10): 0.4802664","1:10: 10<br />rnorm(10): 0.3214952"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","mode":"","frame":null}],"layout":{"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.0550000000000001,10.945],"tickmode":"array","ticktext":["2.5","5.0","7.5","10.0"],"tickvals":[2.5,5,7.5,10],"categoryorder":"array","categoryarray":["2.5","5.0","7.5","10.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","hoverformat":".2f"},"xaxis2":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y2","hoverformat":".2f"},"yaxis2":{"domain":[0,0.18],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x2","hoverformat":".2f"},"yaxis":{"domain":[0.22,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.41110335914698,0.971438772781247],"tickmode":"array","ticktext":["-2","-1","0"],"tickvals":[-2,-1,0],"categoryorder":"array","categoryarray":["-2","-1","0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","hoverformat":".2f"},"annotations":[],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.22,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":0.18}],"images":[],"margin":{"t":34.8976377952756,"r":0,"b":11.3385826771654,"l":0},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"attrs":{"937b3e1065c":{"x":{},"y":{},"type":"bar"},"937b7c556693":{"type":"scatter"},"937b201ac91f":[],"937b2bbf796e":[]},"source":"A","config":{"doubleClick":"reset","showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<style>
+.hide img {
+  float: right;
+  margin-bottom: -50%; /* crop position */
+}
+</style>
+<div class="hide">
+
+</div>
+</div>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+     
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 A Simple Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
