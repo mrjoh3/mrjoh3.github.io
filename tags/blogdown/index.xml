@@ -6,22 +6,7 @@
     <description>Recent content in blogdown on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Updating a Blog Theme</title>
-      <link>/p/updating-a-blog-theme/</link>
-      <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/p/updating-a-blog-theme/</guid>
-      <description>Find a good theme link to hugo themes, find one with good docs and an example use the example to understand how it all fits together
-import theme as a submodule update the config. file
-will be working here
-may need to change structure for set pages like &amp;ldquo;about&amp;rdquo;
-files like &amp;ldquo;logo&amp;rdquo; may need to be added to the theme!!
-get widgets working&amp;hellip;
-add some more content</description>
-    </item>
-    
+    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Another blog about a blog</title>
       <link>/p/another-blog-about-a-blog/</link>
