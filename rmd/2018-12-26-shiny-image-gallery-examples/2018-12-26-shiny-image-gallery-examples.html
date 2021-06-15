@@ -1,0 +1,46 @@
+---
+title: Shiny Image Gallery Examples
+author: Matt Johnson
+date: '2018-12-26'
+slug: shiny-image-gallery-examples
+image: 'img/MRJ_2020_DSC9961.png'
+categories:
+  - web
+tags:
+  - shiny
+  - gallery
+  - image
+  - js
+description: ''
+featured: ''
+featuredalt: ''
+featuredpath: ''
+linktitle: ''
+draft: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="draft" class="section level1">
+<h1>DRAFT</h1>
+<p>Recently I had to implement an image gallery within a <code>shiny</code> application. A simple grid of small images where clicking opens the fullscreen image. Nothing complicated, but I did have several requirements:</p>
+<ol style="list-style-type: decimal">
+<li>The gallery needed to render from a folder of images</li>
+<li>The gallery interface and thumbnails needed to be responsive</li>
+<li>The gallery needed to link to other <code>shiny</code> UI</li>
+<li>The fullsize image should be zoomable to see the full resolution.</li>
+</ol>
+<p>There is a wide variety of javascript image gallery implimentations. Here I will detail minimalist implimentations of <a href="https://lokeshdhakar.com/projects/lightbox2/">Lightbox</a> and <a href="http://photoswipe.com/">PhotoSwipe</a>. Lightbox was choosen as it seems easiest to impliment and many other JS libraries are based on it. Photoswipe is another very popular implimentation with a very nice UI, touch integration and extensive API. Both are available under MIT licences.</p>
+<p>The examples discussed here have been built into a working <a href="https://mrjoh3.shinyapps.io/shiny-gallery-example/">shiny app</a> so you can see the functionality of each. Code for the app is on <a href="https://github.com/mrjoh3/shiny-gallery-example">Github</a>.</p>
+<div id="data-preparation" class="section level2">
+<h2>Data Preparation</h2>
+<pre class="r"><code>images &lt;- data.frame(src = list.files(&#39;www/img&#39;)) %&gt;%
+  tidyr::separate(col = &#39;src&#39;, c(&#39;txt&#39;, &#39;date&#39;, &#39;time&#39;, &#39;msec&#39;), sep = &#39;_|\\.&#39;, remove = FALSE) %&gt;%
+  rowwise() %&gt;%
+  mutate(date = lubridate::ymd(date),
+         key = hashids::encode(1e3 + as.integer(msec), hashid_settings(salt = &#39;this is my salt&#39;)))
+
+</code></pre>
+</div>
+</div>

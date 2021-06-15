@@ -7,6 +7,23 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Updating a Blog Theme</title>
+        <link>/p/updating-a-blog-theme/</link>
+        <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
+        
+        <guid>/p/updating-a-blog-theme/</guid>
+        <description>&lt;img src="/img/DSCN1968_edited-1_20070804_165511_002.jpg" alt="Featured image of post Updating a Blog Theme" /&gt;&lt;h2 id=&#34;find-a-good-theme&#34;&gt;Find a good theme&lt;/h2&gt;
+&lt;p&gt;link to hugo themes, find one with good docs and an example use the example to understand how it all fits together&lt;/p&gt;
+&lt;h2 id=&#34;import-theme-as-a-submodule&#34;&gt;import theme as a submodule&lt;/h2&gt;
+&lt;p&gt;update the config. file&lt;/p&gt;
+&lt;p&gt;will be working here&lt;/p&gt;
+&lt;p&gt;may need to change structure for set pages like &amp;ldquo;about&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;files like &amp;ldquo;logo&amp;rdquo; may need to be added to the theme!!&lt;/p&gt;
+&lt;p&gt;get widgets working&amp;hellip;&lt;/p&gt;
+&lt;p&gt;add some more content&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Filtering Spatial Data with Crosstalk</title>
         <link>/p/filtering-spatial-data/</link>
         <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>

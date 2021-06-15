@@ -1,0 +1,71 @@
+---
+title: Shiny Image Gallery Examples
+author: Matt Johnson
+date: '2018-12-26'
+slug: shiny-image-gallery-examples
+image: 'img/MRJ_2020_DSC9961.png'
+categories:
+  - web
+tags:
+  - shiny
+  - gallery
+  - image
+  - js
+description: ''
+featured: ''
+featuredalt: ''
+featuredpath: ''
+linktitle: ''
+draft: true
+---
+
+# DRAFT
+
+Some time ago I had to implement an image gallery within a `shiny` application. A simple grid of small thumbnail images where clicking opens the full image.  Nothing complicated, but I did have several requirements:
+
+  1. The gallery needed to render from a folder of images
+  2. The gallery interface and thumbnails needed to be responsive
+  3. The gallery needed to link to other `shiny` UI
+  4. The full-size image should be zoomable to see the full resolution.
+  
+There is a wide variety of javascript image gallery implementations. To start with I looked at  [Lightbox](https://lokeshdhakar.com/projects/lightbox2/) and [PhotoSwipe](http://photoswipe.com/). Lightbox was the easiest to use and many other JS libraries are based on it. Photoswipe is also very popular with a very nice UI, zoom and touch integration plus an extensive API. Both are available under MIT licences. Unfortunately my javascript is limited and I did not have enough time to get more than the most basic Photoswipe gallery to work. But, the Lightbox gallery works very nicely.
+
+This work was eventually built into a [shiny app](https://mrjoh3.shinyapps.io/shiny-gallery-example/) so you can see the galleries in action. I have also wrapped the code in the [gallerier](https://github.com/mrjoh3/gallerier) package. `Gallerier` can be used in both `shiny` and `rmarkdown` documents. Code for the original `shiny` app is on [Github](https://github.com/mrjoh3/shiny-gallery-example).
+
+
+## Data Preparation
+
+
+```{r, warning=FALSE, message=FALSE}
+
+library(dplyr)
+library(lubridate)
+library(hashids)
+library(gallerier)
+
+images <- data.frame(src = list.files('www/img')) %>%
+  tidyr::separate(col = 'src', 
+                  c('txt', 'date', 'time', 'msec'), 
+                  sep = '_|\\.', 
+                  remove = FALSE) %>%
+  rowwise() %>%
+  mutate(date = lubridate::ymd(date),
+         key = hashids::encode(1e3 + as.integer(msec), 
+                               hashid_settings(salt = 'this is my salt')))
+
+```
+
+```r
+## simple lightbox
+lightbox_gallery(images, 
+                 'gallery', 
+                 display = TRUE)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# small hack for use in blogdown site
+images %>%
+  mutate(src = paste0('/', src)) %>%
+  lightbox_gallery(., 'gallery', 
+                   display = TRUE)
+```
