@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>spatial on A Simple Blog</title>
-    <link>/categories/spatial/</link>
+    <link>https://mrjoh3.github.io/categories/spatial/</link>
     <description>Recent content in spatial on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="/categories/spatial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/categories/spatial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mapedit.addin</title>
-      <link>/packages/mapedit-addin/</link>
+      <link>https://mrjoh3.github.io/packages/mapedit-addin/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/packages/mapedit-addin/</guid>
+      <guid>https://mrjoh3.github.io/packages/mapedit-addin/</guid>
       <description>mapedit.addin  
 The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
 library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.</description>
@@ -20,20 +20,20 @@ library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;
     
     <item>
       <title>Filtering Spatial Data with Crosstalk</title>
-      <link>/p/filtering-spatial-data/</link>
+      <link>https://mrjoh3.github.io/p/filtering-spatial-data/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/p/filtering-spatial-data/</guid>
+      <guid>https://mrjoh3.github.io/p/filtering-spatial-data/</guid>
       <description>In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
 To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications.</description>
     </item>
     
     <item>
       <title>Animating Spatial Data</title>
-      <link>/p/animating-spatial-data/</link>
+      <link>https://mrjoh3.github.io/p/animating-spatial-data/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/p/animating-spatial-data/</guid>
+      <guid>https://mrjoh3.github.io/p/animating-spatial-data/</guid>
       <description>#rstats + #sf + #ggplot2 + #gganimate = a great way to visualise some sobering data. Only accidents where alcohol was involved. Remember each frame only accidents from a single day. See code gist https://t.co/wqEcYku2us and get data from #vicroads api https://t.co/cBX1kBz9iw pic.twitter.com/tNobkLQQQH — Matt Johnson (@mrjoh3) July 18, 2018    library(dplyr) library(sf) library(ggplot2) library(gganimate) shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;% filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;% mutate(date = as.</description>
     </item>
     

@@ -2,99 +2,101 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
+    <loc>https://mrjoh3.github.io/</loc>
     <lastmod>2021-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
+    <loc>https://mrjoh3.github.io/about/</loc>
     <lastmod>2021-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/page/</loc>
+    <loc>https://mrjoh3.github.io/page/</loc>
     <lastmod>2021-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/archives/</loc>
+    <loc>https://mrjoh3.github.io/categories/</loc>
+    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/categories/data-visualisation/</loc>
+    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/ggplot2/</loc>
+    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/packages/ggtrack-package/</loc>
+    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/packages/</loc>
+    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/categories/packages/</loc>
+    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/categories/r/</loc>
+    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/</loc>
+    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/addin/</loc>
+    <loc>https://mrjoh3.github.io/tags/addin/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://mrjoh3.github.io/packages/mapedit-addin/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/packages/mapedit-addin/</loc>
+    <loc>https://mrjoh3.github.io/tags/mapping/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/mapping/</loc>
+    <loc>https://mrjoh3.github.io/categories/spatial/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/packages/</loc>
-    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/packages/</loc>
-    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/r/</loc>
-    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/spatial/</loc>
-    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/htmlwidgets/</loc>
+    <loc>https://mrjoh3.github.io/packages/2018-08-19-c3-package/</loc>
     <lastmod>2018-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/packages/pier-package/</loc>
+    <loc>https://mrjoh3.github.io/tags/htmlwidgets/</loc>
     <lastmod>2018-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/crosstalk/</loc>
+    <loc>https://mrjoh3.github.io/packages/pier-package/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/crosstalk/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/p/filtering-spatial-data/</loc>
+    <loc>https://mrjoh3.github.io/p/filtering-spatial-data/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/leaflet/</loc>
+    <loc>https://mrjoh3.github.io/tags/leaflet/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
+    <loc>https://mrjoh3.github.io/post/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/rstats/</loc>
+    <loc>https://mrjoh3.github.io/tags/rstats/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/sf/</loc>
+    <loc>https://mrjoh3.github.io/tags/sf/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/p/another-blog-about-a-blog/</loc>
+    <loc>https://mrjoh3.github.io/p/another-blog-about-a-blog/</loc>
     <lastmod>2018-07-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/blogdown/</loc>
+    <loc>https://mrjoh3.github.io/tags/blogdown/</loc>
     <lastmod>2018-07-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/hugo/</loc>
+    <loc>https://mrjoh3.github.io/tags/hugo/</loc>
     <lastmod>2018-07-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/web/</loc>
+    <loc>https://mrjoh3.github.io/categories/web/</loc>
     <lastmod>2018-07-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/p/animating-spatial-data/</loc>
+    <loc>https://mrjoh3.github.io/p/animating-spatial-data/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/data-visualisation/</loc>
+    <loc>https://mrjoh3.github.io/tags/gganimate/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/gganimate/</loc>
-    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+    <loc>https://mrjoh3.github.io/packages/2020-11-08-cytoscape-package/</loc>
   </url><url>
-    <loc>/tags/ggplot2/</loc>
-    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/packages/2021-06-14-ggtrack-package/</loc>
-  </url><url>
-    <loc>/packages/2018-08-19-c3-package/</loc>
-  </url><url>
-    <loc>/packages/2020-11-08-cytoscape-package/</loc>
-  </url><url>
-    <loc>/search/</loc>
+    <loc>https://mrjoh3.github.io/search/</loc>
   </url>
 </urlset>

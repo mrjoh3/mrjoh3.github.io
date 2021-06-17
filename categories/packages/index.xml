@@ -2,28 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>packages on A Simple Blog</title>
-    <link>/categories/packages/</link>
+    <link>https://mrjoh3.github.io/categories/packages/</link>
     <description>Recent content in packages on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="/categories/packages/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/categories/packages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ggtrack</title>
+      <link>https://mrjoh3.github.io/packages/ggtrack-package/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mrjoh3.github.io/packages/ggtrack-package/</guid>
+      <description>ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</description>
+    </item>
+    
     <item>
       <title>mapedit.addin</title>
-      <link>/packages/mapedit-addin/</link>
+      <link>https://mrjoh3.github.io/packages/mapedit-addin/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/packages/mapedit-addin/</guid>
+      <guid>https://mrjoh3.github.io/packages/mapedit-addin/</guid>
       <description>mapedit.addin  
 The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
 library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.</description>
     </item>
     
     <item>
-      <title>pier Package</title>
-      <link>/packages/pier-package/</link>
+      <title>pier</title>
+      <link>https://mrjoh3.github.io/packages/pier-package/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/packages/pier-package/</guid>
+      <guid>https://mrjoh3.github.io/packages/pier-package/</guid>
       <description>The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</description>
     </item>
     

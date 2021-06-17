@@ -2,107 +2,107 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on A Simple Blog</title>
-    <link>/tags/</link>
+    <link>https://mrjoh3.github.io/tags/</link>
     <description>Recent content in Tags on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ggplot2</title>
+      <link>https://mrjoh3.github.io/tags/ggplot2/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mrjoh3.github.io/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>addin</title>
-      <link>/tags/addin/</link>
+      <link>https://mrjoh3.github.io/tags/addin/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/addin/</guid>
+      <guid>https://mrjoh3.github.io/tags/addin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mapping</title>
-      <link>/tags/mapping/</link>
+      <link>https://mrjoh3.github.io/tags/mapping/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/mapping/</guid>
+      <guid>https://mrjoh3.github.io/tags/mapping/</guid>
       <description></description>
     </item>
     
     <item>
       <title>htmlwidgets</title>
-      <link>/tags/htmlwidgets/</link>
+      <link>https://mrjoh3.github.io/tags/htmlwidgets/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/htmlwidgets/</guid>
+      <guid>https://mrjoh3.github.io/tags/htmlwidgets/</guid>
       <description></description>
     </item>
     
     <item>
       <title>crosstalk</title>
-      <link>/tags/crosstalk/</link>
+      <link>https://mrjoh3.github.io/tags/crosstalk/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/crosstalk/</guid>
+      <guid>https://mrjoh3.github.io/tags/crosstalk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>leaflet</title>
-      <link>/tags/leaflet/</link>
+      <link>https://mrjoh3.github.io/tags/leaflet/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/leaflet/</guid>
+      <guid>https://mrjoh3.github.io/tags/leaflet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rstats</title>
-      <link>/tags/rstats/</link>
+      <link>https://mrjoh3.github.io/tags/rstats/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/rstats/</guid>
+      <guid>https://mrjoh3.github.io/tags/rstats/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sf</title>
-      <link>/tags/sf/</link>
+      <link>https://mrjoh3.github.io/tags/sf/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/sf/</guid>
+      <guid>https://mrjoh3.github.io/tags/sf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blogdown</title>
-      <link>/tags/blogdown/</link>
+      <link>https://mrjoh3.github.io/tags/blogdown/</link>
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/blogdown/</guid>
+      <guid>https://mrjoh3.github.io/tags/blogdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>/tags/hugo/</link>
+      <link>https://mrjoh3.github.io/tags/hugo/</link>
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/hugo/</guid>
+      <guid>https://mrjoh3.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gganimate</title>
-      <link>/tags/gganimate/</link>
+      <link>https://mrjoh3.github.io/tags/gganimate/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/gganimate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ggplot2</title>
-      <link>/tags/ggplot2/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/ggplot2/</guid>
+      <guid>https://mrjoh3.github.io/tags/gganimate/</guid>
       <description></description>
     </item>
     

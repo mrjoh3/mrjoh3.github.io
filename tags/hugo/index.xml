@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on A Simple Blog</title>
-    <link>/tags/hugo/</link>
+    <link>https://mrjoh3.github.io/tags/hugo/</link>
     <description>Recent content in hugo on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Another blog about a blog</title>
-      <link>/p/another-blog-about-a-blog/</link>
+      <link>https://mrjoh3.github.io/p/another-blog-about-a-blog/</link>
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/p/another-blog-about-a-blog/</guid>
+      <guid>https://mrjoh3.github.io/p/another-blog-about-a-blog/</guid>
       <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
     </item>
     

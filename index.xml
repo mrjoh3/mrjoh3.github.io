@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>A Simple Blog</title>
-        <link>/</link>
+        <link>https://mrjoh3.github.io/</link>
         <description>Recent content on A Simple Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Filtering Spatial Data with Crosstalk</title>
-        <link>/p/filtering-spatial-data/</link>
+        <link>https://mrjoh3.github.io/p/filtering-spatial-data/</link>
         <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
         
-        <guid>/p/filtering-spatial-data/</guid>
-        <description>&lt;img src="/img/filter_header.jpg" alt="Featured image of post Filtering Spatial Data with Crosstalk" /&gt;&lt;p&gt;In a &lt;a class=&#34;link&#34; href=&#34;https://mrjoh3.github.io/2018/07/20/animating-spatial-data/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>https://mrjoh3.github.io/p/filtering-spatial-data/</guid>
+        <description>&lt;img src="https://mrjoh3.github.io/img/filter_header.jpg" alt="Featured image of post Filtering Spatial Data with Crosstalk" /&gt;&lt;p&gt;In a &lt;a class=&#34;link&#34; href=&#34;https://mrjoh3.github.io/2018/07/20/animating-spatial-data/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;previous post&lt;/a&gt; I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.&lt;/p&gt;
 &lt;p&gt;To do this I am going to use &lt;code&gt;leaflet&lt;/code&gt;, &lt;code&gt;sf&lt;/code&gt; to handle all the spatial data and &lt;code&gt;crosstalk&lt;/code&gt; to filter the data visible in the map. The &lt;code&gt;crosstalk&lt;/code&gt; package enables a level of interactivity that is usually reserved for more complex server (&lt;code&gt;shiny&lt;/code&gt;) based applications.&lt;/p&gt;
 &lt;p&gt;The data is from the &lt;a class=&#34;link&#34; href=&#34;https://vicroadsopendata-vicroadsmaps.opendata.arcgis.com/datasets/c2a69622ebad42e7baaa8167daa72127_0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -124,12 +124,12 @@
         </item>
         <item>
         <title>Another blog about a blog</title>
-        <link>/p/another-blog-about-a-blog/</link>
+        <link>https://mrjoh3.github.io/p/another-blog-about-a-blog/</link>
         <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
         
-        <guid>/p/another-blog-about-a-blog/</guid>
-        <description>&lt;img src="/img/MRJ_2020_DSC9204_narrow.png" alt="Featured image of post Another blog about a blog" /&gt;
-&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+        <guid>https://mrjoh3.github.io/p/another-blog-about-a-blog/</guid>
+        <description>&lt;img src="https://mrjoh3.github.io/img/MRJ_2020_DSC9204_narrow.png" alt="Featured image of post Another blog about a blog" /&gt;
+&lt;script src=&#34;https://mrjoh3.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Currently I mostly work with &lt;code&gt;R&lt;/code&gt; and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of &lt;code&gt;Blogdown&lt;/code&gt; seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown: Creating Websites with R Markdown&lt;/a&gt; by &lt;a href=&#34;https://bookdown.org/yihui/blogdown/yihui-xie.html&#34;&gt;Yihui Xie&lt;/a&gt; &lt;em&gt;et al.&lt;/em&gt; covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.&lt;/p&gt;
@@ -144,7 +144,7 @@ blogdown::new_site(theme = &amp;quot;jpescador/hugo-future-imperfect&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now everything is up an running but it is easier to test everything if you have some content. The &lt;code&gt;Blogdown&lt;/code&gt; package includes a series of addins that makes this process simple, just select &lt;code&gt;New Post&lt;/code&gt; from the &lt;code&gt;Addins&lt;/code&gt; menu.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/2018-07-20-another-blog-about-a-blog_files/new_post.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://mrjoh3.github.io/post/2018-07-20-another-blog-about-a-blog_files/new_post.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;new post screenshot&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -187,12 +187,12 @@ git push origin master
         </item>
         <item>
         <title>Animating Spatial Data</title>
-        <link>/p/animating-spatial-data/</link>
+        <link>https://mrjoh3.github.io/p/animating-spatial-data/</link>
         <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
         
-        <guid>/p/animating-spatial-data/</guid>
-        <description>&lt;img src="/img/snow-header.png" alt="Featured image of post Animating Spatial Data" /&gt;
-&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+        <guid>https://mrjoh3.github.io/p/animating-spatial-data/</guid>
+        <description>&lt;img src="https://mrjoh3.github.io/img/snow-header.png" alt="Featured image of post Animating Spatial Data" /&gt;
+&lt;script src=&#34;https://mrjoh3.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;center&gt;
@@ -203,7 +203,7 @@ git push origin master
 — Matt Johnson (&lt;span class=&#34;citation&#34;&gt;@mrjoh3&lt;/span&gt;) &lt;a href=&#34;https://twitter.com/mrjoh3/status/1019564471168073728?ref_src=twsrc%5Etfw&#34;&gt;July 18, 2018&lt;/a&gt;
 &lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-&lt;img src=&#34;/post/2018-07-20-animating-spatial-data_files/vic_alcohol.gif&#34; title=&#34;fig:&#34; alt=&#34;Alcohol related accidents in Victoria&#34; /&gt;
+&lt;img src=&#34;https://mrjoh3.github.io/post/2018-07-20-animating-spatial-data_files/vic_alcohol.gif&#34; title=&#34;fig:&#34; alt=&#34;Alcohol related accidents in Victoria&#34; /&gt;
 &lt;/center&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
 library(sf)

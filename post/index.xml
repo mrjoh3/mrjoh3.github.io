@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on A Simple Blog</title>
-    <link>/post/</link>
+    <link>https://mrjoh3.github.io/post/</link>
     <description>Recent content in Posts on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Filtering Spatial Data with Crosstalk</title>
-      <link>/p/filtering-spatial-data/</link>
+      <link>https://mrjoh3.github.io/p/filtering-spatial-data/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/p/filtering-spatial-data/</guid>
+      <guid>https://mrjoh3.github.io/p/filtering-spatial-data/</guid>
       <description>In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
 To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications.</description>
     </item>
     
     <item>
       <title>Another blog about a blog</title>
-      <link>/p/another-blog-about-a-blog/</link>
+      <link>https://mrjoh3.github.io/p/another-blog-about-a-blog/</link>
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/p/another-blog-about-a-blog/</guid>
+      <guid>https://mrjoh3.github.io/p/another-blog-about-a-blog/</guid>
       <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
     </item>
     
     <item>
       <title>Animating Spatial Data</title>
-      <link>/p/animating-spatial-data/</link>
+      <link>https://mrjoh3.github.io/p/animating-spatial-data/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/p/animating-spatial-data/</guid>
+      <guid>https://mrjoh3.github.io/p/animating-spatial-data/</guid>
       <description>#rstats + #sf + #ggplot2 + #gganimate = a great way to visualise some sobering data. Only accidents where alcohol was involved. Remember each frame only accidents from a single day. See code gist https://t.co/wqEcYku2us and get data from #vicroads api https://t.co/cBX1kBz9iw pic.twitter.com/tNobkLQQQH — Matt Johnson (@mrjoh3) July 18, 2018    library(dplyr) library(sf) library(ggplot2) library(gganimate) shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;% filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;% mutate(date = as.</description>
     </item>
     

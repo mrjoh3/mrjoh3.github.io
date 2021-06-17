@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>gganimate on A Simple Blog</title>
-    <link>/tags/gganimate/</link>
+    <link>https://mrjoh3.github.io/tags/gganimate/</link>
     <description>Recent content in gganimate on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/gganimate/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/gganimate/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Animating Spatial Data</title>
-      <link>/p/animating-spatial-data/</link>
+      <link>https://mrjoh3.github.io/p/animating-spatial-data/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/p/animating-spatial-data/</guid>
+      <guid>https://mrjoh3.github.io/p/animating-spatial-data/</guid>
       <description>#rstats + #sf + #ggplot2 + #gganimate = a great way to visualise some sobering data. Only accidents where alcohol was involved. Remember each frame only accidents from a single day. See code gist https://t.co/wqEcYku2us and get data from #vicroads api https://t.co/cBX1kBz9iw pic.twitter.com/tNobkLQQQH — Matt Johnson (@mrjoh3) July 18, 2018    library(dplyr) library(sf) library(ggplot2) library(gganimate) shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;% filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;% mutate(date = as.</description>
     </item>
     

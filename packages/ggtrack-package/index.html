@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='mapedit.addin  
-The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
-library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.'><title>mapedit.addin</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.'><title>ggtrack</title>
 
-<link rel='canonical' href='https://mrjoh3.github.io/packages/mapedit-addin/'>
+<link rel='canonical' href='https://mrjoh3.github.io/packages/ggtrack-package/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='mapedit.addin'>
-<meta property='og:description' content='mapedit.addin  
-The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
-library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.'>
-<meta property='og:url' content='https://mrjoh3.github.io/packages/mapedit-addin/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='ggtrack'>
+<meta property='og:description' content='ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.'>
+<meta property='og:url' content='https://mrjoh3.github.io/packages/ggtrack-package/'>
 <meta property='og:site_name' content='A Simple Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='mapping' /><meta property='article:tag' content='addin' /><meta property='article:published_time' content='2018-12-26T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-12-26T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='ggplot2' /><meta property='article:published_time' content='2021-06-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-06-10T00:00:00&#43;00:00'/>
 <meta name="twitter:site" content="@@mrjoh3">
-    <meta name="twitter:creator" content="@@mrjoh3"><meta name="twitter:title" content="mapedit.addin">
-<meta name="twitter:description" content="mapedit.addin  
-The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
-library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.">
+    <meta name="twitter:creator" content="@@mrjoh3"><meta name="twitter:title" content="ggtrack">
+<meta name="twitter:description" content="ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.">
     </head>
     <body class="article-page keep-sidebar">
     <script>
@@ -284,15 +278,15 @@ library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;
                 R
             </a>
         
-            <a href="/categories/spatial/" >
-                spatial
+            <a href="/categories/data-visualisation/" >
+                data visualisation
             </a>
         
     </header>
     
 
     <h2 class="article-title">
-        <a href="/packages/mapedit-addin/">mapedit.addin</a>
+        <a href="/packages/ggtrack-package/">ggtrack</a>
     </h2>
 
     <footer class="article-time">
@@ -304,63 +298,107 @@ library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;
 
 
 
-        <time class="article-time--published">Dec 26, 2018</time>
+        <time class="article-time--published">Jun 10, 2021</time>
     </footer></div>
 </header>
 
     <section class="article-content">
     
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
 
 
-<div id="mapedit.addin" class="section level1">
-<h1>mapedit.addin</h1>
-<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle" /></a>
-<a href="https://travis-ci.org/mrjoh3/mapedit.addin"><img src="https://travis-ci.org/mrjoh3/mapedit.addin.svg?branch=master" alt="Build Status" /></a></p>
-<p>The goal of <code>mapedit.addin</code> is to simplify the creation of spatial data by wrapping the <a href="https://github.com/r-spatial/mapedit">mapedit</a> package. As you can see in the code below the <code>mapedit</code> package already makes the process very simple.</p>
-<pre class="r"><code>library(mapview)
-library(mapedit)
-new_spatial_data &lt;- mapview() %&gt;%
-  editMap()</code></pre>
-<p>All <code>mappedit.addin</code> does is wrap this piece of code in an <code>RStudio</code> addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools. It is also possible to link <code>mapedit.addin</code> to keyboard shortcuts, further simplifying the process (see <a href="https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts">here</a>).</p>
+<div id="ggtrack" class="section level1">
+<h1>ggtrack</h1>
+<!-- badges: start -->
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental" /></a>
+<a href="https://github.com/mrjoh3/ggtrack/actions"><img src="https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /></a>
+<!-- badges: end --></p>
+<p>Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The <code>ggtrack</code> package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</p>
+<p>The metadata is added by way of a QR code embedded in a chart “tracking” footer. The QR code can encode any arbitrary text and will append a time stamp. The text is intended to be a URL or a unique id for the original document or chart source.</p>
+<p>QR codes can then be scanned using a phone scanner or the <a href="https://github.com/brianwdavis/quadrangle">quadrangle package</a>.</p>
+<p>The <code>ggtrack</code> footer can also display a corporate logo and additional text.</p>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
-<p>You can install the current version of <code>mapedit.addin</code> from <a href="https://github.com/mrjoh3/mapedit.addin">Github</a> with:</p>
-<pre class="r"><code>devtools::install_github(&quot;mrjoh3/mapedit.addin&quot;)</code></pre>
+<p>You can install the latest version of project from <a href="https://github.com">Github</a> with:</p>
+<pre class="r"><code>devtools::install_github(&quot;mrjoh3/ggtrack&quot;)</code></pre>
 </div>
-<div id="usage" class="section level2">
-<h2>Usage</h2>
-<p>This simple addin allows you to interactively create an <code>sf</code> spatial object that can then be saved and used in your code. To use, just open the addin add some geometry to the map and click <code>Done</code> when completed.</p>
-<div class="figure">
-<img src="/pkg/2018-12-26-mapedit-addin_files/mapedit_addin.png" alt="" />
-<p class="caption">mapedit addin</p>
+<div id="development" class="section level2">
+<h2>Development</h2>
+<p>This package is in the early stages of development. If you have any suggestions, or feature requests please submit an <a href="https://github.com/mrjoh3/ggtrack/issues">issue</a>. All feedback is welcome.</p>
 </div>
-<p>Selecting text within the <code>RStudio</code> IDE will modify the behavior of the addin. Where no text is selected the addin will save an <code>sf</code> object called <code>geom</code> into <code>.GlobalEnv</code>. To save a spatial object to file, the <code>Save</code> switch must be toggled using the addin interface. A file called <code>saved_geometry.geojson</code> will be created in the current working directory. If text is selected in <code>RStudio</code> this will be used for naming both the <code>sf</code> object and the created file.</p>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<p>To start you just need a <code>ggplot</code> and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package.</p>
+<pre class="r"><code>library(ggtrack)</code></pre>
+<pre><code>## Warning: replacing previous import &#39;ggplot2::last_plot&#39; by &#39;plotly::last_plot&#39;
+## when loading &#39;ggtrack&#39;</code></pre>
+<pre class="r"><code>library(ggplot2)
+
+gg &lt;- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
+  geom_bar(stat = &#39;identity&#39;) +
+  theme_minimal()
+
+ggtrack(gg,
+        qr_content = &#39;Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5&#39;)</code></pre>
+<p><img src="/packages/2021-06-14-ggtrack-package_files/figure-html/example-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div id="add-a-logo" class="section level3">
+<h3>Add a Logo</h3>
+<p>A logo can be added either from a local or remote source. For now only <code>png</code> and <code>jpeg/jpg</code> are supported.</p>
+<pre class="r"><code>ggtrack(gg,
+        qr_content = &#39;text content here&#39;,
+        logo = &#39;https://www.r-project.org/logo/Rlogo.png&#39;)</code></pre>
+<p><img src="/packages/2021-06-14-ggtrack-package_files/figure-html/logo-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="adding-objects-to-the-map" class="section level2">
-<h2>Adding objects to the map</h2>
-<p>If the text selected in <code>RStudio</code> IDE is the name of an existing <code>sf</code> object then the addin will add this object to the <code>mapedit</code> map and zoom to its bounds. When a spatial object is passed to the map in this way, any new geometry is added to it using <a href="https://r-spatial.github.io/sf/reference/bind.html">rbind</a>. It is not currently possible to edit existing geometry.</p>
+<div id="add-a-caption" class="section level3">
+<h3>Add a Caption</h3>
+<p>Captions use the <a href="https://github.com/wilkelab/gridtext">gridtext</a> package. So you can use both <code>HTML</code> and <code>markdown</code> to style. Or if you prefer, create your own <code>grob</code> and pass that through instead.</p>
+<pre class="r"><code>ggtrack(gg,
+        qr_content = &#39;For all your image tracking needs: https://github.com/mrjoh3/ggtrack&#39;,
+        logo = &#39;https://www.r-project.org/logo/Rlogo.png&#39;,
+        caption = &#39;Lots of extra info, or a fancy &lt;span style=&quot;color:blue&quot;&gt;&quot;grob&quot;&lt;/span&gt;.&#39;)</code></pre>
+<p><img src="/packages/2021-06-14-ggtrack-package_files/figure-html/caption-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="saving-to-file" class="section level2">
-<h2>Saving to File</h2>
-<p>Spatial objects are saved to file using <code>sf::write_sf</code>. File names can be set by selecting text inside <code>RStudio</code> or via the naming bar at the bottom of the addin. The file naming bar can also be used to add file paths and to change output extensions.</p>
-<div class="figure">
-<img src="/pkg/2018-12-26-mapedit-addin_files/save_file_bar.png" alt="" />
-<p class="caption">image bar</p>
 </div>
-<p>The text seen in the naming bar is passed directly to <code>write_sf</code>. Most file drivers will be guessed by the extension. See <code>sf::st_drivers()</code> or <a href="https://www.gdal.org/ogr_formats.html">OGR formats</a> for details; only <code>.geojson</code> and <code>.shp</code> have been tested.</p>
-<p>Note that the function <code>write_sf</code> is called with options <code>delete_layer = TRUE</code> and <code>delete_dsn = TRUE</code>. This means that existing files with the same name are over-written.</p>
+<div id="interactive-plots" class="section level2">
+<h2>Interactive Plots</h2>
+<pre class="r"><code>ggtrack(gg,
+        qr_content = &#39;For all your image tracking needs: https://github.com/mrjoh3/ggtrack&#39;,
+        logo = &#39;https://www.r-project.org/logo/Rlogo.png&#39;,
+        caption = &#39;Lots of extra info, or a fancy &lt;span style=&quot;color:blue&quot;&gt;&quot;grob&quot;&lt;/span&gt;.&#39;,
+        interactive = TRUE)</code></pre>
+<pre><code>## Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
+##   If you&#39;d like to see this geom implemented,
+##   Please open an issue with your example code at
+##   https://github.com/ropensci/plotly/issues
+
+## Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
+##   If you&#39;d like to see this geom implemented,
+##   Please open an issue with your example code at
+##   https://github.com/ropensci/plotly/issues
+
+## Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
+##   If you&#39;d like to see this geom implemented,
+##   Please open an issue with your example code at
+##   https://github.com/ropensci/plotly/issues</code></pre>
+<div id="htmlwidget-1" style="width:80%;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[-1.27567506273957,-1.38335117061879,0,0,-1.36237465789193,-0.271593013584229,0,-0.568065228679005,-1.80351319009161,0],"x":[1,2,3,4,5,6,7,8,9,10],"y":[1.27567506273957,1.38335117061879,0.0328618009952973,1.40536622307535,1.36237465789193,0.271593013584229,1.37623693071815,0.568065228679005,1.80351319009161,1.07144924140248],"text":["1:10:  1<br />rnorm(10): 1.2756751","1:10:  2<br />rnorm(10): 1.3833512","1:10:  3<br />rnorm(10): 0.0328618","1:10:  4<br />rnorm(10): 1.4053662","1:10:  5<br />rnorm(10): 1.3623747","1:10:  6<br />rnorm(10): 0.2715930","1:10:  7<br />rnorm(10): 1.3762369","1:10:  8<br />rnorm(10): 0.5680652","1:10:  9<br />rnorm(10): 1.8035132","1:10: 10<br />rnorm(10): 1.0714492"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","mode":"","frame":null}],"layout":{"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.0550000000000001,10.945],"tickmode":"array","ticktext":["2.5","5.0","7.5","10.0"],"tickvals":[2.5,5,7.5,10],"categoryorder":"array","categoryarray":["2.5","5.0","7.5","10.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","hoverformat":".2f"},"xaxis2":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y2","hoverformat":".2f"},"yaxis2":{"domain":[0,0.18],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x2","hoverformat":".2f"},"yaxis":{"domain":[0.22,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.96395716074996,1.5658101937337],"tickmode":"array","ticktext":["-1","0","1"],"tickvals":[-1,0,1],"categoryorder":"array","categoryarray":["-1","0","1"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","hoverformat":".2f"},"annotations":[],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.22,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":0.18}],"images":[],"margin":{"t":34.8976377952756,"r":0,"b":11.3385826771654,"l":0},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"attrs":{"dc096727d1bf":{"x":{},"y":{},"type":"bar"},"dc099105808":{"type":"scatter"},"dc0959ae9604":[],"dc097d88f51":[]},"source":"A","config":{"doubleClick":"reset","showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<style>
+.hide img {
+  float: right;
+  margin-bottom: -50%; /* crop position */
+}
+</style>
+<div class="hide">
+
 </div>
-<div id="future" class="section level2">
-<h2>Future</h2>
-<p>Future updates will give the user more control over:</p>
-<ol style="list-style-type: decimal">
-<li>the starting point of the map (currently zooms to world or input object)</li>
-<li>the name of output object (completed)</li>
-<li>file name (completed)</li>
-<li>add more option when saving to file</li>
-<li>edit existing geometry</li>
-</ol>
 </div>
 </div>
 
@@ -371,9 +409,7 @@ new_spatial_data &lt;- mapview() %&gt;%
     
     <section class="article-tags">
         
-            <a href="/tags/mapping/">mapping</a>
-        
-            <a href="/tags/addin/">addin</a>
+            <a href="/tags/ggplot2/">ggplot2</a>
         
     </section>
 
