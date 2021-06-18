@@ -12,114 +12,115 @@
         <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
         
         <guid>https://mrjoh3.github.io/p/filtering-spatial-data/</guid>
-        <description>&lt;img src="https://mrjoh3.github.io/img/filter_header.jpg" alt="Featured image of post Filtering Spatial Data with Crosstalk" /&gt;&lt;p&gt;In a &lt;a class=&#34;link&#34; href=&#34;https://mrjoh3.github.io/2018/07/20/animating-spatial-data/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;previous post&lt;/a&gt; I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.&lt;/p&gt;
+        <description>&lt;img src="https://mrjoh3.github.io/img/filter_header.jpg" alt="Featured image of post Filtering Spatial Data with Crosstalk" /&gt;
+&lt;script src=&#34;https://mrjoh3.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;link rel=&#34;stylesheet&#34; href=&#34;../../highlight/a11y-dark.min.css&#34;&gt;
+&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+&lt;p&gt;In a &lt;a href=&#34;https://mrjoh3.github.io/2018/07/20/animating-spatial-data/&#34;&gt;previous post&lt;/a&gt; I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.&lt;/p&gt;
 &lt;p&gt;To do this I am going to use &lt;code&gt;leaflet&lt;/code&gt;, &lt;code&gt;sf&lt;/code&gt; to handle all the spatial data and &lt;code&gt;crosstalk&lt;/code&gt; to filter the data visible in the map. The &lt;code&gt;crosstalk&lt;/code&gt; package enables a level of interactivity that is usually reserved for more complex server (&lt;code&gt;shiny&lt;/code&gt;) based applications.&lt;/p&gt;
-&lt;p&gt;The data is from the &lt;a class=&#34;link&#34; href=&#34;https://vicroadsopendata-vicroadsmaps.opendata.arcgis.com/datasets/c2a69622ebad42e7baaa8167daa72127_0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;VicRoads open data portal&lt;/a&gt;. The portal has an API but I have previously downloaded the entire data set as a shapefile. There are more than 75 thousand accidents recorded in the data set but I am only looking at accidents related to alcohol for the years 2015 through 2017.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
-&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dplyr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;leaflet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;crosstalk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lubridate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;htmltools&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;p&gt;The data is from the &lt;a href=&#34;https://vicroadsopendata-vicroadsmaps.opendata.arcgis.com/datasets/c2a69622ebad42e7baaa8167daa72127_0&#34;&gt;VicRoads open data portal&lt;/a&gt;. The portal has an API but I have previously downloaded the entire data set as a shapefile. There are more than 75 thousand accidents recorded in the data set but I am only looking at accidents related to alcohol for the years 2015 through 2017.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+library(sf)
+library(dplyr)
+library(leaflet)
+library(crosstalk)
+library(lubridate)
+library(htmltools)
 
 
-&lt;span class=&#34;n&#34;&gt;shp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;st_read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Crashes_Last_Five_Years&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
-               &lt;span class=&#34;n&#34;&gt;quiet&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stringsAsFactors&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span class=&#34;nf&#34;&gt;mutate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;as.Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;as.character&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ACCIDENT_D&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;%d/%m/%Y&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
-         &lt;span class=&#34;n&#34;&gt;year&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;year&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
-    &lt;span class=&#34;nf&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ALCOHOL_RE&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Yes&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, 
+               quiet = TRUE, stringsAsFactors = FALSE) %&amp;gt;%
+  mutate(date = as.Date(as.character(ACCIDENT_D), &amp;#39;%d/%m/%Y&amp;#39;),
+         year = year(date)) %&amp;gt;%
+    filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;)
 
-&lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SharedData&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+sd &amp;lt;- SharedData$new(shp)
 
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once the data is imported and cleaned it is inserted into a &lt;code&gt;crosstalk::SharedData$new()&lt;/code&gt; object. This creates a common data input for all interactive objects such as UI elements and compatible widgets. For a complete list of compatible widgets see the &lt;a class=&#34;link&#34; href=&#34;https://rstudio.github.io/crosstalk/widgets.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;crosstalk reference page&lt;/a&gt;.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once the data is imported and cleaned it is inserted into a &lt;code&gt;crosstalk::SharedData$new()&lt;/code&gt; object. This creates a common data input for all interactive objects such as UI elements and compatible widgets. For a complete list of compatible widgets see the &lt;a href=&#34;https://rstudio.github.io/crosstalk/widgets.html&#34;&gt;crosstalk reference page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Am minimal example can be just two lines of additional code which results in a UI slider connected to the date field and a leaflet map. Adjusting the slider will filter the markers visible in the map.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
-&lt;span class=&#34;nf&#34;&gt;filter_slider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;date&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;column&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;800&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;nf&#34;&gt;leaflet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;addTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;addMarkers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+filter_slider(&amp;quot;date&amp;quot;, &amp;quot;&amp;quot;, sd, column=~date, step=10, width=800)
+leaflet(sd) %&amp;gt;% addTiles() %&amp;gt;% addMarkers()
 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But let’s add some additional layers of interactivity. &lt;code&gt;Crosstalk&lt;/code&gt; has three UI filters built-in; slider, check-box and select. In the code below I am creating and saving the UI elements in order to have a little more control fitting them together.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+date_filter &amp;lt;- filter_slider(&amp;quot;date&amp;quot;, &amp;quot;&amp;quot;, sd, column = ~date, 
+                             step = NULL, width = &amp;#39;100%&amp;#39;, dragRange = TRUE)
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But let&amp;rsquo;s add some additional layers of interactivity. &lt;code&gt;Crosstalk&lt;/code&gt; has three UI filters built-in; slider, check-box and select. In the code below I am creating and saving the UI elements in order to have a little more control fitting them together.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
-&lt;span class=&#34;n&#34;&gt;date_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_slider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;date&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;column&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
-                             &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;100%&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dragRange&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+year_filter &amp;lt;- filter_checkbox(&amp;quot;year&amp;quot;, &amp;quot;Year&amp;quot;, sd, group = ~year, 
+                               inline = FALSE)
 
-&lt;span class=&#34;n&#34;&gt;year_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_checkbox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;year&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Year&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;year&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
-                               &lt;span class=&#34;n&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+day_filter &amp;lt;- filter_checkbox(&amp;quot;day&amp;quot;, &amp;quot;Day of the Week&amp;quot;, sd, group = ~DAY_OF_WEE, 
+                              inline = FALSE)
 
-&lt;span class=&#34;n&#34;&gt;day_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_checkbox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;day&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Day of the Week&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DAY_OF_WEE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
-                              &lt;span class=&#34;n&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+severity_filter &amp;lt;- filter_checkbox(&amp;quot;sev&amp;quot;, &amp;quot;Severity&amp;quot;, sd, group = ~SEVERITY, 
+                                   inline = FALSE)
 
-&lt;span class=&#34;n&#34;&gt;severity_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_checkbox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;sev&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Severity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SEVERITY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
-                                   &lt;span class=&#34;n&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+type_filter &amp;lt;- filter_checkbox(&amp;quot;type&amp;quot;, &amp;quot;Type&amp;quot;, sd, group = ~ACCIDENT_1, 
+                               inline = FALSE)
 
-&lt;span class=&#34;n&#34;&gt;type_filter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;filter_checkbox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Type&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ACCIDENT_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
-                               &lt;span class=&#34;n&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rstudio.github.io/leaflet/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Rstudio&amp;rsquo;s leaflet&lt;/a&gt; package is the most ubiquitous method for incorporating an interactive map. In this post I am not going to discuss all the options I use but will include the code. To make the map look and feel how I want, I will use &lt;code&gt;addPopups&lt;/code&gt; and &lt;code&gt;addProviderTiles&lt;/code&gt;.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://rstudio.github.io/leaflet/&#34;&gt;Rstudio’s leaflet&lt;/a&gt; package is the most ubiquitous method for incorporating an interactive map. In this post I am not going to discuss all the options I use but will include the code. To make the map look and feel how I want, I will use &lt;code&gt;addPopups&lt;/code&gt; and &lt;code&gt;addProviderTiles&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Originally I intended to include &lt;code&gt;addAwesomeMarkers&lt;/code&gt;, but with this data set there are too many points for the markers to look good and add meaning to the final map. Instead I will use transparent circle markers to give a sense of density where points overlap.&lt;/p&gt;
-&lt;p&gt;Now, I use &lt;code&gt;leaflet&lt;/code&gt; maps a lot. They are incredibly versatile with a wealth of options (see &lt;a class=&#34;link&#34; href=&#34;https://rstudio.github.io/leaflet/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;documentation&lt;/a&gt; to get started). They are also very simple. In the code below you can see my standard setup (excluding &lt;code&gt;addCircleMarkers()&lt;/code&gt;). I save this as a snippet and insert it each time I make a map. This means that my maps are consistent and that I can get something done in a few minutes just focusing on the new layer.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
-&lt;span class=&#34;n&#34;&gt;map&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;leaflet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;100%&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
-  &lt;span class=&#34;nf&#34;&gt;addProviderTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;CartoDB.Positron&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Default&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span class=&#34;nf&#34;&gt;addProviderTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Esri.WorldImagery&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Aerial&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span class=&#34;nf&#34;&gt;addProviderTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;OpenStreetMap.Mapnik&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Street&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span class=&#34;nf&#34;&gt;addProviderTiles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;OpenTopoMap&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Terrain&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span class=&#34;nf&#34;&gt;addScaleBar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;bottomright&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span class=&#34;nf&#34;&gt;addCircleMarkers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;group&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Accidents&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
-                   &lt;span class=&#34;n&#34;&gt;stroke&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
-                   &lt;span class=&#34;n&#34;&gt;opacity&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                   &lt;span class=&#34;n&#34;&gt;fillColor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sapply&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SEVERITY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;switch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;USE.NAMES&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Fatal accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;#a50f15&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Serious injury accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;#de2d26&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Other injury accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;#fb6a4a&amp;#39;&lt;/span&gt; 
-                                     &lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
-                   &lt;span class=&#34;n&#34;&gt;radius&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sapply&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SEVERITY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;switch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;USE.NAMES&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Fatal accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Serious injury accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                    &lt;span class=&#34;s&#34;&gt;&amp;#39;Other injury accident&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;
-                                     &lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
-                   &lt;span class=&#34;n&#34;&gt;popup&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;paste0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;h3&amp;gt;Some Accident Details&amp;lt;/h3&amp;gt;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Severity&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SEVERITY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Type of Accident&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ACCIDENT_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Light Conditions&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LIGHT_COND&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Road Geometry&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ROAD_GEOME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;lt;br&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Speed Zone&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SPEED_ZONE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Number of People&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TOTAL_PERS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;br&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                                   &lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;b&amp;gt;Persons Injured or Fatality&amp;lt;/b&amp;gt;: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;INJ_OR_FAT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-                   &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span class=&#34;nf&#34;&gt;addLayersControl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;baseGroups&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Default&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Aerial&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Street&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Terrain&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;overlayGroups&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Accidents&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;options&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;layersControlOptions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;collapsed&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-      &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;p&gt;Now, I use &lt;code&gt;leaflet&lt;/code&gt; maps a lot. They are incredibly versatile with a wealth of options (see &lt;a href=&#34;https://rstudio.github.io/leaflet/&#34;&gt;documentation&lt;/a&gt; to get started). They are also very simple. In the code below you can see my standard setup (excluding &lt;code&gt;addCircleMarkers()&lt;/code&gt;). I save this as a snippet and insert it each time I make a map. This means that my maps are consistent and that I can get something done in a few minutes just focusing on the new layer.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+map &amp;lt;- leaflet(sd, width = &amp;#39;100%&amp;#39;) %&amp;gt;% 
+  addProviderTiles(&amp;quot;CartoDB.Positron&amp;quot;, group = &amp;#39;Default&amp;#39;) %&amp;gt;%
+  addProviderTiles(&amp;quot;Esri.WorldImagery&amp;quot;, group = &amp;#39;Aerial&amp;#39;) %&amp;gt;%
+  addProviderTiles(&amp;quot;OpenStreetMap.Mapnik&amp;quot;, group = &amp;#39;Street&amp;#39;) %&amp;gt;%
+  addProviderTiles(&amp;quot;OpenTopoMap&amp;quot;, group = &amp;#39;Terrain&amp;#39;) %&amp;gt;%
+  addScaleBar(&amp;#39;bottomright&amp;#39;) %&amp;gt;%
+  addCircleMarkers(group = &amp;#39;Accidents&amp;#39;, 
+                   stroke = FALSE, 
+                   opacity = 0.4,
+                   fillColor = ~sapply(SEVERITY, switch, USE.NAMES = FALSE,
+                                    &amp;#39;Fatal accident&amp;#39; = &amp;#39;#a50f15&amp;#39;,
+                                    &amp;#39;Serious injury accident&amp;#39; = &amp;#39;#de2d26&amp;#39;,
+                                    &amp;#39;Other injury accident&amp;#39; = &amp;#39;#fb6a4a&amp;#39; 
+                                     ),
+                   radius = ~sapply(SEVERITY, switch, USE.NAMES = FALSE,
+                                    &amp;#39;Fatal accident&amp;#39; = 10,
+                                    &amp;#39;Serious injury accident&amp;#39; = 7,
+                                    &amp;#39;Other injury accident&amp;#39; = 5
+                                     ),
+                   popup = ~paste0(&amp;#39;&amp;lt;h3&amp;gt;Some Accident Details&amp;lt;/h3&amp;gt;&amp;lt;br&amp;gt;&amp;#39;,
+                                   &amp;#39;&amp;lt;b&amp;gt;Severity&amp;lt;/b&amp;gt;: &amp;#39;, SEVERITY, &amp;#39;&amp;lt;br&amp;gt;&amp;#39;,
+                                   &amp;#39;&amp;lt;b&amp;gt;Type of Accident&amp;lt;/b&amp;gt;: &amp;#39;, ACCIDENT_1, &amp;#39;&amp;lt;br&amp;gt;&amp;#39;,
+                                   &amp;#39;&amp;lt;b&amp;gt;Light Conditions&amp;lt;/b&amp;gt;: &amp;#39;, LIGHT_COND, &amp;#39;&amp;lt;br&amp;gt;&amp;#39;,
+                                   &amp;#39;&amp;lt;b&amp;gt;Road Geometry&amp;lt;/b&amp;gt;: &amp;#39;, ROAD_GEOME, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+                                   &amp;#39;&amp;lt;b&amp;gt;Speed Zone&amp;lt;/b&amp;gt;: &amp;#39;, SPEED_ZONE, &amp;#39;&amp;lt;br&amp;gt;&amp;#39;,
+                                   &amp;#39;&amp;lt;b&amp;gt;Number of People&amp;lt;/b&amp;gt;: &amp;#39;, TOTAL_PERS, &amp;#39;&amp;lt;br&amp;gt;&amp;#39;,
+                                   &amp;#39;&amp;lt;b&amp;gt;Persons Injured or Fatality&amp;lt;/b&amp;gt;: &amp;#39;, INJ_OR_FAT)
+                   ) %&amp;gt;%
+  addLayersControl(
+        baseGroups = c(&amp;quot;Default&amp;quot;, &amp;quot;Aerial&amp;quot;, &amp;quot;Street&amp;quot;, &amp;quot;Terrain&amp;quot;),
+        overlayGroups = &amp;#39;Accidents&amp;#39;,
+        options = layersControlOptions(collapsed = TRUE)
+      )
 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we have all of the elements we need. These could have been added directly to the &lt;code&gt;rmarkdown&lt;/code&gt; page with each code chunk, but wrapping them in some &lt;code&gt;htmltools&lt;/code&gt; and &lt;code&gt;crosstalk&lt;/code&gt; tags makes for a slightly cleaner user experience.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+tags$div(class=&amp;quot;well well-lg&amp;quot;,
+         tagList(
+           tags$h2(&amp;#39;Alcohol Related Motor Vehicle Accidents 2012 - 2017&amp;#39;),
+           date_filter,
+           map,
+           bscols(day_filter,
+                     list(year_filter,
+                          severity_filter),
+                     type_filter)
+                    )
+            )    
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we have all of the elements we need. These could have been added directly to the &lt;code&gt;rmarkdown&lt;/code&gt; page with each code chunk, but wrapping them in some &lt;code&gt;htmltools&lt;/code&gt; and &lt;code&gt;crosstalk&lt;/code&gt; tags makes for a slightly cleaner user experience.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;
-&lt;span class=&#34;n&#34;&gt;tags&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;well well-lg&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-         &lt;span class=&#34;nf&#34;&gt;tagList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
-           &lt;span class=&#34;n&#34;&gt;tags&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;h2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Alcohol Related Motor Vehicle Accidents 2012 - 2017&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
-           &lt;span class=&#34;n&#34;&gt;date_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-           &lt;span class=&#34;n&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-           &lt;span class=&#34;nf&#34;&gt;bscols&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;day_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                     &lt;span class=&#34;nf&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;year_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                          &lt;span class=&#34;n&#34;&gt;severity_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
-                     &lt;span class=&#34;n&#34;&gt;type_filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-                    &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-            &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;    
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;iframe allowtransparency=&#34;true&#34; src=&#34;../../rmd/2018-07-25-filtering-spatial-data_content.html&#34; id=&#34;IframeId&#34; style=&#34;border:none;width:100%;height:1000px;background-color:#424242&#34;&gt;
+&lt;/iframe&gt;
 </description>
         </item>
         <item>
