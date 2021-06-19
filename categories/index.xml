@@ -6,7 +6,16 @@
     <description>Recent content in Categories on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>web</title>
+      <link>https://mrjoh3.github.io/categories/web/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mrjoh3.github.io/categories/web/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>data visualisation</title>
       <link>https://mrjoh3.github.io/categories/data-visualisation/</link>
@@ -40,15 +49,6 @@
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://mrjoh3.github.io/categories/spatial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
-      <link>https://mrjoh3.github.io/categories/web/</link>
-      <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrjoh3.github.io/categories/web/</guid>
       <description></description>
     </item>
     

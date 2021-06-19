@@ -6,7 +6,204 @@
         <description>Recent content on A Simple Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Shiny and Rmarkdown Image Galleries</title>
+        <link>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</link>
+        <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</guid>
+        <description>&lt;img src="https://mrjoh3.github.io/img/MRJ_2020_DSC9961.png" alt="Featured image of post Shiny and Rmarkdown Image Galleries" /&gt;
+&lt;script src=&#34;https://mrjoh3.github.io/p/shiny-image-gallery-examples/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;link rel=&#34;stylesheet&#34; href=&#34;www/lightbox-2-2.11.3/css/lightbox.min.css&#34;&gt;
+&lt;script src=&#34;www/lightbox-2-2.11.3/js/lightbox-plus-jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Some time ago I had to implement an image gallery within a &lt;code&gt;shiny&lt;/code&gt; application. A simple grid of small thumbnail images where clicking opens the full image. Nothing complicated, but I did have several requirements:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The gallery needed to render from a folder of images&lt;/li&gt;
+&lt;li&gt;The gallery interface and thumbnails needed to be responsive&lt;/li&gt;
+&lt;li&gt;The gallery needed to link to other &lt;code&gt;shiny&lt;/code&gt; UI&lt;/li&gt;
+&lt;li&gt;Images come from one location, no need for generating thumbnails&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;There is a wide variety of javascript image gallery implementations. To start with I looked at &lt;a href=&#34;https://lokeshdhakar.com/projects/lightbox2/&#34;&gt;Lightbox&lt;/a&gt; and &lt;a href=&#34;http://photoswipe.com/&#34;&gt;PhotoSwipe&lt;/a&gt;. &lt;code&gt;Lightbox&lt;/code&gt; was the easiest to use and many other &lt;code&gt;JS&lt;/code&gt; libraries are based on it. &lt;code&gt;Photoswipe&lt;/code&gt; is also very popular with a very nice UI, zoom and touch integration plus an extensive API. Both are available under MIT licences. Unfortunately my javascript is limited and I did not have enough time to get more than the most basic &lt;code&gt;Photoswipe&lt;/code&gt; gallery to work. But, the &lt;code&gt;Lightbox&lt;/code&gt; gallery works very nicely.&lt;/p&gt;
+&lt;p&gt;This work was eventually built into a &lt;a href=&#34;https://mrjoh3.shinyapps.io/shiny-gallery-example/&#34;&gt;shiny app&lt;/a&gt; so you can see the galleries in action. I have also wrapped the code in the &lt;a href=&#34;https://github.com/mrjoh3/gallerier&#34;&gt;gallerier&lt;/a&gt; package. &lt;code&gt;Gallerier&lt;/code&gt; can be used in both &lt;code&gt;shiny&lt;/code&gt; and &lt;code&gt;rmarkdown&lt;/code&gt; documents. Code for the original &lt;code&gt;shiny&lt;/code&gt; app is on &lt;a href=&#34;https://github.com/mrjoh3/shiny-gallery-example&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;gallerier&lt;/code&gt; is very much a work in progress and more proof-of-concept than usable package. Please us it if you wish and let me know how you get on. The package also has some other functionality for creating card packs, but I will discuss this in a separate post.&lt;/p&gt;
+&lt;div id=&#34;using-lightbox-in-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Using Lightbox in R&lt;/h2&gt;
+&lt;p&gt;The great thing about Lightbox is that the setup is relatively easy. For a gallery all it requires is the creation of a structured “image set”. The “image set” defines the location of the images and any metadata you wish to display. If you look at the &lt;a href=&#34;https://lokeshdhakar.com/projects/lightbox2/#getting-started&#34;&gt;Lightbox documentation&lt;/a&gt; the “image set” is a group of image links that look like this:&lt;/p&gt;
+&lt;pre class=&#34;html&#34;&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;images/image-2.jpg&amp;quot; data-lightbox=&amp;quot;roadtrip&amp;quot;&amp;gt;Image #2&amp;lt;/a&amp;gt;
+&amp;lt;a href=&amp;quot;images/image-3.jpg&amp;quot; data-lightbox=&amp;quot;roadtrip&amp;quot;&amp;gt;Image #3&amp;lt;/a&amp;gt;
+&amp;lt;a href=&amp;quot;images/image-4.jpg&amp;quot; data-lightbox=&amp;quot;roadtrip&amp;quot;&amp;gt;Image #4&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To to recreate this in &lt;code&gt;R&lt;/code&gt; add all the required details to a &lt;code&gt;data.frame&lt;/code&gt;, then iterate over the rows and using &lt;code&gt;htmltools&lt;/code&gt; to create a &lt;code&gt;taglist&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tagList(
+  lapply(seq_len(nrow(df)), function(i){
+    tags$a(id = &amp;#39;image ID&amp;#39;,
+           href = &amp;#39;path to image&amp;#39;,
+           `data-lightbox` = &amp;#39;gallery group name&amp;#39;, 
+           `data-title` = &amp;#39;metadata to display&amp;#39;, 
+           tags$img(class = &amp;#39;card-img-top&amp;#39;,
+                    src = &amp;#39;path to image&amp;#39;,
+                    width = &amp;#39;image width px&amp;#39;),
+                    height = &amp;#39;auto&amp;#39;)
+  })
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/mrjoh3/gallerier/blob/master/R/lightbox.R&#34;&gt;code&lt;/a&gt; in &lt;code&gt;gallerier&lt;/code&gt; also adds each image to a &lt;a href=&#34;https://www.w3schools.com/howto/howto_css_cards.asp&#34;&gt;HTML card&lt;/a&gt;. This makes it a little easier to format the images and make the gallery look nice and consistent; plus it makes the gallery responsive to small screens and changes in screen size.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;an-example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;An Example&lt;/h2&gt;
+&lt;p&gt;In this example we iterate over a folder of images and extract some metadata from the image file name. We also add an id key using &lt;code&gt;hashids::encode()&lt;/code&gt; as each image tag needs a unique id for the &lt;code&gt;lightbox&lt;/code&gt; gallery. This is particularly important where you have multiple galleries on one page. The only required field in the &lt;code&gt;data.frame&lt;/code&gt; is the &lt;code&gt;src&lt;/code&gt; field. Any other fields will be joined together to form the metadata description that displays under each image after it is selected.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
+library(lubridate)
+library(hashids)
+library(gallerier)
+
+images &amp;lt;- data.frame(src = list.files(&amp;#39;www/img&amp;#39;)) %&amp;gt;%
+  tidyr::separate(col = &amp;#39;src&amp;#39;, 
+                  c(&amp;#39;txt&amp;#39;, &amp;#39;date&amp;#39;, &amp;#39;time&amp;#39;, &amp;#39;msec&amp;#39;), 
+                  sep = &amp;#39;_|\\.&amp;#39;, 
+                  remove = FALSE) %&amp;gt;%
+  rowwise() %&amp;gt;%
+  mutate(date = as.character(lubridate::ymd(date)),
+         key = hashids::encode(1e3 + as.integer(msec), 
+                               hashid_settings(salt = &amp;#39;this is my salt&amp;#39;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we pass the &lt;code&gt;data.frame&lt;/code&gt; to the &lt;code&gt;gallerier::lightbox_gallery()&lt;/code&gt; function and tell it where the images can be found relative to the final &lt;code&gt;HTML&lt;/code&gt; page. This can sometimes take a couple of goes to get right depending on which framework you are using. For &lt;code&gt;shiny&lt;/code&gt; the images will need to be in a &lt;code&gt;www/img&lt;/code&gt; folder. But the &lt;code&gt;www&lt;/code&gt; is dropped within shiny so the referenced path would be &lt;code&gt;img/&lt;/code&gt;. For &lt;code&gt;rmarkdown&lt;/code&gt; the &lt;code&gt;www&lt;/code&gt; does not get dropped, so &lt;code&gt;path=&#39;www/img&#39;&lt;/code&gt;. This blog is created using &lt;code&gt;blogdown&lt;/code&gt; and so the images need to be in the &lt;code&gt;static&lt;/code&gt; folder, but are then referenced as &lt;code&gt;path=&#39;../../img/&#39;&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;some-gotchas&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Some Gotcha’s&lt;/h2&gt;
+&lt;p&gt;As indicated above, referring to the image location can be quite variable. This is also the case for referring to the required &lt;code&gt;JavaScript&lt;/code&gt; and &lt;code&gt;CSS&lt;/code&gt; files. In &lt;code&gt;shiny&lt;/code&gt; the &lt;code&gt;gallerier::lightbox_gallery()&lt;/code&gt; embeds all the required files, but this does not work in &lt;code&gt;rmarkdown&lt;/code&gt;. At least, I have not managed to get it to work. What does work is explicitly referencing the files at the top of the &lt;code&gt;.Rmd&lt;/code&gt; file.&lt;/p&gt;
+&lt;pre class=&#34;html&#34;&gt;&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;www/lightbox-2-2.11.3/css/lightbox.min.css&amp;quot;&amp;gt;
+&amp;lt;script src=&amp;quot;www/lightbox-2-2.11.3/js/lightbox-plus-jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You will notice in the code above I referenced the &lt;code&gt;JS&lt;/code&gt; file &lt;code&gt;lightbox-plus-jquery.min.js&lt;/code&gt;. This is because the &lt;code&gt;Hugo&lt;/code&gt; theme that this blog uses does not include &lt;code&gt;jquery&lt;/code&gt;, luckily this file has it embedded. If you are using &lt;code&gt;shiny&lt;/code&gt; or &lt;code&gt;rmarkdown&lt;/code&gt;, &lt;code&gt;jquery&lt;/code&gt; is already available, so you would refer to &lt;code&gt;lightbox.min.js&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-gallery&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The Gallery&lt;/h2&gt;
+&lt;p&gt;Below is the final result. I am pretty happy with the look of the gallery and the functionality of &lt;code&gt;lightbox&lt;/code&gt;. Getting this to work in &lt;code&gt;shiny&lt;/code&gt; was straight forward and &lt;code&gt;rmarkdown&lt;/code&gt; was not too bad. But I did have a very hard time with &lt;code&gt;blogdown&lt;/code&gt;. Mostly it took far too long for me to realise that &lt;code&gt;jquery&lt;/code&gt; was missing as I had not had to load it in the other frameworks.&lt;/p&gt;
+&lt;p&gt;To render the gallery pass the &lt;code&gt;data.frame&lt;/code&gt; to the &lt;code&gt;lightbox_gallery()&lt;/code&gt; function. Give the gallery a name, define the image file path, and that is it.&lt;/p&gt;
+&lt;div style=&#34;display: TRUE;&#34;&gt;
+&lt;div class=&#34;card-deck&#34;&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181019_131513_230.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181019_131513_230.jpg - IMG - 2018-10-19 - 131513 - 230 - Vvm - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181019_131513_230.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181022_160737_185.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181022_160737_185.jpg - IMG - 2018-10-22 - 160737 - 185 - MQB - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181022_160737_185.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181024_180354_405.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181024_180354_405.jpg - IMG - 2018-10-24 - 180354 - 405 - rQV - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181024_180354_405.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181024_180354_425.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181024_180354_425.jpg - IMG - 2018-10-24 - 180354 - 425 - mZR - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181024_180354_425.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181024_180354_432.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181024_180354_432.jpg - IMG - 2018-10-24 - 180354 - 432 - 3LY - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181024_180354_432.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181024_183858_737.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181024_183858_737.jpg - IMG - 2018-10-24 - 183858 - 737 - WK4 - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181024_183858_737.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181025_183729_821.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181025_183729_821.jpg - IMG - 2018-10-25 - 183729 - 821 - opR - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181025_183729_821.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181026_142940_957.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181026_142940_957.jpg - IMG - 2018-10-26 - 142940 - 957 - xJEy - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181026_142940_957.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181119_172905_259.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181119_172905_259.jpg - IMG - 2018-11-19 - 172905 - 259 - zMW - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181119_172905_259.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181213_094058_994.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181213_094058_994.jpg - IMG - 2018-12-13 - 094058 - 994 - laaX - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181213_094058_994.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181215_090527_868.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181215_090527_868.jpg - IMG - 2018-12-15 - 090527 - 868 - LzX - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181215_090527_868.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-type=&#34;template&#34; class=&#34;card&#34;&gt;
+&lt;a id=&#34;ef8a6&#34; href=&#34;../../img/IMG_20181224_194148_000.jpg&#34; data-lightbox=&#34;name-of-gallery&#34; data-title=&#34;IMG_20181224_194148_000.jpg - IMG - 2018-12-24 - 194148 - 000 - 5vJ - ef8a6&#34;&gt;
+&lt;img class=&#34;card-img-top&#34; src=&#34;../../img/IMG_20181224_194148_000.jpg&#34; width=&#34;80px&#34; height=&#34;auto&#34;/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;/*!
+ * Lightbox v2.11.3
+ * by Lokesh Dhakar
+ *
+ * More info:
+ * http://lokeshdhakar.com/projects/lightbox2/
+ *
+ * Copyright Lokesh Dhakar
+ * Released under the MIT license
+ * https://github.com/lokesh/lightbox2/blob/master/LICENSE
+ *
+ * @preserve
+ */
+!function(a,b){&#34;function&#34;==typeof define&amp;&amp;define.amd?define([&#34;jquery&#34;],b):&#34;object&#34;==typeof exports?module.exports=b(require(&#34;jquery&#34;)):a.lightbox=b(a.jQuery)}(this,function(a){function b(b){this.album=[],this.currentImageIndex=void 0,this.init(),this.options=a.extend({},this.constructor.defaults),this.option(b)}return b.defaults={albumLabel:&#34;Image %1 of %2&#34;,alwaysShowNavOnTouchDevices:!1,fadeDuration:600,fitImagesInViewport:!0,imageFadeDuration:600,positionFromTop:50,resizeDuration:700,showImageNumberLabel:!0,wrapAround:!1,disableScrolling:!1,sanitizeTitle:!1},b.prototype.option=function(b){a.extend(this.options,b)},b.prototype.imageCountLabel=function(a,b){return this.options.albumLabel.replace(/%1/g,a).replace(/%2/g,b)},b.prototype.init=function(){var b=this;a(document).ready(function(){b.enable(),b.build()})},b.prototype.enable=function(){var b=this;a(&#34;body&#34;).on(&#34;click&#34;,&#34;a[rel^=lightbox], area[rel^=lightbox], a[data-lightbox], area[data-lightbox]&#34;,function(c){return b.start(a(c.currentTarget)),!1})},b.prototype.build=function(){if(!(a(&#34;#lightbox&#34;).length&gt;0)){var b=this;a(&#39;&lt;div id=&#34;lightboxOverlay&#34; tabindex=&#34;-1&#34; class=&#34;lightboxOverlay&#34;&gt;&lt;/div&gt;&lt;div id=&#34;lightbox&#34; tabindex=&#34;-1&#34; class=&#34;lightbox&#34;&gt;&lt;div class=&#34;lb-outerContainer&#34;&gt;&lt;div class=&#34;lb-container&#34;&gt;&lt;img class=&#34;lb-image&#34; src=&#34;data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==&#34; alt=&#34;&#34;/&gt;&lt;div class=&#34;lb-nav&#34;&gt;&lt;a class=&#34;lb-prev&#34; aria-label=&#34;Previous image&#34; href=&#34;&#34; &gt;&lt;/a&gt;&lt;a class=&#34;lb-next&#34; aria-label=&#34;Next image&#34; href=&#34;&#34; &gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;lb-loader&#34;&gt;&lt;a class=&#34;lb-cancel&#34;&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;lb-dataContainer&#34;&gt;&lt;div class=&#34;lb-data&#34;&gt;&lt;div class=&#34;lb-details&#34;&gt;&lt;span class=&#34;lb-caption&#34;&gt;&lt;/span&gt;&lt;span class=&#34;lb-number&#34;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&#34;lb-closeContainer&#34;&gt;&lt;a class=&#34;lb-close&#34;&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&#39;).appendTo(a(&#34;body&#34;)),this.$lightbox=a(&#34;#lightbox&#34;),this.$overlay=a(&#34;#lightboxOverlay&#34;),this.$outerContainer=this.$lightbox.find(&#34;.lb-outerContainer&#34;),this.$container=this.$lightbox.find(&#34;.lb-container&#34;),this.$image=this.$lightbox.find(&#34;.lb-image&#34;),this.$nav=this.$lightbox.find(&#34;.lb-nav&#34;),this.containerPadding={top:parseInt(this.$container.css(&#34;padding-top&#34;),10),right:parseInt(this.$container.css(&#34;padding-right&#34;),10),bottom:parseInt(this.$container.css(&#34;padding-bottom&#34;),10),left:parseInt(this.$container.css(&#34;padding-left&#34;),10)},this.imageBorderWidth={top:parseInt(this.$image.css(&#34;border-top-width&#34;),10),right:parseInt(this.$image.css(&#34;border-right-width&#34;),10),bottom:parseInt(this.$image.css(&#34;border-bottom-width&#34;),10),left:parseInt(this.$image.css(&#34;border-left-width&#34;),10)},this.$overlay.hide().on(&#34;click&#34;,function(){return b.end(),!1}),this.$lightbox.hide().on(&#34;click&#34;,function(c){&#34;lightbox&#34;===a(c.target).attr(&#34;id&#34;)&amp;&amp;b.end()}),this.$outerContainer.on(&#34;click&#34;,function(c){return&#34;lightbox&#34;===a(c.target).attr(&#34;id&#34;)&amp;&amp;b.end(),!1}),this.$lightbox.find(&#34;.lb-prev&#34;).on(&#34;click&#34;,function(){return 0===b.currentImageIndex?b.changeImage(b.album.length-1):b.changeImage(b.currentImageIndex-1),!1}),this.$lightbox.find(&#34;.lb-next&#34;).on(&#34;click&#34;,function(){return b.currentImageIndex===b.album.length-1?b.changeImage(0):b.changeImage(b.currentImageIndex+1),!1}),this.$nav.on(&#34;mousedown&#34;,function(a){3===a.which&amp;&amp;(b.$nav.css(&#34;pointer-events&#34;,&#34;none&#34;),b.$lightbox.one(&#34;contextmenu&#34;,function(){setTimeout(function(){this.$nav.css(&#34;pointer-events&#34;,&#34;auto&#34;)}.bind(b),0)}))}),this.$lightbox.find(&#34;.lb-loader, .lb-close&#34;).on(&#34;click&#34;,function(){return b.end(),!1})}},b.prototype.start=function(b){function c(a){d.album.push({alt:a.attr(&#34;data-alt&#34;),link:a.attr(&#34;href&#34;),title:a.attr(&#34;data-title&#34;)||a.attr(&#34;title&#34;)})}var d=this,e=a(window);e.on(&#34;resize&#34;,a.proxy(this.sizeOverlay,this)),this.sizeOverlay(),this.album=[];var f,g=0,h=b.attr(&#34;data-lightbox&#34;);if(h){f=a(b.prop(&#34;tagName&#34;)+&#39;[data-lightbox=&#34;&#39;+h+&#39;&#34;]&#39;);for(var i=0;i&lt;f.length;i=++i)c(a(f[i])),f[i]===b[0]&amp;&amp;(g=i)}else if(&#34;lightbox&#34;===b.attr(&#34;rel&#34;))c(b);else{f=a(b.prop(&#34;tagName&#34;)+&#39;[rel=&#34;&#39;+b.attr(&#34;rel&#34;)+&#39;&#34;]&#39;);for(var j=0;j&lt;f.length;j=++j)c(a(f[j])),f[j]===b[0]&amp;&amp;(g=j)}var k=e.scrollTop()+this.options.positionFromTop,l=e.scrollLeft();this.$lightbox.css({top:k+&#34;px&#34;,left:l+&#34;px&#34;}).fadeIn(this.options.fadeDuration),this.options.disableScrolling&amp;&amp;a(&#34;body&#34;).addClass(&#34;lb-disable-scrolling&#34;),this.changeImage(g)},b.prototype.changeImage=function(b){var c=this,d=this.album[b].link,e=d.split(&#34;.&#34;).slice(-1)[0],f=this.$lightbox.find(&#34;.lb-image&#34;);this.disableKeyboardNav(),this.$overlay.fadeIn(this.options.fadeDuration),a(&#34;.lb-loader&#34;).fadeIn(&#34;slow&#34;),this.$lightbox.find(&#34;.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption&#34;).hide(),this.$outerContainer.addClass(&#34;animating&#34;);var g=new Image;g.onload=function(){var h,i,j,k,l,m;f.attr({alt:c.album[b].alt,src:d}),a(g),f.width(g.width),f.height(g.height),m=a(window).width(),l=a(window).height(),k=m-c.containerPadding.left-c.containerPadding.right-c.imageBorderWidth.left-c.imageBorderWidth.right-20,j=l-c.containerPadding.top-c.containerPadding.bottom-c.imageBorderWidth.top-c.imageBorderWidth.bottom-c.options.positionFromTop-70,&#34;svg&#34;===e&amp;&amp;(f.width(k),f.height(j)),c.options.fitImagesInViewport?(c.options.maxWidth&amp;&amp;c.options.maxWidth&lt;k&amp;&amp;(k=c.options.maxWidth),c.options.maxHeight&amp;&amp;c.options.maxHeight&lt;j&amp;&amp;(j=c.options.maxHeight)):(k=c.options.maxWidth||g.width||k,j=c.options.maxHeight||g.height||j),(g.width&gt;k||g.height&gt;j)&amp;&amp;(g.width/k&gt;g.height/j?(i=k,h=parseInt(g.height/(g.width/i),10),f.width(i),f.height(h)):(h=j,i=parseInt(g.width/(g.height/h),10),f.width(i),f.height(h))),c.sizeContainer(f.width(),f.height())},g.src=this.album[b].link,this.currentImageIndex=b},b.prototype.sizeOverlay=function(){var b=this;setTimeout(function(){b.$overlay.width(a(document).width()).height(a(document).height())},0)},b.prototype.sizeContainer=function(a,b){function c(){d.$lightbox.find(&#34;.lb-dataContainer&#34;).width(g),d.$lightbox.find(&#34;.lb-prevLink&#34;).height(h),d.$lightbox.find(&#34;.lb-nextLink&#34;).height(h),d.$overlay.focus(),d.showImage()}var d=this,e=this.$outerContainer.outerWidth(),f=this.$outerContainer.outerHeight(),g=a+this.containerPadding.left+this.containerPadding.right+this.imageBorderWidth.left+this.imageBorderWidth.right,h=b+this.containerPadding.top+this.containerPadding.bottom+this.imageBorderWidth.top+this.imageBorderWidth.bottom;e!==g||f!==h?this.$outerContainer.animate({width:g,height:h},this.options.resizeDuration,&#34;swing&#34;,function(){c()}):c()},b.prototype.showImage=function(){this.$lightbox.find(&#34;.lb-loader&#34;).stop(!0).hide(),this.$lightbox.find(&#34;.lb-image&#34;).fadeIn(this.options.imageFadeDuration),this.updateNav(),this.updateDetails(),this.preloadNeighboringImages(),this.enableKeyboardNav()},b.prototype.updateNav=function(){var a=!1;try{document.createEvent(&#34;TouchEvent&#34;),a=!!this.options.alwaysShowNavOnTouchDevices}catch(a){}this.$lightbox.find(&#34;.lb-nav&#34;).show(),this.album.length&gt;1&amp;&amp;(this.options.wrapAround?(a&amp;&amp;this.$lightbox.find(&#34;.lb-prev, .lb-next&#34;).css(&#34;opacity&#34;,&#34;1&#34;),this.$lightbox.find(&#34;.lb-prev, .lb-next&#34;).show()):(this.currentImageIndex&gt;0&amp;&amp;(this.$lightbox.find(&#34;.lb-prev&#34;).show(),a&amp;&amp;this.$lightbox.find(&#34;.lb-prev&#34;).css(&#34;opacity&#34;,&#34;1&#34;)),this.currentImageIndex&lt;this.album.length-1&amp;&amp;(this.$lightbox.find(&#34;.lb-next&#34;).show(),a&amp;&amp;this.$lightbox.find(&#34;.lb-next&#34;).css(&#34;opacity&#34;,&#34;1&#34;))))},b.prototype.updateDetails=function(){var a=this;if(void 0!==this.album[this.currentImageIndex].title&amp;&amp;&#34;&#34;!==this.album[this.currentImageIndex].title){var b=this.$lightbox.find(&#34;.lb-caption&#34;);this.options.sanitizeTitle?b.text(this.album[this.currentImageIndex].title):b.html(this.album[this.currentImageIndex].title),b.fadeIn(&#34;fast&#34;)}if(this.album.length&gt;1&amp;&amp;this.options.showImageNumberLabel){var c=this.imageCountLabel(this.currentImageIndex+1,this.album.length);this.$lightbox.find(&#34;.lb-number&#34;).text(c).fadeIn(&#34;fast&#34;)}else this.$lightbox.find(&#34;.lb-number&#34;).hide();this.$outerContainer.removeClass(&#34;animating&#34;),this.$lightbox.find(&#34;.lb-dataContainer&#34;).fadeIn(this.options.resizeDuration,function(){return a.sizeOverlay()})},b.prototype.preloadNeighboringImages=function(){if(this.album.length&gt;this.currentImageIndex+1){(new Image).src=this.album[this.currentImageIndex+1].link}if(this.currentImageIndex&gt;0){(new Image).src=this.album[this.currentImageIndex-1].link}},b.prototype.enableKeyboardNav=function(){this.$lightbox.on(&#34;keyup.keyboard&#34;,a.proxy(this.keyboardAction,this)),this.$overlay.on(&#34;keyup.keyboard&#34;,a.proxy(this.keyboardAction,this))},b.prototype.disableKeyboardNav=function(){this.$lightbox.off(&#34;.keyboard&#34;),this.$overlay.off(&#34;.keyboard&#34;)},b.prototype.keyboardAction=function(a){var b=a.keyCode;27===b?(a.stopPropagation(),this.end()):37===b?0!==this.currentImageIndex?this.changeImage(this.currentImageIndex-1):this.options.wrapAround&amp;&amp;this.album.length&gt;1&amp;&amp;this.changeImage(this.album.length-1):39===b&amp;&amp;(this.currentImageIndex!==this.album.length-1?this.changeImage(this.currentImageIndex+1):this.options.wrapAround&amp;&amp;this.album.length&gt;1&amp;&amp;this.changeImage(0))},b.prototype.end=function(){this.disableKeyboardNav(),a(window).off(&#34;resize&#34;,this.sizeOverlay),this.$lightbox.fadeOut(this.options.fadeDuration),this.$overlay.fadeOut(this.options.fadeDuration),this.options.disableScrolling&amp;&amp;a(&#34;body&#34;).removeClass(&#34;lb-disable-scrolling&#34;)},new b});
+//# sourceMappingURL=lightbox.min.map&lt;/script&gt;
+&lt;style type=&#34;text/css&#34;&gt;
+
+.card-deck {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  align-items: stretch;
+  padding: 20px;
+  border-spacing: 1.25rem 0;
+}
+.card-deck .card {
+  /*display: block;*/
+  flex-basis: 21%; /* change this value for each breakpoint*/
+}
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    margin: 20px;
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    @media(min-width: 56rem) {
+      width: 22.3333%;
+    }
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}&lt;/style&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
         <title>Filtering Spatial Data with Crosstalk</title>
         <link>https://mrjoh3.github.io/p/filtering-spatial-data/</link>
         <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>

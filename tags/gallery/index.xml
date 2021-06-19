@@ -1,24 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gallery on A Simple Blog</title>
-    <link>/tags/gallery/</link>
-    <description>Recent content in Gallery on A Simple Blog</description>
+    <title>gallery on A Simple Blog</title>
+    <link>https://mrjoh3.github.io/tags/gallery/</link>
+    <description>Recent content in gallery on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/gallery/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/gallery/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Shiny Image Gallery Examples</title>
-      <link>/2018/12/26/shiny-image-gallery-examples/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+      <title>Shiny and Rmarkdown Image Galleries</title>
+      <link>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>/2018/12/26/shiny-image-gallery-examples/</guid>
-      <description>DRAFT Recently I had to implement an image gallery within a shiny application. A simple grid of small images where clicking opens the fullscreen image. Nothing complicated, but I did have several requirements:
-The gallery needed to render from a folder of images The gallery interface and thumbnails needed to be responsive The gallery needed to link to other shiny UI The fullsize image should be zoomable to see the full resolution.</description>
+      <guid>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</guid>
+      <description>Some time ago I had to implement an image gallery within a shiny application. A simple grid of small thumbnail images where clicking opens the full image. Nothing complicated, but I did have several requirements:
+The gallery needed to render from a folder of images The gallery interface and thumbnails needed to be responsive The gallery needed to link to other shiny UI Images come from one location, no need for generating thumbnails  There is a wide variety of javascript image gallery implementations.</description>
     </item>
     
   </channel>

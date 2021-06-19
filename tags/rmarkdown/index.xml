@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rmarkdown on A Simple Blog</title>
+    <link>https://mrjoh3.github.io/tags/rmarkdown/</link>
+    <description>Recent content in rmarkdown on A Simple Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shiny and Rmarkdown Image Galleries</title>
+      <link>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</guid>
+      <description>Some time ago I had to implement an image gallery within a shiny application. A simple grid of small thumbnail images where clicking opens the full image. Nothing complicated, but I did have several requirements:
+The gallery needed to render from a folder of images The gallery interface and thumbnails needed to be responsive The gallery needed to link to other shiny UI Images come from one location, no need for generating thumbnails  There is a wide variety of javascript image gallery implementations.</description>
+    </item>
+    
+  </channel>
+</rss>

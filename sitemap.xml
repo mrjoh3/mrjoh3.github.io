@@ -3,16 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mrjoh3.github.io/</loc>
-    <lastmod>2021-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/categories/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/gallery/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/image/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/js/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/post/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/rmarkdown/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/shiny/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/categories/web/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/about/</loc>
     <lastmod>2021-06-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/page/</loc>
     <lastmod>2021-06-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mrjoh3.github.io/categories/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/categories/data-visualisation/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
@@ -30,9 +57,6 @@
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/categories/r/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mrjoh3.github.io/tags/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/archives/</loc>
@@ -68,9 +92,6 @@
     <loc>https://mrjoh3.github.io/tags/leaflet/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mrjoh3.github.io/post/</loc>
-    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://mrjoh3.github.io/tags/rstats/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
@@ -84,9 +105,6 @@
     <lastmod>2018-07-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/tags/hugo/</loc>
-    <lastmod>2018-07-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mrjoh3.github.io/categories/web/</loc>
     <lastmod>2018-07-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/p/animating-spatial-data/</loc>

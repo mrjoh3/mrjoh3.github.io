@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="/scss/style.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/a11y-dark.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
-<script>hljs.highlightAll();</script><meta property='og:title' content='Animating Spatial Data'>
+<script>hljs.highlightAll();</script>
+<meta property='og:title' content='Animating Spatial Data'>
 <meta property='og:description' content='#rstats &#43; #sf &#43; #ggplot2 &#43; #gganimate = a great way to visualise some sobering data. Only accidents where alcohol was involved. Remember each frame only accidents from a single day. See code gist https://t.co/wqEcYku2us and get data from #vicroads api https://t.co/cBX1kBz9iw pic.twitter.com/tNobkLQQQH — Matt Johnson (@mrjoh3) July 18, 2018    library(dplyr) library(sf) library(ggplot2) library(gganimate) shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;% filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;% mutate(date = as.'>
 <meta property='og:url' content='https://mrjoh3.github.io/p/animating-spatial-data/'>
 <meta property='og:site_name' content='A Simple Blog'>
