@@ -332,6 +332,10 @@
                 web
             </a>
         
+            <a href="/categories/r/" >
+                R
+            </a>
+        
     </header>
     
 
@@ -370,16 +374,16 @@
 <li>The gallery needed to link to other <code>shiny</code> UI</li>
 <li>Images come from one location, no need for generating thumbnails</li>
 </ol>
-<p>There is a wide variety of javascript image gallery implementations. To start with I looked at <a href="https://lokeshdhakar.com/projects/lightbox2/">Lightbox</a> and <a href="http://photoswipe.com/">PhotoSwipe</a>. <code>Lightbox</code> was the easiest to use and many other <code>JS</code> libraries are based on it. <code>Photoswipe</code> is also very popular with a very nice UI, zoom and touch integration plus an extensive API. Both are available under MIT licences. Unfortunately my javascript is limited and I did not have enough time to get more than the most basic <code>Photoswipe</code> gallery to work. But, the <code>Lightbox</code> gallery works very nicely.</p>
+<p>There is a wide variety of javascript image gallery implementations. To start with I looked at <a href="https://lokeshdhakar.com/projects/lightbox2/">Lightbox</a> and <a href="http://photoswipe.com/">PhotoSwipe</a>. <code>Lightbox</code> was the easiest to use and many other <code>JS</code> libraries are based on it. <code>Photoswipe</code> is also very popular with a very nice UI, zoom and touch integration plus an extensive API. Both are available under MIT licences. Unfortunately my javascript is limited and I did not have enough time to get more than the most basic <code>Photoswipe</code> gallery to work. But, the <code>Lightbox</code> gallery works very nicely. Here, I will focus on the <code>Lightbox</code> implementation.</p>
 <p>This work was eventually built into a <a href="https://mrjoh3.shinyapps.io/shiny-gallery-example/">shiny app</a> so you can see the galleries in action. I have also wrapped the code in the <a href="https://github.com/mrjoh3/gallerier">gallerier</a> package. <code>Gallerier</code> can be used in both <code>shiny</code> and <code>rmarkdown</code> documents. Code for the original <code>shiny</code> app is on <a href="https://github.com/mrjoh3/shiny-gallery-example">Github</a>.</p>
-<p>The <code>gallerier</code> is very much a work in progress and more proof-of-concept than usable package. Please us it if you wish and let me know how you get on. The package also has some other functionality for creating card packs, but I will discuss this in a separate post.</p>
+<p>The <code>gallerier</code> is very much a work in progress and more proof-of-concept than usable package. Please use it if you wish and let me know how you get on. The package also has some other functionality for creating <a href="https://www.w3schools.com/howto/howto_css_cards.asp">card packs</a>, but I will discuss this in a separate post.</p>
 <div id="using-lightbox-in-r" class="section level2">
 <h2>Using Lightbox in R</h2>
-<p>The great thing about Lightbox is that the setup is relatively easy. For a gallery all it requires is the creation of a structured “image set”. The “image set” defines the location of the images and any metadata you wish to display. If you look at the <a href="https://lokeshdhakar.com/projects/lightbox2/#getting-started">Lightbox documentation</a> the “image set” is a group of image links that look like this:</p>
+<p>The great thing about <code>Lightbox</code> is that the setup is relatively easy. For a gallery all it requires is the creation of a structured “image set”. The “image set” defines the location of the images and any metadata you wish to display. If you look at the <a href="https://lokeshdhakar.com/projects/lightbox2/#getting-started">Lightbox documentation</a> the “image set” is a group of image links that look like this:</p>
 <pre class="html"><code>&lt;a href=&quot;images/image-2.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;Image #2&lt;/a&gt;
 &lt;a href=&quot;images/image-3.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;Image #3&lt;/a&gt;
 &lt;a href=&quot;images/image-4.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;Image #4&lt;/a&gt;</code></pre>
-<p>To to recreate this in <code>R</code> add all the required details to a <code>data.frame</code>, then iterate over the rows and using <code>htmltools</code> to create a <code>taglist</code>.</p>
+<p>To to recreate this in <code>R</code>, add all the required details to a <code>data.frame</code>. Then iterate over the rows and using <code>htmltools</code> create a <code>taglist</code>.</p>
 <pre class="r"><code>tagList(
   lapply(seq_len(nrow(df)), function(i){
     tags$a(id = &#39;image ID&#39;,
@@ -410,12 +414,76 @@ images &lt;- data.frame(src = list.files(&#39;www/img&#39;)) %&gt;%
   rowwise() %&gt;%
   mutate(date = as.character(lubridate::ymd(date)),
          key = hashids::encode(1e3 + as.integer(msec), 
-                               hashid_settings(salt = &#39;this is my salt&#39;)))</code></pre>
-<p>Then we pass the <code>data.frame</code> to the <code>gallerier::lightbox_gallery()</code> function and tell it where the images can be found relative to the final <code>HTML</code> page. This can sometimes take a couple of goes to get right depending on which framework you are using. For <code>shiny</code> the images will need to be in a <code>www/img</code> folder. But the <code>www</code> is dropped within shiny so the referenced path would be <code>img/</code>. For <code>rmarkdown</code> the <code>www</code> does not get dropped, so <code>path='www/img'</code>. This blog is created using <code>blogdown</code> and so the images need to be in the <code>static</code> folder, but are then referenced as <code>path='../../img/'</code>.</p>
+                               hashid_settings(salt = &#39;this is my salt&#39;)))
+
+knitr::kable(head(images))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">src</th>
+<th align="left">txt</th>
+<th align="left">date</th>
+<th align="left">time</th>
+<th align="left">msec</th>
+<th align="left">key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">IMG_20181019_131513_230.jpg</td>
+<td align="left">IMG</td>
+<td align="left">2018-10-19</td>
+<td align="left">131513</td>
+<td align="left">230</td>
+<td align="left">Vvm</td>
+</tr>
+<tr class="even">
+<td align="left">IMG_20181022_160737_185.jpg</td>
+<td align="left">IMG</td>
+<td align="left">2018-10-22</td>
+<td align="left">160737</td>
+<td align="left">185</td>
+<td align="left">MQB</td>
+</tr>
+<tr class="odd">
+<td align="left">IMG_20181024_180354_405.jpg</td>
+<td align="left">IMG</td>
+<td align="left">2018-10-24</td>
+<td align="left">180354</td>
+<td align="left">405</td>
+<td align="left">rQV</td>
+</tr>
+<tr class="even">
+<td align="left">IMG_20181024_180354_425.jpg</td>
+<td align="left">IMG</td>
+<td align="left">2018-10-24</td>
+<td align="left">180354</td>
+<td align="left">425</td>
+<td align="left">mZR</td>
+</tr>
+<tr class="odd">
+<td align="left">IMG_20181024_180354_432.jpg</td>
+<td align="left">IMG</td>
+<td align="left">2018-10-24</td>
+<td align="left">180354</td>
+<td align="left">432</td>
+<td align="left">3LY</td>
+</tr>
+<tr class="even">
+<td align="left">IMG_20181024_183858_737.jpg</td>
+<td align="left">IMG</td>
+<td align="left">2018-10-24</td>
+<td align="left">183858</td>
+<td align="left">737</td>
+<td align="left">WK4</td>
+</tr>
+</tbody>
+</table>
+<p>Then we pass the <code>data.frame</code> to <code>gallerier::lightbox_gallery()</code> and tell it where the images can be found relative to the final <code>HTML</code> page. This can sometimes take a couple of goes to get right depending on which framework you are using. For <code>shiny</code> the images will need to be in a <code>www/img</code> folder. But the <code>www</code> is dropped within shiny so the referenced path would be <code>img/</code>. For <code>rmarkdown</code> the <code>www</code> does not get dropped, so <code>path='www/img'</code>. This blog is created using <code>blogdown</code> and so the images need to be in the <code>static</code> folder, but are then referenced as <code>path='../../img/'</code>.</p>
 </div>
 <div id="some-gotchas" class="section level2">
 <h2>Some Gotcha’s</h2>
-<p>As indicated above, referring to the image location can be quite variable. This is also the case for referring to the required <code>JavaScript</code> and <code>CSS</code> files. In <code>shiny</code> the <code>gallerier::lightbox_gallery()</code> embeds all the required files, but this does not work in <code>rmarkdown</code>. At least, I have not managed to get it to work. What does work is explicitly referencing the files at the top of the <code>.Rmd</code> file.</p>
+<p>As indicated above, referring to the image location can be quite variable. This is also the case for referring to the required <code>JavaScript</code> and <code>CSS</code> files. In <code>shiny</code>, <code>gallerier::lightbox_gallery()</code> embeds all the required files, but this does not work in <code>rmarkdown</code>. At least, I have not managed to get it to work. What does work is explicitly referencing the files at the top of the <code>.Rmd</code> file.</p>
 <pre class="html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;www/lightbox-2-2.11.3/css/lightbox.min.css&quot;&gt;
 &lt;script src=&quot;www/lightbox-2-2.11.3/js/lightbox-plus-jquery.min.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p>You will notice in the code above I referenced the <code>JS</code> file <code>lightbox-plus-jquery.min.js</code>. This is because the <code>Hugo</code> theme that this blog uses does not include <code>jquery</code>, luckily this file has it embedded. If you are using <code>shiny</code> or <code>rmarkdown</code>, <code>jquery</code> is already available, so you would refer to <code>lightbox.min.js</code>.</p>
@@ -605,6 +673,54 @@ images &lt;- data.frame(src = list.files(&#39;www/img&#39;)) %&gt;%
 
         <div class="article-details">
             <h2 class="article-title">Another blog about a blog</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/packages/2018-08-19-c3-package/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">c3</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/filtering-spatial-data/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/filter_header.jpg" loading="lazy" data-key="filtering-spatial-data" data-hash="/img/filter_header.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Filtering Spatial Data with Crosstalk</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/animating-spatial-data/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/snow-header.png" loading="lazy" data-key="animating-spatial-data" data-hash="/img/snow-header.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Animating Spatial Data</h2>
         </div>
     </a>
 </article>

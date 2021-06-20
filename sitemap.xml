@@ -20,6 +20,9 @@
     <loc>https://mrjoh3.github.io/post/</loc>
     <lastmod>2021-06-19T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://mrjoh3.github.io/categories/r/</loc>
+    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://mrjoh3.github.io/tags/rmarkdown/</loc>
     <lastmod>2021-06-19T00:00:00+00:00</lastmod>
   </url><url>
@@ -56,9 +59,6 @@
     <loc>https://mrjoh3.github.io/categories/packages/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mrjoh3.github.io/categories/r/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://mrjoh3.github.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -92,9 +92,6 @@
     <loc>https://mrjoh3.github.io/tags/leaflet/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mrjoh3.github.io/tags/rstats/</loc>
-    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://mrjoh3.github.io/tags/sf/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url><url>
@@ -107,10 +104,16 @@
     <loc>https://mrjoh3.github.io/tags/hugo/</loc>
     <lastmod>2018-07-21T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://mrjoh3.github.io/tags/rstats/</loc>
+    <lastmod>2018-07-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://mrjoh3.github.io/p/animating-spatial-data/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/tags/gganimate/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/road-accidents/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/packages/2020-11-08-cytoscape-package/</loc>

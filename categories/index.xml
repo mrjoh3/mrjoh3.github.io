@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>R</title>
+      <link>https://mrjoh3.github.io/categories/r/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mrjoh3.github.io/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>web</title>
       <link>https://mrjoh3.github.io/categories/web/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
@@ -31,15 +40,6 @@
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://mrjoh3.github.io/categories/packages/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://mrjoh3.github.io/categories/r/</link>
-      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrjoh3.github.io/categories/r/</guid>
       <description></description>
     </item>
     

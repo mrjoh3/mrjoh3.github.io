@@ -25,16 +25,16 @@
 &lt;li&gt;The gallery needed to link to other &lt;code&gt;shiny&lt;/code&gt; UI&lt;/li&gt;
 &lt;li&gt;Images come from one location, no need for generating thumbnails&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;There is a wide variety of javascript image gallery implementations. To start with I looked at &lt;a href=&#34;https://lokeshdhakar.com/projects/lightbox2/&#34;&gt;Lightbox&lt;/a&gt; and &lt;a href=&#34;http://photoswipe.com/&#34;&gt;PhotoSwipe&lt;/a&gt;. &lt;code&gt;Lightbox&lt;/code&gt; was the easiest to use and many other &lt;code&gt;JS&lt;/code&gt; libraries are based on it. &lt;code&gt;Photoswipe&lt;/code&gt; is also very popular with a very nice UI, zoom and touch integration plus an extensive API. Both are available under MIT licences. Unfortunately my javascript is limited and I did not have enough time to get more than the most basic &lt;code&gt;Photoswipe&lt;/code&gt; gallery to work. But, the &lt;code&gt;Lightbox&lt;/code&gt; gallery works very nicely.&lt;/p&gt;
+&lt;p&gt;There is a wide variety of javascript image gallery implementations. To start with I looked at &lt;a href=&#34;https://lokeshdhakar.com/projects/lightbox2/&#34;&gt;Lightbox&lt;/a&gt; and &lt;a href=&#34;http://photoswipe.com/&#34;&gt;PhotoSwipe&lt;/a&gt;. &lt;code&gt;Lightbox&lt;/code&gt; was the easiest to use and many other &lt;code&gt;JS&lt;/code&gt; libraries are based on it. &lt;code&gt;Photoswipe&lt;/code&gt; is also very popular with a very nice UI, zoom and touch integration plus an extensive API. Both are available under MIT licences. Unfortunately my javascript is limited and I did not have enough time to get more than the most basic &lt;code&gt;Photoswipe&lt;/code&gt; gallery to work. But, the &lt;code&gt;Lightbox&lt;/code&gt; gallery works very nicely. Here, I will focus on the &lt;code&gt;Lightbox&lt;/code&gt; implementation.&lt;/p&gt;
 &lt;p&gt;This work was eventually built into a &lt;a href=&#34;https://mrjoh3.shinyapps.io/shiny-gallery-example/&#34;&gt;shiny app&lt;/a&gt; so you can see the galleries in action. I have also wrapped the code in the &lt;a href=&#34;https://github.com/mrjoh3/gallerier&#34;&gt;gallerier&lt;/a&gt; package. &lt;code&gt;Gallerier&lt;/code&gt; can be used in both &lt;code&gt;shiny&lt;/code&gt; and &lt;code&gt;rmarkdown&lt;/code&gt; documents. Code for the original &lt;code&gt;shiny&lt;/code&gt; app is on &lt;a href=&#34;https://github.com/mrjoh3/shiny-gallery-example&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;gallerier&lt;/code&gt; is very much a work in progress and more proof-of-concept than usable package. Please us it if you wish and let me know how you get on. The package also has some other functionality for creating card packs, but I will discuss this in a separate post.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;gallerier&lt;/code&gt; is very much a work in progress and more proof-of-concept than usable package. Please use it if you wish and let me know how you get on. The package also has some other functionality for creating &lt;a href=&#34;https://www.w3schools.com/howto/howto_css_cards.asp&#34;&gt;card packs&lt;/a&gt;, but I will discuss this in a separate post.&lt;/p&gt;
 &lt;div id=&#34;using-lightbox-in-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Using Lightbox in R&lt;/h2&gt;
-&lt;p&gt;The great thing about Lightbox is that the setup is relatively easy. For a gallery all it requires is the creation of a structured “image set”. The “image set” defines the location of the images and any metadata you wish to display. If you look at the &lt;a href=&#34;https://lokeshdhakar.com/projects/lightbox2/#getting-started&#34;&gt;Lightbox documentation&lt;/a&gt; the “image set” is a group of image links that look like this:&lt;/p&gt;
+&lt;p&gt;The great thing about &lt;code&gt;Lightbox&lt;/code&gt; is that the setup is relatively easy. For a gallery all it requires is the creation of a structured “image set”. The “image set” defines the location of the images and any metadata you wish to display. If you look at the &lt;a href=&#34;https://lokeshdhakar.com/projects/lightbox2/#getting-started&#34;&gt;Lightbox documentation&lt;/a&gt; the “image set” is a group of image links that look like this:&lt;/p&gt;
 &lt;pre class=&#34;html&#34;&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;images/image-2.jpg&amp;quot; data-lightbox=&amp;quot;roadtrip&amp;quot;&amp;gt;Image #2&amp;lt;/a&amp;gt;
 &amp;lt;a href=&amp;quot;images/image-3.jpg&amp;quot; data-lightbox=&amp;quot;roadtrip&amp;quot;&amp;gt;Image #3&amp;lt;/a&amp;gt;
 &amp;lt;a href=&amp;quot;images/image-4.jpg&amp;quot; data-lightbox=&amp;quot;roadtrip&amp;quot;&amp;gt;Image #4&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To to recreate this in &lt;code&gt;R&lt;/code&gt; add all the required details to a &lt;code&gt;data.frame&lt;/code&gt;, then iterate over the rows and using &lt;code&gt;htmltools&lt;/code&gt; to create a &lt;code&gt;taglist&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To to recreate this in &lt;code&gt;R&lt;/code&gt;, add all the required details to a &lt;code&gt;data.frame&lt;/code&gt;. Then iterate over the rows and using &lt;code&gt;htmltools&lt;/code&gt; create a &lt;code&gt;taglist&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tagList(
   lapply(seq_len(nrow(df)), function(i){
     tags$a(id = &amp;#39;image ID&amp;#39;,
@@ -65,12 +65,76 @@ images &amp;lt;- data.frame(src = list.files(&amp;#39;www/img&amp;#39;)) %&amp;g
   rowwise() %&amp;gt;%
   mutate(date = as.character(lubridate::ymd(date)),
          key = hashids::encode(1e3 + as.integer(msec), 
-                               hashid_settings(salt = &amp;#39;this is my salt&amp;#39;)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then we pass the &lt;code&gt;data.frame&lt;/code&gt; to the &lt;code&gt;gallerier::lightbox_gallery()&lt;/code&gt; function and tell it where the images can be found relative to the final &lt;code&gt;HTML&lt;/code&gt; page. This can sometimes take a couple of goes to get right depending on which framework you are using. For &lt;code&gt;shiny&lt;/code&gt; the images will need to be in a &lt;code&gt;www/img&lt;/code&gt; folder. But the &lt;code&gt;www&lt;/code&gt; is dropped within shiny so the referenced path would be &lt;code&gt;img/&lt;/code&gt;. For &lt;code&gt;rmarkdown&lt;/code&gt; the &lt;code&gt;www&lt;/code&gt; does not get dropped, so &lt;code&gt;path=&#39;www/img&#39;&lt;/code&gt;. This blog is created using &lt;code&gt;blogdown&lt;/code&gt; and so the images need to be in the &lt;code&gt;static&lt;/code&gt; folder, but are then referenced as &lt;code&gt;path=&#39;../../img/&#39;&lt;/code&gt;.&lt;/p&gt;
+                               hashid_settings(salt = &amp;#39;this is my salt&amp;#39;)))
+
+knitr::kable(head(images))&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;src&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;txt&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;date&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;time&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;msec&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;key&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;IMG_20181019_131513_230.jpg&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;IMG&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2018-10-19&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;131513&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;230&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Vvm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;IMG_20181022_160737_185.jpg&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;IMG&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2018-10-22&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;160737&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;185&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;MQB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;IMG_20181024_180354_405.jpg&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;IMG&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2018-10-24&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;180354&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;405&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;rQV&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;IMG_20181024_180354_425.jpg&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;IMG&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2018-10-24&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;180354&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;425&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;mZR&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;IMG_20181024_180354_432.jpg&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;IMG&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2018-10-24&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;180354&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;432&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;3LY&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;IMG_20181024_183858_737.jpg&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;IMG&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2018-10-24&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;183858&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;737&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;WK4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Then we pass the &lt;code&gt;data.frame&lt;/code&gt; to &lt;code&gt;gallerier::lightbox_gallery()&lt;/code&gt; and tell it where the images can be found relative to the final &lt;code&gt;HTML&lt;/code&gt; page. This can sometimes take a couple of goes to get right depending on which framework you are using. For &lt;code&gt;shiny&lt;/code&gt; the images will need to be in a &lt;code&gt;www/img&lt;/code&gt; folder. But the &lt;code&gt;www&lt;/code&gt; is dropped within shiny so the referenced path would be &lt;code&gt;img/&lt;/code&gt;. For &lt;code&gt;rmarkdown&lt;/code&gt; the &lt;code&gt;www&lt;/code&gt; does not get dropped, so &lt;code&gt;path=&#39;www/img&#39;&lt;/code&gt;. This blog is created using &lt;code&gt;blogdown&lt;/code&gt; and so the images need to be in the &lt;code&gt;static&lt;/code&gt; folder, but are then referenced as &lt;code&gt;path=&#39;../../img/&#39;&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;some-gotchas&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Some Gotcha’s&lt;/h2&gt;
-&lt;p&gt;As indicated above, referring to the image location can be quite variable. This is also the case for referring to the required &lt;code&gt;JavaScript&lt;/code&gt; and &lt;code&gt;CSS&lt;/code&gt; files. In &lt;code&gt;shiny&lt;/code&gt; the &lt;code&gt;gallerier::lightbox_gallery()&lt;/code&gt; embeds all the required files, but this does not work in &lt;code&gt;rmarkdown&lt;/code&gt;. At least, I have not managed to get it to work. What does work is explicitly referencing the files at the top of the &lt;code&gt;.Rmd&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;As indicated above, referring to the image location can be quite variable. This is also the case for referring to the required &lt;code&gt;JavaScript&lt;/code&gt; and &lt;code&gt;CSS&lt;/code&gt; files. In &lt;code&gt;shiny&lt;/code&gt;, &lt;code&gt;gallerier::lightbox_gallery()&lt;/code&gt; embeds all the required files, but this does not work in &lt;code&gt;rmarkdown&lt;/code&gt;. At least, I have not managed to get it to work. What does work is explicitly referencing the files at the top of the &lt;code&gt;.Rmd&lt;/code&gt; file.&lt;/p&gt;
 &lt;pre class=&#34;html&#34;&gt;&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;www/lightbox-2-2.11.3/css/lightbox.min.css&amp;quot;&amp;gt;
 &amp;lt;script src=&amp;quot;www/lightbox-2-2.11.3/js/lightbox-plus-jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You will notice in the code above I referenced the &lt;code&gt;JS&lt;/code&gt; file &lt;code&gt;lightbox-plus-jquery.min.js&lt;/code&gt;. This is because the &lt;code&gt;Hugo&lt;/code&gt; theme that this blog uses does not include &lt;code&gt;jquery&lt;/code&gt;, luckily this file has it embedded. If you are using &lt;code&gt;shiny&lt;/code&gt; or &lt;code&gt;rmarkdown&lt;/code&gt;, &lt;code&gt;jquery&lt;/code&gt; is already available, so you would refer to &lt;code&gt;lightbox.min.js&lt;/code&gt;.&lt;/p&gt;
