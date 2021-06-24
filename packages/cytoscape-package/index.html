@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='A HTMLWidget wrapper for the Cytoscape.js graph / network visualisation and analysis library. There are already a number of existing R packages for Cytoscape such as the Bioconductor package and the official Cytoscape Widget. The purpose of this package is to make the process of producing a basic chart as simple as possible.
+Installation devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)  A Minimal Example library(cytoscape) nodes &amp;lt;- data.'><title>pier</title>
+
+<link rel='canonical' href='https://mrjoh3.github.io/packages/cytoscape-package/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/a11y-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<meta property='og:title' content='pier'>
+<meta property='og:description' content='A HTMLWidget wrapper for the Cytoscape.js graph / network visualisation and analysis library. There are already a number of existing R packages for Cytoscape such as the Bioconductor package and the official Cytoscape Widget. The purpose of this package is to make the process of producing a basic chart as simple as possible.
+Installation devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)  A Minimal Example library(cytoscape) nodes &amp;lt;- data.'>
+<meta property='og:url' content='https://mrjoh3.github.io/packages/cytoscape-package/'>
+<meta property='og:site_name' content='A Simple Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='htmlwidgets' /><meta property='article:tag' content='network chart' /><meta property='article:published_time' content='2020-11-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-11-08T00:00:00&#43;00:00'/><meta property='og:image' content='https://mrjoh3.github.io/img/MRJ_2020_DSC9257.png' />
+<meta name="twitter:site" content="@mrjoh3">
+    <meta name="twitter:creator" content="@mrjoh3"><meta name="twitter:title" content="pier">
+<meta name="twitter:description" content="A HTMLWidget wrapper for the Cytoscape.js graph / network visualisation and analysis library. There are already a number of existing R packages for Cytoscape such as the Bioconductor package and the official Cytoscape Widget. The purpose of this package is to make the process of producing a basic chart as simple as possible.
+Installation devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)  A Minimal Example library(cytoscape) nodes &amp;lt;- data."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://mrjoh3.github.io/img/MRJ_2020_DSC9257.png' />
+<link rel="icon" type="image/svg+xml" href="../../fav2/favicon.svg">
+<link rel="icon" type="image/png" href="../../fav2/favicon.png">
+<link rel="icon" type="image/svg+xml" href="fav2/favicon.svg">
+<link rel="icon" type="image/png" href="fav2/favicon.png">
+    </head>
+    <body class="article-page keep-sidebar">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended ">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/logo_hu976be0218d7e1cbb3ab23c04a582ef68_12526_300x0_resize_q75_box.jpg" width="300"
+                            height="261" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🧿</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://mrjoh3.github.io/">A Simple Blog</a></h1>
+        <h2 class="site-description">musings and code about anything spatial, visual or interesting.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/packages/'>
+                
+                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="icon icon-tabler icon-tabler-chevron-left"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   stroke-width="2"
+   stroke="currentColor"
+   fill="none"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="packages.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="778"
+     inkscape:window-height="480"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="39.833333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6" />
+  <path
+     stroke="none"
+     d="M0 0h24v24H0z"
+     id="path2" />
+  <polyline
+     points="15 6 9 12 15 18"
+     id="polyline4"
+     transform="matrix(-1,0,0,1,24.000041,0)" />
+</svg>
+
+                
+                <span>Packages</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/mrjoh3'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://twitter.com/mrjoh3'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+                
+                <span>Twitter</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/packages/cytoscape-package/">
+                
+                    <img src="/img/MRJ_2020_DSC9257.png" loading="lazy" alt="Featured image of post pier" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/r/" >
+                R
+            </a>
+        
+            <a href="/categories/data-visualisation/" >
+                data visualisation
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/packages/cytoscape-package/">pier</a>
+    </h2>
+
+    
+
+    <div style="display: grid; grid-template-columns: 50% 50%">
+        <div style="justify-self: start;"><footer class="article-time">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--published">Nov 08, 2020</time>
+            </footer></div>
+        <div class="article-time" style="justify-self: end; display: inline;">
+            <span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+</span>
+            <span class="meta__text post-word-count">11 min read</span>
+        </div>
+    
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/cytoscape/cytoscape.min.js"></script>
+<script src="/rmarkdown-libs/cytoscape-binding/cytoscape.js"></script>
+<script src="/rmarkdown-libs/cola/cola.min.js"></script>
+<script src="/rmarkdown-libs/cytoscape-cola/cytoscape-cola.js"></script>
+
+
+<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle" /></a></p>
+<p>A HTMLWidget wrapper for the <a href="http://js.cytoscape.org/">Cytoscape.js</a>
+graph / network visualisation and analysis library. There are already a
+number of existing <code>R</code> packages for Cytoscape such as the <a href="https://bioconductor.org/packages/release/bioc/html/RCy3.html">Bioconductor
+package</a>
+and the official <a href="https://github.com/cytoscape/r-cytoscape.js">Cytoscape
+Widget</a>. The purpose of
+this package is to make the process of producing a basic chart as simple
+as possible.</p>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<pre class="r"><code>devtools::install_github(&#39;mrjoh3/cytoscape&#39;)</code></pre>
+</div>
+<div id="a-minimal-example" class="section level2">
+<h2>A Minimal Example</h2>
+<pre class="r"><code>library(cytoscape)
+nodes &lt;- data.frame(id = c(&#39;a&#39;,&#39;b&#39;))
+edges &lt;- data.frame(id = &#39;ab&#39;, source = &#39;a&#39;, target = &#39;b&#39;)
+cytoscape(nodes = nodes, edges = edges) </code></pre>
+<div id="htmlwidget-1" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"message":null,"nodes":{"id":["a","b"]},"edges":{"id":["ab"],"source":["a"],"target":["b"]},"json":null,"layout":{"name":"grid","rows":1},"node_style":{"background-color":"#666","label":"data(id)"},"edge_style":{"width":3,"line-color":"#ccc","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="styling-edges-and-nodes" class="section level2">
+<h2>Styling Edges and Nodes</h2>
+<p>Nodes and edges can all be styled using CSS.</p>
+<pre class="r"><code>ct &lt;- cytoscape(nodes = nodes, edges = edges)
+ct %&gt;% node_style(&#39;background-color&#39; = &#39;#ff0000&#39;)</code></pre>
+<div id="htmlwidget-2" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"message":null,"nodes":{"id":["a","b"]},"edges":{"id":["ab"],"source":["a"],"target":["b"]},"json":null,"layout":{"name":"grid","rows":1},"node_style":{"background-color":"#ff0000","label":"data(id)"},"edge_style":{"width":3,"line-color":"#ccc","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>ct %&gt;% edge_style(&#39;line-color&#39; = &#39;#ff0000&#39;)</code></pre>
+<div id="htmlwidget-3" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"message":null,"nodes":{"id":["a","b"]},"edges":{"id":["ab"],"source":["a"],"target":["b"]},"json":null,"layout":{"name":"grid","rows":1},"node_style":{"background-color":"#666","label":"data(id)"},"edge_style":{"width":3,"line-color":"#ff0000","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="creating-data" class="section level2">
+<h2>Creating data</h2>
+<p>Every network chart requires two <code>data.frames</code> one for the nodes and another for the edges. Often you will already have a <code>data.frame</code> with the edge, or <code>source</code>, <code>target</code>. In the example below we have a <code>data.frame</code> of Comtrade waste plastic exports for December 2017 where the source counrty and the destination country are deliniated. These fields need to be renamed to <code>source</code> and <code>target</code> for <code>cytoscape</code> to use it. For the <code>nodes</code> <code>data.frame</code> you need to create an <code>id</code> field that contains all of the unique values found in the <code>source</code> and <code>target</code> fields of the <code>edges</code> <code>data.frame</code>.</p>
+<pre class="r"><code>df &lt;- cytoscape::comtrade
+edges &lt;- df %&gt;%
+    dplyr::select(source = reporter,
+                  target = partner) %&gt;%
+    dplyr::mutate(id = paste(source, &#39;_&#39;, target))
+nodes &lt;- data.frame(id = unique(c(edges$source, edges$target)), stringsAsFactors = FALSE)
+           
+cytoscape(nodes = nodes, edges = edges) %&gt;% 
+  layout(&#39;grid&#39;, rows = 4)</code></pre>
+<div id="htmlwidget-4" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"message":null,"nodes":{"id":["Armenia","Australia","Brazil","El Salvador","Greece","Iceland","Ireland","Kazakhstan","Japan","Kyrgyzstan","Norway","Paraguay","Slovenia","Russian Federation","World","Myanmar","China","Portugal","Germany","China, Hong Kong SAR","Indonesia","Rep. of Korea","Malaysia","New Zealand","India","Other Asia, nes","Viet Nam","South Africa","Spain","Thailand","Mexico","Saudi Arabia","United Kingdom","Uruguay","Israel","Dominican Rep.","United States of America","Guatemala","Honduras","Nicaragua","Albania","Austria","Bahamas","Bulgaria","Cyprus","Italy","Netherlands","Pakistan","Poland","Romania","Switzerland","Turkey","Belgium","Sweden","Areas, nes","Uzbekistan","Bangladesh","Kenya","Philippines","Czech Rep.","Singapore","Nigeria","Denmark","Latvia","Lithuania","Hungary","France","Bosnia Herzegovina","Serbia","Slovakia","Croatia"]},"edges":{"source":["Armenia","Armenia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","El Salvador","El Salvador","El Salvador","El Salvador","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Iceland","Iceland","Iceland","Iceland","Iceland","Iceland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Kazakhstan","Kazakhstan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Kyrgyzstan","Kyrgyzstan","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Paraguay","Paraguay","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia"],"target":["Russian Federation","World","Myanmar","China","Portugal","Germany","China, Hong Kong SAR","Indonesia","Japan","Rep. of Korea","Malaysia","New Zealand","India","Other Asia, nes","World","Viet Nam","South Africa","Spain","Thailand","World","Mexico","Saudi Arabia","Spain","United Kingdom","Uruguay","Israel","Dominican Rep.","Paraguay","United States of America","World","Guatemala","Honduras","Nicaragua","World","Albania","Austria","Bahamas","Bulgaria","Cyprus","China, Hong Kong SAR","Indonesia","Italy","Malaysia","Netherlands","Pakistan","Poland","Romania","Viet Nam","Switzerland","Thailand","Turkey","World","Belgium","Netherlands","Spain","Sweden","United Kingdom","United States of America","Viet Nam","Malaysia","Belgium","Netherlands","Pakistan","China, Hong Kong SAR","Indonesia","Turkey","Rep. of Korea","Poland","Other Asia, nes","Areas, nes","World","Germany","United Kingdom","Uzbekistan","World","World","United States of America","India","Other Asia, nes","China, Hong Kong SAR","Russian Federation","Bangladesh","Kenya","South Africa","Philippines","Czech Rep.","Spain","Viet Nam","Belgium","Malaysia","Singapore","Indonesia","Rep. of Korea","Thailand","Nigeria","China","Myanmar","World","Uzbekistan","World","Austria","Denmark","Germany","Italy","Latvia","Lithuania","Malaysia","Netherlands","Poland","Sweden","United Kingdom","Brazil","World","Romania","World","Bulgaria","Germany","China, Hong Kong SAR","Hungary","France","Other Asia, nes","India","Austria","Belgium","Bosnia Herzegovina","Rep. of Korea","Serbia","Slovakia","Viet Nam","Malaysia","Croatia","Czech Rep.","Netherlands","Poland","Thailand","Turkey","Italy","United Kingdom"],"id":["Armenia _ Russian Federation","Armenia _ World","Australia _ Myanmar","Australia _ China","Australia _ Portugal","Australia _ Germany","Australia _ China, Hong Kong SAR","Australia _ Indonesia","Australia _ Japan","Australia _ Rep. of Korea","Australia _ Malaysia","Australia _ New Zealand","Australia _ India","Australia _ Other Asia, nes","Australia _ World","Australia _ Viet Nam","Australia _ South Africa","Australia _ Spain","Australia _ Thailand","Brazil _ World","Brazil _ Mexico","Brazil _ Saudi Arabia","Brazil _ Spain","Brazil _ United Kingdom","Brazil _ Uruguay","Brazil _ Israel","Brazil _ Dominican Rep.","Brazil _ Paraguay","Brazil _ United States of America","El Salvador _ World","El Salvador _ Guatemala","El Salvador _ Honduras","El Salvador _ Nicaragua","Greece _ World","Greece _ Albania","Greece _ Austria","Greece _ Bahamas","Greece _ Bulgaria","Greece _ Cyprus","Greece _ China, Hong Kong SAR","Greece _ Indonesia","Greece _ Italy","Greece _ Malaysia","Greece _ Netherlands","Greece _ Pakistan","Greece _ Poland","Greece _ Romania","Greece _ Viet Nam","Greece _ Switzerland","Greece _ Thailand","Greece _ Turkey","Iceland _ World","Iceland _ Belgium","Iceland _ Netherlands","Iceland _ Spain","Iceland _ Sweden","Iceland _ United Kingdom","Ireland _ United States of America","Ireland _ Viet Nam","Ireland _ Malaysia","Ireland _ Belgium","Ireland _ Netherlands","Ireland _ Pakistan","Ireland _ China, Hong Kong SAR","Ireland _ Indonesia","Ireland _ Turkey","Ireland _ Rep. of Korea","Ireland _ Poland","Ireland _ Other Asia, nes","Ireland _ Areas, nes","Ireland _ World","Ireland _ Germany","Ireland _ United Kingdom","Kazakhstan _ Uzbekistan","Kazakhstan _ World","Japan _ World","Japan _ United States of America","Japan _ India","Japan _ Other Asia, nes","Japan _ China, Hong Kong SAR","Japan _ Russian Federation","Japan _ Bangladesh","Japan _ Kenya","Japan _ South Africa","Japan _ Philippines","Japan _ Czech Rep.","Japan _ Spain","Japan _ Viet Nam","Japan _ Belgium","Japan _ Malaysia","Japan _ Singapore","Japan _ Indonesia","Japan _ Rep. of Korea","Japan _ Thailand","Japan _ Nigeria","Japan _ China","Japan _ Myanmar","Kyrgyzstan _ World","Kyrgyzstan _ Uzbekistan","Norway _ World","Norway _ Austria","Norway _ Denmark","Norway _ Germany","Norway _ Italy","Norway _ Latvia","Norway _ Lithuania","Norway _ Malaysia","Norway _ Netherlands","Norway _ Poland","Norway _ Sweden","Norway _ United Kingdom","Paraguay _ Brazil","Paraguay _ World","Slovenia _ Romania","Slovenia _ World","Slovenia _ Bulgaria","Slovenia _ Germany","Slovenia _ China, Hong Kong SAR","Slovenia _ Hungary","Slovenia _ France","Slovenia _ Other Asia, nes","Slovenia _ India","Slovenia _ Austria","Slovenia _ Belgium","Slovenia _ Bosnia Herzegovina","Slovenia _ Rep. of Korea","Slovenia _ Serbia","Slovenia _ Slovakia","Slovenia _ Viet Nam","Slovenia _ Malaysia","Slovenia _ Croatia","Slovenia _ Czech Rep.","Slovenia _ Netherlands","Slovenia _ Poland","Slovenia _ Thailand","Slovenia _ Turkey","Slovenia _ Italy","Slovenia _ United Kingdom"]},"json":null,"layout":{"name":"grid","fit":true,"padding":30,"avoidOverlap":true,"avoidOverlapPadding":10,"nodeDimensionsIncludeLabels":false,"condense":false,"rows":4,"animate":false,"animationDuration":500},"node_style":{"background-color":"#666","label":"data(id)"},"edge_style":{"width":3,"line-color":"#ccc","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="with-geographic-location" class="section level2">
+<h2>With Geographic Location</h2>
+<p>You can use coordinates to fix the location of nodes. But the package is not spatially enabled and does not check or transform the coordinates you pass.</p>
+<pre class="r"><code>coords &lt;- cytoscape::coords %&gt;%
+  rename(x = lon,
+         y = lat) %&gt;%
+  filter(id != &#39;World&#39;) %&gt;%
+  mutate(y = -y) # this will depend on coordinates used
+edges &lt;- filter(edges, 
+                source %in% coords$id,
+                target %in% coords$id)
+cytoscape(nodes = coords, edges = edges) %&gt;% 
+  layout(&#39;preset&#39;) %&gt;%
+  node_style(width = 3, height = 3, &#39;font-size&#39; = 8) %&gt;%
+  edge_style(width = 1)</code></pre>
+<div id="htmlwidget-5" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"message":null,"nodes":{"id":["Armenia","Australia","Brazil","El Salvador","Greece","Iceland","Ireland","Kazakhstan","Japan","Kyrgyzstan","Norway","Paraguay","Slovenia","Russian Federation","Myanmar","China","Portugal","Germany","China, Hong Kong SAR","Indonesia","Malaysia","New Zealand","India","Viet Nam","South Africa","Spain","Saudi Arabia","Guatemala","Honduras","Bahamas","Romania","Sweden","Kenya","Philippines","Czech Rep.","Singapore","Nigeria","Latvia","Hungary","France","Bosnia Herzegovina","Serbia","Slovakia","Croatia"],"x":[45.038189,133.775136,-51.92528,-88.89653,21.824312,-19.020835,-7.6920536,66.923684,138.252924,74.766098,8.468946,-58.443832,14.995463,105.318756,95.955974,104.195397,-8.224454,10.451526,114.109497,113.921327,101.975766,174.885971,78.96288,108.277199,22.937506,-3.74922,45.079162,-90.230759,-86.241905,-77.39628,24.96676,18.643501,37.906193,121.774017,15.472962,103.819836,8.675277,24.603189,19.5033041,2.213749,17.679076,21.005859,19.699024,15.2000001],"y":[-40.069099,25.274398,14.235004,-13.794185,-39.074208,-64.963051,-53.1423672,-48.019573,-36.204824,-41.20438,-60.472024,23.442503,-46.151241,-61.52401,-21.916221,-35.86166,-39.399872,-51.165691,-22.396428,0.789275,-4.210484,40.900557,-20.593684,-14.058324,30.559482,-40.463667,-23.885942,-15.783471,-15.199999,-25.03428,-45.943161,-60.128161,0.023559,-12.879721,-49.817492,-1.352083,-9.081999,-56.879635,-47.162494,-46.227638,-43.915886,-44.016521,-48.669026,-45.1]},"edges":{"source":["Armenia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Brazil","Brazil","Brazil","El Salvador","El Salvador","Greece","Greece","Greece","Greece","Greece","Greece","Iceland","Iceland","Ireland","Ireland","Ireland","Ireland","Ireland","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Norway","Norway","Norway","Norway","Paraguay","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia"],"target":["Russian Federation","Myanmar","China","Portugal","Germany","China, Hong Kong SAR","Indonesia","Japan","Malaysia","New Zealand","India","Viet Nam","South Africa","Spain","Saudi Arabia","Spain","Paraguay","Guatemala","Honduras","Bahamas","China, Hong Kong SAR","Indonesia","Malaysia","Romania","Viet Nam","Spain","Sweden","Viet Nam","Malaysia","China, Hong Kong SAR","Indonesia","Germany","India","China, Hong Kong SAR","Russian Federation","Kenya","South Africa","Philippines","Czech Rep.","Spain","Viet Nam","Malaysia","Singapore","Indonesia","Nigeria","China","Myanmar","Germany","Latvia","Malaysia","Sweden","Brazil","Romania","Germany","China, Hong Kong SAR","Hungary","France","India","Bosnia Herzegovina","Serbia","Slovakia","Viet Nam","Malaysia","Croatia","Czech Rep."],"id":["Armenia _ Russian Federation","Australia _ Myanmar","Australia _ China","Australia _ Portugal","Australia _ Germany","Australia _ China, Hong Kong SAR","Australia _ Indonesia","Australia _ Japan","Australia _ Malaysia","Australia _ New Zealand","Australia _ India","Australia _ Viet Nam","Australia _ South Africa","Australia _ Spain","Brazil _ Saudi Arabia","Brazil _ Spain","Brazil _ Paraguay","El Salvador _ Guatemala","El Salvador _ Honduras","Greece _ Bahamas","Greece _ China, Hong Kong SAR","Greece _ Indonesia","Greece _ Malaysia","Greece _ Romania","Greece _ Viet Nam","Iceland _ Spain","Iceland _ Sweden","Ireland _ Viet Nam","Ireland _ Malaysia","Ireland _ China, Hong Kong SAR","Ireland _ Indonesia","Ireland _ Germany","Japan _ India","Japan _ China, Hong Kong SAR","Japan _ Russian Federation","Japan _ Kenya","Japan _ South Africa","Japan _ Philippines","Japan _ Czech Rep.","Japan _ Spain","Japan _ Viet Nam","Japan _ Malaysia","Japan _ Singapore","Japan _ Indonesia","Japan _ Nigeria","Japan _ China","Japan _ Myanmar","Norway _ Germany","Norway _ Latvia","Norway _ Malaysia","Norway _ Sweden","Paraguay _ Brazil","Slovenia _ Romania","Slovenia _ Germany","Slovenia _ China, Hong Kong SAR","Slovenia _ Hungary","Slovenia _ France","Slovenia _ India","Slovenia _ Bosnia Herzegovina","Slovenia _ Serbia","Slovenia _ Slovakia","Slovenia _ Viet Nam","Slovenia _ Malaysia","Slovenia _ Croatia","Slovenia _ Czech Rep."]},"json":null,"layout":{"name":"preset","fit":true,"padding":30,"avoidOverlap":true,"avoidOverlapPadding":10,"nodeDimensionsIncludeLabels":false,"condense":false,"animate":false,"animationDuration":500},"node_style":{"background-color":"#666","label":"data(id)","width":3,"height":3,"font-size":8},"edge_style":{"width":1,"line-color":"#ccc","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="image-node-example" class="section level2">
+<h2>Image Node Example</h2>
+<p>Replicate the <code>Cytograph.js</code> <a href="http://js.cytoscape.org/demos/images-breadthfirst-layout/">images example</a>. This example does not currently include the touch effects.</p>
+<pre class="r"><code>img_nodes &lt;- data.frame(id = c(&#39;cat&#39;,&#39;bird&#39;,&#39;ladybug&#39;,&#39;aphid&#39;,&#39;rose&#39;,&#39;grasshopper&#39;,&#39;plant&#39;,&#39;wheat&#39;),
+                        images = c(&#39;https://farm2.staticflickr.com/1261/1413379559_412a540d29_b.jpg&#39;,
+                                   &#39;https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg&#39;,
+                                   &#39;https://farm4.staticflickr.com/3063/2751740612_af11fb090b_b.jpg&#39;,
+                                   &#39;https://farm9.staticflickr.com/8316/8003798443_32d01257c8_b.jpg&#39;,
+                                   &#39;https://farm6.staticflickr.com/5109/5817854163_eaccd688f5_b.jpg&#39;,
+                                   &#39;https://farm7.staticflickr.com/6098/6224655456_f4c3c98589_b.jpg&#39;,
+                                   &#39;https://farm1.staticflickr.com/231/524893064_f49a4d1d10_z.jpg&#39;,
+                                   &#39;https://farm3.staticflickr.com/2660/3715569167_7e978e8319_b.jpg&#39;),
+                        stringsAsFactors = FALSE)
+img_edges &lt;- data.frame(source = c(&#39;cat&#39;,&#39;bird&#39;,&#39;bird&#39;,&#39;grasshopper&#39;,&#39;grasshopper&#39;,&#39;ladybug&#39;,&#39;aphid&#39;),
+                        target = c(&#39;bird&#39;,&#39;ladybug&#39;,&#39;grasshopper&#39;,&#39;plant&#39;,&#39;wheat&#39;,&#39;aphid&#39;,&#39;rose&#39;),
+                        stringsAsFactors = FALSE)
+cytoscape(nodes = img_nodes,
+          edges = img_edges) %&gt;%
+  layout(name = &#39;breadthfirst&#39;,
+         directed = TRUE,
+         padding = 10) %&gt;%
+  node_style(&#39;height&#39; = 80,
+             &#39;width&#39; = 80,
+             &#39;background-fit&#39; = &#39;cover&#39;,
+             &#39;border-color&#39; = &#39;#000&#39;,
+             &#39;border-width&#39; = 3,
+             &#39;border-opacity&#39; = 0.5,
+             &#39;label&#39; = NULL) %&gt;%
+  edge_style(&#39;curve-style&#39; = &#39;bezier&#39;,
+             &#39;width&#39; = 6,
+             &#39;target-arrow-shape&#39; = &#39;triangle&#39;,
+             &#39;line-color&#39; = &#39;#ffaaaa&#39;,
+             &#39;target-arrow-color&#39; = &#39;#ffaaaa&#39;) %&gt;%
+  node_images()</code></pre>
+<div id="htmlwidget-6" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"message":null,"nodes":{"id":["cat","bird","ladybug","aphid","rose","grasshopper","plant","wheat"],"images":["https://farm2.staticflickr.com/1261/1413379559_412a540d29_b.jpg","https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg","https://farm4.staticflickr.com/3063/2751740612_af11fb090b_b.jpg","https://farm9.staticflickr.com/8316/8003798443_32d01257c8_b.jpg","https://farm6.staticflickr.com/5109/5817854163_eaccd688f5_b.jpg","https://farm7.staticflickr.com/6098/6224655456_f4c3c98589_b.jpg","https://farm1.staticflickr.com/231/524893064_f49a4d1d10_z.jpg","https://farm3.staticflickr.com/2660/3715569167_7e978e8319_b.jpg"]},"edges":{"source":["cat","bird","bird","grasshopper","grasshopper","ladybug","aphid"],"target":["bird","ladybug","grasshopper","plant","wheat","aphid","rose"]},"json":null,"layout":{"name":"breadthfirst","fit":true,"padding":10,"avoidOverlap":true,"avoidOverlapPadding":10,"nodeDimensionsIncludeLabels":false,"condense":false,"animate":false,"animationDuration":500,"directed":true},"node_style":{"background-color":"#666","height":80,"width":80,"background-fit":"cover","border-color":"#000","border-width":3,"border-opacity":0.5},"edge_style":{"width":6,"line-color":"#ffaaaa","target-arrow-color":"#ffaaaa","target-arrow-shape":"triangle","curve-style":"bezier"},"images":{"id":["cat","bird","ladybug","aphid","rose","grasshopper","plant","wheat"],"images":["https://farm2.staticflickr.com/1261/1413379559_412a540d29_b.jpg","https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg","https://farm4.staticflickr.com/3063/2751740612_af11fb090b_b.jpg","https://farm9.staticflickr.com/8316/8003798443_32d01257c8_b.jpg","https://farm6.staticflickr.com/5109/5817854163_eaccd688f5_b.jpg","https://farm7.staticflickr.com/6098/6224655456_f4c3c98589_b.jpg","https://farm1.staticflickr.com/231/524893064_f49a4d1d10_z.jpg","https://farm3.staticflickr.com/2660/3715569167_7e978e8319_b.jpg"]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="node-gradient-background" class="section level2">
+<h2>Node Gradient Background</h2>
+<p>Since <code>cytoscape</code> version 3.3.0 it has been possible to include background gradients in node styles. This is included in this package as of version 0.0.2.</p>
+<pre class="r"><code>cytoscape(nodes = img_nodes,
+          edges = img_edges) %&gt;%
+  layout(name = &#39;breadthfirst&#39;,
+         directed = TRUE,
+         padding = 10) %&gt;%
+  node_style(&quot;content&quot; = &quot;data(id)&quot;,
+              &quot;text-valign&quot; = &quot;center&quot;,
+              &quot;text-halign&quot; = &quot;center&quot;,
+              &#39;height&#39; = 80,
+              &#39;width&#39; = 80,
+              &quot;background-fill&quot; = &quot;radial-gradient&quot;,
+              &#39;background-fit&#39; = &#39;cover&#39;,
+              &quot;background-gradient-stop-colors&quot; = &quot;cyan magenta yellow&quot;, 
+              &quot;background-gradient-stop-positions&quot; = &quot;25 75 80&quot;
+             ) </code></pre>
+<div id="htmlwidget-7" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"message":null,"nodes":{"id":["cat","bird","ladybug","aphid","rose","grasshopper","plant","wheat"],"images":["https://farm2.staticflickr.com/1261/1413379559_412a540d29_b.jpg","https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg","https://farm4.staticflickr.com/3063/2751740612_af11fb090b_b.jpg","https://farm9.staticflickr.com/8316/8003798443_32d01257c8_b.jpg","https://farm6.staticflickr.com/5109/5817854163_eaccd688f5_b.jpg","https://farm7.staticflickr.com/6098/6224655456_f4c3c98589_b.jpg","https://farm1.staticflickr.com/231/524893064_f49a4d1d10_z.jpg","https://farm3.staticflickr.com/2660/3715569167_7e978e8319_b.jpg"]},"edges":{"source":["cat","bird","bird","grasshopper","grasshopper","ladybug","aphid"],"target":["bird","ladybug","grasshopper","plant","wheat","aphid","rose"]},"json":null,"layout":{"name":"breadthfirst","fit":true,"padding":10,"avoidOverlap":true,"avoidOverlapPadding":10,"nodeDimensionsIncludeLabels":false,"condense":false,"animate":false,"animationDuration":500,"directed":true},"node_style":{"background-color":"#666","label":"data(id)","content":"data(id)","text-valign":"center","text-halign":"center","height":80,"width":80,"background-fill":"radial-gradient","background-fit":"cover","background-gradient-stop-colors":"cyan magenta yellow","background-gradient-stop-positions":"25 75 80"},"edge_style":{"width":3,"line-color":"#ccc","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="grouping-nodes" class="section level2">
+<h2>Grouping Nodes</h2>
+<p><a href="https://cytoscape.org/cytoscape.js-cola/demo-compound.html">Compound graphs</a> where nodes are grouped are also possible. Add <code>parent</code> and <code>node_color</code> columns to the nodes <code>data.frame</code>. The final step is to add nodes for each of the groups, note the <code>bind_rows()</code> function in the example below. Thanks to <a href="https://github.com/gilhornung">gilhornung</a> for <a href="https://github.com/mrjoh3/cytoscape/issues/8#issuecomment-475142230">this example</a>.</p>
+<pre class="r"><code>df &lt;- cytoscape::comtrade
+gp_nodes &lt;- tibble(id = unique(c(df$reporter, df$partner))) %&gt;% 
+  # Define node groups
+  mutate(parent = ifelse(id %in% c(&quot;Nigeria&quot;, &quot;Kenya&quot;, &quot;South Africa&quot;),
+                         &quot;Africa&quot;,
+                         &quot;Not Africa&quot;)) %&gt;% 
+  # Define node colors
+  mutate(node_color = ifelse(parent == &quot;Africa&quot;,
+                             &quot;forestgreen&quot;,
+                             &quot;darkorange&quot;)) %&gt;%
+  # Need to add the nodes for the two groups, Africa and &quot;Not Africa&quot;
+  bind_rows(data_frame(id = c(&quot;Africa&quot;, &quot;Not Africa&quot;), 
+                       node_color=&quot;whitesmoke&quot;))
+  
+gp_edges &lt;- df %&gt;%
+    dplyr::select(source = reporter,
+                  target = partner) %&gt;%
+    dplyr::mutate(id = paste0(source, &#39;-&#39;, target))
+cytoscape(nodes = gp_nodes, edges = gp_edges) %&gt;% 
+  node_style(&#39;background-color&#39; = &#39;data(node_color)&#39;) %&gt;% 
+  cola_layout(avoidOverlap = T)</code></pre>
+<div id="htmlwidget-8" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8">{"x":{"message":null,"nodes":{"id":["Armenia","Australia","Brazil","El Salvador","Greece","Iceland","Ireland","Kazakhstan","Japan","Kyrgyzstan","Norway","Paraguay","Slovenia","Russian Federation","World","Myanmar","China","Portugal","Germany","China, Hong Kong SAR","Indonesia","Rep. of Korea","Malaysia","New Zealand","India","Other Asia, nes","Viet Nam","South Africa","Spain","Thailand","Mexico","Saudi Arabia","United Kingdom","Uruguay","Israel","Dominican Rep.","United States of America","Guatemala","Honduras","Nicaragua","Albania","Austria","Bahamas","Bulgaria","Cyprus","Italy","Netherlands","Pakistan","Poland","Romania","Switzerland","Turkey","Belgium","Sweden","Areas, nes","Uzbekistan","Bangladesh","Kenya","Philippines","Czech Rep.","Singapore","Nigeria","Denmark","Latvia","Lithuania","Hungary","France","Bosnia Herzegovina","Serbia","Slovakia","Croatia","Africa","Not Africa"],"parent":["Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Africa","Not Africa","Not Africa","Not Africa","Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa","Not Africa",null,null],"node_color":["darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","forestgreen","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","forestgreen","darkorange","darkorange","darkorange","forestgreen","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","darkorange","whitesmoke","whitesmoke"]},"edges":{"source":["Armenia","Armenia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","Brazil","El Salvador","El Salvador","El Salvador","El Salvador","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Greece","Iceland","Iceland","Iceland","Iceland","Iceland","Iceland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Ireland","Kazakhstan","Kazakhstan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Kyrgyzstan","Kyrgyzstan","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Norway","Paraguay","Paraguay","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia"],"target":["Russian Federation","World","Myanmar","China","Portugal","Germany","China, Hong Kong SAR","Indonesia","Japan","Rep. of Korea","Malaysia","New Zealand","India","Other Asia, nes","World","Viet Nam","South Africa","Spain","Thailand","World","Mexico","Saudi Arabia","Spain","United Kingdom","Uruguay","Israel","Dominican Rep.","Paraguay","United States of America","World","Guatemala","Honduras","Nicaragua","World","Albania","Austria","Bahamas","Bulgaria","Cyprus","China, Hong Kong SAR","Indonesia","Italy","Malaysia","Netherlands","Pakistan","Poland","Romania","Viet Nam","Switzerland","Thailand","Turkey","World","Belgium","Netherlands","Spain","Sweden","United Kingdom","United States of America","Viet Nam","Malaysia","Belgium","Netherlands","Pakistan","China, Hong Kong SAR","Indonesia","Turkey","Rep. of Korea","Poland","Other Asia, nes","Areas, nes","World","Germany","United Kingdom","Uzbekistan","World","World","United States of America","India","Other Asia, nes","China, Hong Kong SAR","Russian Federation","Bangladesh","Kenya","South Africa","Philippines","Czech Rep.","Spain","Viet Nam","Belgium","Malaysia","Singapore","Indonesia","Rep. of Korea","Thailand","Nigeria","China","Myanmar","World","Uzbekistan","World","Austria","Denmark","Germany","Italy","Latvia","Lithuania","Malaysia","Netherlands","Poland","Sweden","United Kingdom","Brazil","World","Romania","World","Bulgaria","Germany","China, Hong Kong SAR","Hungary","France","Other Asia, nes","India","Austria","Belgium","Bosnia Herzegovina","Rep. of Korea","Serbia","Slovakia","Viet Nam","Malaysia","Croatia","Czech Rep.","Netherlands","Poland","Thailand","Turkey","Italy","United Kingdom"],"id":["Armenia-Russian Federation","Armenia-World","Australia-Myanmar","Australia-China","Australia-Portugal","Australia-Germany","Australia-China, Hong Kong SAR","Australia-Indonesia","Australia-Japan","Australia-Rep. of Korea","Australia-Malaysia","Australia-New Zealand","Australia-India","Australia-Other Asia, nes","Australia-World","Australia-Viet Nam","Australia-South Africa","Australia-Spain","Australia-Thailand","Brazil-World","Brazil-Mexico","Brazil-Saudi Arabia","Brazil-Spain","Brazil-United Kingdom","Brazil-Uruguay","Brazil-Israel","Brazil-Dominican Rep.","Brazil-Paraguay","Brazil-United States of America","El Salvador-World","El Salvador-Guatemala","El Salvador-Honduras","El Salvador-Nicaragua","Greece-World","Greece-Albania","Greece-Austria","Greece-Bahamas","Greece-Bulgaria","Greece-Cyprus","Greece-China, Hong Kong SAR","Greece-Indonesia","Greece-Italy","Greece-Malaysia","Greece-Netherlands","Greece-Pakistan","Greece-Poland","Greece-Romania","Greece-Viet Nam","Greece-Switzerland","Greece-Thailand","Greece-Turkey","Iceland-World","Iceland-Belgium","Iceland-Netherlands","Iceland-Spain","Iceland-Sweden","Iceland-United Kingdom","Ireland-United States of America","Ireland-Viet Nam","Ireland-Malaysia","Ireland-Belgium","Ireland-Netherlands","Ireland-Pakistan","Ireland-China, Hong Kong SAR","Ireland-Indonesia","Ireland-Turkey","Ireland-Rep. of Korea","Ireland-Poland","Ireland-Other Asia, nes","Ireland-Areas, nes","Ireland-World","Ireland-Germany","Ireland-United Kingdom","Kazakhstan-Uzbekistan","Kazakhstan-World","Japan-World","Japan-United States of America","Japan-India","Japan-Other Asia, nes","Japan-China, Hong Kong SAR","Japan-Russian Federation","Japan-Bangladesh","Japan-Kenya","Japan-South Africa","Japan-Philippines","Japan-Czech Rep.","Japan-Spain","Japan-Viet Nam","Japan-Belgium","Japan-Malaysia","Japan-Singapore","Japan-Indonesia","Japan-Rep. of Korea","Japan-Thailand","Japan-Nigeria","Japan-China","Japan-Myanmar","Kyrgyzstan-World","Kyrgyzstan-Uzbekistan","Norway-World","Norway-Austria","Norway-Denmark","Norway-Germany","Norway-Italy","Norway-Latvia","Norway-Lithuania","Norway-Malaysia","Norway-Netherlands","Norway-Poland","Norway-Sweden","Norway-United Kingdom","Paraguay-Brazil","Paraguay-World","Slovenia-Romania","Slovenia-World","Slovenia-Bulgaria","Slovenia-Germany","Slovenia-China, Hong Kong SAR","Slovenia-Hungary","Slovenia-France","Slovenia-Other Asia, nes","Slovenia-India","Slovenia-Austria","Slovenia-Belgium","Slovenia-Bosnia Herzegovina","Slovenia-Rep. of Korea","Slovenia-Serbia","Slovenia-Slovakia","Slovenia-Viet Nam","Slovenia-Malaysia","Slovenia-Croatia","Slovenia-Czech Rep.","Slovenia-Netherlands","Slovenia-Poland","Slovenia-Thailand","Slovenia-Turkey","Slovenia-Italy","Slovenia-United Kingdom"]},"json":null,"layout":{"name":"cola","animate":true,"refresh":1,"maxSimulationTime":4000,"ungrabifyWhileSimulating":false,"fit":true,"padding":30,"nodeDimensionsIncludeLabels":false,"ready":"function(){}","stop":"function(){}","randomize":false,"avoidOverlap":true,"handleDisconnected":true,"nodeSpacing":"function( node ){ return 10; }","infinite":false},"node_style":{"background-color":"data(node_color)","label":"data(id)"},"edge_style":{"width":3,"line-color":"#ccc","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":["layout.ready","layout.stop","layout.nodeSpacing"],"jsHooks":[]}</script>
+</div>
+<div id="cytoscape-cola-layout" class="section level2">
+<h2>Cytoscape-Cola Layout</h2>
+<p>Constraint based layouts provided through (<a href="http://ialab.it.monash.edu/webcola/">cola.js</a>) can be used via the <a href="https://github.com/cytoscape/cytoscape.js-cola">cytoscape-cola plugin</a>. All options available in the plugin <a href="https://github.com/cytoscape/cytoscape.js-cola#api">API</a> are available but have not yet been tested.</p>
+<div id="basic-cola-layout" class="section level3">
+<h3>Basic Cola Layout</h3>
+<pre class="r"><code>cytoscape(nodes = nodes, edges = edges) %&gt;% 
+  cola_layout()</code></pre>
+<div id="htmlwidget-9" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9">{"x":{"message":null,"nodes":{"id":["Armenia","Australia","Brazil","El Salvador","Greece","Iceland","Ireland","Kazakhstan","Japan","Kyrgyzstan","Norway","Paraguay","Slovenia","Russian Federation","World","Myanmar","China","Portugal","Germany","China, Hong Kong SAR","Indonesia","Rep. of Korea","Malaysia","New Zealand","India","Other Asia, nes","Viet Nam","South Africa","Spain","Thailand","Mexico","Saudi Arabia","United Kingdom","Uruguay","Israel","Dominican Rep.","United States of America","Guatemala","Honduras","Nicaragua","Albania","Austria","Bahamas","Bulgaria","Cyprus","Italy","Netherlands","Pakistan","Poland","Romania","Switzerland","Turkey","Belgium","Sweden","Areas, nes","Uzbekistan","Bangladesh","Kenya","Philippines","Czech Rep.","Singapore","Nigeria","Denmark","Latvia","Lithuania","Hungary","France","Bosnia Herzegovina","Serbia","Slovakia","Croatia"]},"edges":{"source":["Armenia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Brazil","Brazil","Brazil","El Salvador","El Salvador","Greece","Greece","Greece","Greece","Greece","Greece","Iceland","Iceland","Ireland","Ireland","Ireland","Ireland","Ireland","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Japan","Norway","Norway","Norway","Norway","Paraguay","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia","Slovenia"],"target":["Russian Federation","Myanmar","China","Portugal","Germany","China, Hong Kong SAR","Indonesia","Japan","Malaysia","New Zealand","India","Viet Nam","South Africa","Spain","Saudi Arabia","Spain","Paraguay","Guatemala","Honduras","Bahamas","China, Hong Kong SAR","Indonesia","Malaysia","Romania","Viet Nam","Spain","Sweden","Viet Nam","Malaysia","China, Hong Kong SAR","Indonesia","Germany","India","China, Hong Kong SAR","Russian Federation","Kenya","South Africa","Philippines","Czech Rep.","Spain","Viet Nam","Malaysia","Singapore","Indonesia","Nigeria","China","Myanmar","Germany","Latvia","Malaysia","Sweden","Brazil","Romania","Germany","China, Hong Kong SAR","Hungary","France","India","Bosnia Herzegovina","Serbia","Slovakia","Viet Nam","Malaysia","Croatia","Czech Rep."],"id":["Armenia _ Russian Federation","Australia _ Myanmar","Australia _ China","Australia _ Portugal","Australia _ Germany","Australia _ China, Hong Kong SAR","Australia _ Indonesia","Australia _ Japan","Australia _ Malaysia","Australia _ New Zealand","Australia _ India","Australia _ Viet Nam","Australia _ South Africa","Australia _ Spain","Brazil _ Saudi Arabia","Brazil _ Spain","Brazil _ Paraguay","El Salvador _ Guatemala","El Salvador _ Honduras","Greece _ Bahamas","Greece _ China, Hong Kong SAR","Greece _ Indonesia","Greece _ Malaysia","Greece _ Romania","Greece _ Viet Nam","Iceland _ Spain","Iceland _ Sweden","Ireland _ Viet Nam","Ireland _ Malaysia","Ireland _ China, Hong Kong SAR","Ireland _ Indonesia","Ireland _ Germany","Japan _ India","Japan _ China, Hong Kong SAR","Japan _ Russian Federation","Japan _ Kenya","Japan _ South Africa","Japan _ Philippines","Japan _ Czech Rep.","Japan _ Spain","Japan _ Viet Nam","Japan _ Malaysia","Japan _ Singapore","Japan _ Indonesia","Japan _ Nigeria","Japan _ China","Japan _ Myanmar","Norway _ Germany","Norway _ Latvia","Norway _ Malaysia","Norway _ Sweden","Paraguay _ Brazil","Slovenia _ Romania","Slovenia _ Germany","Slovenia _ China, Hong Kong SAR","Slovenia _ Hungary","Slovenia _ France","Slovenia _ India","Slovenia _ Bosnia Herzegovina","Slovenia _ Serbia","Slovenia _ Slovakia","Slovenia _ Viet Nam","Slovenia _ Malaysia","Slovenia _ Croatia","Slovenia _ Czech Rep."]},"json":null,"layout":{"name":"cola","animate":true,"refresh":1,"maxSimulationTime":4000,"ungrabifyWhileSimulating":false,"fit":true,"padding":30,"nodeDimensionsIncludeLabels":false,"ready":"function(){}","stop":"function(){}","randomize":false,"avoidOverlap":true,"handleDisconnected":true,"nodeSpacing":"function( node ){ return 10; }","infinite":false},"node_style":{"background-color":"#666","label":"data(id)"},"edge_style":{"width":3,"line-color":"#ccc","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":["layout.ready","layout.stop","layout.nodeSpacing"],"jsHooks":[]}</script>
+</div>
+<div id="cola-node-allignment" class="section level3">
+<h3>Cola Node Allignment</h3>
+<p>To use the Cola <code>alignment</code> variable you need to pass a javascript object or function. You can do this using <code>htmltools::JS()</code>.</p>
+<pre class="r"><code>aln_nodes &lt;- data.frame(id = c(&#39;cat&#39;,&#39;bird&#39;,&#39;ladybug&#39;,&#39;grasshopper&#39;,&#39;wheat&#39;),
+                        stringsAsFactors = FALSE)
+aln_edges &lt;- data.frame(source = c(&#39;cat&#39;, &#39;bird&#39;,   &#39;bird&#39;,       &#39;grasshopper&#39;),
+                        target = c(&#39;bird&#39;,&#39;ladybug&#39;,&#39;grasshopper&#39;,&#39;wheat&#39;      ),
+                        stringsAsFactors = FALSE)
+opts = htmlwidgets::JS(&#39;function( node ){ &#39;,
+                       &#39;console.log(node._private.data.id);&#39;,
+                       &#39;if (node._private.data.id === &quot;cat&quot;) {return { x: 0} }&#39;,
+                       &#39;else if (node._private.data.id === &quot;bird&quot;) {return { x: 0, y: 0 } }&#39;,
+                       &#39;else if (node._private.data.id === &quot;ladybug&quot;) {return { x: 0} }&#39;,
+                       &#39;else if (node._private.data.id === &quot;wheat&quot;) {return {y: 0 } }&#39;,
+                       &#39;else if (node._private.data.id === &quot;grasshopper&quot;) {return {y: 0 } }&#39;,
+                       &#39;}&#39;)
+cytoscape(nodes = aln_nodes, edges = aln_edges) %&gt;% 
+  cola_layout(alignment = opts)</code></pre>
+<div id="htmlwidget-10" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10">{"x":{"message":null,"nodes":{"id":["cat","bird","ladybug","grasshopper","wheat"]},"edges":{"source":["cat","bird","bird","grasshopper"],"target":["bird","ladybug","grasshopper","wheat"]},"json":null,"layout":{"name":"cola","animate":true,"refresh":1,"maxSimulationTime":4000,"ungrabifyWhileSimulating":false,"fit":true,"padding":30,"nodeDimensionsIncludeLabels":false,"ready":"function(){}","stop":"function(){}","randomize":false,"avoidOverlap":true,"handleDisconnected":true,"nodeSpacing":"function( node ){ return 10; }","alignment":"function( node ){ \nconsole.log(node._private.data.id);\nif (node._private.data.id === \"cat\") {return { x: 0} }\nelse if (node._private.data.id === \"bird\") {return { x: 0, y: 0 } }\nelse if (node._private.data.id === \"ladybug\") {return { x: 0} }\nelse if (node._private.data.id === \"wheat\") {return {y: 0 } }\nelse if (node._private.data.id === \"grasshopper\") {return {y: 0 } }\n}","infinite":false},"node_style":{"background-color":"#666","label":"data(id)"},"edge_style":{"width":3,"line-color":"#ccc","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":["layout.ready","layout.stop","layout.nodeSpacing","layout.alignment"],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="shiny-example" class="section level2">
+<h2>Shiny Example</h2>
+<p>A minimal shiny example can be run from the <code>cytoscape</code> package of from <code>inst/shiny/minimum_shiny</code></p>
+<pre class="r"><code>shiny::runApp(system.file(&#39;shiny/minimum_shiny&#39;, package = &#39;cytoscape&#39;))</code></pre>
+</div>
+<div id="pass-json-object" class="section level2">
+<h2>Pass JSON Object</h2>
+<p>If you already have a complete <code>JSON</code> this can be passed through directly as a character string. The <code>JSON</code> character is parsed in <code>javascript</code> using <code>JSON.parse()</code> so it is good practice to first test your <code>JSON</code> is properly formed. On the <code>R</code> side you can use <code>jsonlite::fromJSON()</code> or the web-service <a href="http://json.parser.online.fr/" class="uri">http://json.parser.online.fr/</a> can sometimes give more meaningfull error messages.</p>
+<pre class="r"><code>json &lt;- &#39;{
+&quot;elements&quot;:[
+    {
+      &quot;data&quot;: { &quot;id&quot;: &quot;a&quot; } 
+    },
+    {
+      &quot;data&quot;: { &quot;id&quot;: &quot;b&quot; }
+    },
+    {
+      &quot;data&quot;: { &quot;id&quot;: &quot;ab&quot;, &quot;source&quot;: &quot;a&quot;, &quot;target&quot;: &quot;b&quot; }
+    }
+  ],
+&quot;style&quot;: [ 
+  {
+    &quot;selector&quot;: &quot;node&quot;,
+    &quot;style&quot;: {
+      &quot;background-color&quot;: &quot;#666&quot;,
+      &quot;label&quot;: &quot;data(id)&quot;
+    }
+  },
+  {
+    &quot;selector&quot;: &quot;edge&quot;,
+    &quot;style&quot;: {
+      &quot;width&quot;: 3,
+      &quot;line-color&quot;: &quot;#ccc&quot;,
+      &quot;target-arrow-color&quot;: &quot;#ccc&quot;,
+      &quot;target-arrow-shape&quot;: &quot;triangle&quot;
+    }
+  }
+],
+&quot;layout&quot;: {
+  &quot;name&quot;: &quot;grid&quot;,
+  &quot;rows&quot;: 1
+}
+}&#39;
+cytoscape(json = json)</code></pre>
+<div id="htmlwidget-11" style="width:768px;height:480px;" class="cytoscape html-widget"></div>
+<script type="application/json" data-for="htmlwidget-11">{"x":{"message":null,"nodes":null,"edges":null,"json":"{\n\"elements\":[\n    {\n      \"data\": { \"id\": \"a\" } \n    },\n    {\n      \"data\": { \"id\": \"b\" }\n    },\n    {\n      \"data\": { \"id\": \"ab\", \"source\": \"a\", \"target\": \"b\" }\n    }\n  ],\n\"style\": [ \n  {\n    \"selector\": \"node\",\n    \"style\": {\n      \"background-color\": \"#666\",\n      \"label\": \"data(id)\"\n    }\n  },\n  {\n    \"selector\": \"edge\",\n    \"style\": {\n      \"width\": 3,\n      \"line-color\": \"#ccc\",\n      \"target-arrow-color\": \"#ccc\",\n      \"target-arrow-shape\": \"triangle\"\n    }\n  }\n],\n\"layout\": {\n  \"name\": \"grid\",\n  \"rows\": 1\n}\n}","layout":{"name":"grid","rows":1},"node_style":{"background-color":"#666","label":"data(id)"},"edge_style":{"width":3,"line-color":"#ccc","target-arrow-color":"#ccc","target-arrow-shape":"triangle"}},"evals":[],"jsHooks":[]}</script>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/htmlwidgets/">htmlwidgets</a>
+        
+            <a href="/tags/network-chart/">network chart</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+     
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="mrjoh3/blog"
+        issue-term="pathname"
+        
+        label="comment"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.body.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2021 A Simple Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

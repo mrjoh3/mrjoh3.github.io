@@ -15,12 +15,12 @@ The C3 library is very versatile and includes a lot of options. Currently this p
 The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.'>
 <meta property='og:url' content='https://mrjoh3.github.io/packages/2018-08-19-c3-package/'>
 <meta property='og:site_name' content='A Simple Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='htmlwidgets' /><meta property='article:published_time' content='2018-08-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-08-19T00:00:00&#43;00:00'/><meta property='og:image' content='https://mrjoh3.github.io/img/logo.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='htmlwidgets' /><meta property='article:tag' content='c3' /><meta property='article:tag' content='graph' /><meta property='article:published_time' content='2018-08-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-08-19T00:00:00&#43;00:00'/><meta property='og:image' content='https://mrjoh3.github.io/img/MRJ_2020_DSC9813.png' />
 <meta name="twitter:site" content="@mrjoh3">
     <meta name="twitter:creator" content="@mrjoh3"><meta name="twitter:title" content="c3">
 <meta name="twitter:description" content="The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting to create a chart using R and embedding it in a Rmarkdown document or Shiny App.
 The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://mrjoh3.github.io/img/logo.jpg' />
+    <meta name="twitter:image" content='https://mrjoh3.github.io/img/MRJ_2020_DSC9813.png' />
 <link rel="icon" type="image/svg+xml" href="../../fav2/favicon.svg">
 <link rel="icon" type="image/png" href="../../fav2/favicon.png">
 <link rel="icon" type="image/svg+xml" href="fav2/favicon.svg">
@@ -307,8 +307,16 @@ The C3 library is very versatile and includes a lot of options. Currently this p
 </aside>
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/packages/2018-08-19-c3-package/">
+                
+                    <img src="/img/MRJ_2020_DSC9813.png" loading="lazy" alt="Featured image of post c3" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -329,8 +337,11 @@ The C3 library is very versatile and includes a lot of options. Currently this p
         <a href="/packages/2018-08-19-c3-package/">c3</a>
     </h2>
 
-    <footer class="article-time">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    
+
+    <div style="display: grid; grid-template-columns: 50% 50%">
+        <div style="justify-self: start;"><footer class="article-time">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -338,8 +349,23 @@ The C3 library is very versatile and includes a lot of options. Currently this p
 
 
 
-        <time class="article-time--published">Aug 19, 2018</time>
-    </footer></div>
+                <time class="article-time--published">Aug 19, 2018</time>
+            </footer></div>
+        <div class="article-time" style="justify-self: end; display: inline;">
+            <span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+</span>
+            <span class="meta__text post-word-count">4 min read</span>
+        </div>
+    
+    </div>
+</div>
 </header>
 
     <section class="article-content">
@@ -382,14 +408,14 @@ data &lt;- data.frame(a = abs(rnorm(20) * 10),
                   date = seq(as.Date(&quot;2014-01-01&quot;), by = &quot;month&quot;, length.out = 20))
 c3(data)</code></pre>
 <div id="htmlwidget-1" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"data":{"json":[{"a":15.4765,"b":0.5307},{"a":2.7464,"b":6.2247},{"a":19.1543,"b":9.8194},{"a":14.4571,"b":4.5929},{"a":2.208,"b":7.3473},{"a":5.8624,"b":20.3684},{"a":17.2321,"b":0.1815},{"a":27.7383,"b":2.7011},{"a":3.4979,"b":5.099},{"a":1.7381,"b":17.1551},{"a":2.9175,"b":6.7181},{"a":6.7187,"b":9.7843},{"a":1.6817,"b":11.1996},{"a":3.1245,"b":6.5274},{"a":2.9085,"b":8.8319},{"a":6.5827,"b":0.021},{"a":8.7287,"b":6.7941},{"a":9.0114,"b":8.8922},{"a":12.029,"b":21.674},{"a":1.8556,"b":14.1928}],"keys":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":{"json":[{"a":11.7676,"b":4.3936},{"a":5.8518,"b":23.6562},{"a":19.8666,"b":10.6743},{"a":2.9242,"b":7.3176},{"a":13.311,"b":10.6445},{"a":4.4054,"b":1.3264},{"a":3.2269,"b":8.275},{"a":3.4999,"b":8.2278},{"a":0.3464,"b":6.6869},{"a":1.7465,"b":3.6514},{"a":8.6151,"b":1.0696},{"a":3.0069,"b":14.8707},{"a":14.0409,"b":12.1102},{"a":20.1482,"b":2.6516},{"a":7.5942,"b":4.5339},{"a":3.6597,"b":4.469},{"a":13.6925,"b":12.4703},{"a":9.6795,"b":2.3902},{"a":2.6048,"b":0.1378},{"a":13.0183,"b":3.3483}],"keys":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="piping" class="section level3">
 <h3>Piping</h3>
 <p>The package also imports the <a href="https://CRAN.R-project.org/package=magrittr">magrittr</a> piping function (<code>%&gt;%</code>) to simplify syntax.</p>
 <pre class="r"><code>data %&gt;% c3() </code></pre>
 <div id="htmlwidget-2" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2">{"x":{"data":{"json":[{"a":15.4765,"b":0.5307},{"a":2.7464,"b":6.2247},{"a":19.1543,"b":9.8194},{"a":14.4571,"b":4.5929},{"a":2.208,"b":7.3473},{"a":5.8624,"b":20.3684},{"a":17.2321,"b":0.1815},{"a":27.7383,"b":2.7011},{"a":3.4979,"b":5.099},{"a":1.7381,"b":17.1551},{"a":2.9175,"b":6.7181},{"a":6.7187,"b":9.7843},{"a":1.6817,"b":11.1996},{"a":3.1245,"b":6.5274},{"a":2.9085,"b":8.8319},{"a":6.5827,"b":0.021},{"a":8.7287,"b":6.7941},{"a":9.0114,"b":8.8922},{"a":12.029,"b":21.674},{"a":1.8556,"b":14.1928}],"keys":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"data":{"json":[{"a":11.7676,"b":4.3936},{"a":5.8518,"b":23.6562},{"a":19.8666,"b":10.6743},{"a":2.9242,"b":7.3176},{"a":13.311,"b":10.6445},{"a":4.4054,"b":1.3264},{"a":3.2269,"b":8.275},{"a":3.4999,"b":8.2278},{"a":0.3464,"b":6.6869},{"a":1.7465,"b":3.6514},{"a":8.6151,"b":1.0696},{"a":3.0069,"b":14.8707},{"a":14.0409,"b":12.1102},{"a":20.1482,"b":2.6516},{"a":7.5942,"b":4.5339},{"a":3.6597,"b":4.469},{"a":13.6925,"b":12.4703},{"a":9.6795,"b":2.3902},{"a":2.6048,"b":0.1378},{"a":13.0183,"b":3.3483}],"keys":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="other-line-plots" class="section level2">
@@ -408,7 +434,7 @@ c3(data)</code></pre>
   c3() %&gt;%
   c3_line(&#39;spline&#39;)</code></pre>
 <div id="htmlwidget-3" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3">{"x":{"data":{"json":[{"a":15.4765,"b":0.5307},{"a":2.7464,"b":6.2247},{"a":19.1543,"b":9.8194},{"a":14.4571,"b":4.5929},{"a":2.208,"b":7.3473},{"a":5.8624,"b":20.3684},{"a":17.2321,"b":0.1815},{"a":27.7383,"b":2.7011},{"a":3.4979,"b":5.099},{"a":1.7381,"b":17.1551},{"a":2.9175,"b":6.7181},{"a":6.7187,"b":9.7843},{"a":1.6817,"b":11.1996},{"a":3.1245,"b":6.5274},{"a":2.9085,"b":8.8319},{"a":6.5827,"b":0.021},{"a":8.7287,"b":6.7941},{"a":9.0114,"b":8.8922},{"a":12.029,"b":21.674},{"a":1.8556,"b":14.1928}],"keys":{"value":["a","b"]},"type":"spline"},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"data":{"json":[{"a":11.7676,"b":4.3936},{"a":5.8518,"b":23.6562},{"a":19.8666,"b":10.6743},{"a":2.9242,"b":7.3176},{"a":13.311,"b":10.6445},{"a":4.4054,"b":1.3264},{"a":3.2269,"b":8.275},{"a":3.4999,"b":8.2278},{"a":0.3464,"b":6.6869},{"a":1.7465,"b":3.6514},{"a":8.6151,"b":1.0696},{"a":3.0069,"b":14.8707},{"a":14.0409,"b":12.1102},{"a":20.1482,"b":2.6516},{"a":7.5942,"b":4.5339},{"a":3.6597,"b":4.469},{"a":13.6925,"b":12.4703},{"a":9.6795,"b":2.3902},{"a":2.6048,"b":0.1378},{"a":13.0183,"b":3.3483}],"keys":{"value":["a","b"]},"type":"spline"},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="step" class="section level4">
 <h4>Step</h4>
@@ -416,7 +442,7 @@ c3(data)</code></pre>
   c3(x = &#39;date&#39;) %&gt;%
   c3_line(&#39;area-step&#39;)</code></pre>
 <div id="htmlwidget-4" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":15.4765,"b":0.5307},{"date":"2014-02-01","a":2.7464,"b":6.2247},{"date":"2014-03-01","a":19.1543,"b":9.8194},{"date":"2014-04-01","a":14.4571,"b":4.5929},{"date":"2014-05-01","a":2.208,"b":7.3473},{"date":"2014-06-01","a":5.8624,"b":20.3684},{"date":"2014-07-01","a":17.2321,"b":0.1815},{"date":"2014-08-01","a":27.7383,"b":2.7011},{"date":"2014-09-01","a":3.4979,"b":5.099},{"date":"2014-10-01","a":1.7381,"b":17.1551},{"date":"2014-11-01","a":2.9175,"b":6.7181},{"date":"2014-12-01","a":6.7187,"b":9.7843},{"date":"2015-01-01","a":1.6817,"b":11.1996},{"date":"2015-02-01","a":3.1245,"b":6.5274},{"date":"2015-03-01","a":2.9085,"b":8.8319},{"date":"2015-04-01","a":6.5827,"b":0.021},{"date":"2015-05-01","a":8.7287,"b":6.7941},{"date":"2015-06-01","a":9.0114,"b":8.8922},{"date":"2015-07-01","a":12.029,"b":21.674},{"date":"2015-08-01","a":1.8556,"b":14.1928}],"keys":{"value":["date","a","b"]},"type":"area-step"},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}},"axis":{"x":{"label":"date","type":"timeseries"}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":11.7676,"b":4.3936},{"date":"2014-02-01","a":5.8518,"b":23.6562},{"date":"2014-03-01","a":19.8666,"b":10.6743},{"date":"2014-04-01","a":2.9242,"b":7.3176},{"date":"2014-05-01","a":13.311,"b":10.6445},{"date":"2014-06-01","a":4.4054,"b":1.3264},{"date":"2014-07-01","a":3.2269,"b":8.275},{"date":"2014-08-01","a":3.4999,"b":8.2278},{"date":"2014-09-01","a":0.3464,"b":6.6869},{"date":"2014-10-01","a":1.7465,"b":3.6514},{"date":"2014-11-01","a":8.6151,"b":1.0696},{"date":"2014-12-01","a":3.0069,"b":14.8707},{"date":"2015-01-01","a":14.0409,"b":12.1102},{"date":"2015-02-01","a":20.1482,"b":2.6516},{"date":"2015-03-01","a":7.5942,"b":4.5339},{"date":"2015-04-01","a":3.6597,"b":4.469},{"date":"2015-05-01","a":13.6925,"b":12.4703},{"date":"2015-06-01","a":9.6795,"b":2.3902},{"date":"2015-07-01","a":2.6048,"b":0.1378},{"date":"2015-08-01","a":13.0183,"b":3.3483}],"keys":{"value":["date","a","b"]},"type":"area-step"},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}},"axis":{"x":{"label":"date","type":"timeseries"}}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="bar-plots" class="section level2">
@@ -426,7 +452,7 @@ c3(data)</code></pre>
   c3_bar(stacked = TRUE, 
          rotate = TRUE)</code></pre>
 <div id="htmlwidget-5" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5">{"x":{"data":{"json":[{"a":15.4765,"b":0.5307},{"a":2.7464,"b":6.2247},{"a":19.1543,"b":9.8194},{"a":14.4571,"b":4.5929},{"a":2.208,"b":7.3473},{"a":5.8624,"b":20.3684},{"a":17.2321,"b":0.1815},{"a":27.7383,"b":2.7011},{"a":3.4979,"b":5.099},{"a":1.7381,"b":17.1551}],"keys":{"value":["a","b"]},"type":"bar","groups":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}},"axis":{"x":{"type":"category"},"rotated":true},"bar":{"zerobased":true,"width":{"ratio":0.6}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"data":{"json":[{"a":11.7676,"b":4.3936},{"a":5.8518,"b":23.6562},{"a":19.8666,"b":10.6743},{"a":2.9242,"b":7.3176},{"a":13.311,"b":10.6445},{"a":4.4054,"b":1.3264},{"a":3.2269,"b":8.275},{"a":3.4999,"b":8.2278},{"a":0.3464,"b":6.6869},{"a":1.7465,"b":3.6514}],"keys":{"value":["a","b"]},"type":"bar","groups":{"value":["a","b"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date"}},"axis":{"x":{"type":"category"},"rotated":true},"bar":{"zerobased":true,"width":{"ratio":0.6}}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="mixed-geometry-plots" class="section level2">
 <h2>Mixed Geometry Plots</h2>
@@ -441,7 +467,7 @@ data %&gt;%
                             c=&#39;spline&#39;)
                )</code></pre>
 <div id="htmlwidget-6" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6">{"x":{"data":{"json":[{"a":15.4765,"b":0.5307,"c":10.8436,"d":0.8439},{"a":2.7464,"b":6.2247,"c":7.0356,"d":17.7616},{"a":19.1543,"b":9.8194,"c":20.9911,"d":4.2648},{"a":14.4571,"b":4.5929,"c":0.8285,"d":1.8836},{"a":2.208,"b":7.3473,"c":2.8684,"d":7.9483},{"a":5.8624,"b":20.3684,"c":11.6819,"d":10.343},{"a":17.2321,"b":0.1815,"c":27.2264,"d":2.2843},{"a":27.7383,"b":2.7011,"c":0.5727,"d":14.0156},{"a":3.4979,"b":5.099,"c":10.5358,"d":3.6356},{"a":1.7381,"b":17.1551,"c":8.339,"d":7.6871},{"a":2.9175,"b":6.7181,"c":9.1526,"d":5.3302},{"a":6.7187,"b":9.7843,"c":27.3097,"d":7.8214},{"a":1.6817,"b":11.1996,"c":0.4736,"d":2.8012},{"a":3.1245,"b":6.5274,"c":1.6621,"d":1.2397},{"a":2.9085,"b":8.8319,"c":18.6214,"d":0.2313},{"a":6.5827,"b":0.021,"c":18.9487,"d":11.4058},{"a":8.7287,"b":6.7941,"c":15.9081,"d":17.8653},{"a":9.0114,"b":8.8922,"c":13.9758,"d":8.8883},{"a":12.029,"b":21.674,"c":1.5154,"d":13.7392},{"a":1.8556,"b":14.1928,"c":6.7186,"d":0.0882}],"keys":{"value":["a","b","c","d"]},"type":"bar","types":{"a":"area","c":"spline"},"groups":["b","d"]},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"data":{"json":[{"a":11.7676,"b":4.3936,"c":10.2724,"d":1.4577},{"a":5.8518,"b":23.6562,"c":15.5544,"d":14.7316},{"a":19.8666,"b":10.6743,"c":9.0776,"d":4.7328},{"a":2.9242,"b":7.3176,"c":1.3961,"d":0.514},{"a":13.311,"b":10.6445,"c":20.6706,"d":6.4337},{"a":4.4054,"b":1.3264,"c":5.3691,"d":8.3201},{"a":3.2269,"b":8.275,"c":2.134,"d":2.59},{"a":3.4999,"b":8.2278,"c":2.1837,"d":9.8199},{"a":0.3464,"b":6.6869,"c":5.8197,"d":15.9097},{"a":1.7465,"b":3.6514,"c":2.4887,"d":3.0447},{"a":8.6151,"b":1.0696,"c":3.3078,"d":3.7537},{"a":3.0069,"b":14.8707,"c":8.2336,"d":8.8487},{"a":14.0409,"b":12.1102,"c":0.3876,"d":5.6791},{"a":20.1482,"b":2.6516,"c":1.8316,"d":18.0889},{"a":7.5942,"b":4.5339,"c":6.8766,"d":0.1786},{"a":3.6597,"b":4.469,"c":15.3934,"d":2.4095},{"a":13.6925,"b":12.4703,"c":7.5864,"d":4.8034},{"a":9.6795,"b":2.3902,"c":9.2461,"d":25.4046},{"a":2.6048,"b":0.1378,"c":0.2315,"d":1.253},{"a":13.0183,"b":3.3483,"c":16.7488,"d":3.8237}],"keys":{"value":["a","b","c","d"]},"type":"bar","types":{"a":"area","c":"spline"},"groups":["b","d"]},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="secondary-y-axis" class="section level2">
 <h2>Secondary Y Axis</h2>
@@ -455,7 +481,7 @@ data %&gt;%
                             b = &#39;area&#39;)) %&gt;% 
   y2Axis()</code></pre>
 <div id="htmlwidget-7" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7">{"x":{"data":{"axes":{"a":"y","b":"y2"},"x":"date","json":[{"date":"2014-01-01","a":15.4765,"b":0.5307},{"date":"2014-02-01","a":2.7464,"b":6.2247},{"date":"2014-03-01","a":19.1543,"b":9.8194},{"date":"2014-04-01","a":14.4571,"b":4.5929},{"date":"2014-05-01","a":2.208,"b":7.3473},{"date":"2014-06-01","a":5.8624,"b":20.3684},{"date":"2014-07-01","a":17.2321,"b":0.1815},{"date":"2014-08-01","a":27.7383,"b":2.7011},{"date":"2014-09-01","a":3.4979,"b":5.099},{"date":"2014-10-01","a":1.7381,"b":17.1551},{"date":"2014-11-01","a":2.9175,"b":6.7181},{"date":"2014-12-01","a":6.7187,"b":9.7843},{"date":"2015-01-01","a":1.6817,"b":11.1996},{"date":"2015-02-01","a":3.1245,"b":6.5274},{"date":"2015-03-01","a":2.9085,"b":8.8319},{"date":"2015-04-01","a":6.5827,"b":0.021},{"date":"2015-05-01","a":8.7287,"b":6.7941},{"date":"2015-06-01","a":9.0114,"b":8.8922},{"date":"2015-07-01","a":12.029,"b":21.674},{"date":"2015-08-01","a":1.8556,"b":14.1928}],"keys":{"value":["date","a","b"]},"type":"line","types":{"a":"line","b":"area"}},"opts":{"x":"date","y":null,"types":{"date":"Date","a":"numeric","b":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"},"y2":{"show":true}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"data":{"axes":{"a":"y","b":"y2"},"x":"date","json":[{"date":"2014-01-01","a":11.7676,"b":4.3936},{"date":"2014-02-01","a":5.8518,"b":23.6562},{"date":"2014-03-01","a":19.8666,"b":10.6743},{"date":"2014-04-01","a":2.9242,"b":7.3176},{"date":"2014-05-01","a":13.311,"b":10.6445},{"date":"2014-06-01","a":4.4054,"b":1.3264},{"date":"2014-07-01","a":3.2269,"b":8.275},{"date":"2014-08-01","a":3.4999,"b":8.2278},{"date":"2014-09-01","a":0.3464,"b":6.6869},{"date":"2014-10-01","a":1.7465,"b":3.6514},{"date":"2014-11-01","a":8.6151,"b":1.0696},{"date":"2014-12-01","a":3.0069,"b":14.8707},{"date":"2015-01-01","a":14.0409,"b":12.1102},{"date":"2015-02-01","a":20.1482,"b":2.6516},{"date":"2015-03-01","a":7.5942,"b":4.5339},{"date":"2015-04-01","a":3.6597,"b":4.469},{"date":"2015-05-01","a":13.6925,"b":12.4703},{"date":"2015-06-01","a":9.6795,"b":2.3902},{"date":"2015-07-01","a":2.6048,"b":0.1378},{"date":"2015-08-01","a":13.0183,"b":3.3483}],"keys":{"value":["date","a","b"]},"type":"line","types":{"a":"line","b":"area"}},"opts":{"x":"date","y":null,"types":{"date":"Date","a":"numeric","b":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"},"y2":{"show":true}}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="scatter-plot" class="section level2">
 <h2>Scatter Plot</h2>
@@ -505,7 +531,7 @@ data %&gt;%
        lines = data.frame(value = c(3, 10), 
                           text= c(&#39;Line 1&#39;,&#39;Line 2&#39;)))</code></pre>
 <div id="htmlwidget-12" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-12">{"x":{"data":{"json":[{"a":15.4765,"b":0.5307,"c":10.8436,"d":0.8439},{"a":2.7464,"b":6.2247,"c":7.0356,"d":17.7616},{"a":19.1543,"b":9.8194,"c":20.9911,"d":4.2648},{"a":14.4571,"b":4.5929,"c":0.8285,"d":1.8836},{"a":2.208,"b":7.3473,"c":2.8684,"d":7.9483},{"a":5.8624,"b":20.3684,"c":11.6819,"d":10.343},{"a":17.2321,"b":0.1815,"c":27.2264,"d":2.2843},{"a":27.7383,"b":2.7011,"c":0.5727,"d":14.0156},{"a":3.4979,"b":5.099,"c":10.5358,"d":3.6356},{"a":1.7381,"b":17.1551,"c":8.339,"d":7.6871},{"a":2.9175,"b":6.7181,"c":9.1526,"d":5.3302},{"a":6.7187,"b":9.7843,"c":27.3097,"d":7.8214},{"a":1.6817,"b":11.1996,"c":0.4736,"d":2.8012},{"a":3.1245,"b":6.5274,"c":1.6621,"d":1.2397},{"a":2.9085,"b":8.8319,"c":18.6214,"d":0.2313},{"a":6.5827,"b":0.021,"c":18.9487,"d":11.4058},{"a":8.7287,"b":6.7941,"c":15.9081,"d":17.8653},{"a":9.0114,"b":8.8922,"c":13.9758,"d":8.8883},{"a":12.029,"b":21.674,"c":1.5154,"d":13.7392},{"a":1.8556,"b":14.1928,"c":6.7186,"d":0.0882}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"grid":{"y":{"show":true},"x":{"show":false,"lines":{"value":[3,10],"text":["Line 1","Line 2"]}}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-12">{"x":{"data":{"json":[{"a":11.7676,"b":4.3936,"c":10.2724,"d":1.4577},{"a":5.8518,"b":23.6562,"c":15.5544,"d":14.7316},{"a":19.8666,"b":10.6743,"c":9.0776,"d":4.7328},{"a":2.9242,"b":7.3176,"c":1.3961,"d":0.514},{"a":13.311,"b":10.6445,"c":20.6706,"d":6.4337},{"a":4.4054,"b":1.3264,"c":5.3691,"d":8.3201},{"a":3.2269,"b":8.275,"c":2.134,"d":2.59},{"a":3.4999,"b":8.2278,"c":2.1837,"d":9.8199},{"a":0.3464,"b":6.6869,"c":5.8197,"d":15.9097},{"a":1.7465,"b":3.6514,"c":2.4887,"d":3.0447},{"a":8.6151,"b":1.0696,"c":3.3078,"d":3.7537},{"a":3.0069,"b":14.8707,"c":8.2336,"d":8.8487},{"a":14.0409,"b":12.1102,"c":0.3876,"d":5.6791},{"a":20.1482,"b":2.6516,"c":1.8316,"d":18.0889},{"a":7.5942,"b":4.5339,"c":6.8766,"d":0.1786},{"a":3.6597,"b":4.469,"c":15.3934,"d":2.4095},{"a":13.6925,"b":12.4703,"c":7.5864,"d":4.8034},{"a":9.6795,"b":2.3902,"c":9.2461,"d":25.4046},{"a":2.6048,"b":0.1378,"c":0.2315,"d":1.253},{"a":13.0183,"b":3.3483,"c":16.7488,"d":3.8237}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"grid":{"y":{"show":true},"x":{"show":false,"lines":{"value":[3,10],"text":["Line 1","Line 2"]}}}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="region-highlighting" class="section level2">
 <h2>Region Highlighting</h2>
@@ -516,7 +542,7 @@ data %&gt;%
                     start = 5,
                     end = 6))</code></pre>
 <div id="htmlwidget-13" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-13">{"x":{"data":{"json":[{"a":15.4765,"b":0.5307,"c":10.8436,"d":0.8439},{"a":2.7464,"b":6.2247,"c":7.0356,"d":17.7616},{"a":19.1543,"b":9.8194,"c":20.9911,"d":4.2648},{"a":14.4571,"b":4.5929,"c":0.8285,"d":1.8836},{"a":2.208,"b":7.3473,"c":2.8684,"d":7.9483},{"a":5.8624,"b":20.3684,"c":11.6819,"d":10.343},{"a":17.2321,"b":0.1815,"c":27.2264,"d":2.2843},{"a":27.7383,"b":2.7011,"c":0.5727,"d":14.0156},{"a":3.4979,"b":5.099,"c":10.5358,"d":3.6356},{"a":1.7381,"b":17.1551,"c":8.339,"d":7.6871},{"a":2.9175,"b":6.7181,"c":9.1526,"d":5.3302},{"a":6.7187,"b":9.7843,"c":27.3097,"d":7.8214},{"a":1.6817,"b":11.1996,"c":0.4736,"d":2.8012},{"a":3.1245,"b":6.5274,"c":1.6621,"d":1.2397},{"a":2.9085,"b":8.8319,"c":18.6214,"d":0.2313},{"a":6.5827,"b":0.021,"c":18.9487,"d":11.4058},{"a":8.7287,"b":6.7941,"c":15.9081,"d":17.8653},{"a":9.0114,"b":8.8922,"c":13.9758,"d":8.8883},{"a":12.029,"b":21.674,"c":1.5154,"d":13.7392},{"a":1.8556,"b":14.1928,"c":6.7186,"d":0.0882}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"regions":{"axis":["x"],"start":[5],"end":[6]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-13">{"x":{"data":{"json":[{"a":11.7676,"b":4.3936,"c":10.2724,"d":1.4577},{"a":5.8518,"b":23.6562,"c":15.5544,"d":14.7316},{"a":19.8666,"b":10.6743,"c":9.0776,"d":4.7328},{"a":2.9242,"b":7.3176,"c":1.3961,"d":0.514},{"a":13.311,"b":10.6445,"c":20.6706,"d":6.4337},{"a":4.4054,"b":1.3264,"c":5.3691,"d":8.3201},{"a":3.2269,"b":8.275,"c":2.134,"d":2.59},{"a":3.4999,"b":8.2278,"c":2.1837,"d":9.8199},{"a":0.3464,"b":6.6869,"c":5.8197,"d":15.9097},{"a":1.7465,"b":3.6514,"c":2.4887,"d":3.0447},{"a":8.6151,"b":1.0696,"c":3.3078,"d":3.7537},{"a":3.0069,"b":14.8707,"c":8.2336,"d":8.8487},{"a":14.0409,"b":12.1102,"c":0.3876,"d":5.6791},{"a":20.1482,"b":2.6516,"c":1.8316,"d":18.0889},{"a":7.5942,"b":4.5339,"c":6.8766,"d":0.1786},{"a":3.6597,"b":4.469,"c":15.3934,"d":2.4095},{"a":13.6925,"b":12.4703,"c":7.5864,"d":4.8034},{"a":9.6795,"b":2.3902,"c":9.2461,"d":25.4046},{"a":2.6048,"b":0.1378,"c":0.2315,"d":1.253},{"a":13.0183,"b":3.3483,"c":16.7488,"d":3.8237}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"regions":{"axis":["x"],"start":[5],"end":[6]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="sub-chart" class="section level2">
 <h2>Sub-chart</h2>
@@ -524,7 +550,7 @@ data %&gt;%
   c3(x = &#39;date&#39;) %&gt;%
   subchart()</code></pre>
 <div id="htmlwidget-14" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-14">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":15.4765,"b":0.5307,"c":10.8436,"d":0.8439},{"date":"2014-02-01","a":2.7464,"b":6.2247,"c":7.0356,"d":17.7616},{"date":"2014-03-01","a":19.1543,"b":9.8194,"c":20.9911,"d":4.2648},{"date":"2014-04-01","a":14.4571,"b":4.5929,"c":0.8285,"d":1.8836},{"date":"2014-05-01","a":2.208,"b":7.3473,"c":2.8684,"d":7.9483},{"date":"2014-06-01","a":5.8624,"b":20.3684,"c":11.6819,"d":10.343},{"date":"2014-07-01","a":17.2321,"b":0.1815,"c":27.2264,"d":2.2843},{"date":"2014-08-01","a":27.7383,"b":2.7011,"c":0.5727,"d":14.0156},{"date":"2014-09-01","a":3.4979,"b":5.099,"c":10.5358,"d":3.6356},{"date":"2014-10-01","a":1.7381,"b":17.1551,"c":8.339,"d":7.6871},{"date":"2014-11-01","a":2.9175,"b":6.7181,"c":9.1526,"d":5.3302},{"date":"2014-12-01","a":6.7187,"b":9.7843,"c":27.3097,"d":7.8214},{"date":"2015-01-01","a":1.6817,"b":11.1996,"c":0.4736,"d":2.8012},{"date":"2015-02-01","a":3.1245,"b":6.5274,"c":1.6621,"d":1.2397},{"date":"2015-03-01","a":2.9085,"b":8.8319,"c":18.6214,"d":0.2313},{"date":"2015-04-01","a":6.5827,"b":0.021,"c":18.9487,"d":11.4058},{"date":"2015-05-01","a":8.7287,"b":6.7941,"c":15.9081,"d":17.8653},{"date":"2015-06-01","a":9.0114,"b":8.8922,"c":13.9758,"d":8.8883},{"date":"2015-07-01","a":12.029,"b":21.674,"c":1.5154,"d":13.7392},{"date":"2015-08-01","a":1.8556,"b":14.1928,"c":6.7186,"d":0.0882}],"keys":{"value":["date","a","b","c","d"]}},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"}},"subchart":{"show":true,"size":{"height":20}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-14">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":11.7676,"b":4.3936,"c":10.2724,"d":1.4577},{"date":"2014-02-01","a":5.8518,"b":23.6562,"c":15.5544,"d":14.7316},{"date":"2014-03-01","a":19.8666,"b":10.6743,"c":9.0776,"d":4.7328},{"date":"2014-04-01","a":2.9242,"b":7.3176,"c":1.3961,"d":0.514},{"date":"2014-05-01","a":13.311,"b":10.6445,"c":20.6706,"d":6.4337},{"date":"2014-06-01","a":4.4054,"b":1.3264,"c":5.3691,"d":8.3201},{"date":"2014-07-01","a":3.2269,"b":8.275,"c":2.134,"d":2.59},{"date":"2014-08-01","a":3.4999,"b":8.2278,"c":2.1837,"d":9.8199},{"date":"2014-09-01","a":0.3464,"b":6.6869,"c":5.8197,"d":15.9097},{"date":"2014-10-01","a":1.7465,"b":3.6514,"c":2.4887,"d":3.0447},{"date":"2014-11-01","a":8.6151,"b":1.0696,"c":3.3078,"d":3.7537},{"date":"2014-12-01","a":3.0069,"b":14.8707,"c":8.2336,"d":8.8487},{"date":"2015-01-01","a":14.0409,"b":12.1102,"c":0.3876,"d":5.6791},{"date":"2015-02-01","a":20.1482,"b":2.6516,"c":1.8316,"d":18.0889},{"date":"2015-03-01","a":7.5942,"b":4.5339,"c":6.8766,"d":0.1786},{"date":"2015-04-01","a":3.6597,"b":4.469,"c":15.3934,"d":2.4095},{"date":"2015-05-01","a":13.6925,"b":12.4703,"c":7.5864,"d":4.8034},{"date":"2015-06-01","a":9.6795,"b":2.3902,"c":9.2461,"d":25.4046},{"date":"2015-07-01","a":2.6048,"b":0.1378,"c":0.2315,"d":1.253},{"date":"2015-08-01","a":13.0183,"b":3.3483,"c":16.7488,"d":3.8237}],"keys":{"value":["date","a","b","c","d"]}},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"}},"subchart":{"show":true,"size":{"height":20}}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="color-palette" class="section level2">
 <h2>Color Palette</h2>
@@ -555,7 +581,7 @@ data %&gt;%
   point_options(r = 6, 
                 expand.r = 2)</code></pre>
 <div id="htmlwidget-17" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-17">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":15.4765,"b":0.5307,"c":10.8436,"d":0.8439},{"date":"2014-02-01","a":2.7464,"b":6.2247,"c":7.0356,"d":17.7616},{"date":"2014-03-01","a":19.1543,"b":9.8194,"c":20.9911,"d":4.2648},{"date":"2014-04-01","a":14.4571,"b":4.5929,"c":0.8285,"d":1.8836},{"date":"2014-05-01","a":2.208,"b":7.3473,"c":2.8684,"d":7.9483},{"date":"2014-06-01","a":5.8624,"b":20.3684,"c":11.6819,"d":10.343},{"date":"2014-07-01","a":17.2321,"b":0.1815,"c":27.2264,"d":2.2843},{"date":"2014-08-01","a":27.7383,"b":2.7011,"c":0.5727,"d":14.0156},{"date":"2014-09-01","a":3.4979,"b":5.099,"c":10.5358,"d":3.6356},{"date":"2014-10-01","a":1.7381,"b":17.1551,"c":8.339,"d":7.6871},{"date":"2014-11-01","a":2.9175,"b":6.7181,"c":9.1526,"d":5.3302},{"date":"2014-12-01","a":6.7187,"b":9.7843,"c":27.3097,"d":7.8214},{"date":"2015-01-01","a":1.6817,"b":11.1996,"c":0.4736,"d":2.8012},{"date":"2015-02-01","a":3.1245,"b":6.5274,"c":1.6621,"d":1.2397},{"date":"2015-03-01","a":2.9085,"b":8.8319,"c":18.6214,"d":0.2313},{"date":"2015-04-01","a":6.5827,"b":0.021,"c":18.9487,"d":11.4058},{"date":"2015-05-01","a":8.7287,"b":6.7941,"c":15.9081,"d":17.8653},{"date":"2015-06-01","a":9.0114,"b":8.8922,"c":13.9758,"d":8.8883},{"date":"2015-07-01","a":12.029,"b":21.674,"c":1.5154,"d":13.7392},{"date":"2015-08-01","a":1.8556,"b":14.1928,"c":6.7186,"d":0.0882}],"keys":{"value":["date","a","b","c","d"]}},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"}},"point":{"show":true,"r":6,"focus":{"expand":{"enabled":true,"r":12}},"select":{"r":24}}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-17">{"x":{"data":{"x":"date","json":[{"date":"2014-01-01","a":11.7676,"b":4.3936,"c":10.2724,"d":1.4577},{"date":"2014-02-01","a":5.8518,"b":23.6562,"c":15.5544,"d":14.7316},{"date":"2014-03-01","a":19.8666,"b":10.6743,"c":9.0776,"d":4.7328},{"date":"2014-04-01","a":2.9242,"b":7.3176,"c":1.3961,"d":0.514},{"date":"2014-05-01","a":13.311,"b":10.6445,"c":20.6706,"d":6.4337},{"date":"2014-06-01","a":4.4054,"b":1.3264,"c":5.3691,"d":8.3201},{"date":"2014-07-01","a":3.2269,"b":8.275,"c":2.134,"d":2.59},{"date":"2014-08-01","a":3.4999,"b":8.2278,"c":2.1837,"d":9.8199},{"date":"2014-09-01","a":0.3464,"b":6.6869,"c":5.8197,"d":15.9097},{"date":"2014-10-01","a":1.7465,"b":3.6514,"c":2.4887,"d":3.0447},{"date":"2014-11-01","a":8.6151,"b":1.0696,"c":3.3078,"d":3.7537},{"date":"2014-12-01","a":3.0069,"b":14.8707,"c":8.2336,"d":8.8487},{"date":"2015-01-01","a":14.0409,"b":12.1102,"c":0.3876,"d":5.6791},{"date":"2015-02-01","a":20.1482,"b":2.6516,"c":1.8316,"d":18.0889},{"date":"2015-03-01","a":7.5942,"b":4.5339,"c":6.8766,"d":0.1786},{"date":"2015-04-01","a":3.6597,"b":4.469,"c":15.3934,"d":2.4095},{"date":"2015-05-01","a":13.6925,"b":12.4703,"c":7.5864,"d":4.8034},{"date":"2015-06-01","a":9.6795,"b":2.3902,"c":9.2461,"d":25.4046},{"date":"2015-07-01","a":2.6048,"b":0.1378,"c":0.2315,"d":1.253},{"date":"2015-08-01","a":13.0183,"b":3.3483,"c":16.7488,"d":3.8237}],"keys":{"value":["date","a","b","c","d"]}},"opts":{"x":"date","y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"axis":{"x":{"label":"date","type":"timeseries"}},"point":{"show":true,"r":6,"focus":{"expand":{"enabled":true,"r":12}},"select":{"r":24}}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="on-click" class="section level2">
 <h2>On Click</h2>
@@ -573,7 +599,7 @@ data %&gt;%
                         name = JS(&#39;function (name, ratio, id, index) { return name; }&#39;),
                         value = JS(&#39;function (value, ratio, id, index) { return ratio; }&#39;)))</code></pre>
 <div id="htmlwidget-18" style="width:768px;height:288px;" class="c3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-18">{"x":{"data":{"json":[{"a":15.4765,"b":0.5307,"c":10.8436,"d":0.8439},{"a":2.7464,"b":6.2247,"c":7.0356,"d":17.7616},{"a":19.1543,"b":9.8194,"c":20.9911,"d":4.2648},{"a":14.4571,"b":4.5929,"c":0.8285,"d":1.8836},{"a":2.208,"b":7.3473,"c":2.8684,"d":7.9483},{"a":5.8624,"b":20.3684,"c":11.6819,"d":10.343},{"a":17.2321,"b":0.1815,"c":27.2264,"d":2.2843},{"a":27.7383,"b":2.7011,"c":0.5727,"d":14.0156},{"a":3.4979,"b":5.099,"c":10.5358,"d":3.6356},{"a":1.7381,"b":17.1551,"c":8.339,"d":7.6871},{"a":2.9175,"b":6.7181,"c":9.1526,"d":5.3302},{"a":6.7187,"b":9.7843,"c":27.3097,"d":7.8214},{"a":1.6817,"b":11.1996,"c":0.4736,"d":2.8012},{"a":3.1245,"b":6.5274,"c":1.6621,"d":1.2397},{"a":2.9085,"b":8.8319,"c":18.6214,"d":0.2313},{"a":6.5827,"b":0.021,"c":18.9487,"d":11.4058},{"a":8.7287,"b":6.7941,"c":15.9081,"d":17.8653},{"a":9.0114,"b":8.8922,"c":13.9758,"d":8.8883},{"a":12.029,"b":21.674,"c":1.5154,"d":13.7392},{"a":1.8556,"b":14.1928,"c":6.7186,"d":0.0882}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"tooltip":{"show":true,"grouped":true,"format":{"title":"function (x) { return 'Data ' + x; }","name":"function (name, ratio, id, index) { return name; }","value":"function (value, ratio, id, index) { return ratio; }"}}},"evals":["tooltip.format.title","tooltip.format.name","tooltip.format.value"],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-18">{"x":{"data":{"json":[{"a":11.7676,"b":4.3936,"c":10.2724,"d":1.4577},{"a":5.8518,"b":23.6562,"c":15.5544,"d":14.7316},{"a":19.8666,"b":10.6743,"c":9.0776,"d":4.7328},{"a":2.9242,"b":7.3176,"c":1.3961,"d":0.514},{"a":13.311,"b":10.6445,"c":20.6706,"d":6.4337},{"a":4.4054,"b":1.3264,"c":5.3691,"d":8.3201},{"a":3.2269,"b":8.275,"c":2.134,"d":2.59},{"a":3.4999,"b":8.2278,"c":2.1837,"d":9.8199},{"a":0.3464,"b":6.6869,"c":5.8197,"d":15.9097},{"a":1.7465,"b":3.6514,"c":2.4887,"d":3.0447},{"a":8.6151,"b":1.0696,"c":3.3078,"d":3.7537},{"a":3.0069,"b":14.8707,"c":8.2336,"d":8.8487},{"a":14.0409,"b":12.1102,"c":0.3876,"d":5.6791},{"a":20.1482,"b":2.6516,"c":1.8316,"d":18.0889},{"a":7.5942,"b":4.5339,"c":6.8766,"d":0.1786},{"a":3.6597,"b":4.469,"c":15.3934,"d":2.4095},{"a":13.6925,"b":12.4703,"c":7.5864,"d":4.8034},{"a":9.6795,"b":2.3902,"c":9.2461,"d":25.4046},{"a":2.6048,"b":0.1378,"c":0.2315,"d":1.253},{"a":13.0183,"b":3.3483,"c":16.7488,"d":3.8237}],"keys":{"value":["a","b","c","d"]}},"opts":{"x":null,"y":null,"types":{"a":"numeric","b":"numeric","date":"Date","c":"numeric","d":"numeric"}},"tooltip":{"show":true,"grouped":true,"format":{"title":"function (x) { return 'Data ' + x; }","name":"function (name, ratio, id, index) { return name; }","value":"function (value, ratio, id, index) { return ratio; }"}}},"evals":["tooltip.format.title","tooltip.format.name","tooltip.format.value"],"jsHooks":[]}</script>
 </div>
 
 </section>
@@ -584,6 +610,10 @@ data %&gt;%
     <section class="article-tags">
         
             <a href="/tags/htmlwidgets/">htmlwidgets</a>
+        
+            <a href="/tags/c3/">c3</a>
+        
+            <a href="/tags/graph/">graph</a>
         
     </section>
 
@@ -654,7 +684,7 @@ data %&gt;%
     <section class="copyright">
         &copy; 
         
-            2020 - 
+            2018 - 
         
         2021 A Simple Blog
     </section>

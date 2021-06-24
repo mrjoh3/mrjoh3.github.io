@@ -6,7 +6,17 @@
     <description>Recent content in htmlwidgets on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/htmlwidgets/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/htmlwidgets/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pier</title>
+      <link>https://mrjoh3.github.io/packages/cytoscape-package/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mrjoh3.github.io/packages/cytoscape-package/</guid>
+      <description>A HTMLWidget wrapper for the Cytoscape.js graph / network visualisation and analysis library. There are already a number of existing R packages for Cytoscape such as the Bioconductor package and the official Cytoscape Widget. The purpose of this package is to make the process of producing a basic chart as simple as possible.
+Installation devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)  A Minimal Example library(cytoscape) nodes &amp;lt;- data.</description>
+    </item>
+    
     <item>
       <title>c3</title>
       <link>https://mrjoh3.github.io/packages/2018-08-19-c3-package/</link>

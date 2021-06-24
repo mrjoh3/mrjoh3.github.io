@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='hljs.highlightAll(); In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
-To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications.'><title>Filtering Spatial Data with Crosstalk</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The crosstalk package enables the linking of htmlwidgets and datatables within an Rmarkdown file.'><title>Filtering Spatial Data with Crosstalk</title>
 
 <link rel='canonical' href='https://mrjoh3.github.io/p/filtering-spatial-data/'>
 
@@ -11,15 +10,13 @@ To do this I am going to use leaflet, sf to handle all the spatial data and cros
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 <meta property='og:title' content='Filtering Spatial Data with Crosstalk'>
-<meta property='og:description' content='hljs.highlightAll(); In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
-To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications.'>
+<meta property='og:description' content='The crosstalk package enables the linking of htmlwidgets and datatables within an Rmarkdown file.'>
 <meta property='og:url' content='https://mrjoh3.github.io/p/filtering-spatial-data/'>
 <meta property='og:site_name' content='A Simple Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='crosstalk' /><meta property='article:tag' content='leaflet' /><meta property='article:tag' content='sf' /><meta property='article:published_time' content='2018-07-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-07-25T00:00:00&#43;00:00'/><meta property='og:image' content='https://mrjoh3.github.io/img/filter_header.jpg' />
 <meta name="twitter:site" content="@mrjoh3">
     <meta name="twitter:creator" content="@mrjoh3"><meta name="twitter:title" content="Filtering Spatial Data with Crosstalk">
-<meta name="twitter:description" content="hljs.highlightAll(); In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
-To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications."><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="The crosstalk package enables the linking of htmlwidgets and datatables within an Rmarkdown file."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://mrjoh3.github.io/img/filter_header.jpg' />
 <link rel="icon" type="image/svg+xml" href="../../fav2/favicon.svg">
 <link rel="icon" type="image/png" href="../../fav2/favicon.png">
@@ -350,8 +347,15 @@ To do this I am going to use leaflet, sf to handle all the spatial data and cros
         <a href="/p/filtering-spatial-data/">Filtering Spatial Data with Crosstalk</a>
     </h2>
 
-    <footer class="article-time">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    
+    <h3 class="article-subtitle">
+        The crosstalk package enables the linking of htmlwidgets and datatables within an Rmarkdown file.
+    </h3>
+    
+
+    <div style="display: grid; grid-template-columns: 50% 50%">
+        <div style="justify-self: start;"><footer class="article-time">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -359,8 +363,23 @@ To do this I am going to use leaflet, sf to handle all the spatial data and cros
 
 
 
-        <time class="article-time--published">Jul 25, 2018</time>
-    </footer></div>
+                <time class="article-time--published">Jul 25, 2018</time>
+            </footer></div>
+        <div class="article-time" style="justify-self: end; display: inline;">
+            <span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+</span>
+            <span class="meta__text post-word-count">4 min read</span>
+        </div>
+    
+    </div>
+</div>
 </header>
 
     <section class="article-content">
@@ -551,6 +570,24 @@ tags$div(class=&quot;well well-lg&quot;,
 </article>
                 
                     
+<article class="has-image">
+    <a href="/packages/cytoscape-package/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MRJ_2020_DSC9257.png" loading="lazy" data-key="cytoscape-package" data-hash="/img/MRJ_2020_DSC9257.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">pier</h2>
+        </div>
+    </a>
+</article>
+                
+                    
 <article class="">
     <a href="/packages/mapedit-addin/">
         
@@ -563,31 +600,19 @@ tags$div(class=&quot;well well-lg&quot;,
 </article>
                 
                     
-<article class="">
-    <a href="/packages/2018-08-19-c3-package/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">c3</h2>
-        </div>
-    </a>
-</article>
-                
-                    
 <article class="has-image">
-    <a href="/p/another-blog-about-a-blog/">
+    <a href="/packages/2018-08-19-c3-package/">
         
         
             <div class="article-image">
                 
-                    <img src="/img/MRJ_2020_DSC9204_narrow.png" loading="lazy" data-key="another-blog-about-a-blog" data-hash="/img/MRJ_2020_DSC9204_narrow.png"/>
+                    <img src="/img/MRJ_2020_DSC9813.png" loading="lazy" data-key="" data-hash="/img/MRJ_2020_DSC9813.png"/>
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">Another blog about a blog</h2>
+            <h2 class="article-title">c3</h2>
         </div>
     </a>
 </article>
@@ -647,7 +672,7 @@ tags$div(class=&quot;well well-lg&quot;,
     <section class="copyright">
         &copy; 
         
-            2020 - 
+            2018 - 
         
         2021 A Simple Blog
     </section>

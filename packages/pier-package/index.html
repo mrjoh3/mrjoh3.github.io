@@ -13,11 +13,11 @@
 <meta property='og:description' content='The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.'>
 <meta property='og:url' content='https://mrjoh3.github.io/packages/pier-package/'>
 <meta property='og:site_name' content='A Simple Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='htmlwidgets' /><meta property='article:published_time' content='2018-08-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-08-19T00:00:00&#43;00:00'/><meta property='og:image' content='https://mrjoh3.github.io/img/logo.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='htmlwidgets' /><meta property='article:tag' content='pie' /><meta property='article:published_time' content='2018-08-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-08-19T00:00:00&#43;00:00'/><meta property='og:image' content='https://mrjoh3.github.io/img/MRJ_2021_DSC1137.png' />
 <meta name="twitter:site" content="@mrjoh3">
     <meta name="twitter:creator" content="@mrjoh3"><meta name="twitter:title" content="pier">
 <meta name="twitter:description" content="The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://mrjoh3.github.io/img/logo.jpg' />
+    <meta name="twitter:image" content='https://mrjoh3.github.io/img/MRJ_2021_DSC1137.png' />
 <link rel="icon" type="image/svg+xml" href="../../fav2/favicon.svg">
 <link rel="icon" type="image/png" href="../../fav2/favicon.png">
 <link rel="icon" type="image/svg+xml" href="fav2/favicon.svg">
@@ -304,19 +304,27 @@
 </aside>
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/packages/pier-package/">
+                
+                    <img src="/img/MRJ_2021_DSC1137.png" loading="lazy" alt="Featured image of post pier" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
     <header class="article-category">
         
-            <a href="/categories/packages/" >
-                packages
-            </a>
-        
             <a href="/categories/r/" >
                 R
+            </a>
+        
+            <a href="/categories/data-visualisation/" >
+                data visualisation
             </a>
         
     </header>
@@ -326,8 +334,11 @@
         <a href="/packages/pier-package/">pier</a>
     </h2>
 
-    <footer class="article-time">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    
+
+    <div style="display: grid; grid-template-columns: 50% 50%">
+        <div style="justify-self: start;"><footer class="article-time">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -335,8 +346,23 @@
 
 
 
-        <time class="article-time--published">Aug 19, 2018</time>
-    </footer></div>
+                <time class="article-time--published">Aug 19, 2018</time>
+            </footer></div>
+        <div class="article-time" style="justify-self: end; display: inline;">
+            <span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+</span>
+            <span class="meta__text post-word-count">2 min read</span>
+        </div>
+    
+    </div>
+</div>
 </header>
 
     <section class="article-content">
@@ -356,7 +382,7 @@
 <p>Currently the intention is to wrap the entire <a href="http://d3pie.org/#docs-api">d3pie</a> api.</p>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
-<p>You probably already guesssed this bit.</p>
+<p>You probably already guessed this bit.</p>
 <pre class="r"><code>devtools::install_github(&quot;mrjoh3/pier&quot;)</code></pre>
 </div>
 <div id="usage" class="section level2">
@@ -394,6 +420,8 @@ pier(data) %&gt;% pie.size(height = 350)</code></pre>
     <section class="article-tags">
         
             <a href="/tags/htmlwidgets/">htmlwidgets</a>
+        
+            <a href="/tags/pie/">pie</a>
         
     </section>
 
@@ -464,7 +492,7 @@ pier(data) %&gt;% pie.size(height = 350)</code></pre>
     <section class="copyright">
         &copy; 
         
-            2020 - 
+            2018 - 
         
         2021 A Simple Blog
     </section>

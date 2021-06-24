@@ -59,6 +59,15 @@
     <loc>https://mrjoh3.github.io/categories/packages/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://mrjoh3.github.io/tags/htmlwidgets/</loc>
+    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/network-chart/</loc>
+    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/packages/cytoscape-package/</loc>
+    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://mrjoh3.github.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -74,10 +83,16 @@
     <loc>https://mrjoh3.github.io/categories/spatial/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://mrjoh3.github.io/tags/c3/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://mrjoh3.github.io/packages/2018-08-19-c3-package/</loc>
     <lastmod>2018-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mrjoh3.github.io/tags/htmlwidgets/</loc>
+    <loc>https://mrjoh3.github.io/tags/graph/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mrjoh3.github.io/tags/pie/</loc>
     <lastmod>2018-08-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mrjoh3.github.io/packages/pier-package/</loc>
@@ -112,8 +127,6 @@
   </url><url>
     <loc>https://mrjoh3.github.io/tags/road-accidents/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mrjoh3.github.io/packages/2020-11-08-cytoscape-package/</loc>
   </url><url>
     <loc>https://mrjoh3.github.io/search/</loc>
   </url>

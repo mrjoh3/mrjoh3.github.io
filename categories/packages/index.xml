@@ -27,14 +27,5 @@ The goal of mapedit.addin is to simplify the creation of spatial data by wrappin
 library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.</description>
     </item>
     
-    <item>
-      <title>pier</title>
-      <link>https://mrjoh3.github.io/packages/pier-package/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrjoh3.github.io/packages/pier-package/</guid>
-      <description>The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</description>
-    </item>
-    
   </channel>
 </rss>
