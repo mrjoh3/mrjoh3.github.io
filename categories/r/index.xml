@@ -6,7 +6,16 @@
     <description>Recent content in R on A Simple Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Changing and modifying a Hugo theme on your R Blogdown site</title>
+      <link>https://mrjoh3.github.io/p/updating-a-blog-theme/</link>
+      <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mrjoh3.github.io/p/updating-a-blog-theme/</guid>
+      <description>In an effort to resurrect my long neglected blogdown site, I decided to switch to a new theme. It is possible to use blogdown::install_theme() to get you started adding a new theme. But I wanted to do the update manually and then start to modify the theme to suit my needs. For R coders sometimes other languages and interacting with HTML and CSS can be intimidating but the results are very satisfying.</description>
+    </item>
+    
     <item>
       <title>Shiny and Rmarkdown Image Galleries</title>
       <link>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</link>

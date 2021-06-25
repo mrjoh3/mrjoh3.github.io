@@ -6,7 +6,115 @@
         <description>Recent content on A Simple Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Changing and modifying a Hugo theme on your R Blogdown site</title>
+        <link>https://mrjoh3.github.io/p/updating-a-blog-theme/</link>
+        <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://mrjoh3.github.io/p/updating-a-blog-theme/</guid>
+        <description>&lt;img src="https://mrjoh3.github.io/img/DSCN1968_edited-1_20070804_165511_002.jpg" alt="Featured image of post Changing and modifying a Hugo theme on your R Blogdown site" /&gt;
+&lt;script src=&#34;https://mrjoh3.github.io/p/updating-a-blog-theme/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;In an effort to resurrect my long neglected &lt;code&gt;blogdown&lt;/code&gt; site, I decided to switch to a new theme. It is possible to use &lt;code&gt;blogdown::install_theme()&lt;/code&gt; to get you started adding a new theme. But I wanted to do the update manually and then start to modify the theme to suit my needs. For &lt;code&gt;R&lt;/code&gt; coders sometimes other languages and interacting with &lt;code&gt;HTML&lt;/code&gt; and &lt;code&gt;CSS&lt;/code&gt; can be intimidating but the results are very satisfying. I also think that tools like &lt;code&gt;rmarkdown&lt;/code&gt; and &lt;code&gt;shiny&lt;/code&gt; have forced us to know enough about web languages to work things out. This post is a record of the steps I took to change to and then modify a new Hugo theme, plus some of the small gotcha’s I encountered along the way.&lt;/p&gt;
+&lt;div id=&#34;first-find-a-good-theme&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;First find a good theme&lt;/h2&gt;
+&lt;p&gt;On the &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;Hugo themes website&lt;/a&gt; there are almost 300 to choose from. The themes website is well designed so it is easy to filter and sort to find the theme you are after. Make sure you find one with good documentation and an example website for you to better understand how it all fits together. Not all documentation is created equally so it is worth taking the time at the start to work through it.&lt;/p&gt;
+&lt;p&gt;Another thing to remember is that themes can have different requirements for structuring your blogs content. So also check the example website’s structure to assess how much effort is required to adapt your site.&lt;/p&gt;
+&lt;p&gt;In my work life I generally have to use standard corporate themes. My previous theme was the wonderful &lt;a href=&#34;https://themes.gohugo.io/future-imperfect/&#34;&gt;future imperfect&lt;/a&gt; but this time I wanted to try something darker and something good for displaying photos. I also wanted a theme that:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;is responsive and looks good on a phone&lt;/li&gt;
+&lt;li&gt;is good for displaying photos&lt;/li&gt;
+&lt;li&gt;has a good simple search function&lt;/li&gt;
+&lt;li&gt;displays tags nicely&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Eventually I decided on the &lt;a href=&#34;https://themes.gohugo.io/hugo-theme-stack/&#34;&gt;stack theme&lt;/a&gt; by &lt;a href=&#34;https://jimmycai.com/&#34;&gt;Jimmy Cai&lt;/a&gt;. Some extra features that clinched the deal were:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;ability to toggle between light and dark themes&lt;/li&gt;
+&lt;li&gt;local search&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://photoswipe.com/&#34;&gt;PhotoSwipe&lt;/a&gt; integration&lt;/li&gt;
+&lt;li&gt;an archive page template&lt;/li&gt;
+&lt;li&gt;no built in JavaScript or CSS frameworks&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This last point, I hope, will lead to less conflicts when adding &lt;code&gt;htmlwidgets&lt;/code&gt; to posts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;import-new-theme&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Import new theme&lt;/h2&gt;
+&lt;p&gt;To import the theme I just followed the &lt;a href=&#34;https://docs.stack.jimmycai.com/getting-started&#34;&gt;documentation&lt;/a&gt; and imported the theme using git clone before setting up the theme as a sub-module.&lt;/p&gt;
+&lt;pre class=&#34;console&#34;&gt;&lt;code&gt;git clone https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
+
+git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These are the usual instructions for adding a theme. But adding the theme as a sub-module is optional. You will need to make some changes to the contents of the theme and you will also want to keep track of these changes in git. Using the code above the sub-module points to the original source, but you may not want to push your changes to this repo.&lt;/p&gt;
+&lt;p&gt;After a while I removed the sub-module and added the theme to the sites repo. To do this you need to use the &lt;code&gt;git deinit&lt;/code&gt; command but you also need to delete cached files from the git repo. I did this based on a &lt;a href=&#34;https://stackoverflow.com/a/26752628/1498485&#34;&gt;Stack Overflow answer&lt;/a&gt; which is copied below.&lt;/p&gt;
+&lt;pre class=&#34;console&#34;&gt;&lt;code&gt;mv themes/hugo-theme-stack themes/hugo-theme-stack_tmp
+git themes/hugo-theme-stack deinit themes/hugo-theme-stack
+git rm --cached themes/hugo-theme-stack
+mv themes/hugo-theme-stack_tmp subfolder
+git add themes/hugo-theme-stack&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;update-the-config-file&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Update the Config file&lt;/h2&gt;
+&lt;p&gt;Now it is time to update your sites &lt;code&gt;config.toml&lt;/code&gt; or &lt;code&gt;config.yaml&lt;/code&gt; file. Remember we selected a theme that has an example website. So rename your old &lt;code&gt;config&lt;/code&gt; file and copy across the one from the new theme example. Then you can go through updating the new &lt;code&gt;config&lt;/code&gt; file based on the old one. With luck this will be enough to get your site running using &lt;code&gt;blogdown::build_site()&lt;/code&gt; then &lt;code&gt;blogdown::serve_site()&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;update-site-structure&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Update site structure&lt;/h2&gt;
+&lt;p&gt;At this stage it becomes pretty obvious what is working and what is not. For me, the new theme had a different structure to deal with pages like &lt;code&gt;about&lt;/code&gt;. Using the new &lt;code&gt;config&lt;/code&gt; file and the structure of the example site I was able to adapt to this pretty easily.&lt;/p&gt;
+&lt;p&gt;The biggest issue I had was trying to update the page logo. This is just a &lt;code&gt;.jpg&lt;/code&gt; file for both the old and new theme. It took a long time to realise that the new theme expected this file to be in the &lt;code&gt;themes/hugo-theme-stack/assets/img&lt;/code&gt; folder when the old theme expected it to be in &lt;code&gt;static/img&lt;/code&gt;. In both cases you refer to the file using &lt;code&gt;img/logo.jpg&lt;/code&gt;, so I could not understand what I was doing wrong.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exploring-the-theme-contents&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exploring the Theme contents&lt;/h1&gt;
+&lt;p&gt;It is worth having a good idea of the structure and the files in the theme. There will be lots of instances where it is best to make changes in the theme as this will cascade through the site. For example, I wanted to use &lt;a href=&#34;https://highlightjs.org/&#34;&gt;highlight.js&lt;/a&gt; for syntax highlighting. This can be done with 3 lines of code:&lt;/p&gt;
+&lt;pre class=&#34;html&#34;&gt;&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/a11y-dark.min.css&amp;quot;&amp;gt;
+&amp;lt;script src=&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;hljs.highlightAll();&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Of course you can add this to each post, but if you add it to the theme it becomes available to all posts. This are where &lt;a href=&#34;https://gohugo.io/templates/partials/&#34;&gt;Hugo partial templates&lt;/a&gt; become really powerful. A partial is a small html template. On build all of the partials get joined together to form the full page. These small chunks are much easier to maintain and are often parametised and will vary depending on site and page settings and content.&lt;/p&gt;
+&lt;p&gt;In the &lt;code&gt;themes/hugo-theme-stack/layouts/partials/head&lt;/code&gt; folder, there is a file called &lt;code&gt;script.html&lt;/code&gt;. In the base theme the file is empty but is intended to be modified. There were also files called:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;head.html&lt;/li&gt;
+&lt;li&gt;custom.html&lt;/li&gt;
+&lt;li&gt;style.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style&gt;
+.right {
+  display: block;
+  float: right;
+  width: 20%;
+}
+&lt;/style&gt;
+&lt;p&gt;&lt;img class = &#34;right&#34; src=&#34;../../fav2/favicon.svg&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;I used the &lt;code&gt;custom.html&lt;/code&gt; file to include all the links needed to add a &lt;code&gt;favicon&lt;/code&gt; to my site. The &lt;code&gt;svg&lt;/code&gt; for the &lt;code&gt;favicon&lt;/code&gt; was created in &lt;code&gt;Inkscape&lt;/code&gt;, then I used &lt;a href=&#34;https://realfavicongenerator.net/&#34;&gt;RealFaviconGenerator&lt;/a&gt; to convert to a &lt;code&gt;favicon&lt;/code&gt;. This is the same service behind &lt;code&gt;pkgdown&lt;/code&gt;’s &lt;a href=&#34;https://pkgdown.r-lib.org/reference/build_favicons.html&#34;&gt;pkgdown::build_favicon()&lt;/a&gt; function.&lt;/p&gt;
+&lt;p&gt;The last change to the theme I made (for now) was to add the read time for each article at the top of the page. Reading time is available in the Hugo &lt;a href=&#34;https://gohugo.io/variables/page/&#34;&gt;page variable&lt;/a&gt; &lt;code&gt;.ReadingTime&lt;/code&gt;. Hugo calculates reading time as &lt;code&gt;(words + 212) / 213&lt;/code&gt;. After looking through all the files in the theme, I found that the &lt;code&gt;themes/hugo-theme-stack/layouts/partials/article/components/details&lt;/code&gt; contained all of the page information such as title, description, and publish date. After finding the place to put the reading time I only need to add the following two &lt;code&gt;span&lt;/code&gt; tags to get a book icon and the calculated read time.&lt;/p&gt;
+&lt;pre class=&#34;html&#34;&gt;&lt;code&gt;&amp;lt;span&amp;gt;{{ partial &amp;quot;helper/icon&amp;quot; &amp;quot;book&amp;quot; }}&amp;lt;/span&amp;gt;
+&amp;lt;span class=&amp;quot;meta__text post-word-count&amp;quot;&amp;gt;{{ .ReadingTime }} min read&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The book icon was not a standard part of the theme. Luckily in the stack theme all of the icons have been generated using &lt;a href=&#34;https://tablericons.com/&#34;&gt;Tabler Icons&lt;/a&gt; and so it was easy create one that matched perfectly.&lt;/p&gt;
+&lt;div id=&#34;add-comments&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Add comments&lt;/h2&gt;
+&lt;p&gt;In my previous site I used &lt;a href=&#34;https://blog.disqus.com/&#34;&gt;Disqus&lt;/a&gt; for comments but this time I wanted to try &lt;a href=&#34;https://utteranc.es/&#34;&gt;utterances&lt;/a&gt;. Utterances uses Github issues to manage comments. As my site is in a Github repo and is hosted via Github pages, it made sense to have one less account to manage. First the utterances app needs to be &lt;a href=&#34;https://github.com/apps/utterances&#34;&gt;installed&lt;/a&gt; onto the repo where you want the comments to go. Then you can use the &lt;a href=&#34;https://utteranc.es/&#34;&gt;utterances&lt;/a&gt; configuration site to generate a code snippet that needs to be inserted into each page.&lt;/p&gt;
+&lt;pre class=&#34;html&#34;&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://utteranc.es/client.js&amp;quot;
+        repo=&amp;quot;[ENTER REPO HERE]&amp;quot;
+        issue-term=&amp;quot;pathname&amp;quot;
+        theme=&amp;quot;github-light&amp;quot;
+        crossorigin=&amp;quot;anonymous&amp;quot;
+        async&amp;gt;
+&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Again, the &lt;code&gt;stack&lt;/code&gt; theme was a good choice as utterances is already part of the theme. All I needed to do to configure was add the code below to the &lt;code&gt;config.yaml&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;    comments:
+        enabled: true
+        provider: utterances
+        utterances:
+            repo: mrjoh3/blog
+            issueTerm: pathname
+            label: comment&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;time-to-add-content&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Time to add content&lt;/h2&gt;
+&lt;p&gt;And that, as they say, was that. The site is up and running with the new theme. I have made some minor changes to the theme and am quite happy. Really, where I did have issues I should have read the documentation more carefully. At the start of this post I said “pick a theme with good documentation and an example site.” While updating and modifying the theme I have been referring the the &lt;a href=&#34;https://docs.stack.jimmycai.com/&#34;&gt;theme documentation&lt;/a&gt; regularly. It is always helpful, plus the example site meant I saved an enormous amount of time when restructuring the site to suite the theme.&lt;/p&gt;
+&lt;p&gt;Now that I am up and running, I just need to get to the hard part of adding content. Hopefully this post is a good start.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
         <title>Shiny and Rmarkdown Image Galleries</title>
         <link>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</link>
         <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
