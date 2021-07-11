@@ -32,7 +32,7 @@ The gallery needed to render from a folder of images The gallery interface and t
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://mrjoh3.github.io/packages/ggtrack-package/</guid>
-      <description>ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</description>
+      <description>ggtrack     Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</description>
     </item>
     
     <item>

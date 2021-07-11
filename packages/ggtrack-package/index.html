@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.'><title>ggtrack</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ggtrack     Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.'><title>ggtrack</title>
 
 <link rel='canonical' href='https://mrjoh3.github.io/packages/ggtrack-package/'>
 
@@ -10,14 +10,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 <meta property='og:title' content='ggtrack'>
-<meta property='og:description' content='ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.'>
+<meta property='og:description' content='ggtrack     Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.'>
 <meta property='og:url' content='https://mrjoh3.github.io/packages/ggtrack-package/'>
 <meta property='og:site_name' content='Restless Data'>
-<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='ggplot2' /><meta property='article:published_time' content='2021-06-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-06-10T00:00:00&#43;00:00'/><meta property='og:image' content='https://mrjoh3.github.io/img/logo.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='ggplot2' /><meta property='article:tag' content='ggtrack' /><meta property='article:tag' content='qrencoder' /><meta property='article:published_time' content='2021-06-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-06-10T00:00:00&#43;00:00'/><meta property='og:image' content='https://mrjoh3.github.io/img/MRJ_2020_DSC8761.png' />
 <meta name="twitter:site" content="@mrjoh3">
     <meta name="twitter:creator" content="@mrjoh3"><meta name="twitter:title" content="ggtrack">
-<meta name="twitter:description" content="ggtrack   Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://mrjoh3.github.io/img/logo.jpg' />
+<meta name="twitter:description" content="ggtrack     Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://mrjoh3.github.io/img/MRJ_2020_DSC8761.png' />
 <link rel="icon" type="image/svg+xml" href="../../fav3/favicon.svg">
 <link rel="icon" type="image/png" href="../../fav3/favicon.png">
 <link rel="icon" type="image/svg+xml" href="fav3/favicon.svg">
@@ -304,8 +304,16 @@
 </aside>
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/packages/ggtrack-package/">
+                
+                    <img src="/img/MRJ_2020_DSC8761.png" loading="lazy" alt="Featured image of post ggtrack" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -364,100 +372,66 @@
     <section class="article-content">
     
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
-<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
-<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
-<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
 
 
 <div id="ggtrack" class="section level1">
 <h1>ggtrack</h1>
 <!-- badges: start -->
-<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental" /></a>
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable" /></a>
 <a href="https://github.com/mrjoh3/ggtrack/actions"><img src="https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg" alt="R-CMD-check" /></a>
+<a href="https://codecov.io/gh/mrjoh3/ggtrack?branch=master"><img src="https://codecov.io/gh/mrjoh3/ggtrack/branch/master/graph/badge.svg" alt="Codecov test coverage" /></a>
 <!-- badges: end --></p>
+<div style="float: right;">
+<img src="../../img/ggtrack-logo.svg" width="280px">
+</div>
 <p>Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The <code>ggtrack</code> package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</p>
 <p>The metadata is added by way of a QR code embedded in a chart “tracking” footer. The QR code can encode any arbitrary text and will append a time stamp. The text is intended to be a URL or a unique id for the original document or chart source.</p>
 <p>QR codes can then be scanned using a phone scanner or the <a href="https://github.com/brianwdavis/quadrangle">quadrangle package</a>.</p>
 <p>The <code>ggtrack</code> footer can also display a corporate logo and additional text.</p>
-<div id="installation" class="section level2">
-<h2>Installation</h2>
-<p>You can install the latest version of project from <a href="https://github.com">Github</a> with:</p>
-<pre class="r"><code>devtools::install_github(&quot;mrjoh3/ggtrack&quot;)</code></pre>
-</div>
+<p>You can find the source code at <a href="https://github.com/mrjoh3/ggtrack" class="uri">https://github.com/mrjoh3/ggtrack</a> and the documentation at <a href="https://mrjoh3.github.io/ggtrack/" class="uri">https://mrjoh3.github.io/ggtrack/</a></p>
 <div id="development" class="section level2">
 <h2>Development</h2>
-<p>This package is in the early stages of development. If you have any suggestions, or feature requests please submit an <a href="https://github.com/mrjoh3/ggtrack/issues">issue</a>. All feedback is welcome.</p>
+<p>This package is still quite young but now contains most of the desired features. It now has a full testing suite and documentation. For future updates all efforts will be made to maintain a stable API. If you have any suggestions, or feature requests please submit an <a href="https://github.com/mrjoh3/ggtrack/issues">issue</a>. All feedback is welcome.</p>
 </div>
-<div id="example" class="section level2">
-<h2>Example</h2>
+<div id="a-minimum-example" class="section level2">
+<h2>A Minimum Example</h2>
 <p>To start you just need a <code>ggplot</code> and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package.</p>
-<pre class="r"><code>library(ggtrack)</code></pre>
-<pre><code>## Warning: replacing previous import &#39;ggplot2::last_plot&#39; by &#39;plotly::last_plot&#39;
-## when loading &#39;ggtrack&#39;</code></pre>
-<pre class="r"><code>library(ggplot2)
+<pre class="r"><code>library(ggtrack)
+library(ggplot2)
+library(grid)
+library(rWBclimate)
+library(ggthemes)
 
-gg &lt;- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
-  geom_bar(stat = &#39;identity&#39;) +
-  theme_minimal()
+temp &lt;- get_historical_temp(&#39;aus&#39;, &quot;year&quot;)
 
-ggtrack(gg,
-        qr_content = &#39;Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5&#39;)</code></pre>
-<p><img src="/packages/2021-06-14-ggtrack-package_files/figure-html/example-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<div id="add-a-logo" class="section level3">
-<h3>Add a Logo</h3>
-<p>A logo can be added either from a local or remote source. For now only <code>png</code> and <code>jpeg/jpg</code> are supported.</p>
-<pre class="r"><code>ggtrack(gg,
-        qr_content = &#39;text content here&#39;,
-        logo = &#39;https://www.r-project.org/logo/Rlogo.png&#39;)</code></pre>
-<p><img src="/packages/2021-06-14-ggtrack-package_files/figure-html/logo-1.png" width="80%" style="display: block; margin: auto;" /></p>
+tp &lt;- ggplot(temp, aes(x = year, y = data)) +
+  geom_path(color = &#39;blue&#39;) + geom_point(color = &#39;darkblue&#39;) +
+  labs(title = &#39;Average Annual Temperature for Australia&#39;,
+       y = &#39;degrees celcius&#39;) +
+  stat_smooth(se = TRUE, colour = &quot;darkred&quot;) +
+  theme_fivethirtyeight() 
+
+ggtrack(tp, 
+        qr_content = paste0(&#39;Data accessed using R package: &#39;,
+                            &#39;https://github.com/ropensci/rWBclimate / &#39;,
+                            &#39;https://docs.ropensci.org/rWBclimate/&#39;),
+        logo = &#39;../../static/img/ggtrack-logo.svg&#39;,
+        caption = paste0(&#39;data accessed from the World Bank &lt;br&gt;&#39;,
+                         &#39;Climate Portal via the R package &lt;br&gt;&#39;,
+                         &#39;&lt;span style=&quot;color:blue&quot;&gt;rWBclimate&lt;/span&gt;.&#39;),
+        plot.background = element_rect(fill = &quot;#f0f0f0&quot;, size = 0)) </code></pre>
+<p><img src="/packages/2021-06-14-ggtrack-package_files/figure-html/example-1.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="add-a-caption" class="section level3">
-<h3>Add a Caption</h3>
-<p>Captions use the <a href="https://github.com/wilkelab/gridtext">gridtext</a> package. So you can use both <code>HTML</code> and <code>markdown</code> to style. Or if you prefer, create your own <code>grob</code> and pass that through instead.</p>
-<pre class="r"><code>ggtrack(gg,
-        qr_content = &#39;For all your image tracking needs: https://github.com/mrjoh3/ggtrack&#39;,
-        logo = &#39;https://www.r-project.org/logo/Rlogo.png&#39;,
-        caption = &#39;Lots of extra info, or a fancy &lt;span style=&quot;color:blue&quot;&gt;&quot;grob&quot;&lt;/span&gt;.&#39;)</code></pre>
-<p><img src="/packages/2021-06-14-ggtrack-package_files/figure-html/caption-1.png" width="80%" style="display: block; margin: auto;" /></p>
-</div>
-</div>
-<div id="interactive-plots" class="section level2">
-<h2>Interactive Plots</h2>
-<pre class="r"><code>ggtrack(gg,
-        qr_content = &#39;For all your image tracking needs: https://github.com/mrjoh3/ggtrack&#39;,
-        logo = &#39;https://www.r-project.org/logo/Rlogo.png&#39;,
-        caption = &#39;Lots of extra info, or a fancy &lt;span style=&quot;color:blue&quot;&gt;&quot;grob&quot;&lt;/span&gt;.&#39;,
-        interactive = TRUE)</code></pre>
-<pre><code>## Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
-##   If you&#39;d like to see this geom implemented,
-##   Please open an issue with your example code at
-##   https://github.com/ropensci/plotly/issues
-
-## Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
-##   If you&#39;d like to see this geom implemented,
-##   Please open an issue with your example code at
-##   https://github.com/ropensci/plotly/issues
-
-## Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
-##   If you&#39;d like to see this geom implemented,
-##   Please open an issue with your example code at
-##   https://github.com/ropensci/plotly/issues</code></pre>
-<div id="htmlwidget-1" style="width:80%;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[-1.27567506273957,-1.38335117061879,0,0,-1.36237465789193,-0.271593013584229,0,-0.568065228679005,-1.80351319009161,0],"x":[1,2,3,4,5,6,7,8,9,10],"y":[1.27567506273957,1.38335117061879,0.0328618009952973,1.40536622307535,1.36237465789193,0.271593013584229,1.37623693071815,0.568065228679005,1.80351319009161,1.07144924140248],"text":["1:10:  1<br />rnorm(10): 1.2756751","1:10:  2<br />rnorm(10): 1.3833512","1:10:  3<br />rnorm(10): 0.0328618","1:10:  4<br />rnorm(10): 1.4053662","1:10:  5<br />rnorm(10): 1.3623747","1:10:  6<br />rnorm(10): 0.2715930","1:10:  7<br />rnorm(10): 1.3762369","1:10:  8<br />rnorm(10): 0.5680652","1:10:  9<br />rnorm(10): 1.8035132","1:10: 10<br />rnorm(10): 1.0714492"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","mode":"","frame":null}],"layout":{"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.0550000000000001,10.945],"tickmode":"array","ticktext":["2.5","5.0","7.5","10.0"],"tickvals":[2.5,5,7.5,10],"categoryorder":"array","categoryarray":["2.5","5.0","7.5","10.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","hoverformat":".2f"},"xaxis2":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y2","hoverformat":".2f"},"yaxis2":{"domain":[0,0.18],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x2","hoverformat":".2f"},"yaxis":{"domain":[0.22,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.96395716074996,1.5658101937337],"tickmode":"array","ticktext":["-1","0","1"],"tickvals":[-1,0,1],"categoryorder":"array","categoryarray":["-1","0","1"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","hoverformat":".2f"},"annotations":[],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.22,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":0.18}],"images":[],"margin":{"t":34.8976377952756,"r":0,"b":11.3385826771654,"l":0},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"attrs":{"dc096727d1bf":{"x":{},"y":{},"type":"bar"},"dc099105808":{"type":"scatter"},"dc0959ae9604":[],"dc097d88f51":[]},"source":"A","config":{"doubleClick":"reset","showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-<style>
-.hide img {
-  float: right;
-  margin-bottom: -50%; /* crop position */
-}
-</style>
-<div class="hide">
-
-</div>
+<div id="related-and-enabling-packages" class="section level2">
+<h2>Related and Enabling Packages</h2>
+<p>The <code>ggrack</code> package makes use of many <a href="https://github.com/mrjoh3/ggtrack/blob/master/DESCRIPTION#L20">R packages</a>. But I want to include a special thank-you to some packages without which the <code>ggtrack</code> package would not be possible.</p>
+<ul>
+<li>The <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package generate to QR codes that form the basis for much of <code>ggtrack</code>. <code>qrencoder</code> is both fast and easy to use, and provides a variety of outputs that make it easy to incorporate QR codes into a project.</li>
+<li>Without <a href="https://github.com/tidyverse/ggplot2/">ggplot2</a> there would be little point to a package like <code>ggtrack</code>. The entire banner object is a <code>ggplot</code> with <code>theme_void</code> and <code>annotation_custom</code> used to place the three tracking elements.</li>
+<li>The <code>rasterGrob</code> elements from the <a href="https://github.com/cran/grid">grid</a> package make it possible to add both the QR code and arbitrary images such as logos.</li>
+<li><code>grid.arrange</code> from <a href="https://cran.r-project.org/package=gridExtra">gridExtra</a> makes it possible to stack the <code>ggplot</code> object on top of the tracking banner.</li>
+<li>The <a href="https://github.com/richfitz/stegasaur">stegasaur</a> is used the encode arbitrary text or R objects into the plot <code>PNG</code>. This is very cool and <a href="https://github.com/richfitz/stegasaur">stegasaur</a> is a great package that makes it really easy to encode and decode images.</li>
+</ul>
 </div>
 </div>
 
@@ -469,6 +443,10 @@ ggtrack(gg,
     <section class="article-tags">
         
             <a href="/tags/ggplot2/">ggplot2</a>
+        
+            <a href="/tags/ggtrack/">ggtrack</a>
+        
+            <a href="/tags/qrencoder/">qrencoder</a>
         
     </section>
 
