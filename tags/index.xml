@@ -2,206 +2,206 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Restless Data</title>
-    <link>https://mrjoh3.github.io/tags/</link>
+    <link>https://restlessdata.com.au/tags/</link>
     <description>Recent content in Tags on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>blogdown</title>
-      <link>https://mrjoh3.github.io/tags/blogdown/</link>
+      <link>https://restlessdata.com.au/tags/blogdown/</link>
       <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/blogdown/</guid>
+      <guid>https://restlessdata.com.au/tags/blogdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>https://mrjoh3.github.io/tags/hugo/</link>
+      <link>https://restlessdata.com.au/tags/hugo/</link>
       <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/hugo/</guid>
+      <guid>https://restlessdata.com.au/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gallery</title>
-      <link>https://mrjoh3.github.io/tags/gallery/</link>
+      <link>https://restlessdata.com.au/tags/gallery/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/gallery/</guid>
+      <guid>https://restlessdata.com.au/tags/gallery/</guid>
       <description></description>
     </item>
     
     <item>
       <title>image</title>
-      <link>https://mrjoh3.github.io/tags/image/</link>
+      <link>https://restlessdata.com.au/tags/image/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/image/</guid>
+      <guid>https://restlessdata.com.au/tags/image/</guid>
       <description></description>
     </item>
     
     <item>
       <title>js</title>
-      <link>https://mrjoh3.github.io/tags/js/</link>
+      <link>https://restlessdata.com.au/tags/js/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/js/</guid>
+      <guid>https://restlessdata.com.au/tags/js/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rmarkdown</title>
-      <link>https://mrjoh3.github.io/tags/rmarkdown/</link>
+      <link>https://restlessdata.com.au/tags/rmarkdown/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/rmarkdown/</guid>
+      <guid>https://restlessdata.com.au/tags/rmarkdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shiny</title>
-      <link>https://mrjoh3.github.io/tags/shiny/</link>
+      <link>https://restlessdata.com.au/tags/shiny/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/shiny/</guid>
+      <guid>https://restlessdata.com.au/tags/shiny/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ggplot2</title>
-      <link>https://mrjoh3.github.io/tags/ggplot2/</link>
+      <link>https://restlessdata.com.au/tags/ggplot2/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/ggplot2/</guid>
+      <guid>https://restlessdata.com.au/tags/ggplot2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ggtrack</title>
-      <link>https://mrjoh3.github.io/tags/ggtrack/</link>
+      <link>https://restlessdata.com.au/tags/ggtrack/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/ggtrack/</guid>
+      <guid>https://restlessdata.com.au/tags/ggtrack/</guid>
       <description></description>
     </item>
     
     <item>
       <title>qrencoder</title>
-      <link>https://mrjoh3.github.io/tags/qrencoder/</link>
+      <link>https://restlessdata.com.au/tags/qrencoder/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/qrencoder/</guid>
+      <guid>https://restlessdata.com.au/tags/qrencoder/</guid>
       <description></description>
     </item>
     
     <item>
       <title>htmlwidgets</title>
-      <link>https://mrjoh3.github.io/tags/htmlwidgets/</link>
+      <link>https://restlessdata.com.au/tags/htmlwidgets/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/htmlwidgets/</guid>
+      <guid>https://restlessdata.com.au/tags/htmlwidgets/</guid>
       <description></description>
     </item>
     
     <item>
       <title>network chart</title>
-      <link>https://mrjoh3.github.io/tags/network-chart/</link>
+      <link>https://restlessdata.com.au/tags/network-chart/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/network-chart/</guid>
+      <guid>https://restlessdata.com.au/tags/network-chart/</guid>
       <description></description>
     </item>
     
     <item>
       <title>addin</title>
-      <link>https://mrjoh3.github.io/tags/addin/</link>
+      <link>https://restlessdata.com.au/tags/addin/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/addin/</guid>
+      <guid>https://restlessdata.com.au/tags/addin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mapping</title>
-      <link>https://mrjoh3.github.io/tags/mapping/</link>
+      <link>https://restlessdata.com.au/tags/mapping/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/mapping/</guid>
+      <guid>https://restlessdata.com.au/tags/mapping/</guid>
       <description></description>
     </item>
     
     <item>
       <title>c3</title>
-      <link>https://mrjoh3.github.io/tags/c3/</link>
+      <link>https://restlessdata.com.au/tags/c3/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/c3/</guid>
+      <guid>https://restlessdata.com.au/tags/c3/</guid>
       <description></description>
     </item>
     
     <item>
       <title>graph</title>
-      <link>https://mrjoh3.github.io/tags/graph/</link>
+      <link>https://restlessdata.com.au/tags/graph/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/graph/</guid>
+      <guid>https://restlessdata.com.au/tags/graph/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pie</title>
-      <link>https://mrjoh3.github.io/tags/pie/</link>
+      <link>https://restlessdata.com.au/tags/pie/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/pie/</guid>
+      <guid>https://restlessdata.com.au/tags/pie/</guid>
       <description></description>
     </item>
     
     <item>
       <title>crosstalk</title>
-      <link>https://mrjoh3.github.io/tags/crosstalk/</link>
+      <link>https://restlessdata.com.au/tags/crosstalk/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/crosstalk/</guid>
+      <guid>https://restlessdata.com.au/tags/crosstalk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>leaflet</title>
-      <link>https://mrjoh3.github.io/tags/leaflet/</link>
+      <link>https://restlessdata.com.au/tags/leaflet/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/leaflet/</guid>
+      <guid>https://restlessdata.com.au/tags/leaflet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sf</title>
-      <link>https://mrjoh3.github.io/tags/sf/</link>
+      <link>https://restlessdata.com.au/tags/sf/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/sf/</guid>
+      <guid>https://restlessdata.com.au/tags/sf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gganimate</title>
-      <link>https://mrjoh3.github.io/tags/gganimate/</link>
+      <link>https://restlessdata.com.au/tags/gganimate/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/gganimate/</guid>
+      <guid>https://restlessdata.com.au/tags/gganimate/</guid>
       <description></description>
     </item>
     
     <item>
       <title>road accidents</title>
-      <link>https://mrjoh3.github.io/tags/road-accidents/</link>
+      <link>https://restlessdata.com.au/tags/road-accidents/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/tags/road-accidents/</guid>
+      <guid>https://restlessdata.com.au/tags/road-accidents/</guid>
       <description></description>
     </item>
     

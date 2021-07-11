@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>pie on Restless Data</title>
-    <link>https://mrjoh3.github.io/tags/pie/</link>
+    <link>https://restlessdata.com.au/tags/pie/</link>
     <description>Recent content in pie on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/pie/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/pie/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>pier</title>
-      <link>https://mrjoh3.github.io/packages/pier-package/</link>
+      <link>https://restlessdata.com.au/packages/pier-package/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/packages/pier-package/</guid>
+      <guid>https://restlessdata.com.au/packages/pier-package/</guid>
       <description>The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</description>
     </item>
     

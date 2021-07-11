@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>graph on Restless Data</title>
-    <link>https://mrjoh3.github.io/tags/graph/</link>
+    <link>https://restlessdata.com.au/tags/graph/</link>
     <description>Recent content in graph on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/graph/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/graph/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c3</title>
-      <link>https://mrjoh3.github.io/packages/2018-08-19-c3-package/</link>
+      <link>https://restlessdata.com.au/packages/2018-08-19-c3-package/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/packages/2018-08-19-c3-package/</guid>
+      <guid>https://restlessdata.com.au/packages/2018-08-19-c3-package/</guid>
       <description>The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting to create a chart using R and embedding it in a Rmarkdown document or Shiny App.
 The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.</description>
     </item>

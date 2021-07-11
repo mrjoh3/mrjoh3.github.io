@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>addin on Restless Data</title>
-    <link>https://mrjoh3.github.io/tags/addin/</link>
+    <link>https://restlessdata.com.au/tags/addin/</link>
     <description>Recent content in addin on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/addin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/addin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mapedit.addin</title>
-      <link>https://mrjoh3.github.io/packages/mapedit-addin/</link>
+      <link>https://restlessdata.com.au/packages/mapedit-addin/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/packages/mapedit-addin/</guid>
+      <guid>https://restlessdata.com.au/packages/mapedit-addin/</guid>
       <description>mapedit.addin  
 The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
 library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.</description>

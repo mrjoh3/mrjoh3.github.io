@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Restless Data</title>
-        <link>https://mrjoh3.github.io/</link>
+        <link>https://restlessdata.com.au/</link>
         <description>Recent content on Restless Data</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Changing and modifying a Hugo theme on your R Blogdown site</title>
-        <link>https://mrjoh3.github.io/p/updating-a-blog-theme/</link>
+        <link>https://restlessdata.com.au/p/updating-a-blog-theme/</link>
         <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://mrjoh3.github.io/p/updating-a-blog-theme/</guid>
-        <description>&lt;img src="https://mrjoh3.github.io/img/DSCN1968_edited-1_20070804_165511_002.jpg" alt="Featured image of post Changing and modifying a Hugo theme on your R Blogdown site" /&gt;
-&lt;script src=&#34;https://mrjoh3.github.io/p/updating-a-blog-theme/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+        <guid>https://restlessdata.com.au/p/updating-a-blog-theme/</guid>
+        <description>&lt;img src="https://restlessdata.com.au/img/DSCN1968_edited-1_20070804_165511_002.jpg" alt="Featured image of post Changing and modifying a Hugo theme on your R Blogdown site" /&gt;
+&lt;script src=&#34;https://restlessdata.com.au/p/updating-a-blog-theme/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;In an effort to resurrect my long neglected &lt;code&gt;blogdown&lt;/code&gt; site, I decided to switch to a new theme. It is possible to use &lt;code&gt;blogdown::install_theme()&lt;/code&gt; to get you started adding a new theme. But I wanted to do the update manually and then start to modify the theme to suit my needs. For &lt;code&gt;R&lt;/code&gt; coders sometimes other languages and interacting with &lt;code&gt;HTML&lt;/code&gt; and &lt;code&gt;CSS&lt;/code&gt; can be intimidating but the results are very satisfying. I also think that tools like &lt;code&gt;rmarkdown&lt;/code&gt; and &lt;code&gt;shiny&lt;/code&gt; have forced us to know enough about web languages to work things out. This post is a record of the steps I took to change to and then modify a new Hugo theme, plus some of the small gotcha’s I encountered along the way.&lt;/p&gt;
@@ -116,12 +116,12 @@ git add themes/hugo-theme-stack&lt;/code&gt;&lt;/pre&gt;
         </item>
         <item>
         <title>Shiny and Rmarkdown Image Galleries</title>
-        <link>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</link>
+        <link>https://restlessdata.com.au/p/shiny-image-gallery-examples/</link>
         <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</guid>
-        <description>&lt;img src="https://mrjoh3.github.io/img/MRJ_2020_DSC9961.png" alt="Featured image of post Shiny and Rmarkdown Image Galleries" /&gt;
-&lt;script src=&#34;https://mrjoh3.github.io/p/shiny-image-gallery-examples/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+        <guid>https://restlessdata.com.au/p/shiny-image-gallery-examples/</guid>
+        <description>&lt;img src="https://restlessdata.com.au/img/MRJ_2020_DSC9961.png" alt="Featured image of post Shiny and Rmarkdown Image Galleries" /&gt;
+&lt;script src=&#34;https://restlessdata.com.au/p/shiny-image-gallery-examples/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;link rel=&#34;stylesheet&#34; href=&#34;www/lightbox-2-2.11.3/css/lightbox.min.css&#34;&gt;
@@ -377,12 +377,12 @@ knitr::kable(head(images))&lt;/code&gt;&lt;/pre&gt;
         </item>
         <item>
         <title>Filtering Spatial Data with Crosstalk</title>
-        <link>https://mrjoh3.github.io/p/filtering-spatial-data/</link>
+        <link>https://restlessdata.com.au/p/filtering-spatial-data/</link>
         <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
         
-        <guid>https://mrjoh3.github.io/p/filtering-spatial-data/</guid>
-        <description>&lt;img src="https://mrjoh3.github.io/img/filter_header.jpg" alt="Featured image of post Filtering Spatial Data with Crosstalk" /&gt;
-&lt;script src=&#34;https://mrjoh3.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+        <guid>https://restlessdata.com.au/p/filtering-spatial-data/</guid>
+        <description>&lt;img src="https://restlessdata.com.au/img/filter_header.jpg" alt="Featured image of post Filtering Spatial Data with Crosstalk" /&gt;
+&lt;script src=&#34;https://restlessdata.com.au/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;link rel=&#34;stylesheet&#34; href=&#34;../../highlight/a11y-dark.min.css&#34;&gt;
@@ -494,12 +494,12 @@ tags$div(class=&amp;quot;well well-lg&amp;quot;,
         </item>
         <item>
         <title>Another blog about a blog</title>
-        <link>https://mrjoh3.github.io/p/another-blog-about-a-blog/</link>
+        <link>https://restlessdata.com.au/p/another-blog-about-a-blog/</link>
         <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
         
-        <guid>https://mrjoh3.github.io/p/another-blog-about-a-blog/</guid>
-        <description>&lt;img src="https://mrjoh3.github.io/img/MRJ_2020_DSC9204_narrow.png" alt="Featured image of post Another blog about a blog" /&gt;
-&lt;script src=&#34;https://mrjoh3.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+        <guid>https://restlessdata.com.au/p/another-blog-about-a-blog/</guid>
+        <description>&lt;img src="https://restlessdata.com.au/img/MRJ_2020_DSC9204_narrow.png" alt="Featured image of post Another blog about a blog" /&gt;
+&lt;script src=&#34;https://restlessdata.com.au/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Currently I mostly work with &lt;code&gt;R&lt;/code&gt; and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of &lt;code&gt;Blogdown&lt;/code&gt; seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown: Creating Websites with R Markdown&lt;/a&gt; by &lt;a href=&#34;https://bookdown.org/yihui/blogdown/yihui-xie.html&#34;&gt;Yihui Xie&lt;/a&gt; &lt;em&gt;et al.&lt;/em&gt; covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.&lt;/p&gt;
@@ -514,7 +514,7 @@ blogdown::new_site(theme = &amp;quot;jpescador/hugo-future-imperfect&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now everything is up an running but it is easier to test everything if you have some content. The &lt;code&gt;Blogdown&lt;/code&gt; package includes a series of addins that makes this process simple, just select &lt;code&gt;New Post&lt;/code&gt; from the &lt;code&gt;Addins&lt;/code&gt; menu.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;https://mrjoh3.github.io/post/2018-07-20-another-blog-about-a-blog_files/new_post.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://restlessdata.com.au/post/2018-07-20-another-blog-about-a-blog_files/new_post.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;new post screenshot&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -557,12 +557,12 @@ git push origin master
         </item>
         <item>
         <title>Animating Spatial Data</title>
-        <link>https://mrjoh3.github.io/p/animating-spatial-data/</link>
+        <link>https://restlessdata.com.au/p/animating-spatial-data/</link>
         <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
         
-        <guid>https://mrjoh3.github.io/p/animating-spatial-data/</guid>
-        <description>&lt;img src="https://mrjoh3.github.io/img/snow-header.png" alt="Featured image of post Animating Spatial Data" /&gt;
-&lt;script src=&#34;https://mrjoh3.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+        <guid>https://restlessdata.com.au/p/animating-spatial-data/</guid>
+        <description>&lt;img src="https://restlessdata.com.au/img/snow-header.png" alt="Featured image of post Animating Spatial Data" /&gt;
+&lt;script src=&#34;https://restlessdata.com.au/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;center&gt;
@@ -573,7 +573,7 @@ git push origin master
 — Matt Johnson (&lt;span class=&#34;citation&#34;&gt;@mrjoh3&lt;/span&gt;) &lt;a href=&#34;https://twitter.com/mrjoh3/status/1019564471168073728?ref_src=twsrc%5Etfw&#34;&gt;July 18, 2018&lt;/a&gt;
 &lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-&lt;img src=&#34;https://mrjoh3.github.io/post/2018-07-20-animating-spatial-data_files/vic_alcohol.gif&#34; title=&#34;fig:&#34; alt=&#34;Alcohol related accidents in Victoria&#34; /&gt;
+&lt;img src=&#34;https://restlessdata.com.au/post/2018-07-20-animating-spatial-data_files/vic_alcohol.gif&#34; title=&#34;fig:&#34; alt=&#34;Alcohol related accidents in Victoria&#34; /&gt;
 &lt;/center&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
 library(sf)

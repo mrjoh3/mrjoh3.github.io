@@ -2,55 +2,55 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Restless Data</title>
-    <link>https://mrjoh3.github.io/post/</link>
+    <link>https://restlessdata.com.au/post/</link>
     <description>Recent content in Posts on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Changing and modifying a Hugo theme on your R Blogdown site</title>
-      <link>https://mrjoh3.github.io/p/updating-a-blog-theme/</link>
+      <link>https://restlessdata.com.au/p/updating-a-blog-theme/</link>
       <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/p/updating-a-blog-theme/</guid>
+      <guid>https://restlessdata.com.au/p/updating-a-blog-theme/</guid>
       <description>In an effort to resurrect my long neglected blogdown site, I decided to switch to a new theme. It is possible to use blogdown::install_theme() to get you started adding a new theme. But I wanted to do the update manually and then start to modify the theme to suit my needs. For R coders sometimes other languages and interacting with HTML and CSS can be intimidating but the results are very satisfying.</description>
     </item>
     
     <item>
       <title>Shiny and Rmarkdown Image Galleries</title>
-      <link>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</link>
+      <link>https://restlessdata.com.au/p/shiny-image-gallery-examples/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/p/shiny-image-gallery-examples/</guid>
+      <guid>https://restlessdata.com.au/p/shiny-image-gallery-examples/</guid>
       <description>Some time ago I had to implement an image gallery within a shiny application. A simple grid of small thumbnail images where clicking opens the full image. Nothing complicated, but I did have several requirements:
 The gallery needed to render from a folder of images The gallery interface and thumbnails needed to be responsive The gallery needed to link to other shiny UI Images come from one location, no need for generating thumbnails  There is a wide variety of javascript image gallery implementations.</description>
     </item>
     
     <item>
       <title>Filtering Spatial Data with Crosstalk</title>
-      <link>https://mrjoh3.github.io/p/filtering-spatial-data/</link>
+      <link>https://restlessdata.com.au/p/filtering-spatial-data/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/p/filtering-spatial-data/</guid>
+      <guid>https://restlessdata.com.au/p/filtering-spatial-data/</guid>
       <description>hljs.highlightAll(); In a previous post I wanted to look at the daily pattern of motor vehicle accidents across the state of Victoria. What I am really interested in though is the accidents in my local area.
 To do this I am going to use leaflet, sf to handle all the spatial data and crosstalk to filter the data visible in the map. The crosstalk package enables a level of interactivity that is usually reserved for more complex server (shiny) based applications.</description>
     </item>
     
     <item>
       <title>Another blog about a blog</title>
-      <link>https://mrjoh3.github.io/p/another-blog-about-a-blog/</link>
+      <link>https://restlessdata.com.au/p/another-blog-about-a-blog/</link>
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/p/another-blog-about-a-blog/</guid>
+      <guid>https://restlessdata.com.au/p/another-blog-about-a-blog/</guid>
       <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
     </item>
     
     <item>
       <title>Animating Spatial Data</title>
-      <link>https://mrjoh3.github.io/p/animating-spatial-data/</link>
+      <link>https://restlessdata.com.au/p/animating-spatial-data/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/p/animating-spatial-data/</guid>
+      <guid>https://restlessdata.com.au/p/animating-spatial-data/</guid>
       <description>#rstats + #sf + #ggplot2 + #gganimate = a great way to visualise some sobering data. Only accidents where alcohol was involved. Remember each frame only accidents from a single day. See code gist https://t.co/wqEcYku2us and get data from #vicroads api https://t.co/cBX1kBz9iw pic.twitter.com/tNobkLQQQH — Matt Johnson (@mrjoh3) July 18, 2018    library(dplyr) library(sf) library(ggplot2) library(gganimate) shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;% filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;% mutate(date = as.</description>
     </item>
     

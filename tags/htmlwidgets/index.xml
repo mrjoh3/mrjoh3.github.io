@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>htmlwidgets on Restless Data</title>
-    <link>https://mrjoh3.github.io/tags/htmlwidgets/</link>
+    <link>https://restlessdata.com.au/tags/htmlwidgets/</link>
     <description>Recent content in htmlwidgets on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/htmlwidgets/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/htmlwidgets/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>cytoscape</title>
-      <link>https://mrjoh3.github.io/packages/cytoscape-package/</link>
+      <link>https://restlessdata.com.au/packages/cytoscape-package/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/packages/cytoscape-package/</guid>
+      <guid>https://restlessdata.com.au/packages/cytoscape-package/</guid>
       <description>A HTMLWidget wrapper for the Cytoscape.js graph / network visualisation and analysis library. There are already a number of existing R packages for Cytoscape such as the Bioconductor package and the official Cytoscape Widget. The purpose of this package is to make the process of producing a basic chart as simple as possible.
 Installation devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)  A Minimal Example library(cytoscape) nodes &amp;lt;- data.</description>
     </item>
     
     <item>
       <title>c3</title>
-      <link>https://mrjoh3.github.io/packages/2018-08-19-c3-package/</link>
+      <link>https://restlessdata.com.au/packages/2018-08-19-c3-package/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/packages/2018-08-19-c3-package/</guid>
+      <guid>https://restlessdata.com.au/packages/2018-08-19-c3-package/</guid>
       <description>The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting to create a chart using R and embedding it in a Rmarkdown document or Shiny App.
 The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.</description>
     </item>
     
     <item>
       <title>pier</title>
-      <link>https://mrjoh3.github.io/packages/pier-package/</link>
+      <link>https://restlessdata.com.au/packages/pier-package/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/packages/pier-package/</guid>
+      <guid>https://restlessdata.com.au/packages/pier-package/</guid>
       <description>The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</description>
     </item>
     

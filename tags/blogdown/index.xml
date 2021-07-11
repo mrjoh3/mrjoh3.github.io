@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blogdown on Restless Data</title>
-    <link>https://mrjoh3.github.io/tags/blogdown/</link>
+    <link>https://restlessdata.com.au/tags/blogdown/</link>
     <description>Recent content in blogdown on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mrjoh3.github.io/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Changing and modifying a Hugo theme on your R Blogdown site</title>
-      <link>https://mrjoh3.github.io/p/updating-a-blog-theme/</link>
+      <link>https://restlessdata.com.au/p/updating-a-blog-theme/</link>
       <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/p/updating-a-blog-theme/</guid>
+      <guid>https://restlessdata.com.au/p/updating-a-blog-theme/</guid>
       <description>In an effort to resurrect my long neglected blogdown site, I decided to switch to a new theme. It is possible to use blogdown::install_theme() to get you started adding a new theme. But I wanted to do the update manually and then start to modify the theme to suit my needs. For R coders sometimes other languages and interacting with HTML and CSS can be intimidating but the results are very satisfying.</description>
     </item>
     
     <item>
       <title>Another blog about a blog</title>
-      <link>https://mrjoh3.github.io/p/another-blog-about-a-blog/</link>
+      <link>https://restlessdata.com.au/p/another-blog-about-a-blog/</link>
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mrjoh3.github.io/p/another-blog-about-a-blog/</guid>
+      <guid>https://restlessdata.com.au/p/another-blog-about-a-blog/</guid>
       <description>Currently I mostly work with R and use it for statistics, modelling, GIS and web / pdf based reporting. Therefore the choice of Blogdown seemed simple enough. You will find many existing posts about others setting up their blogs in a similar way. Further, the book blogdown: Creating Websites with R Markdown by Yihui Xie et al. covers everything you need to know about the process. Here, I am only going to discuss the few specific issues I had to deal with to get started.</description>
     </item>
     
