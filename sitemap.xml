@@ -2,38 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://restlessdata.com.au/categories/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <loc>https://restlessdata.com.au/tags/bootstrap/</loc>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <loc>https://restlessdata.com.au/tags/cards/</loc>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/categories/</loc>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/tags/htmltools/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://restlessdata.com.au/tags/metadata/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <loc>https://restlessdata.com.au/categories/metadata/</loc>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/post/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/categories/r/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/tags/rmarkdown/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/tags/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/</loc>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/categories/web/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/tags/webscape/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/tags/blogdown/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>

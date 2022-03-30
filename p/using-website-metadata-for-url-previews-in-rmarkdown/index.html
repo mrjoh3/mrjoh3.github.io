@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Have you ever noticed those fancy website previews that popup in some platforms like 
+twitter or slack when you include a link. How does the platform know exactly what 
+to display?
+'><title>Using Website Metadata for URL Previews in Rmarkdown</title>
+
+<link rel='canonical' href='https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/a11y-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<meta property='og:title' content='Using Website Metadata for URL Previews in Rmarkdown'>
+<meta property='og:description' content='Have you ever noticed those fancy website previews that popup in some platforms like 
+twitter or slack when you include a link. How does the platform know exactly what 
+to display?
+'>
+<meta property='og:url' content='https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/'>
+<meta property='og:site_name' content='Restless Data'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='rmarkdown' /><meta property='article:tag' content='htmltools' /><meta property='article:tag' content='webscape' /><meta property='article:tag' content='bootstrap' /><meta property='article:tag' content='cards' /><meta property='article:published_time' content='2022-03-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-30T00:00:00&#43;00:00'/><meta property='og:image' content='https://restlessdata.com.au/img/2022_0326_08021800.jpg' />
+<meta name="twitter:site" content="@mrjoh3">
+    <meta name="twitter:creator" content="@mrjoh3"><meta name="twitter:title" content="Using Website Metadata for URL Previews in Rmarkdown">
+<meta name="twitter:description" content="Have you ever noticed those fancy website previews that popup in some platforms like 
+twitter or slack when you include a link. How does the platform know exactly what 
+to display?
+"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://restlessdata.com.au/img/2022_0326_08021800.jpg' />
+<link rel="icon" type="image/svg+xml" href="../../fav3/favicon.svg">
+<link rel="icon" type="image/png" href="../../fav3/favicon.png">
+<link rel="icon" type="image/svg+xml" href="fav3/favicon.svg">
+<link rel="icon" type="image/png" href="fav3/favicon.png">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/logo_hu976be0218d7e1cbb3ab23c04a582ef68_12526_300x0_resize_q75_box.jpg" width="300"
+                            height="261" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">👣</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://restlessdata.com.au/">Restless Data</a></h1>
+        <h2 class="site-description">A blog about data analytics and R but also anything spatial, visual or interesting.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about-restless-data/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About Restless Data</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/packages/'>
+                
+                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="icon icon-tabler icon-tabler-chevron-left"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   stroke-width="2"
+   stroke="currentColor"
+   fill="none"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="packages.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="778"
+     inkscape:window-height="480"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="39.833333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6" />
+  <path
+     stroke="none"
+     d="M0 0h24v24H0z"
+     id="path2" />
+  <polyline
+     points="15 6 9 12 15 18"
+     id="polyline4"
+     transform="matrix(-1,0,0,1,24.000041,0)" />
+</svg>
+
+                
+                <span>Packages</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/mrjoh3'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://twitter.com/mrjoh3'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+                
+                <span>Twitter</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://restlessdata.com.au/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/using-website-metadata-for-url-previews-in-rmarkdown/">
+                
+                    <img src="/img/2022_0326_08021800.jpg" loading="lazy" alt="Featured image of post Using Website Metadata for URL Previews in Rmarkdown" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/web/" >
+                web
+            </a>
+        
+            <a href="/categories/r/" >
+                R
+            </a>
+        
+            <a href="/categories/metadata/" >
+                metadata
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/using-website-metadata-for-url-previews-in-rmarkdown/">Using Website Metadata for URL Previews in Rmarkdown</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Have you ever noticed those fancy website previews that popup in some platforms like 
+twitter or slack when you include a link. How does the platform know exactly what 
+to display?
+
+    </h3>
+    
+
+    <div style="display: grid; grid-template-columns: 50% 50%">
+        <div style="justify-self: start;"><footer class="article-time">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--published">Mar 30, 2022</time>
+            </footer></div>
+        <div class="article-time" style="justify-self: end; display: inline;">
+            <span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+</span>
+            <span class="meta__text post-word-count">7 min read</span>
+        </div>
+    
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+<script src="https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/index.en_files/header-attrs/header-attrs.js"></script>
+
+
+<p><link rel="stylesheet" href="card.css"></p>
+<p>Recently I was creating a list of R resources and thought it might be interesting to replicate website previews seen when including links in twitter of slack posts. If I am honest though, a list of just URL’s is neither interesting nor informative. And I did not want to spend all day looking up extra information about each resource.</p>
+<p>Most modern websites include a large amount of metadata information embedded in the <code>&lt;head&gt;&lt;/head&gt;</code> tag. Where this metadata complies with the <a href="https://ogp.me/">Open Graph Protocol</a> it is used to generate website previews and turns websites into data rich documents. For example if you right-click on this page select “inspect”, you will find the following html <code>&lt;meta&gt;</code> tags:</p>
+<pre class="html"><code>
+&lt;meta property=&#39;og:title&#39; content=&#39;Using Website Metadata for URL Previews in Rmarkdown&#39;&gt;
+&lt;meta property=&#39;og:description&#39; content=&#39;Have you ever noticed those fancy website previews that popup in some platforms like 
+twitter or slack when you include a link. How does the platform know exactly what 
+to display?
+&#39;&gt;
+&lt;meta property=&#39;og:site_name&#39; content=&#39;Restless Data&#39;&gt;
+&lt;meta property=&#39;og:type&#39; content=&#39;article&#39;&gt;
+</code></pre>
+<p>The Open Graph tags are where the property attribute starts with “og:”. There are also specific tags for twitter and facebook and we will read all of them. To use this metadata for our own previews within an rmarkdown document we will need to do a little web-scraping and generate some html. Lets start with the web-scraping.</p>
+<div id="extracting-metadata" class="section level2">
+<h2>Extracting Metadata</h2>
+<p>The <a href="https://rvest.tidyverse.org/">rvest package</a> makes it really easy to import the content of a webpage simply using <code>read_html(url) |&gt; html_element('head')</code>. However, in this case we only need the metadata so there is no need to read the entire web page. The <code>readLines()</code> function can limit the number of lines read into R. Also, if you run <code>readLines()</code> within a <code>while</code> loop you can automatically stop reading once you find the end of the header. In general, this is not a particularly efficient way to read large files, but it is very fast in this case as we mostly need to read less than 100 lines.</p>
+<p>Let’s use the <a href="https://ogp.me/">Open Graph Protocol</a> website as an example:</p>
+<pre class="r"><code>page &lt;- file(&#39;https://ogp.me/&#39;, open = &quot;r&quot;)
+
+continue &lt;- TRUE
+doc &lt;- as.character()
+
+while(continue){
+  l &lt;- readLines(page, n = 1)
+  continue &lt;- !grepl(&#39;&lt;/head&gt;&#39;, x = l, ignore.case = TRUE)
+  doc &lt;- c(doc, l)
+}
+
+doc</code></pre>
+<pre><code>##  [1] &quot;&lt;!DOCTYPE html&gt;&quot;                                                                                                                           
+##  [2] &quot;&lt;html&gt;&quot;                                                                                                                                    
+##  [3] &quot;  &lt;head prefix=\&quot;og: https://ogp.me/ns#\&quot;&gt;&quot;                                                                                                
+##  [4] &quot;    &lt;meta charset=\&quot;utf-8\&quot;&gt;&quot;                                                                                                              
+##  [5] &quot;    &lt;title&gt;The Open Graph protocol&lt;/title&gt;&quot;                                                                                                
+##  [6] &quot;    &lt;meta name=\&quot;description\&quot; content=\&quot;The Open Graph protocol enables any web page to become a rich object in a social graph.\&quot;&gt;&quot;       
+##  [7] &quot;    &lt;script type=\&quot;text/javascript\&quot;&gt;var _sf_startpt=(new Date()).getTime()&lt;/script&gt;&quot;                                                      
+##  [8] &quot;    &lt;link rel=\&quot;stylesheet\&quot; href=\&quot;base.css\&quot; type=\&quot;text/css\&quot;&gt;&quot;                                                                         
+##  [9] &quot;    &lt;meta property=\&quot;og:title\&quot; content=\&quot;Open Graph protocol\&quot;&gt;&quot;                                                                          
+## [10] &quot;    &lt;meta property=\&quot;og:type\&quot; content=\&quot;website\&quot;&gt;&quot;                                                                                       
+## [11] &quot;    &lt;meta property=\&quot;og:url\&quot; content=\&quot;https://ogp.me/\&quot;&gt;&quot;                                                                                
+## [12] &quot;    &lt;meta property=\&quot;og:image\&quot; content=\&quot;https://ogp.me/logo.png\&quot;&gt;&quot;                                                                      
+## [13] &quot;    &lt;meta property=\&quot;og:image:type\&quot; content=\&quot;image/png\&quot;&gt;&quot;                                                                               
+## [14] &quot;    &lt;meta property=\&quot;og:image:width\&quot; content=\&quot;300\&quot;&gt;&quot;                                                                                    
+## [15] &quot;    &lt;meta property=\&quot;og:image:height\&quot; content=\&quot;300\&quot;&gt;&quot;                                                                                   
+## [16] &quot;    &lt;meta property=\&quot;og:image:alt\&quot; content=\&quot;The Open Graph logo\&quot;&gt;&quot;                                                                      
+## [17] &quot;    &lt;meta property=\&quot;og:description\&quot; content=\&quot;The Open Graph protocol enables any web page to become a rich object in a social graph.\&quot;&gt;&quot;
+## [18] &quot;    &lt;meta prefix=\&quot;fb: https://ogp.me/ns/fb#\&quot; property=\&quot;fb:app_id\&quot; content=\&quot;115190258555800\&quot;&gt;&quot;                                        
+## [19] &quot;    &lt;link rel=\&quot;alternate\&quot; type=\&quot;application/rdf+xml\&quot; href=\&quot;https://ogp.me/ns/ogp.me.rdf\&quot;&gt;&quot;                                           
+## [20] &quot;    &lt;link rel=\&quot;alternate\&quot; type=\&quot;text/turtle\&quot; href=\&quot;https://ogp.me/ns/ogp.me.ttl\&quot;&gt;&quot;                                                   
+## [21] &quot;  &lt;/head&gt;&quot;</code></pre>
+<p>Now we can use <code>read_html()</code> to read the text and parse the tags; we want all of the meta tags plus the title tag. The inclusion of <code>paste0()</code> produces a character of length 1 which is required for <code>read_html()</code>, plus it ensures all the tags start and end points line up. The function <code>html_nodes()</code> is used to select only the nodes we are interested in. Some websites don’t have a <code>meta</code> tag for the website title, so we select the <code>title</code> tag just in case.</p>
+<pre class="r"><code>library(rvest)
+
+nodes &lt;- doc |&gt;
+  paste0(collapse = &#39;&#39;) |&gt;
+  read_html() |&gt;
+  html_elements(&#39;meta, title&#39;)
+nodes[1:7]</code></pre>
+<pre><code>## {xml_nodeset (7)}
+## [1] &lt;meta charset=&quot;utf-8&quot;&gt;\n
+## [2] &lt;title&gt;The Open Graph protocol&lt;/title&gt;\n
+## [3] &lt;meta name=&quot;description&quot; content=&quot;The Open Graph protocol enables any web ...
+## [4] &lt;meta property=&quot;og:title&quot; content=&quot;Open Graph protocol&quot;&gt;\n
+## [5] &lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt;\n
+## [6] &lt;meta property=&quot;og:url&quot; content=&quot;https://ogp.me/&quot;&gt;\n
+## [7] &lt;meta property=&quot;og:image&quot; content=&quot;https://ogp.me/logo.png&quot;&gt;\n</code></pre>
+<p>Now that we have all of the nodes, we can extract the parts of the tag with the information we need. The nodeset is a list so using the <code>purrr</code> package makes this extraction a lot easier. But you could also use <code>lapply</code> or <code>sapply</code>. As an end result we need to be able to lookup a metadata label and return the value. While this can easily be done in a <code>data.frame</code>, for lookups I find it a little clearer to convert to a list.</p>
+<pre class="r"><code>library(purrr)
+library(dplyr)
+
+metadata &lt;- map_dfr(c(&#39;property&#39;, &#39;name&#39;), function(tag){
+  nodes |&gt;
+    map_dfr(~ tibble(property = html_attr(.x, tag),
+                     content = html_attr(.x, &#39;content&#39;))) |&gt;
+    filter(!is.na(property))
+})
+
+metadata &lt;- setNames(as.list(metadata$content), metadata$property)</code></pre>
+<p>Now that everything is working we can wrap it up into a function that takes any URL and returns a metadata lookup list. In the function below I am also pulling out the title tag. It can be used if the <code>og:title</code> is missing.</p>
+<pre class="r"><code>read_meta &lt;- function(url){
+  
+  page &lt;- file(url, open = &quot;r&quot;)
+  continue &lt;- TRUE
+  doc &lt;- as.character()
+  
+  while(continue){
+    l &lt;- readLines(page, n = 1)
+    continue &lt;- !grepl(&#39;&lt;/head&gt;&#39;, x = l, ignore.case = TRUE)
+    doc &lt;- c(doc, l)
+  }
+
+  close(page)
+  
+  nodes &lt;- doc |&gt;
+    paste0(collapse = &#39;&#39;) |&gt;
+    read_html() |&gt;
+    html_nodes(&#39;meta, title&#39;)
+  
+  metadata &lt;- map_dfr(c(&#39;property&#39;, &#39;name&#39;), function(tag){
+    nodes |&gt;
+      map_dfr(~ tibble(property = html_attr(.x, tag),
+                       content = html_attr(.x, &#39;content&#39;))) |&gt;
+      filter(!is.na(property))
+  })
+  
+  # check for a title tag
+  title &lt;- nodes |&gt; html_nodes(xpath = &quot;/html/head/title&quot;) |&gt; html_text()
+  title_tag &lt;- if (&#39;og:title&#39; %in% metadata$property) &#39;title&#39; else &#39;og:title&#39;
+  
+  if (length(title) &gt; 0) {
+    metadata &lt;- metadata |&gt;
+      add_row(property = title_tag,
+              content = title)
+  }
+  
+  metadata &lt;- setNames(as.list(metadata$content), metadata$property)
+  
+  return(metadata)
+  
+}</code></pre>
+</div>
+<div id="render-a-website-preview-card" class="section level2">
+<h2>Render a Website Preview Card</h2>
+<p>Adding a web component like a card is now quite easy due to CSS frameworks like <a href="https://getbootstrap.com/docs/4.0/components/card/">Bootstrap</a>. In the card below I have a simple card created using <a href="https://CRAN.R-project.org/package=htmltools">htmltools</a> <code>tags</code> with predefined styles from Bootstrap. Apart from importing the Bootstrap CSS library, no other CSS is needed for this card.</p>
+<pre class="r"><code>library(htmltools)
+
+card &lt;- function(metadata){
+  div(class = &#39;card text-white bg-secondary mb-3 border-light border-3&#39;,
+            div(style = &#39;display: inline-grid; grid-template-columns: 55% 40%;padding-left:12px&#39;,
+                div(class = &#39;card-body text-dark&#39;,
+                    h2(class = &#39;card-title&#39;,
+                       a(href = metadata$`og:url`,
+                         metadata$`og:title`)
+                       ),
+                    p(class=&quot;card-text text-secondary&quot;,
+                      metadata$`og:description`),
+                    p(class=&quot;card-text text-secondary&quot;,
+                      if (!is.null(metadata$author)) {
+                        div(&quot;Author(s):&quot;, br(), metadata$author)
+                      })
+                  ),
+                div(if (!is.null(metadata$`og:image`)) img(class=&quot;h-100&quot;, 
+                                                           style = &#39;padding:20px;&#39;,
+                                                           src = metadata$`og:image`, alt = metadata$`og:image:alt`) else &#39;&#39;)
+                )
+            )
+}</code></pre>
+<p>Before calling the <code>card</code> function we just need to do a little cleaning up of the metadata. First where there are multiple authors listed in the metadata, we need to collapse them into a single <code>character</code> to fit in our author <code>div</code>. Next, we want to ensure that if the <code>og:image:alt</code> tag is missing, something meaningful can be used in its place.</p>
+<pre class="r"><code>card_render &lt;- function(metadata){
+  
+  if (!is.null(metadata$author) &amp; length(metadata$authur) &gt; 1) {
+    metadata$author &lt;- metadata$author |&gt; paste(collapse = &#39;&#39;)
+  }
+  
+  if (!is.null(metadata$`og:image:alt`)) {
+    metadata$`og:image:alt` &lt;- paste0(&#39;Cover Image for &#39;, metadata$`og:title`)
+  }
+
+  card(metadata)
+}</code></pre>
+<p>Finally we render the card. With the checks we have added around metadata titles, authors and alternate image text we should be able to produce a basic summary for any URL; from an R book to a funny movie.</p>
+<pre class="r"><code>read_meta(&#39;https://bookdown.org/yihui/rmarkdown/&#39;) |&gt;
+  card_render()</code></pre>
+<div class="card text-white bg-secondary mb-3 border-light border-3">
+<div style="display: inline-grid; grid-template-columns: 55% 40%;padding-left:12px">
+<div class="card-body text-dark">
+<h2 class="card-title">
+<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>
+</h2>
+<p class="card-text text-secondary">The first official book authored by the core R Markdown developers that provides a comprehensive and accurate reference to the R Markdown ecosystem. With R Markdown, you can easily create reproducible data analysis reports, presentations, dashboards, interactive applications, books, dissertations, websites, and journal articles, while enjoying the simplicity of Markdown and the great power of R and other languages.</p>
+<p class="card-text text-secondary">
+<div>
+Author(s):
+<br/>
+Yihui Xie, J. J. Allaire, Garrett Grolemund
+</div>
+</p>
+</div>
+<div>
+<img class="h-100" style="padding:20px;" src="https://bookdown.org/yihui/rmarkdown//images/cover.png"/>
+</div>
+</div>
+</div>
+<pre class="r"><code>read_meta(&#39;https://www.imdb.com/title/tt1386588/&#39;) |&gt;
+  card_render()</code></pre>
+<div class="card text-white bg-secondary mb-3 border-light border-3">
+<div style="display: inline-grid; grid-template-columns: 55% 40%;padding-left:12px">
+<div class="card-body text-dark">
+<h2 class="card-title">
+<a href="https://www.imdb.com/title/tt1386588/">The Other Guys (2010) - IMDb</a>
+</h2>
+<p class="card-text text-secondary">The Other Guys: Directed by Adam McKay. With Will Ferrell, Derek Jeter, Mark Wahlberg, Eva Mendes. Two mismatched New York City detectives seize an opportunity to step up like the city's top cops, whom they idolize, only things don't quite go as planned.</p>
+<p class="card-text text-secondary"></p>
+</div>
+<div>
+<img class="h-100" style="padding:20px;" src="https://m.media-amazon.com/images/M/MV5BMDlhZDQ5NDUtNDcwMi00MTQ5LTk1Y2UtYjNmMjgzNzNhNzU3XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg"/>
+</div>
+</div>
+</div>
+<p>This has just been a simple example. Most websites provide a lot of structured information via metadata within the <code>&lt;head&gt;</code> tag. So check out the <a href="https://ogp.me/">Open Graph Protocol</a> website to understand all the possibilities.</p>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/rmarkdown/">rmarkdown</a>
+        
+            <a href="/tags/htmltools/">htmltools</a>
+        
+            <a href="/tags/webscape/">webscape</a>
+        
+            <a href="/tags/bootstrap/">bootstrap</a>
+        
+            <a href="/tags/cards/">cards</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/p/shiny-image-gallery-examples/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MRJ_2020_DSC9961.png" loading="lazy" data-key="shiny-image-gallery-examples" data-hash="/img/MRJ_2020_DSC9961.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Shiny and Rmarkdown Image Galleries</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/updating-a-blog-theme/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/DSCN1968_edited-1_20070804_165511_002.jpg" loading="lazy" data-key="updating-a-blog-theme" data-hash="/img/DSCN1968_edited-1_20070804_165511_002.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Changing and modifying a Hugo theme on your R Blogdown site</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/another-blog-about-a-blog/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MRJ_2020_DSC9204_narrow.png" loading="lazy" data-key="another-blog-about-a-blog" data-hash="/img/MRJ_2020_DSC9204_narrow.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Another blog about a blog</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/packages/cytoscape-package/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MRJ_2020_DSC9257.png" loading="lazy" data-key="cytoscape-package" data-hash="/img/MRJ_2020_DSC9257.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">cytoscape</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/packages/2018-08-19-c3-package/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MRJ_2020_DSC9813.png" loading="lazy" data-key="" data-hash="/img/MRJ_2020_DSC9813.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">c3</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="mrjoh3/blog"
+        issue-term="pathname"
+        
+        label="comment"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.body.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2022 Restless Data
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -6,106 +6,216 @@
         <description>Recent content on Restless Data</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Generate Web Link Preview Cards in Rmarkdown</title>
-        <link>https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/</link>
-        <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+        <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Using Website Metadata for URL Previews in Rmarkdown</title>
+        <link>https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/</link>
+        <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/</guid>
-        <description>
-&lt;script src=&#34;https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+        <guid>https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/</guid>
+        <description>&lt;img src="https://restlessdata.com.au/img/2022_0326_08021800.jpg" alt="Featured image of post Using Website Metadata for URL Previews in Rmarkdown" /&gt;
+&lt;script src=&#34;https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;card.css&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Recently I was creating a list of R resources and thought it might be interesting to replicate website previews seen when including links in twitter of slack posts. If I am honest though, a list of just URL’s is neither interesting nor informative. And I did not want to spend all day looking up extra information about each resource.&lt;/p&gt;
+&lt;p&gt;Most modern websites include a large amount of metadata information embedded in the &lt;code&gt;&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;&lt;/code&gt; tag. Where this metadata complies with the &lt;a href=&#34;https://ogp.me/&#34;&gt;Open Graph Protocol&lt;/a&gt; it is used to generate website previews and turns websites into data rich documents. For example if you right-click on this page select “inspect”, you will find the following html &lt;code&gt;&amp;lt;meta&amp;gt;&lt;/code&gt; tags:&lt;/p&gt;
+&lt;pre class=&#34;html&#34;&gt;&lt;code&gt;
+&amp;lt;meta property=&amp;#39;og:title&amp;#39; content=&amp;#39;Using Website Metadata for URL Previews in Rmarkdown&amp;#39;&amp;gt;
+&amp;lt;meta property=&amp;#39;og:description&amp;#39; content=&amp;#39;Have you ever noticed those fancy website previews that popup in some platforms like 
+twitter or slack when you include a link. How does the platform know exactly what 
+to display?
+&amp;#39;&amp;gt;
+&amp;lt;meta property=&amp;#39;og:site_name&amp;#39; content=&amp;#39;Restless Data&amp;#39;&amp;gt;
+&amp;lt;meta property=&amp;#39;og:type&amp;#39; content=&amp;#39;article&amp;#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The Open Graph tags are where the property attribute starts with “og:”. There are also specific tags for twitter and facebook and we will read all of them. To use this metadata for our own previews within an rmarkdown document we will need to do a little web-scraping and generate some html. Lets start with the web-scraping.&lt;/p&gt;
+&lt;div id=&#34;extracting-metadata&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Extracting Metadata&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://rvest.tidyverse.org/&#34;&gt;rvest package&lt;/a&gt; makes it really easy to import the content of a webpage simply using &lt;code&gt;read_html(url) |&amp;gt; html_element(&#39;head&#39;)&lt;/code&gt;. However, in this case we only need the metadata so there is no need to read the entire web page. The &lt;code&gt;readLines()&lt;/code&gt; function can limit the number of lines read into R. Also, if you run &lt;code&gt;readLines()&lt;/code&gt; within a &lt;code&gt;while&lt;/code&gt; loop you can automatically stop reading once you find the end of the header. In general, this is not a particularly efficient way to read large files, but it is very fast in this case as we mostly need to read less than 100 lines.&lt;/p&gt;
+&lt;p&gt;Let’s use the &lt;a href=&#34;https://ogp.me/&#34;&gt;Open Graph Protocol&lt;/a&gt; website as an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;page &amp;lt;- file(&amp;#39;https://ogp.me/&amp;#39;, open = &amp;quot;r&amp;quot;)
+
+continue &amp;lt;- TRUE
+doc &amp;lt;- as.character()
+
+while(continue){
+  l &amp;lt;- readLines(page, n = 1)
+  continue &amp;lt;- !grepl(&amp;#39;&amp;lt;/head&amp;gt;&amp;#39;, x = l, ignore.case = TRUE)
+  doc &amp;lt;- c(doc, l)
+}
+
+doc&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;&amp;lt;!DOCTYPE html&amp;gt;&amp;quot;                                                                                                                           
+##  [2] &amp;quot;&amp;lt;html&amp;gt;&amp;quot;                                                                                                                                    
+##  [3] &amp;quot;  &amp;lt;head prefix=\&amp;quot;og: https://ogp.me/ns#\&amp;quot;&amp;gt;&amp;quot;                                                                                                
+##  [4] &amp;quot;    &amp;lt;meta charset=\&amp;quot;utf-8\&amp;quot;&amp;gt;&amp;quot;                                                                                                              
+##  [5] &amp;quot;    &amp;lt;title&amp;gt;The Open Graph protocol&amp;lt;/title&amp;gt;&amp;quot;                                                                                                
+##  [6] &amp;quot;    &amp;lt;meta name=\&amp;quot;description\&amp;quot; content=\&amp;quot;The Open Graph protocol enables any web page to become a rich object in a social graph.\&amp;quot;&amp;gt;&amp;quot;       
+##  [7] &amp;quot;    &amp;lt;script type=\&amp;quot;text/javascript\&amp;quot;&amp;gt;var _sf_startpt=(new Date()).getTime()&amp;lt;/script&amp;gt;&amp;quot;                                                      
+##  [8] &amp;quot;    &amp;lt;link rel=\&amp;quot;stylesheet\&amp;quot; href=\&amp;quot;base.css\&amp;quot; type=\&amp;quot;text/css\&amp;quot;&amp;gt;&amp;quot;                                                                         
+##  [9] &amp;quot;    &amp;lt;meta property=\&amp;quot;og:title\&amp;quot; content=\&amp;quot;Open Graph protocol\&amp;quot;&amp;gt;&amp;quot;                                                                          
+## [10] &amp;quot;    &amp;lt;meta property=\&amp;quot;og:type\&amp;quot; content=\&amp;quot;website\&amp;quot;&amp;gt;&amp;quot;                                                                                       
+## [11] &amp;quot;    &amp;lt;meta property=\&amp;quot;og:url\&amp;quot; content=\&amp;quot;https://ogp.me/\&amp;quot;&amp;gt;&amp;quot;                                                                                
+## [12] &amp;quot;    &amp;lt;meta property=\&amp;quot;og:image\&amp;quot; content=\&amp;quot;https://ogp.me/logo.png\&amp;quot;&amp;gt;&amp;quot;                                                                      
+## [13] &amp;quot;    &amp;lt;meta property=\&amp;quot;og:image:type\&amp;quot; content=\&amp;quot;image/png\&amp;quot;&amp;gt;&amp;quot;                                                                               
+## [14] &amp;quot;    &amp;lt;meta property=\&amp;quot;og:image:width\&amp;quot; content=\&amp;quot;300\&amp;quot;&amp;gt;&amp;quot;                                                                                    
+## [15] &amp;quot;    &amp;lt;meta property=\&amp;quot;og:image:height\&amp;quot; content=\&amp;quot;300\&amp;quot;&amp;gt;&amp;quot;                                                                                   
+## [16] &amp;quot;    &amp;lt;meta property=\&amp;quot;og:image:alt\&amp;quot; content=\&amp;quot;The Open Graph logo\&amp;quot;&amp;gt;&amp;quot;                                                                      
+## [17] &amp;quot;    &amp;lt;meta property=\&amp;quot;og:description\&amp;quot; content=\&amp;quot;The Open Graph protocol enables any web page to become a rich object in a social graph.\&amp;quot;&amp;gt;&amp;quot;
+## [18] &amp;quot;    &amp;lt;meta prefix=\&amp;quot;fb: https://ogp.me/ns/fb#\&amp;quot; property=\&amp;quot;fb:app_id\&amp;quot; content=\&amp;quot;115190258555800\&amp;quot;&amp;gt;&amp;quot;                                        
+## [19] &amp;quot;    &amp;lt;link rel=\&amp;quot;alternate\&amp;quot; type=\&amp;quot;application/rdf+xml\&amp;quot; href=\&amp;quot;https://ogp.me/ns/ogp.me.rdf\&amp;quot;&amp;gt;&amp;quot;                                           
+## [20] &amp;quot;    &amp;lt;link rel=\&amp;quot;alternate\&amp;quot; type=\&amp;quot;text/turtle\&amp;quot; href=\&amp;quot;https://ogp.me/ns/ogp.me.ttl\&amp;quot;&amp;gt;&amp;quot;                                                   
+## [21] &amp;quot;  &amp;lt;/head&amp;gt;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can use &lt;code&gt;read_html()&lt;/code&gt; to read the text and parse the tags; we want all of the meta tags plus the title tag. The inclusion of &lt;code&gt;paste0()&lt;/code&gt; produces a character of length 1 which is required for &lt;code&gt;read_html()&lt;/code&gt;, plus it ensures all the tags start and end points line up. The function &lt;code&gt;html_nodes()&lt;/code&gt; is used to select only the nodes we are interested in. Some websites don’t have a &lt;code&gt;meta&lt;/code&gt; tag for the website title, so we select the &lt;code&gt;title&lt;/code&gt; tag just in case.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)
+
+nodes &amp;lt;- doc |&amp;gt;
+  paste0(collapse = &amp;#39;&amp;#39;) |&amp;gt;
+  read_html() |&amp;gt;
+  html_elements(&amp;#39;meta, title&amp;#39;)
+nodes[1:7]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {xml_nodeset (7)}
+## [1] &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;\n
+## [2] &amp;lt;title&amp;gt;The Open Graph protocol&amp;lt;/title&amp;gt;\n
+## [3] &amp;lt;meta name=&amp;quot;description&amp;quot; content=&amp;quot;The Open Graph protocol enables any web ...
+## [4] &amp;lt;meta property=&amp;quot;og:title&amp;quot; content=&amp;quot;Open Graph protocol&amp;quot;&amp;gt;\n
+## [5] &amp;lt;meta property=&amp;quot;og:type&amp;quot; content=&amp;quot;website&amp;quot;&amp;gt;\n
+## [6] &amp;lt;meta property=&amp;quot;og:url&amp;quot; content=&amp;quot;https://ogp.me/&amp;quot;&amp;gt;\n
+## [7] &amp;lt;meta property=&amp;quot;og:image&amp;quot; content=&amp;quot;https://ogp.me/logo.png&amp;quot;&amp;gt;\n&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we have all of the nodes, we can extract the parts of the tag with the information we need. The nodeset is a list so using the &lt;code&gt;purrr&lt;/code&gt; package makes this extraction a lot easier. But you could also use &lt;code&gt;lapply&lt;/code&gt; or &lt;code&gt;sapply&lt;/code&gt;. As an end result we need to be able to lookup a metadata label and return the value. While this can easily be done in a &lt;code&gt;data.frame&lt;/code&gt;, for lookups I find it a little clearer to convert to a list.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(purrr)
 library(dplyr)
-library(purrr)
 
+metadata &amp;lt;- map_dfr(c(&amp;#39;property&amp;#39;, &amp;#39;name&amp;#39;), function(tag){
+  nodes |&amp;gt;
+    map_dfr(~ tibble(property = html_attr(.x, tag),
+                     content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt;
+    filter(!is.na(property))
+})
 
-read_meta &amp;lt;- function(url, n = -1){
+metadata &amp;lt;- setNames(as.list(metadata$content), metadata$property)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that everything is working we can wrap it up into a function that takes any URL and returns a metadata lookup list. In the function below I am also pulling out the title tag. It can be used if the &lt;code&gt;og:title&lt;/code&gt; is missing.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;read_meta &amp;lt;- function(url){
   
-  doc &amp;lt;- readLines(url, n = n) |&amp;gt; 
-    paste0(collapse = &amp;#39;&amp;#39;) # cleans parts of page where tag contents are across multiple rows
+  page &amp;lt;- file(url, open = &amp;quot;r&amp;quot;)
+  continue &amp;lt;- TRUE
+  doc &amp;lt;- as.character()
+  
+  while(continue){
+    l &amp;lt;- readLines(page, n = 1)
+    continue &amp;lt;- !grepl(&amp;#39;&amp;lt;/head&amp;gt;&amp;#39;, x = l, ignore.case = TRUE)
+    doc &amp;lt;- c(doc, l)
+  }
+
+  close(page)
   
   nodes &amp;lt;- doc |&amp;gt;
+    paste0(collapse = &amp;#39;&amp;#39;) |&amp;gt;
     read_html() |&amp;gt;
     html_nodes(&amp;#39;meta, title&amp;#39;)
   
-  meta_properties &amp;lt;- nodes |&amp;gt;
-    map_dfr(~ tibble(property = html_attr(.x, &amp;#39;property&amp;#39;),
-                     content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt;
-    filter(!is.na(property))
-    
-  meta_names &amp;lt;- nodes |&amp;gt;
-    map_dfr(~ tibble(property = html_attr(.x, &amp;#39;name&amp;#39;),
-                     content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt;
-    filter(!is.na(property))
-  
-  meta &amp;lt;- bind_rows(meta_properties, meta_names)
+  metadata &amp;lt;- map_dfr(c(&amp;#39;property&amp;#39;, &amp;#39;name&amp;#39;), function(tag){
+    nodes |&amp;gt;
+      map_dfr(~ tibble(property = html_attr(.x, tag),
+                       content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt;
+      filter(!is.na(property))
+  })
   
   # check for a title tag
   title &amp;lt;- nodes |&amp;gt; html_nodes(xpath = &amp;quot;/html/head/title&amp;quot;) |&amp;gt; html_text()
-  title_tag &amp;lt;- if (&amp;#39;og:title&amp;#39; %in% meta$property) &amp;#39;title&amp;#39; else &amp;#39;og:title&amp;#39;
+  title_tag &amp;lt;- if (&amp;#39;og:title&amp;#39; %in% metadata$property) &amp;#39;title&amp;#39; else &amp;#39;og:title&amp;#39;
   
   if (length(title) &amp;gt; 0) {
-    meta &amp;lt;- meta |&amp;gt;
+    metadata &amp;lt;- metadata |&amp;gt;
       add_row(property = title_tag,
               content = title)
   }
   
-  return(meta)
+  metadata &amp;lt;- setNames(as.list(metadata$content), metadata$property)
+  
+  return(metadata)
   
 }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;render-a-website-preview-card&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Render a Website Preview Card&lt;/h2&gt;
+&lt;p&gt;Adding a web component like a card is now quite easy due to CSS frameworks like &lt;a href=&#34;https://getbootstrap.com/docs/4.0/components/card/&#34;&gt;Bootstrap&lt;/a&gt;. In the card below I have a simple card created using &lt;a href=&#34;https://CRAN.R-project.org/package=htmltools&#34;&gt;htmltools&lt;/a&gt; &lt;code&gt;tags&lt;/code&gt; with predefined styles from Bootstrap. Apart from importing the Bootstrap CSS library, no other CSS is needed for this card.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(htmltools)
 
-
-card_url &amp;lt;- function(metadata){
-  
-  card_title &amp;lt;- metadata |&amp;gt; filter(property == &amp;#39;og:title&amp;#39;) |&amp;gt; pull(content)
-  card_url &amp;lt;- metadata |&amp;gt; filter(property == &amp;#39;og:url&amp;#39;) |&amp;gt; pull(content)
-  card_text &amp;lt;- metadata |&amp;gt; filter(property == &amp;#39;og:description&amp;#39;) |&amp;gt; pull(content)
-  card_img &amp;lt;- metadata |&amp;gt; filter(property == &amp;#39;og:image&amp;#39;) |&amp;gt; pull(content)
-  card_img_alt &amp;lt;- metadata |&amp;gt; filter(property == &amp;#39;og:image:alt&amp;#39;) |&amp;gt; pull(content) # TODO: use title if metadata missing
-  
-  card_author &amp;lt;- metadata |&amp;gt; 
-    filter(property == &amp;#39;author&amp;#39;) |&amp;gt; 
-    pull(content) |&amp;gt;
-    paste(collapse = &amp;#39;&amp;#39;)
-  
-  # render bootstrap card
-  div(class = &amp;#39;card&amp;#39;,
-      style = &amp;#39;margin-bottom:70px; border: 2px solid #e7e7e7; padding: .5rem;&amp;#39;,
-      div(style = &amp;#39;display: inline-grid; grid-template-columns: 55% 40%;&amp;#39;,
-          div(class = &amp;#39;card-body&amp;#39;,
-              h4(class = &amp;#39;card-title&amp;#39;,
-                 a(href = card_url,
-                   card_title)
-                 ),
-              p(class=&amp;quot;card-text text-secondary&amp;quot;,
-                card_text),
-              p(class=&amp;quot;card-text text-secondary&amp;quot;,
-                if (card_author != &amp;#39;&amp;#39;) {
-                  div(&amp;quot;Author(s):&amp;quot;, br(), card_author)
-                })
-            ),
-          div(if (length(card_img) &amp;gt; 0) img(class=&amp;quot;h-100&amp;quot;, src = card_img, alt = card_img_alt) else &amp;#39;&amp;#39;)
-          )
-      )
+card &amp;lt;- function(metadata){
+  div(class = &amp;#39;card text-white bg-secondary mb-3 border-light border-3&amp;#39;,
+            div(style = &amp;#39;display: inline-grid; grid-template-columns: 55% 40%;padding-left:12px&amp;#39;,
+                div(class = &amp;#39;card-body text-dark&amp;#39;,
+                    h2(class = &amp;#39;card-title&amp;#39;,
+                       a(href = metadata$`og:url`,
+                         metadata$`og:title`)
+                       ),
+                    p(class=&amp;quot;card-text text-secondary&amp;quot;,
+                      metadata$`og:description`),
+                    p(class=&amp;quot;card-text text-secondary&amp;quot;,
+                      if (!is.null(metadata$author)) {
+                        div(&amp;quot;Author(s):&amp;quot;, br(), metadata$author)
+                      })
+                  ),
+                div(if (!is.null(metadata$`og:image`)) img(class=&amp;quot;h-100&amp;quot;, 
+                                                           style = &amp;#39;padding:20px;&amp;#39;,
+                                                           src = metadata$`og:image`, alt = metadata$`og:image:alt`) else &amp;#39;&amp;#39;)
+                )
+            )
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;read_meta(&amp;#39;https://restlessdata.com.au&amp;#39;) |&amp;gt;
-  card_url()&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;card&#34; style=&#34;margin-bottom:70px; border: 2px solid #e7e7e7; padding: .5rem;&#34;&gt;
-&lt;div style=&#34;display: inline-grid; grid-template-columns: 55% 40%;&#34;&gt;
-&lt;div class=&#34;card-body&#34;&gt;
-&lt;h4 class=&#34;card-title&#34;&gt;
-&lt;a href=&#34;https://restlessdata.com.au/&#34;&gt;Restless Data&lt;/a&gt;
-&lt;/h4&gt;
-&lt;p class=&#34;card-text text-secondary&#34;&gt;A blog about data analytics and R but also anything spatial, visual or interesting.&lt;/p&gt;
+&lt;p&gt;Before calling the &lt;code&gt;card&lt;/code&gt; function we just need to do a little cleaning up of the metadata. First where there are multiple authors listed in the metadata, we need to collapse them into a single &lt;code&gt;character&lt;/code&gt; to fit in our author &lt;code&gt;div&lt;/code&gt;. Next, we want to ensure that if the &lt;code&gt;og:image:alt&lt;/code&gt; tag is missing, something meaningful can be used in its place.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;card_render &amp;lt;- function(metadata){
+  
+  if (!is.null(metadata$author) &amp;amp; length(metadata$authur) &amp;gt; 1) {
+    metadata$author &amp;lt;- metadata$author |&amp;gt; paste(collapse = &amp;#39;&amp;#39;)
+  }
+  
+  if (!is.null(metadata$`og:image:alt`)) {
+    metadata$`og:image:alt` &amp;lt;- paste0(&amp;#39;Cover Image for &amp;#39;, metadata$`og:title`)
+  }
+
+  card(metadata)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally we render the card. With the checks we have added around metadata titles, authors and alternate image text we should be able to produce a basic summary for any URL; from an R book to a funny movie.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;read_meta(&amp;#39;https://bookdown.org/yihui/rmarkdown/&amp;#39;) |&amp;gt;
+  card_render()&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;card text-white bg-secondary mb-3 border-light border-3&#34;&gt;
+&lt;div style=&#34;display: inline-grid; grid-template-columns: 55% 40%;padding-left:12px&#34;&gt;
+&lt;div class=&#34;card-body text-dark&#34;&gt;
+&lt;h2 class=&#34;card-title&#34;&gt;
+&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/&#34;&gt;R Markdown: The Definitive Guide&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p class=&#34;card-text text-secondary&#34;&gt;The first official book authored by the core R Markdown developers that provides a comprehensive and accurate reference to the R Markdown ecosystem. With R Markdown, you can easily create reproducible data analysis reports, presentations, dashboards, interactive applications, books, dissertations, websites, and journal articles, while enjoying the simplicity of Markdown and the great power of R and other languages.&lt;/p&gt;
+&lt;p class=&#34;card-text text-secondary&#34;&gt;
+&lt;div&gt;
+Author(s):
+&lt;br/&gt;
+Yihui Xie, J. J. Allaire, Garrett Grolemund
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;img class=&#34;h-100&#34; style=&#34;padding:20px;&#34; src=&#34;https://bookdown.org/yihui/rmarkdown//images/cover.png&#34;/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;read_meta(&amp;#39;https://www.imdb.com/title/tt1386588/&amp;#39;) |&amp;gt;
+  card_render()&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;card text-white bg-secondary mb-3 border-light border-3&#34;&gt;
+&lt;div style=&#34;display: inline-grid; grid-template-columns: 55% 40%;padding-left:12px&#34;&gt;
+&lt;div class=&#34;card-body text-dark&#34;&gt;
+&lt;h2 class=&#34;card-title&#34;&gt;
+&lt;a href=&#34;https://www.imdb.com/title/tt1386588/&#34;&gt;The Other Guys (2010) - IMDb&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p class=&#34;card-text text-secondary&#34;&gt;The Other Guys: Directed by Adam McKay. With Will Ferrell, Derek Jeter, Mark Wahlberg, Eva Mendes. Two mismatched New York City detectives seize an opportunity to step up like the city&#39;s top cops, whom they idolize, only things don&#39;t quite go as planned.&lt;/p&gt;
 &lt;p class=&#34;card-text text-secondary&#34;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div&gt;
-&lt;img class=&#34;h-100&#34; src=&#34;https://restlessdata.com.au/img/logo.jpg&#34;/&gt;
+&lt;img class=&#34;h-100&#34; style=&#34;padding:20px;&#34; src=&#34;https://m.media-amazon.com/images/M/MV5BMDlhZDQ5NDUtNDcwMi00MTQ5LTk1Y2UtYjNmMjgzNzNhNzU3XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;This has just been a simple example. Most websites provide a lot of structured information via metadata within the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag. So check out the &lt;a href=&#34;https://ogp.me/&#34;&gt;Open Graph Protocol&lt;/a&gt; website to understand all the possibilities.&lt;/p&gt;
 &lt;/div&gt;
 </description>
         </item>

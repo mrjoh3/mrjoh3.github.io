@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cards on Restless Data</title>
+    <link>https://restlessdata.com.au/tags/cards/</link>
+    <description>Recent content in cards on Restless Data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/cards/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Website Metadata for URL Previews in Rmarkdown</title>
+      <link>https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/</link>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/</guid>
+      <description>Recently I was creating a list of R resources and thought it might be interesting to replicate website previews seen when including links in twitter of slack posts. If I am honest though, a list of just URL’s is neither interesting nor informative. And I did not want to spend all day looking up extra information about each resource.
+Most modern websites include a large amount of metadata information embedded in the &amp;lt;head&amp;gt;&amp;lt;/head&amp;gt; tag.</description>
+    </item>
+    
+  </channel>
+</rss>
