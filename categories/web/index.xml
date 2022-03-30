@@ -6,7 +6,16 @@
     <description>Recent content in web on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generate Web Link Preview Cards in Rmarkdown</title>
+      <link>https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/</link>
+      <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/</guid>
+      <description>library(rvest) library(dplyr) library(purrr) read_meta &amp;lt;- function(url, n = -1){ doc &amp;lt;- readLines(url, n = n) |&amp;gt; paste0(collapse = &amp;#39;&amp;#39;) # cleans parts of page where tag contents are across multiple rows nodes &amp;lt;- doc |&amp;gt; read_html() |&amp;gt; html_nodes(&amp;#39;meta, title&amp;#39;) meta_properties &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;property&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!is.na(property)) meta_names &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;name&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!</description>
+    </item>
+    
     <item>
       <title>Changing and modifying a Hugo theme on your R Blogdown site</title>
       <link>https://restlessdata.com.au/p/updating-a-blog-theme/</link>

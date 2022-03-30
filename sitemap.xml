@@ -2,31 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://restlessdata.com.au/tags/blogdown/</loc>
-    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://restlessdata.com.au/categories/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/tags/htmltools/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/tags/metadata/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/post/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/categories/r/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/tags/rmarkdown/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/tags/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/categories/web/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/tags/webscape/</loc>
+    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://restlessdata.com.au/tags/blogdown/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/p/updating-a-blog-theme/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/tags/hugo/</loc>
-    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://restlessdata.com.au/post/</loc>
-    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://restlessdata.com.au/categories/r/</loc>
-    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://restlessdata.com.au/</loc>
-    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://restlessdata.com.au/tags/</loc>
-    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://restlessdata.com.au/categories/web/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/tags/gallery/</loc>
@@ -38,16 +53,13 @@
     <loc>https://restlessdata.com.au/tags/js/</loc>
     <lastmod>2021-06-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://restlessdata.com.au/tags/rmarkdown/</loc>
-    <lastmod>2021-06-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://restlessdata.com.au/tags/shiny/</loc>
     <lastmod>2021-06-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/p/shiny-image-gallery-examples/</loc>
     <lastmod>2021-06-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://restlessdata.com.au/about/</loc>
+    <loc>https://restlessdata.com.au/about-restless-data/</loc>
     <lastmod>2021-06-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://restlessdata.com.au/page/</loc>

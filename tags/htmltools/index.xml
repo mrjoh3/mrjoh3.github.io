@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>htmltools on Restless Data</title>
+    <link>https://restlessdata.com.au/tags/htmltools/</link>
+    <description>Recent content in htmltools on Restless Data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/htmltools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generate Web Link Preview Cards in Rmarkdown</title>
+      <link>https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/</link>
+      <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/</guid>
+      <description>library(rvest) library(dplyr) library(purrr) read_meta &amp;lt;- function(url, n = -1){ doc &amp;lt;- readLines(url, n = n) |&amp;gt; paste0(collapse = &amp;#39;&amp;#39;) # cleans parts of page where tag contents are across multiple rows nodes &amp;lt;- doc |&amp;gt; read_html() |&amp;gt; html_nodes(&amp;#39;meta, title&amp;#39;) meta_properties &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;property&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!is.na(property)) meta_names &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;name&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!</description>
+    </item>
+    
+  </channel>
+</rss>

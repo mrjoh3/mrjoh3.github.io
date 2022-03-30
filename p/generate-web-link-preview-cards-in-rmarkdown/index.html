@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='library(rvest) library(dplyr) library(purrr) read_meta &amp;lt;- function(url, n = -1){ doc &amp;lt;- readLines(url, n = n) |&amp;gt; paste0(collapse = &amp;#39;&amp;#39;) # cleans parts of page where tag contents are across multiple rows nodes &amp;lt;- doc |&amp;gt; read_html() |&amp;gt; html_nodes(&amp;#39;meta, title&amp;#39;) meta_properties &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;property&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!is.na(property)) meta_names &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;name&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!'><title>Generate Web Link Preview Cards in Rmarkdown</title>
+
+<link rel='canonical' href='https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/a11y-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<meta property='og:title' content='Generate Web Link Preview Cards in Rmarkdown'>
+<meta property='og:description' content='library(rvest) library(dplyr) library(purrr) read_meta &amp;lt;- function(url, n = -1){ doc &amp;lt;- readLines(url, n = n) |&amp;gt; paste0(collapse = &amp;#39;&amp;#39;) # cleans parts of page where tag contents are across multiple rows nodes &amp;lt;- doc |&amp;gt; read_html() |&amp;gt; html_nodes(&amp;#39;meta, title&amp;#39;) meta_properties &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;property&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!is.na(property)) meta_names &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;name&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!'>
+<meta property='og:url' content='https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/'>
+<meta property='og:site_name' content='Restless Data'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='rmarkdown' /><meta property='article:tag' content='htmltools' /><meta property='article:tag' content='webscape' /><meta property='article:tag' content='metadata' /><meta property='article:published_time' content='2022-02-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-02-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://restlessdata.com.au/img/logo.jpg' />
+<meta name="twitter:site" content="@mrjoh3">
+    <meta name="twitter:creator" content="@mrjoh3"><meta name="twitter:title" content="Generate Web Link Preview Cards in Rmarkdown">
+<meta name="twitter:description" content="library(rvest) library(dplyr) library(purrr) read_meta &amp;lt;- function(url, n = -1){ doc &amp;lt;- readLines(url, n = n) |&amp;gt; paste0(collapse = &amp;#39;&amp;#39;) # cleans parts of page where tag contents are across multiple rows nodes &amp;lt;- doc |&amp;gt; read_html() |&amp;gt; html_nodes(&amp;#39;meta, title&amp;#39;) meta_properties &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;property&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!is.na(property)) meta_names &amp;lt;- nodes |&amp;gt; map_dfr(~ tibble(property = html_attr(.x, &amp;#39;name&amp;#39;), content = html_attr(.x, &amp;#39;content&amp;#39;))) |&amp;gt; filter(!"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://restlessdata.com.au/img/logo.jpg' />
+<link rel="icon" type="image/svg+xml" href="../../fav3/favicon.svg">
+<link rel="icon" type="image/png" href="../../fav3/favicon.png">
+<link rel="icon" type="image/svg+xml" href="fav3/favicon.svg">
+<link rel="icon" type="image/png" href="fav3/favicon.png">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/logo_hu976be0218d7e1cbb3ab23c04a582ef68_12526_300x0_resize_q75_box.jpg" width="300"
+                            height="261" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">👣</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://restlessdata.com.au/">Restless Data</a></h1>
+        <h2 class="site-description">A blog about data analytics and R but also anything spatial, visual or interesting.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about-restless-data/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About Restless Data</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/packages/'>
+                
+                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="icon icon-tabler icon-tabler-chevron-left"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   stroke-width="2"
+   stroke="currentColor"
+   fill="none"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="packages.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="778"
+     inkscape:window-height="480"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="39.833333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6" />
+  <path
+     stroke="none"
+     d="M0 0h24v24H0z"
+     id="path2" />
+  <polyline
+     points="15 6 9 12 15 18"
+     id="polyline4"
+     transform="matrix(-1,0,0,1,24.000041,0)" />
+</svg>
+
+                
+                <span>Packages</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/mrjoh3'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://twitter.com/mrjoh3'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+                
+                <span>Twitter</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://restlessdata.com.au/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/web/" >
+                web
+            </a>
+        
+            <a href="/categories/r/" >
+                R
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/generate-web-link-preview-cards-in-rmarkdown/">Generate Web Link Preview Cards in Rmarkdown</a>
+    </h2>
+
+    
+
+    <div style="display: grid; grid-template-columns: 50% 50%">
+        <div style="justify-self: start;"><footer class="article-time">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--published">Feb 02, 2022</time>
+            </footer></div>
+        <div class="article-time" style="justify-self: end; display: inline;">
+            <span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+</span>
+            <span class="meta__text post-word-count">2 min read</span>
+        </div>
+    
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+<script src="https://restlessdata.com.au/p/generate-web-link-preview-cards-in-rmarkdown/index.en_files/header-attrs/header-attrs.js"></script>
+
+
+<pre class="r"><code>library(rvest)
+library(dplyr)
+library(purrr)
+
+
+read_meta &lt;- function(url, n = -1){
+  
+  doc &lt;- readLines(url, n = n) |&gt; 
+    paste0(collapse = &#39;&#39;) # cleans parts of page where tag contents are across multiple rows
+  
+  nodes &lt;- doc |&gt;
+    read_html() |&gt;
+    html_nodes(&#39;meta, title&#39;)
+  
+  meta_properties &lt;- nodes |&gt;
+    map_dfr(~ tibble(property = html_attr(.x, &#39;property&#39;),
+                     content = html_attr(.x, &#39;content&#39;))) |&gt;
+    filter(!is.na(property))
+    
+  meta_names &lt;- nodes |&gt;
+    map_dfr(~ tibble(property = html_attr(.x, &#39;name&#39;),
+                     content = html_attr(.x, &#39;content&#39;))) |&gt;
+    filter(!is.na(property))
+  
+  meta &lt;- bind_rows(meta_properties, meta_names)
+  
+  # check for a title tag
+  title &lt;- nodes |&gt; html_nodes(xpath = &quot;/html/head/title&quot;) |&gt; html_text()
+  title_tag &lt;- if (&#39;og:title&#39; %in% meta$property) &#39;title&#39; else &#39;og:title&#39;
+  
+  if (length(title) &gt; 0) {
+    meta &lt;- meta |&gt;
+      add_row(property = title_tag,
+              content = title)
+  }
+  
+  return(meta)
+  
+}</code></pre>
+<pre class="r"><code>library(htmltools)
+
+
+card_url &lt;- function(metadata){
+  
+  card_title &lt;- metadata |&gt; filter(property == &#39;og:title&#39;) |&gt; pull(content)
+  card_url &lt;- metadata |&gt; filter(property == &#39;og:url&#39;) |&gt; pull(content)
+  card_text &lt;- metadata |&gt; filter(property == &#39;og:description&#39;) |&gt; pull(content)
+  card_img &lt;- metadata |&gt; filter(property == &#39;og:image&#39;) |&gt; pull(content)
+  card_img_alt &lt;- metadata |&gt; filter(property == &#39;og:image:alt&#39;) |&gt; pull(content) # TODO: use title if metadata missing
+  
+  card_author &lt;- metadata |&gt; 
+    filter(property == &#39;author&#39;) |&gt; 
+    pull(content) |&gt;
+    paste(collapse = &#39;&#39;)
+  
+  # render bootstrap card
+  div(class = &#39;card&#39;,
+      style = &#39;margin-bottom:70px; border: 2px solid #e7e7e7; padding: .5rem;&#39;,
+      div(style = &#39;display: inline-grid; grid-template-columns: 55% 40%;&#39;,
+          div(class = &#39;card-body&#39;,
+              h4(class = &#39;card-title&#39;,
+                 a(href = card_url,
+                   card_title)
+                 ),
+              p(class=&quot;card-text text-secondary&quot;,
+                card_text),
+              p(class=&quot;card-text text-secondary&quot;,
+                if (card_author != &#39;&#39;) {
+                  div(&quot;Author(s):&quot;, br(), card_author)
+                })
+            ),
+          div(if (length(card_img) &gt; 0) img(class=&quot;h-100&quot;, src = card_img, alt = card_img_alt) else &#39;&#39;)
+          )
+      )
+}</code></pre>
+<pre class="r"><code>read_meta(&#39;https://restlessdata.com.au&#39;) |&gt;
+  card_url()</code></pre>
+<div class="card" style="margin-bottom:70px; border: 2px solid #e7e7e7; padding: .5rem;">
+<div style="display: inline-grid; grid-template-columns: 55% 40%;">
+<div class="card-body">
+<h4 class="card-title">
+<a href="https://restlessdata.com.au/">Restless Data</a>
+</h4>
+<p class="card-text text-secondary">A blog about data analytics and R but also anything spatial, visual or interesting.</p>
+<p class="card-text text-secondary"></p>
+</div>
+<div>
+<img class="h-100" src="https://restlessdata.com.au/img/logo.jpg"/>
+</div>
+</div>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/rmarkdown/">rmarkdown</a>
+        
+            <a href="/tags/htmltools/">htmltools</a>
+        
+            <a href="/tags/webscape/">webscape</a>
+        
+            <a href="/tags/metadata/">metadata</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/p/shiny-image-gallery-examples/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MRJ_2020_DSC9961.png" loading="lazy" data-key="shiny-image-gallery-examples" data-hash="/img/MRJ_2020_DSC9961.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Shiny and Rmarkdown Image Galleries</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/updating-a-blog-theme/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/DSCN1968_edited-1_20070804_165511_002.jpg" loading="lazy" data-key="updating-a-blog-theme" data-hash="/img/DSCN1968_edited-1_20070804_165511_002.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Changing and modifying a Hugo theme on your R Blogdown site</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/another-blog-about-a-blog/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MRJ_2020_DSC9204_narrow.png" loading="lazy" data-key="another-blog-about-a-blog" data-hash="/img/MRJ_2020_DSC9204_narrow.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Another blog about a blog</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/packages/cytoscape-package/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MRJ_2020_DSC9257.png" loading="lazy" data-key="cytoscape-package" data-hash="/img/MRJ_2020_DSC9257.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">cytoscape</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/packages/2018-08-19-c3-package/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MRJ_2020_DSC9813.png" loading="lazy" data-key="" data-hash="/img/MRJ_2020_DSC9813.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">c3</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="mrjoh3/blog"
+        issue-term="pathname"
+        
+        label="comment"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.body.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2022 Restless Data
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

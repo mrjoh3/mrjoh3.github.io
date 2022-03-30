@@ -8,11 +8,11 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About</title>
-      <link>https://restlessdata.com.au/about/</link>
+      <title>About Restless Data</title>
+      <link>https://restlessdata.com.au/about-restless-data/</link>
       <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/about/</guid>
+      <guid>https://restlessdata.com.au/about-restless-data/</guid>
       <description>What is Restless Data? Restless Data is the side projects and the after hours thoughts and interests of a data analyst. So Restless Data will be quite variable in both content and data used. It is used to share code and ideas and to link to other web content.
 The author, Matt Johnson, is a Data Analyst working for the Victorian public service. He has been working as a data analyst for almost 10 years and for the last couple has been leading a small but remarkable data analytics team working predominantly with R.</description>
     </item>
