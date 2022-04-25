@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rmarkdown on Restless Data</title>
-    <link>https://restlessdata.com.au/tags/rmarkdown/</link>
+    <link>https://restlessdata.au/tags/rmarkdown/</link>
     <description>Recent content in rmarkdown on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.au/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using Website Metadata for URL Previews in Rmarkdown</title>
-      <link>https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/</link>
+      <link>https://restlessdata.au/p/using-website-metadata-for-url-previews-in-rmarkdown/</link>
       <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/p/using-website-metadata-for-url-previews-in-rmarkdown/</guid>
+      <guid>https://restlessdata.au/p/using-website-metadata-for-url-previews-in-rmarkdown/</guid>
       <description>Recently I was creating a list of R resources and thought it might be interesting to replicate website previews seen when including links in twitter of slack posts. If I am honest though, a list of just URL’s is neither interesting nor informative. And I did not want to spend all day looking up extra information about each resource.
 Most modern websites include a large amount of metadata information embedded in the &amp;lt;head&amp;gt;&amp;lt;/head&amp;gt; tag.</description>
     </item>
     
     <item>
       <title>Shiny and Rmarkdown Image Galleries</title>
-      <link>https://restlessdata.com.au/p/shiny-image-gallery-examples/</link>
+      <link>https://restlessdata.au/p/shiny-image-gallery-examples/</link>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/p/shiny-image-gallery-examples/</guid>
+      <guid>https://restlessdata.au/p/shiny-image-gallery-examples/</guid>
       <description>Some time ago I had to implement an image gallery within a shiny application. A simple grid of small thumbnail images where clicking opens the full image. Nothing complicated, but I did have several requirements:
 The gallery needed to render from a folder of images The gallery interface and thumbnails needed to be responsive The gallery needed to link to other shiny UI Images come from one location, no need for generating thumbnails  There is a wide variety of javascript image gallery implementations.</description>
     </item>

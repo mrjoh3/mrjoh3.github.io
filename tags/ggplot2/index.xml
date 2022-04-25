@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ggplot2 on Restless Data</title>
-    <link>https://restlessdata.com.au/tags/ggplot2/</link>
+    <link>https://restlessdata.au/tags/ggplot2/</link>
     <description>Recent content in ggplot2 on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.au/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ggtrack</title>
-      <link>https://restlessdata.com.au/packages/ggtrack-package/</link>
+      <link>https://restlessdata.au/packages/ggtrack-package/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/packages/ggtrack-package/</guid>
+      <guid>https://restlessdata.au/packages/ggtrack-package/</guid>
       <description>ggtrack     Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</description>
     </item>
     
     <item>
       <title>Animating Spatial Data</title>
-      <link>https://restlessdata.com.au/p/animating-spatial-data/</link>
+      <link>https://restlessdata.au/p/animating-spatial-data/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/p/animating-spatial-data/</guid>
+      <guid>https://restlessdata.au/p/animating-spatial-data/</guid>
       <description>#rstats + #sf + #ggplot2 + #gganimate = a great way to visualise some sobering data. Only accidents where alcohol was involved. Remember each frame only accidents from a single day. See code gist https://t.co/wqEcYku2us and get data from #vicroads api https://t.co/cBX1kBz9iw pic.twitter.com/tNobkLQQQH — Matt Johnson (@mrjoh3) July 18, 2018    library(dplyr) library(sf) library(ggplot2) library(gganimate) shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;% filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;% mutate(date = as.</description>
     </item>
     

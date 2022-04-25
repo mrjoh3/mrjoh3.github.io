@@ -2,55 +2,55 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data visualisation on Restless Data</title>
-    <link>https://restlessdata.com.au/categories/data-visualisation/</link>
+    <link>https://restlessdata.au/categories/data-visualisation/</link>
     <description>Recent content in data visualisation on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/categories/data-visualisation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.au/categories/data-visualisation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ggtrack</title>
-      <link>https://restlessdata.com.au/packages/ggtrack-package/</link>
+      <link>https://restlessdata.au/packages/ggtrack-package/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/packages/ggtrack-package/</guid>
+      <guid>https://restlessdata.au/packages/ggtrack-package/</guid>
       <description>ggtrack     Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</description>
     </item>
     
     <item>
       <title>cytoscape</title>
-      <link>https://restlessdata.com.au/packages/cytoscape-package/</link>
+      <link>https://restlessdata.au/packages/cytoscape-package/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/packages/cytoscape-package/</guid>
+      <guid>https://restlessdata.au/packages/cytoscape-package/</guid>
       <description>A HTMLWidget wrapper for the Cytoscape.js graph / network visualisation and analysis library. There are already a number of existing R packages for Cytoscape such as the Bioconductor package and the official Cytoscape Widget. The purpose of this package is to make the process of producing a basic chart as simple as possible.
 Installation devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)  A Minimal Example library(cytoscape) nodes &amp;lt;- data.</description>
     </item>
     
     <item>
       <title>c3</title>
-      <link>https://restlessdata.com.au/packages/2018-08-19-c3-package/</link>
+      <link>https://restlessdata.au/packages/2018-08-19-c3-package/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/packages/2018-08-19-c3-package/</guid>
+      <guid>https://restlessdata.au/packages/2018-08-19-c3-package/</guid>
       <description>The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting to create a chart using R and embedding it in a Rmarkdown document or Shiny App.
 The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.</description>
     </item>
     
     <item>
       <title>pier</title>
-      <link>https://restlessdata.com.au/packages/pier-package/</link>
+      <link>https://restlessdata.au/packages/pier-package/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/packages/pier-package/</guid>
+      <guid>https://restlessdata.au/packages/pier-package/</guid>
       <description>The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</description>
     </item>
     
     <item>
       <title>Animating Spatial Data</title>
-      <link>https://restlessdata.com.au/p/animating-spatial-data/</link>
+      <link>https://restlessdata.au/p/animating-spatial-data/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/p/animating-spatial-data/</guid>
+      <guid>https://restlessdata.au/p/animating-spatial-data/</guid>
       <description>#rstats + #sf + #ggplot2 + #gganimate = a great way to visualise some sobering data. Only accidents where alcohol was involved. Remember each frame only accidents from a single day. See code gist https://t.co/wqEcYku2us and get data from #vicroads api https://t.co/cBX1kBz9iw pic.twitter.com/tNobkLQQQH — Matt Johnson (@mrjoh3) July 18, 2018    library(dplyr) library(sf) library(ggplot2) library(gganimate) shp &amp;lt;- st_read(&amp;#39;~/Documents/Matt/GIS/shp&amp;#39;,&amp;#39;Crashes_Last_Five_Years&amp;#39;, quiet = TRUE) %&amp;gt;% filter(ALCOHOL_RE == &amp;#39;Yes&amp;#39;) %&amp;gt;% mutate(date = as.</description>
     </item>
     

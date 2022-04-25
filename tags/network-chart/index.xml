@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>network chart on Restless Data</title>
-    <link>https://restlessdata.com.au/tags/network-chart/</link>
+    <link>https://restlessdata.au/tags/network-chart/</link>
     <description>Recent content in network chart on Restless Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.com.au/tags/network-chart/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://restlessdata.au/tags/network-chart/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>cytoscape</title>
-      <link>https://restlessdata.com.au/packages/cytoscape-package/</link>
+      <link>https://restlessdata.au/packages/cytoscape-package/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://restlessdata.com.au/packages/cytoscape-package/</guid>
+      <guid>https://restlessdata.au/packages/cytoscape-package/</guid>
       <description>A HTMLWidget wrapper for the Cytoscape.js graph / network visualisation and analysis library. There are already a number of existing R packages for Cytoscape such as the Bioconductor package and the official Cytoscape Widget. The purpose of this package is to make the process of producing a basic chart as simple as possible.
 Installation devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)  A Minimal Example library(cytoscape) nodes &amp;lt;- data.</description>
     </item>
